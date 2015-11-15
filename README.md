@@ -1,2 +1,2 @@
 # divyamohan1993.github.io
-so much for description
+Domain reserved on GitHub for future use.
