@@ -4,7 +4,7 @@
 
 #### :warning::warning: *This Domain is reserved on GitHub for ~~future~~ use.* :warning::warning:
 
-###### Questionaire
+###### Questionnaire
 
 **Who are you?**
 > I am [Divya Mohan](https://about.me/divyamohan1993).
