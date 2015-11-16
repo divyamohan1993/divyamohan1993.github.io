@@ -11,7 +11,7 @@
 
 
 **What do you want?**
-> International Peace
+> Do you mean *What do you want* song or asking me about my goals? Visit [here](https://www.youtube.com/watch?v=97BfC4LgrXk) in case you want the song. For my case, that will be International Peace.
 
 
 **How do you intend to make _International Peace_?**
@@ -29,11 +29,11 @@
 **What have you done on this project so far?**
 >- [x] Made Start Page
 >- [x] Added Utilities
->  - [x] Diceware
->  - [x] Parsing Dynamic Page Request through jQuery.
->  - [x] Developer Mode
->    - [x] ~~_TBD_~~ - View the codes directly!
->  - [ ] *TBD*
+  - [x] Diceware
+  - [x] Parsing Dynamic Page Request through jQuery.
+  - [x] Developer Mode
+    - [x] ~~_TBD_~~ - View the codes directly!
+  - [ ] *TBD*
 >- [ ] *TBD*
 
 
