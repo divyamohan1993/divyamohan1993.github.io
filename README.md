@@ -15,11 +15,11 @@
 
 
 **How do you intend to make _International Peace_?**
-> :recycle: Recycling Things
+> :recycle: Recycling Things :recycle:
 
 
 **Where are you from?**
-> I :heart: India.
+> :heart: India. :heart:
 
 
 **What do you do these days?**
@@ -38,4 +38,4 @@
 
 
 **Contributor to:**
->- *[Project WildHogs](https://virtualwildhogs.github.io)*
+>- [Project *WildHogs*](https://virtualwildhogs.github.io)
