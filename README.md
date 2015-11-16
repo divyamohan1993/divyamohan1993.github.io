@@ -19,7 +19,7 @@
 
 
 **Where are you from?**
-> :heart:India.:heart:
+> ![India](http://flagpedia.net/data/flags/mini/in.png)
 
 
 **What do you do these days?**
