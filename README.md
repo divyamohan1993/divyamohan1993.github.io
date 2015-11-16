@@ -15,7 +15,7 @@
 
 
 **How do you intend to make _International Peace_?**
-> :recycle: Recycling Things :recycle: __ *And if it fails*__ ![Nuke Troll](https://i.imgur.com/usKHT.gif)
+> :recycle: Recycling Things :recycle: *And if it fails...* ![Nuke Troll](https://i.imgur.com/usKHT.gif)
 
 
 **Where are you from?**
