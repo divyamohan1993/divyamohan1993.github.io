@@ -23,7 +23,7 @@
 
 
 **What do you do these days?**
-> Stydying. :books:
+> [Stydying.](https://media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
 
 
 **What have you done on this project so far?**
