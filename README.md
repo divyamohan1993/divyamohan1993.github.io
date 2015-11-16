@@ -38,4 +38,4 @@
 
 
 **Contributor to:**
->- [Project *WildHogs*](https://virtualwildhogs.github.io)
+>- [*Project WildHogs*](https://virtualwildhogs.github.io)
