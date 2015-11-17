@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+
+	<style>
+		#progressBar {width: 400px;height: 22px;border: 1px solid #7f7f7f;}
+		#progressBar div {height: 100%;width: 0px;background-color: #aa00ff;}
+	</style>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script> 
+</head>
+
+<body>
+	Redirecting you in <span id="countdown">10</span> seconds
+	<div id="progressBar"><div></div></div>
+		<script>
+			var sec = 10;
+			var pages = ['https://google.com', 'https://bing.com', 'https://yahoo.com'];
+			progress(); 
+			countDown(); 
+			function progress() {
+				var progressBarWidth = $('#progressBar').width();
+				$('#progressBar div').animate({ width: progressBarWidth }, 10000);
+			}
+			function countDown() {
+				if (sec < 10) {
+					$('#countdown').html("0" + sec);
+				} else {
+				$('#countdown').html(sec);
+				}
+				if (sec <= 0) {
+				redirect();    
+				}
+				sec -= 1;
+				setTimeout(countDown, 1000);
+			}
+			function redirect() {
+				var n = Math.floor(Math.random() * 3)
+				window.location = pages[n];
+			}
+		</script>
+</body>
+</html>

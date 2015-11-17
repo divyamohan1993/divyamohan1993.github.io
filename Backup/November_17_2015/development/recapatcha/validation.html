@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Recapatcha Validation for form</title>
+
+		<meta name="description" content="Recapatcha Validation page for solving recapatcha and getting form link. Protected by a password.">
+		<meta name="keywords" content="divyamohan1993, Divya Mohan, divyamohan1993.github.io">		
+		<meta name="author" content="Divya Mohan">		
+		<meta name="robots" content="noindex, nofollow">		
+		<meta name="copyright" content="2015, Divya Mohan">
+		<meta name="language" content="en">
+		<meta name="classification" content="Personal">
+		<meta name="designer" content="Divya Mohan">		
+		<meta name="owner" content="Divya Mohan">
+		<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+
+		<meta name="viewport" content="width=800, user-scalable=no">
+
+		<link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet preconnect' type='text/css'>
+		<link rel='publisher preconnect' href='//plus.google.com/+DivyaMohan1993'>
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>	
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		
+		<style>
+		.dead-center-no-content {
+			background: black;
+			color: white;
+			border-radius: 1em;
+			padding: 1em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}	
+		.dead-center-content {
+			border-radius: 1em;
+			padding: 1em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}	
+		</style>
+				
+	</head>
+
+	<body>
+		<section class="dead-center-content">
+			<div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdbixATAAAAABwuRGMTFCqIa6lPspNHs1hWN2EM"></div>
+		</section>
+		<script>
+			function recaptchaCallback() {
+				window.location.assign("https://goo.gl/forms/Yl988MDJdD");
+			};
+		</script>
+	</body>
+</html>
