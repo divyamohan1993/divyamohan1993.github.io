@@ -6,7 +6,7 @@
 // et Hervé Leclerc <herve.leclerc@alterway.fr>
 //  
 // Mise à jour par Herve Leclerc herve.leclerc@alterway.fr
-// Icônes par Mark James <http://www.famfamfam.com/lab/icons/silk/>
+// Icônes par Mark James <//www.famfamfam.com/lab/icons/silk/>
 //------
 //[modif oto] Modifications Dominique Ottello (Otomatic)
 //Suppression des vhosts, le dossier n'étant plus créé à l'installation
@@ -31,7 +31,7 @@ $suppress_localhost = true;
 // avec modification de la ligne
 //$projectContents .= '<li><a href="'.$file.'">'.$file.'</a></li>';
 //Par :
-//$projectContents .= '<li><a href="'.($suppress_localhost ? 'http://' : '').$file.'">'.$file.'</a></li>';
+//$projectContents .= '<li><a href="'.($suppress_localhost ? '//' : '').$file.'">'.$file.'</a></li>';
 //-----
 //[modif oto] Ajout $server_dir pour un seul remplacement
 // si déplacement www hors de Wamp et pas d'utilisation des jonctions
@@ -90,7 +90,7 @@ $langues = array(
 		'txtNoProjet' => 'No projects yet.<br />To create a new one, just create a directory in \'www\'.',
 		'txtAlias' => 'Your Aliases',
 		'txtNoAlias' => 'No Alias yet.<br />To create a new one, use the WAMPSERVER menu.',
-		'faq' => 'http://www.en.wampserver.com/faq.php'
+		'faq' => '//www.en.wampserver.com/faq.php'
 	),
 	'fr' => array(
 		'langue' => 'Français',
@@ -113,7 +113,7 @@ $langues = array(
 		'txtNoProjet' => 'Aucun projet.<br /> Pour en ajouter un nouveau, créez simplement un répertoire dans \'www\'.',
 		'txtAlias' => 'Vos Alias',
 		'txtNoAlias' => 'Aucun alias.<br /> Pour en ajouter un nouveau, utilisez le menu de WAMPSERVER.',
-		'faq' => 'http://www.wampserver.com/faq.php'
+		'faq' => '//www.wampserver.com/faq.php'
 	)
 );
 
@@ -334,8 +334,8 @@ while (($file = readdir($handle))!==false)
 {
 	if (is_dir($file) && !in_array($file,$projectsListIgnore)) 
 	{		
-		//[modif oto] Ajout éventuel de http:// pour éviter le niveau localhost dans les url
-		$projectContents .= '<li><a href="'.($suppress_localhost ? 'http://' : '').$file.'">'.$file.'</a></li>';
+		//[modif oto] Ajout éventuel de // pour éviter le niveau localhost dans les url
+		$projectContents .= '<li><a href="'.($suppress_localhost ? '//' : '').$file.'">'.$file.'</a></li>';
 	}
 }
 closedir($handle);
@@ -362,7 +362,7 @@ foreach ($loaded_extensions as $extension)
 $pageContents = <<< EOPAGE
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+	"//www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html lang="en" xml:lang="en">
 <head>
@@ -505,9 +505,9 @@ a:hover {
 
 	<dl class="content">
 		<dt>{$langues[$langue]['versa']}</dt>
-		<dd>${apacheVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$langue][$doca_version]}'>Documentation</a></dd>
+		<dd>${apacheVersion}&nbsp;&nbsp;-&nbsp;<a href='//{$langues[$langue][$doca_version]}'>Documentation</a></dd>
 		<dt>{$langues[$langue]['versp']}</dt>
-		<dd>${phpVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$langue]['docp']}'>Documentation</a></dd>
+		<dd>${phpVersion}&nbsp;&nbsp;-&nbsp;<a href='//{$langues[$langue]['docp']}'>Documentation</a></dd>
 		<dt>{$langues[$langue]['server']}</dt>
 		<dd>${server_software}</dd>
 		<dt>{$langues[$langue]['phpExt']}</dt> 
@@ -517,7 +517,7 @@ a:hover {
 			</ul>
 		</dd>
 		<dt>{$langues[$langue]['versm']}</dt>
-		<dd>${mysqlVersion} &nbsp;-&nbsp; <a href='http://{$langues[$langue]['docm']}'>Documentation</a></dd>
+		<dd>${mysqlVersion} &nbsp;-&nbsp; <a href='//{$langues[$langue]['docm']}'>Documentation</a></dd>
 	</dl>
 	<div style="margin-top:5px;border-top:1px solid #999;"></div>
 	<div class="third left">
@@ -541,9 +541,9 @@ a:hover {
 	</div>
 	<div style="clear:both;"></div>
 	<ul id="foot">
-		<li><a href="http://www.wampserver.com">WampServer</a></li>
-    <li><a href="http://www.wampserver.com/en/donations.php">Donate</a></li>
-		<li><a href="http://www.alterway.fr">Alter Way</a></li>
+		<li><a href="//www.wampserver.com">WampServer</a></li>
+    <li><a href="//www.wampserver.com/en/donations.php">Donate</a></li>
+		<li><a href="//www.alterway.fr">Alter Way</a></li>
 	</ul>
 </body>
 </html>

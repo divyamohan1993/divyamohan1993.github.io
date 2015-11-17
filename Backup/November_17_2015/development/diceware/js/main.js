@@ -7,7 +7,7 @@ var wordList = [];
 var totalEntropy = new Big(0);
 
 // Simple function to add commas to really large number strings
-//  http://www.mredkj.com/javascript/nfbasic.html
+//  //www.mredkj.com/javascript/nfbasic.html
 function addCommas(nStr) {
     nStr += '';
     x = nStr.split('.');
@@ -63,12 +63,12 @@ function getWords(numWords, numRollsPerWord) {
 }
 
 // Polyfill : for Math.log2 which is part of ES6
-// See : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log2
+// See : //developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log2
 Math.log2 = Math.log2 || function(x) {
   return Math.log(x) / Math.LN2;
 };
 
-// See : http://world.std.com/~reinhold/dicewarefaq.html#calculatingentropy
+// See : //world.std.com/~reinhold/dicewarefaq.html#calculatingentropy
 function calcEntropyForWordOrSymbol(isSymbol) {
     var entropy;
 
@@ -93,12 +93,12 @@ function calcCrackTime(numWords, guessesPerSec) {
         millenia,
         humanLifetimes,
         universeLifetimes,
-        avgHumanLifespanInYears = new Big(67.2),     // https://en.wikipedia.org/wiki/Life_expectancy
-        ageOfUniverseInYears = new Big(13798000000); // https://en.wikipedia.org/wiki/Age_of_the_universe
+        avgHumanLifespanInYears = new Big(67.2),     // //en.wikipedia.org/wiki/Life_expectancy
+        ageOfUniverseInYears = new Big(13798000000); // //en.wikipedia.org/wiki/Age_of_the_universe
 
-    // https://xkcd.com/936/
-    // https://security.stackexchange.com/questions/62832/is-the-oft-cited-xkcd-scheme-no-longer-good-advice/62881#62881
-    // https://hashcat.net/forum/thread-2580.html
+    // //xkcd.com/936/
+    // //security.stackexchange.com/questions/62832/is-the-oft-cited-xkcd-scheme-no-longer-good-advice/62881#62881
+    // //hashcat.net/forum/thread-2580.html
     keySpace = new Big(Math.pow(7776, numWords));
 
     // Divide the keySpace in half. On average it is expected that an
@@ -106,7 +106,7 @@ function calcCrackTime(numWords, guessesPerSec) {
     halfKeySpace = keySpace.div(2);
 
     // "Assume that your adversary is capable of a trillion guesses per second" - Snowden
-    // http://www.nytimes.com/2013/08/18/magazine/laura-poitras-snowden.html?pagewanted=all&_r=0
+    // //www.nytimes.com/2013/08/18/magazine/laura-poitras-snowden.html?pagewanted=all&_r=0
     if (!guessesPerSec) {
         guessesPerSec = new Big(1000000000000);
     } else {
@@ -123,7 +123,7 @@ function calcCrackTime(numWords, guessesPerSec) {
     universeLifetimes = years.div(ageOfUniverseInYears);
 
     // All values returned are of 'Big' type.
-    // See : https://mikemcl.github.io/big.js/
+    // See : //mikemcl.github.io/big.js/
     return {numWords: numWords, guessesPerSec: guessesPerSec, keySpace: keySpace, halfKeySpace: halfKeySpace, seconds: seconds, hours: hours, minutes: minutes, days: days, years: years, avgHumanLifespanInYears: avgHumanLifespanInYears, humanLifetimes: humanLifetimes, millenia: millenia, ageOfUniverseInYears: ageOfUniverseInYears, universeLifetimes: universeLifetimes};
 }
 

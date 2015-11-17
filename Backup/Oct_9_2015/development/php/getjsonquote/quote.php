@@ -1,6 +1,6 @@
 <?php
 
-//$json = file_get_contents('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=40&callback=');
+//$json = file_get_contents('//quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=40&callback=');
 
 // Get Data
 	function get_data($url) {
@@ -13,7 +13,7 @@
 		curl_close($ch);
 		return $data;
 	}
-	$json = get_data('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&callback=');
+	$json = get_data('//quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=30&callback=');
 
 // Decode JSON
 	$quote = json_decode($json, true);

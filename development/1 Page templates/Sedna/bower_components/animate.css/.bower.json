@@ -10,7 +10,7 @@
     "Gemfile.lock",
     "*.md"
   ],
-  "homepage": "https://github.com/daneden/animate.css",
+  "homepage": "//github.com/daneden/animate.css",
   "_release": "3.3.0",
   "_resolution": {
     "type": "version",

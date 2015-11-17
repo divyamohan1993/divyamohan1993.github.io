@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       }
     },
 
-    autoprefixer: { // https://github.com/nDmitry/grunt-autoprefixer
+    autoprefixer: { // //github.com/nDmitry/grunt-autoprefixer
       options: {
         browsers: ['last 2 versions', 'bb 10']
       },

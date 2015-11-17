@@ -1,9 +1,9 @@
 /*!
  * forkit.js 0.2
- * http://lab.hakim.se/forkit-js
+ * //lab.hakim.se/forkit-js
  * MIT licensed
  *
- * Created by Hakim El Hattab, http://hakim.se
+ * Created by Hakim El Hattab, //hakim.se
  */
 (function(){
 

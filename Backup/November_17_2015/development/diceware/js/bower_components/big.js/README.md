@@ -3,8 +3,8 @@
 
 A small, fast JavaScript library for arbitrary-precision decimal arithmetic.
 
-The little sister to [bignumber.js](https://github.com/MikeMcl/bignumber.js/).
-See also [decimal.js](https://github.com/MikeMcl/decimal.js/), and [here](https://github.com/MikeMcl/big.js/wiki) for the difference between them.
+The little sister to [bignumber.js](//github.com/MikeMcl/bignumber.js/).
+See also [decimal.js](//github.com/MikeMcl/decimal.js/), and [here](//github.com/MikeMcl/big.js/wiki) for the difference between them.
 
 ## Features
 
@@ -15,7 +15,7 @@ See also [decimal.js](https://github.com/MikeMcl/decimal.js/), and [here](https:
   - Includes a `sqrt` method
   - Stores values in an accessible decimal floating point format
   - No dependencies
-  - Comprehensive [documentation](http://mikemcl.github.io/big.js/) and test set
+  - Comprehensive [documentation](//mikemcl.github.io/big.js/) and test set
 
 ## Load
 
@@ -25,7 +25,7 @@ It can be loaded via a script tag in an HTML document for the browser
 
     <script src='./relative/path/to/big.js'></script>
 
-or as a CommonJS, [Node.js](http://nodejs.org) or AMD module using `require`.
+or as a CommonJS, [Node.js](//nodejs.org) or AMD module using `require`.
 
     var Big = require('big.js');
 
@@ -93,7 +93,7 @@ The value of a Big number is stored in a decimal floating point format in terms 
     x.e                                // 2                exponent
     x.s                                // -1               sign
 
-For further information see the [API](http://mikemcl.github.io/big.js/) reference from the *doc* folder.
+For further information see the [API](//mikemcl.github.io/big.js/) reference from the *doc* folder.
 
 ## Test
 
@@ -121,9 +121,9 @@ The *perf* directory contains two applications and a *lib* directory containing 
 (The GWT version doesn't work in IE 6.)
 
 * GWT: java.math.BigDecimal
-<https://github.com/iriscouch/bigdecimal.js>
+<//github.com/iriscouch/bigdecimal.js>
 * ICU4J: com.ibm.icu.math.BigDecimal
-<https://github.com/dtrebbien/BigDecimal.js>
+<//github.com/dtrebbien/BigDecimal.js>
 
 The BigDecimal in Node's npm registry is the GWT version. Despite its seeming popularity I have found it to have some serious bugs, see the Node script *perf/lib/bigdecimal_GWT/bugs.js* for examples of flaws in its *remainder*, *divide* and *compareTo* methods.
 
@@ -154,9 +154,9 @@ The *big.min.js* already present was created with *Microsoft Ajax Minifier 5.11*
 
 ## TypeScript
 
-The [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) project has a TypeScript [definitions file](https://github.com/borisyankov/DefinitelyTyped/blob/master/big.js/big.js.d.ts) for big.js.
+The [DefinitelyTyped](//github.com/borisyankov/DefinitelyTyped) project has a TypeScript [definitions file](//github.com/borisyankov/DefinitelyTyped/blob/master/big.js/big.js.d.ts) for big.js.
 
-The definitions file can be added to your project via the [big.js.TypeScript.DefinitelyTyped](https://www.nuget.org/packages/big.js.TypeScript.DefinitelyTyped/0.0.1) NuGet package or via [tsd](http://definitelytyped.org/tsd/).
+The definitions file can be added to your project via the [big.js.TypeScript.DefinitelyTyped](//www.nuget.org/packages/big.js.TypeScript.DefinitelyTyped/0.0.1) NuGet package or via [tsd](//definitelytyped.org/tsd/).
 
     tsd query big.js --action install
 
@@ -210,7 +210,7 @@ See LICENCE.
 
 ####3.0.0
 
-* 10/12/14 Added [multiple constructor functionality](http://mikemcl.github.io/big.js/#faq).
+* 10/12/14 Added [multiple constructor functionality](//mikemcl.github.io/big.js/#faq).
 * No breaking changes or other additions, but a major code reorganisation,
  so *v3* seemed appropiate.
 

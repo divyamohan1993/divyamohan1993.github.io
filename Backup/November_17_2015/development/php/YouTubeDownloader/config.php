@@ -15,7 +15,7 @@
   
   /**********|| Other ||***************/
   // Set your default timezone
-  // use this link: http://php.net/manual/en/timezones.php
+  // use this link: //php.net/manual/en/timezones.php
   date_default_timezone_set("Asia/Tehran");
   
   // Debug mode

@@ -3,7 +3,7 @@
   "version": "3.3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daneden/animate.css.git"
+    "url": "//github.com/daneden/animate.css.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

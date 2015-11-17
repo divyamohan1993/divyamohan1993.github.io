@@ -1,11 +1,11 @@
-/* big.js v3.1.3 https://github.com/MikeMcl/big.js/LICENCE */
+/* big.js v3.1.3 //github.com/MikeMcl/big.js/LICENCE */
 ;(function (global) {
     'use strict';
 
 /*
   big.js v3.1.3
   A small, fast, easy-to-use library for arbitrary-precision decimal arithmetic.
-  https://github.com/MikeMcl/big.js/
+  //github.com/MikeMcl/big.js/
   Copyright (c) 2014 Michael Mclaughlin <M8ch88l@gmail.com>
   MIT Expat Licence
 */

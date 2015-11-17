@@ -12,7 +12,7 @@ It also provides an unobtrusive user experience, because nobody likes a naggy fo
 
 ## Documentation
 
-See the project docs at http://1000hz.github.io/bootstrap-validator
+See the project docs at //1000hz.github.io/bootstrap-validator
 
 ## Contributing
 #### Found an issue?
@@ -27,10 +27,10 @@ Lastly, don't pollute your patch branch with any unrelated changes.
 ## Author
 
 **Cina Saffary**
-- http://twitter.com/1000hz
-- http://github.com/1000hz
+- //twitter.com/1000hz
+- //github.com/1000hz
 
-Thanks to  [@mdo](https://github.com/mdo) and [@fat](https://github.com/fat) for [Bootstrap](http://getbootstrap.com). <3
+Thanks to  [@mdo](//github.com/mdo) and [@fat](//github.com/fat) for [Bootstrap](//getbootstrap.com). <3
 
 ## Copyright and license
 Copyright 2015 Cina Saffary under the MIT license.

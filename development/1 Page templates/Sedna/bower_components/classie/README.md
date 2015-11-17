@@ -1,6 +1,6 @@
 # Classie - class helper functions
 
-[Ripped from bonzo](https://github.com/ded/bonzo) :heart: @ded
+[Ripped from bonzo](//github.com/ded/bonzo) :heart: @ded
 
 ``` js
 classie.has( element, 'my-class' ) // returns true/false
@@ -11,13 +11,13 @@ classie.toggle( element, 'my-class' ) // toggle class
 
 ## Package management
 
-Install with [Bower](http://bower.io) :bird:
+Install with [Bower](//bower.io) :bird:
 
 ``` bash
 bower install classie
 ```
 
-Install with [Component](http://github.com/component/component)
+Install with [Component](//github.com/component/component)
 
 ``` bash
 component install desandro/classie
@@ -25,4 +25,4 @@ component install desandro/classie
 
 ## MIT license
 
-classie is released under the [MIT license](http://desandro.mit-license.org).
+classie is released under the [MIT license](//desandro.mit-license.org).

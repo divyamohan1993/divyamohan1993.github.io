@@ -2,7 +2,7 @@
 /*
  * function to get via cUrl 
  * From lastRSS 0.9.1 by Vojtech Semecky, webmaster @ webdot . cz
- * See      http://lastrss.webdot.cz/
+ * See      //lastrss.webdot.cz/
  */
  
 function curlGet($URL) {

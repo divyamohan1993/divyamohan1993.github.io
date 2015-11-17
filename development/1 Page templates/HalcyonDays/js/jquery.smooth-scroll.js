@@ -1,8 +1,8 @@
 /*!
  * Smooth Scroll - v1.4.13 - 2013-11-02
- * https://github.com/kswedberg/jquery-smooth-scroll
+ * //github.com/kswedberg/jquery-smooth-scroll
  * Copyright (c) 2013 Karl Swedberg
- * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
+ * Licensed MIT (//github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
  */
 
 (function($) {

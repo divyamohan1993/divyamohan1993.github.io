@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Youtube Downloader</title>
     <meta name="keywords" content="Video downloader, download youtube, video download, youtube video, youtube downloader, download youtube FLV, download youtube MP4, download youtube 3GP, php video downloader" />
@@ -48,7 +48,7 @@
 		<input type="text" name="videoid" id="videoid" size="40" placeholder="VideoID" />
 		<input class="btn btn-primary" type="submit" name="type" id="type" value="Download" />
 		<p>Put in just the ID bit, the part after v=.</p>
-		<p>Example: http://www.youtube.com/watch?v=<b>Fw-BM-Mqgeg</b></p>
+		<p>Example: //www.youtube.com/watch?v=<b>Fw-BM-Mqgeg</b></p>
 
     <!-- @TODO: Prepend the base URI -->
     <?PHP

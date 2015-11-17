@@ -1,9 +1,9 @@
 /* ========================================================================
  * Bootstrap: modal.js v3.3.5
- * http://getbootstrap.com/javascript/#modals
+ * //getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (//github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
 

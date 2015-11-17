@@ -25,7 +25,7 @@
     "javascript",
     "library"
   ],
-  "homepage": "https://github.com/jquery/jquery",
+  "homepage": "//github.com/jquery/jquery",
   "_release": "2.1.4",
   "_resolution": {
     "type": "version",

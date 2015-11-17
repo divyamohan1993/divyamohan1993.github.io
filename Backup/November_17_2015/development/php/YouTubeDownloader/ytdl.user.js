@@ -3,10 +3,10 @@
 // @description     Adds a link on youtube pages to download the video via proxy server.
 //
 // @author			Sepehr Lajevardi <me@sepehr.ws>
-// @namespace       http://github.com/sepehr
+// @namespace       //github.com/sepehr
 //
 // @version         1.0
-// @license         GPLv3 - http://www.gnu.org/licenses/gpl-3.0.txt
+// @license         GPLv3 - //www.gnu.org/licenses/gpl-3.0.txt
 // @copyright       Copyright (C) 2013, by Sepehr Lajevardi <me@sepehr.ws>
 //
 // @include         http*://*.youtube.com/*
@@ -25,7 +25,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <//www.gnu.org/licenses/>.
  */
 
 // ------------------------------------------------------------------------
@@ -49,8 +49,8 @@ window.location.getParam = function(name) {
 /**
  * Youtube downloader.
  *
- * @see http://wiki.greasespot.net/API_reference
- * @see http://wiki.greasespot.net/Metadata_Block
+ * @see //wiki.greasespot.net/API_reference
+ * @see //wiki.greasespot.net/Metadata_Block
  */
 (function() {
 
@@ -60,7 +60,7 @@ window.location.getParam = function(name) {
 		style   = document.createElement('style'),
 		head    = document.getElementsByTagName('head')[0],
 		// Update this to point to your own installation:
-		link    = 'http://UPDATE_THIS_IN_CODE.com/getvideo.php?videoid=' + vid + '&type=Download';
+		link    = '//UPDATE_THIS_IN_CODE.com/getvideo.php?videoid=' + vid + '&type=Download';
 
 	if (wrapper && vid) {
 		// Assemble the button:

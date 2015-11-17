@@ -7775,4 +7775,4 @@ var french = {
 66664:"zz",
 66665:"zzz",
 66666:"zzzz"};
-/* List by Christophe-Marie Duquesne | https://github.com/chmduquesne/diceware-fr | used under CC BY */
+/* List by Christophe-Marie Duquesne | //github.com/chmduquesne/diceware-fr | used under CC BY */

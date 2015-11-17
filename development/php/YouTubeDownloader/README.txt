@@ -1,13 +1,13 @@
 Project: YouTube Downloader
 Author: John Eckman
-URL: https://github.com/jeckman/YouTube-Downloader
+URL: //github.com/jeckman/YouTube-Downloader
 License: GPL v2 or Later
 
 PHP Scripts to download videos from YouTube.  
 
 NOTE: YouTube Downloader does not work with videos using a cipher signature. 
 
-See https://github.com/jeckman/YouTube-Downloader/issues/9
+See //github.com/jeckman/YouTube-Downloader/issues/9
 
 You can manually visit a web form (the index.php file), enter a YouTube
 video id, and get in return a list of links showing the various formats in which
@@ -17,7 +17,7 @@ equivalent to download the file.
 Second, you can directly target the getvideo.php script, passing in a videoID and
 preferred format, and you will get redirected to the file itself. 
 
-http://example.com/yt/getvideo.mp4?videoid=GkvvH8pBoTg&format=ipad
+//example.com/yt/getvideo.mp4?videoid=GkvvH8pBoTg&format=ipad
 
 Potential formats:
  * best = just give me the largest file / best quality

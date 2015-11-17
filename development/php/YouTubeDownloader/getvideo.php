@@ -1,6 +1,6 @@
 <?php
 // YouTube Downloader PHP
-// based on youtube-dl in Python http://rg3.github.com/youtube-dl/
+// based on youtube-dl in Python //rg3.github.com/youtube-dl/
 // by Ricardo Garcia Gonzalez and others (details at url above)
 //
 // Takes a VideoID and outputs a list of formats in which the video can be
@@ -70,8 +70,8 @@ if(isset($_REQUEST['type'])) {
 if ($my_type == 'Download') {
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>Youtube Downloader</title>
     <meta name="keywords" content="Video downloader, download youtube, video download, youtube video, youtube downloader, download youtube FLV, download youtube MP4, download youtube 3GP, php video downloader" />
@@ -143,8 +143,8 @@ if ($my_type == 'Download') {
 } // end of if for type=Download
 
 /* First get the video info page for this video id */
-//$my_video_info = 'http://www.youtube.com/get_video_info?&video_id='. $my_id;
-$my_video_info = 'http://www.youtube.com/get_video_info?&video_id='. $my_id.'&asv=3&el=detailpage&hl=en_US'; //video details fix *1
+//$my_video_info = '//www.youtube.com/get_video_info?&video_id='. $my_id;
+$my_video_info = '//www.youtube.com/get_video_info?&video_id='. $my_id.'&asv=3&el=detailpage&hl=en_US'; //video details fix *1
 $my_video_info = curlGet($my_video_info);
 
 /* TODO: Check return from curl for status code */
@@ -219,7 +219,7 @@ if ($my_type == 'Download') {
 		echo '<span class="itag">' . $avail_formats[$i]['itag'] . '</span> ';
 		if($config['VideoLinkMode']=='direct'||$config['VideoLinkMode']=='both') {
 		$directlink = explode('.googlevideo.com/',$avail_formats[$i]['url']);
-		$directlink = 'http://redirector.googlevideo.com/' . $directlink[1] . '';
+		$directlink = '//redirector.googlevideo.com/' . $directlink[1] . '';
 		  echo '<a href="' . $directlink . '&title='.$cleanedtitle.'" class="mime">' . $avail_formats[$i]['type'] . '</a> ';
 		}
 		else {
@@ -254,7 +254,7 @@ if ($my_type == 'Download') {
  * If they provided "format=ipad" we pull the best MP4 version
  *
  * Thanks to the python based youtube-dl for info on the formats
- *   							http://rg3.github.com/youtube-dl/
+ *   							//rg3.github.com/youtube-dl/
  */
 
 $format =  $_REQUEST['format'];

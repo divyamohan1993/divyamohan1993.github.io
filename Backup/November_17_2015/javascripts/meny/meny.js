@@ -1,9 +1,9 @@
 /*!
  * meny 1.4
- * http://lab.hakim.se/meny
+ * //lab.hakim.se/meny
  * MIT licensed
  *
- * Created by Hakim El Hattab (http://hakim.se, @hakimel)
+ * Created by Hakim El Hattab (//hakim.se, @hakimel)
  */
 
 (function( root, factory ) {

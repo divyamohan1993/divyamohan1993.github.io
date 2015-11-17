@@ -15,11 +15,11 @@
         retinaImageSuffix : '@2x',
 
         // Ensure Content-Type is an image before trying to load @2x image
-        // https://github.com/imulus/retinajs/pull/45)
+        // //github.com/imulus/retinajs/pull/45)
         check_mime_type: true,
 
         // Resize high-resolution images to original image's pixel dimensions
-        // https://github.com/imulus/retinajs/issues/8
+        // //github.com/imulus/retinajs/issues/8
         force_original_dimensions: true
     };
 
