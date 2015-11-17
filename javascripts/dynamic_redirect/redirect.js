@@ -57,6 +57,9 @@
 			case "":
 				switch (page) {
 					case "subpass": top.document.getElementById('I1').setAttribute("src", "/development/recapatcha/encrypted_validate.html"); break;
+					case "demotemplate1": top.document.getElementById('I1').setAttribute("src", "/development/1%20Page%20templates/Cardio/index.html"); break;
+					case "demotemplate2": top.document.getElementById('I1').setAttribute("src", "/development/1%20Page%20templates/HalcyonDays/index.html"); break;
+					case "demotemplate3": top.document.getElementById('I1').setAttribute("src", "/development/1%20Page%20templates/Sedna/index.html"); break;
 					default: break;
 				}
 		
