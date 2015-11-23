@@ -11,19 +11,19 @@
 
 
 **What do you want?**
-> Do you mean *What do you want* song or asking me about my goals? Visit [here](//www.youtube.com/watch?v=97BfC4LgrXk) in case you want the song. For my case, that will be International Peace.
+> Do you mean *What do you want* song or asking me about my goals? Visit [here](https://www.youtube.com/watch?v=97BfC4LgrXk) in case you want the song. For my case, that will be International Peace.
 
 
 **How do you intend to make _International Peace_?**
-> :recycle: Recycling Things :recycle: *And if it fails...* ![Nuke Troll](https://i.imgur.com/usKHT.gif)
+> :recycle: Recycling Things :recycle: *And if it fails...* ![Nuke Troll](http://i.imgur.com/usKHT.gif)
 
 
 **Where are you from?**
-> ![India](https://flagpedia.net/data/flags/mini/in.png)
+> ![India](http://flagpedia.net/data/flags/mini/in.png)
 
 
 **What do you do these days?**
-> ![Stydying.](https://media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
+> ![Stydying.](http://media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
 
 
 **What have you done on this project so far?**
