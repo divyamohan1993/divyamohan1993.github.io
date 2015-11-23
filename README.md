@@ -15,15 +15,15 @@
 
 
 **How do you intend to make _International Peace_?**
-> :recycle: Recycling Things :recycle: *And if it fails...* ![Nuke Troll](//i.imgur.com/usKHT.gif)
+> :recycle: Recycling Things :recycle: *And if it fails...* ![Nuke Troll](https://i.imgur.com/usKHT.gif)
 
 
 **Where are you from?**
-> ![India](//flagpedia.net/data/flags/mini/in.png)
+> ![India](https://flagpedia.net/data/flags/mini/in.png)
 
 
 **What do you do these days?**
-> ![Stydying.](//media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
+> ![Stydying.](https://media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
 
 
 **What have you done on this project so far?**
