@@ -24,7 +24,7 @@
 
 
 **What do you do these days?**
-> ![Stydying.](http://media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
+> ![Studying.](http://media.giphy.com/media/IW7oZF4MGJsfS/giphy.gif)
 
 
 **What have you done on this project so far?**
