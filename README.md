@@ -1,5 +1,7 @@
 # Thankyou for dropping-by!
 
+[![Join the chat at https://gitter.im/divyamohan1993/divyamohan1993.github.io](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/divyamohan1993/divyamohan1993.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## :construction::construction: View this project [here](//divyamohan1993.github.io). :construction::construction:
 
 #### :warning::warning: *This Domain is reserved on GitHub for ~~future~~ use.* :warning::warning:
