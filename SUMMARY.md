@@ -1,4 +1,0 @@
-# Summary
-
-* [HomePage](README.md)
-
