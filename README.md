@@ -4,7 +4,6 @@
 [//]: # ("=========" - Sub-Title Line)
 
 -----------------------
------------------------
 # Thankyou for dropping-by!
 
 [![Join the chat at https://gitter.im/divyamohan1993/divyamohan1993.github.io](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/divyamohan1993/divyamohan1993.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  [![Stories in Ready](https://badge.waffle.io/divyamohan1993/divyamohan1993.github.io.svg?label=ready&title=Ready)](http://waffle.io/divyamohan1993/divyamohan1993.github.io)
@@ -13,7 +12,7 @@
 
 #### :warning::warning: *This Domain is reserved on GitHub for ~~future~~ use.* :warning::warning:
 -----------------------
------------------------
+
 
 ###### Questionnaire
 
