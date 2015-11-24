@@ -1,1 +1,2 @@
-
+general:
+  build_dir: api
