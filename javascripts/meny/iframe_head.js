@@ -9,7 +9,7 @@
 		        var author = (dd = d.getElementsByName('author')[0]) ? dd.getAttribute('content', 0) : 'Divya Mohan';
 		        var robots = (dd = d.getElementsByName('robots')[0]) ? dd.getAttribute('content', 0) : 'index, follow';
 		        var revisitafter = (dd = d.getElementsByName('revisit-after')[0]) ? dd.getAttribute('content', 0) : '3 days';
-		        var copyright = (dd = d.getElementsByName('copyright')[0]) ? dd.getAttribute('content', 0) : 'Divya Mohan';
+		        var copyright = (dd = d.getElementsByName('copyright')[0]) ? dd.getAttribute('content', 0) : '2016 Divya Mohan';
 		        var language = (dd = d.getElementsByName('language')[0]) ? dd.getAttribute('content', 0) : 'en';
 		        var revised = new Date(document.lastModified);
 		        var summary = (dd = d.getElementsByName('summary')[0]) ? dd.getAttribute('content', 0) : 'Personal Website';
