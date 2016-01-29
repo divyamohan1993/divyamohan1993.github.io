@@ -7,10 +7,8 @@ var Quotation=new Array() // do not change this!
 			: to &#058; - :
 			&#822$0; to &#034; - ""
 			&#821$1; to &ndash; - -
-
 Sample:
 	Quotation[47] = "Great stories happen to people who can tell them. &#x2015;Ira Glass"; 
-
 *************************************************/
 
 Quotation[0] = "My rates are as follows&#058; $50/hr. $75/hr. if you watch $100/hr. if you help   &#x2015;An Autobody Sign"; 
@@ -416,7 +414,7 @@ Quotation[399] = "We don&apos;t get hired to make pretty things or win design aw
 Quotation[400] = "You don&apos;t have to be &#034;a creative&#8221; to be creative.  &#x2015;Drory Ben-Menachem"; 
 Quotation[401] = "Innovation leads one to see the new in the old and distinguishes the ingenious from the ingenuous.  &#x2015;Paul Rand"; 
 Quotation[402] = "We are what we repeatedly do. Excellence, therefore, is not an act, but a habit.   &#x2015;Aristotle"; 
-Quotation[403] = "What I love about design is the artistic and scientific complexity that also becomes useful…   &#x2015;Michelle Obama"; 
+Quotation[403] = "What I love about design is the artistic and scientific complexity that also becomes useful...   &#x2015;Michelle Obama"; 
 Quotation[404] = "Nobody ever get fired for running an A/B test.  &#x2015;Chad Mazzola"; 
 Quotation[405] = "IDEA BY SELF IS COLD. JUST SIT THERE. DO NOTHING. IF WANT DO SOMETHING, NEED FIRE.  &#x2015;FAKEGRIMLOCK"; 
 Quotation[406] = "I can think of nothing worse than becoming really popular, being all the rage.   &#x2015;Rem Koolhaas"; 
@@ -506,9 +504,102 @@ Quotation[489] = "To create a memorable design you need to start with a thought 
 Quotation[490] = "Translation is not a matter of words only&#058; it is a matter of making intelligible a whole culture.   &#x2015;Anthony Burgess"; 
 Quotation[491] = "All of the buildings, all of those cars were once just a dream in somebody&apos;s head.   &#x2015;Peter Gabriel"; 
 Quotation[492] = "Design is an opportunity to continue telling the story, not just to sum everything up.   &#x2015;Tate Linden"; 
-
-
-
+Quotation[493] = "For millennials, to be inspired is to become creative, innovative and energized.   &#x2015;Tori Utley"; 
+Quotation[494] = "Life is about making an impact, not making an income.   &#x2015;Kevin Kruse";
+Quotation[495] = "Whatever the mind of man can conceive and believe, it can achieve.   &#x2015;Napoleon Hill";
+Quotation[496] = "Strive not to be a success, but rather to be of value.   &#x2015;Albert Einstein";
+Quotation[497] = "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.    &#x2015;Robert Frost";
+Quotation[498] = "I attribute my success to this: I never gave or took any excuse.   &#x2015;Florence Nightingale";
+Quotation[499] = "You miss 100% of the shots you don’t take.   &#x2015;Wayne Gretzky";
+Quotation[500] = "The most difficult thing is the decision to act, the rest is merely tenacity.   &#x2015;Amelia Earhart";
+Quotation[501] = "Every strike brings me closer to the next home run.   &#x2015;Babe Ruth";
+Quotation[502] = "Definiteness of purpose is the starting point of all achievement.   &#x2015;W. Clement Stone";
+Quotation[503] = "Life isn’t about getting and having, it’s about giving and being.   &#x2015;Kevin Kruse";
+Quotation[504] = "Life is what happens to you while you’re busy making other plans.   &#x2015;John Lennon";
+Quotation[505] = "We become what we think about.   &#x2015;Earl Nightingale";
+Quotation[506] = "If you can dream it, you can achieve it.   &#x2015;Zig Ziglar";
+Quotation[507] = "Life is 10% what happens to me and 90% of how I react to it.   &#x2015;Charles Swindoll";
+Quotation[508] = "The most common way people give up their power is by thinking they don’t have any.   &#x2015;Alice Walker";
+Quotation[509] = "The mind is everything. What you think you become.    &#x2015;Buddha";
+Quotation[510] = "The best time to plant a tree was 20 years ago. The second best time is now.   &#x2015;Chinese Proverb";
+Quotation[511] = "An unexamined life is not worth living.   &#x2015;Socrates";
+Quotation[512] = "Eighty percent of success is showing up.   &#x2015;Woody Allen";
+Quotation[513] = "Your time is limited, so don’t waste it living someone else’s life.   &#x2015;Steve Jobs";
+Quotation[514] = "Winning isn’t everything, but wanting to win is.   &#x2015;Vince Lombardi";
+Quotation[515] = "I am not a product of my circumstances. I am a product of my decisions.   &#x2015;Stephen Covey";
+Quotation[516] = "Every child is an artist.  The problem is how to remain an artist once he grows up.   &#x2015;Pablo Picasso";
+Quotation[517] = "You can never cross the ocean until you have the courage to lose sight of the shore.   &#x2015;Christopher Columbus";
+Quotation[518] = "I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.   &#x2015;Maya Angelou";
+Quotation[519] = "Either you run the day, or the day runs you.   &#x2015;Jim Rohn";
+Quotation[520] = "Whether you think you can or you think you can’t, you’re right.   &#x2015;Henry Ford";
+Quotation[521] = "The two most important days in your life are the day you are born and the day you find out why.   &#x2015;Mark Twain";
+Quotation[522] = "Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it.   &#x2015;Johann Wolfgang von Goethe";
+Quotation[523] = "The best revenge is massive success.   &#x2015;Frank Sinatra";
+Quotation[524] = "People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily.   &#x2015;Zig Ziglar";
+Quotation[525] = "Life shrinks or expands in proportion to one’s courage.   &#x2015;Anais Nin";
+Quotation[526] = "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced.   &#x2015;Vincent Van Gogh";
+Quotation[527] = "There is only one way to avoid criticism: do nothing, say nothing, and be nothing.   &#x2015;Aristotle";
+Quotation[528] = "Ask and it will be given to you; search, and you will find; knock and the door will be opened for you.   &#x2015;Jesus";
+Quotation[529] = "The only person you are destined to become is the person you decide to be.   &#x2015;Ralph Waldo Emerson";
+Quotation[530] = "Go confidently in the direction of your dreams.  Live the life you have imagined.   &#x2015;Henry David Thoreau";
+Quotation[531] = "The only way to do great work is to love what you do.   &#x2015;Steve Jobs";
+Quotation[532] = "Few things can help an individual more than to place responsibility on him, and to let him know that you trust him.    &#x2015;Booker T. Washington"
+Quotation[533] = "Certain things catch your eye, but pursue only those that capture the heart.   &#x2015; Ancient Indian Proverb";
+Quotation[534] = "Believe you can and you’re halfway there.   &#x2015;Theodore Roosevelt";
+Quotation[535] = "Everything you’ve ever wanted is on the other side of fear.   &#x2015;George Addair";
+Quotation[536] = "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.   &#x2015;Plato";
+Quotation[537] = "Teach thy tongue to say, “I do not know,” and thous shalt progress.   &#x2015;Maimonides";
+Quotation[538] = "Start where you are. Use what you have.  Do what you can.   &#x2015;Arthur Ashe";
+Quotation[539] = "Fall seven times and stand up eight.   &#x2015;Japanese Proverb";
+Quotation[540] = "Nothing is impossible, the word itself says, “I’m possible!”   &#x2015;Audrey Hepburn";
+Quotation[541] = "Everything has beauty, but not everyone can see.   &#x2015;Confucius";
+Quotation[542] = "How wonderful it is that nobody need wait a single moment before starting to improve the world.   &#x2015;Anne Frank";
+Quotation[543] = "When I let go of what I am, I become what I might be.   &#x2015;Lao Tzu";
+Quotation[544] = "Life is not measured by the number of breaths we take, but by the moments that take our breath away.   &#x2015;Maya Angelou";
+Quotation[545] = "Happiness is not something readymade.  It comes from your own actions.   &#x2015;Dalai Lama";
+Quotation[546] = "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on.   &#x2015;Sheryl Sandberg";
+Quotation[547] = "If the wind will not serve, take to the oars.   &#x2015;Latin Proverb";
+Quotation[548] = "You can’t fall if you don’t climb.  But there’s no joy in living your whole life on the ground.   &#x2015;Unknown";
+Quotation[549] = "We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained.   &#x2015;Marie Curie";
+Quotation[550] = "Too many of us are not living our dreams because we are living our fears.   &#x2015;Les Brown";
+Quotation[551] = "Challenges are what make life interesting and overcoming them is what makes life meaningful.   &#x2015;Joshua J. Marine";
+Quotation[552] = "If you want to lift yourself up, lift up someone else.   &#x2015;Booker T. Washington";
+Quotation[553] = "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do.   &#x2015;Leonardo da Vinci";
+Quotation[554] = "Limitations live only in our minds.  But if we use our imaginations, our possibilities become limitless.   &#x2015;Jamie Paolinetti";
+Quotation[555] = "You take your life in your own hands, and what happens? A terrible thing, no one to blame.   &#x2015;Erica Jong";
+Quotation[556] = "What’s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do.   &#x2015;Bob Dylan";
+Quotation[557] = "I didn’t fail the test. I just found 100 ways to do it wrong.   &#x2015;Benjamin Franklin";
+Quotation[558] = "In order to succeed, your desire for success should be greater than your fear of failure.   &#x2015;Bill Cosby";
+Quotation[559] = "A person who never made a mistake never tried anything new.   &#x2015; Albert Einstein";
+Quotation[560] = "The person who says it cannot be done should not interrupt the person who is doing it.   &#x2015;Chinese Proverb";
+Quotation[561] = "There are no traffic jams along the extra mile.   &#x2015;Roger Staubach";
+Quotation[562] = "It is never too late to be what you might have been.   &#x2015;George Eliot";
+Quotation[563] = "You become what you believe.   &#x2015;Oprah Winfrey";
+Quotation[564] = "I would rather die of passion than of boredom.   &#x2015;Vincent van Gogh";
+Quotation[565] = "A truly rich man is one whose children run into his arms when his hands are empty.   &#x2015;Unknown";
+Quotation[566] = "It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings.    &#x2015;Ann Landers";
+Quotation[567] = "If you want your children to turn out well, spend twice as much time with them, and half as much money.   &#x2015;Abigail Van Buren";
+Quotation[568] = "Build your own dreams, or someone else will hire you to build theirs.   &#x2015;Farrah Gray";
+Quotation[569] = "Either write something worth reading or do something worth writing.   &#x2015;Benjamin Franklin";
+Quotation[570] = "Education costs money.  But then so does ignorance.   &#x2015;Sir Claus Moser";
+Quotation[571] = "I have learned over the years that when one’s mind is made up, this diminishes fear.   &#x2015;Rosa Parks";
+Quotation[572] = "It does not matter how slowly you go as long as you do not stop.   &#x2015;Confucius";
+Quotation[573] = "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.   &#x2015;Oprah Winfrey";
+Quotation[574] = "Remember that not getting what you want is sometimes a wonderful stroke of luck.   &#x2015;Dalai Lama";
+Quotation[575] = "You can’t use up creativity.  The more you use, the more you have.   &#x2015;Maya Angelou";
+Quotation[576] = "Dream big and dare to fail.   &#x2015;Norman Vaughan";
+Quotation[577] = "Our lives begin to end the day we become silent about things that matter.   &#x2015;Martin Luther King Jr.";
+Quotation[578] = "Do what you can, where you are, with what you have.   &#x2015;Teddy Roosevelt";
+Quotation[579] = "If you do what you’ve always done, you’ll get what you’ve always gotten.   &#x2015;Tony Robbins";
+Quotation[580] = "Dreaming, after all, is a form of planning.   &#x2015;Gloria Steinem";
+Quotation[581] = "It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live.   &#x2015;Mae Jemison";
+Quotation[582] = "You may be disappointed if you fail, but you are doomed if you don’t try.   &#x2015;Beverly Sills";
+Quotation[583] = "Remember no one can make you feel inferior without your consent.   &#x2015;Eleanor Roosevelt";
+Quotation[584] = "Life is what we make it, always has been, always will be.   &#x2015;Grandma Moses";
+Quotation[585] = "The question isn’t who is going to let me; it’s who is going to stop me.   &#x2015;Ayn Rand";
+Quotation[586] = "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.   &#x2015;Henry Ford";
+Quotation[587] = "It’s not the years in your life that count. It’s the life in your years.   &#x2015;Abraham Lincoln";
+Quotation[588] = "Change your thoughts and you change your world.   &#x2015;Norman Vincent Peale";
 
 
 // ======================================
