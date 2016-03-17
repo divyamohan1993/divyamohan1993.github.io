@@ -1,76 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+<title>Youtube-Background</title>
 <head>
-	
-	<title>Earth Hour</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Earth Hour">
-	<meta name="author" content="Divya Mohan">
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cinzel" />
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:100,300,700" />
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Gruppo" />
-	
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-	
-	<!-- Warming Up -->
-	<link href='//fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
-	<script src="//pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
 
-	<style>
-		.video-section .pattern-overlay {
-			background-color: rgba(71, 71, 71, 0.59);
-			padding: 110px 0 32px;
-			min-height: 496px; 
-			/* Incase of overlay problems just increase the min-height*/
-		}
-		.video-section h1, .video-section h3{
-			text-align:center;
-			color:#fff;
-		}
-		.video-section h1{
-			font-size:110px;
-			font-family: 'Buenard', serif;
-			font-weight:bold;
-			text-transform: uppercase;
-			margin: 40px auto 0px;
-			text-shadow: 1px 1px 1px #000;
-			-webkit-text-shadow: 1px 1px 1px #000;
-			-moz-text-shadow: 1px 1px 1px #000;
-		}
-		.video-section h3{
-			font-size: 25px;
-			font-weight:lighter;
-			margin: 0px auto 15px;
-		}
-		.video-section .buttonBar{display:none;}
-		.player {font-size: 1px;}
-	</style>
-	
-	<script>
-	$(document).ready(function () {
-		$(".player").mb_YTPlayer();
-	});	
-	</script>
-	
+<meta charset="UTF-8"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Youtube-Backgroung" />
+<meta property="og:image" content="og_image.jpg"/>
+<link href="og_image.jpg" rel="image_src"  />
+
+<link rel="stylesheet" href="style.css">
+
+
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="FontAwesome/css/font-awesome.min.css">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+<script src="ytbg.js"></script>
+
 </head>
+
+
 <body>
 
 
-<!--Video Section-->
-<section class="content-section video-section">
-  <div class="pattern-overlay">
-  <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=WTuotGlZj60',containment:'.video-section', quality:'large', autoPlay:true, mute:false, opacity:1}">bg</a>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-      <!--  <h1>Full Width Video</h1>  
-        <h3>Enjoy Adding Full Screen Videos to your Page Sections</h3>  -->
-	   </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Video Section Ends Here-->
-			
+
+<div class="main">
+
+	<div class="container">
+		
+	</div>
+
+</div>
+
+
+
+
+<script>
+	$("#submit").click(function(){
+		ytbg("BLtaFTSDyJo", 0, 0, 1);
+	});
+
+	
+
+$(document).ready(function() {	
+	ytbg("WTuotGlZj60", 0, 0, 100);
+});
+	
+	
+	
+
+/*	
+	var embedId = "vQWlNALvbhE";
+	var starttime = "1";
+	var endtime = "22";
+	var setvolume = "0";
+	
+*/	
+</script>
+
+
+
 </body>
 </html>
