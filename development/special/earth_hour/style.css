@@ -1,14 +1,9 @@
-
-
 body {
 	margin:0;
 	padding:0;
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
-
-
-
 
 .main {
 	display:table;
@@ -25,16 +20,16 @@ body {
 	display: table-cell;
 	vertical-align: bottom;
 	color:#FFFFFF;
-	width:auto%;
-	height:auto%;
-
+	width:auto;
+	height:auto;
+	font: 16px/1.4 'Lato', sans-serif;
 }
 
 .caption {
-	width:50%;
-	max-width:500px;
+	width:auto;
+	max-width:450px;
 	margin:auto;
-	padding:40px;
+	padding:4px;
 	background:rgba(0, 0, 0, 0.3);
 	transition:1s;
 }
@@ -79,4 +74,29 @@ input[type="submit"] {
 
 
 
+footer {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: 25px;
+		font-size: 0.8em;
+		letter-spacing: 0.1em;
+		font-weight: 300;
+		color: #76747a;
+		-webkit-font-smoothing: subpixel-antialiased;
+		font-smoothing: subpixel-antialiased; 
+	}
+	footer strong {
+		font-weight: 300;
+		color: #b3abc5;
+	}
+	footer span {
+		font-size: 0.75em;
+		padding: 0 2px;
+	}
+	
+	footer .rights {
+		cursor: default;
+	}
+	
 
