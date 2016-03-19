@@ -14,7 +14,7 @@ var datenow = 19;
 var monthnow = 2; //March (Jan = 0)
 var earthhourredirect = "/development/special/earth_hour/"
 
-if (d == datenow) {
+if (d == datenow & mn == monthnow) {
 	if (timenow > ehstart & timenow < ehstop) {
 //		All conditions true
 		top.document.getElementById('I1').setAttribute("src", earthhourredirect);	
