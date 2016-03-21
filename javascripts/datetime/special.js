@@ -24,3 +24,24 @@ if (d == datenow & mn == monthnow) {
 }
 else {
 }
+
+// --------------- Earth Day ---------------
+	var timenow = h + ':' + m;
+var edstart = 20 + ':' + 29;
+var edstop = 21 + ':' + 31;
+var eddatenow = 22;
+var edmonthnow = 2; //March (Jan = 0)
+var eartdayredirect = "/development/special/earth_hour/";
+var EarthDay = localStorage.getItem('EarthDay') || '';
+ 
+
+if (d == eddatenow & mn == edmonthnow) {
+	if (EarthDay != 'yes') {
+	top.document.getElementById('I1').setAttribute("src", earthhourredirect);	
+//	alert("You");
+	localStorage.setItem('EarthDay','yes');
+	}
+	else {
+	}
+else {
+}
