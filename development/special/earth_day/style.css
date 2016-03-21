@@ -22,12 +22,12 @@ body {
 	color:#FFFFFF;
 	width:auto;
 	height:auto;
-	font: 16px/1.4 'Lato', sans-serif;
+	font: 20px/1.4 'Lato', sans-serif;
 }
 
 .caption {
 	width:auto;
-	max-width:450px;
+	max-width:auto;
 	margin:auto;
 	padding:4px;
 	background:rgba(0, 0, 0, 0.3);
