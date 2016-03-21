@@ -47,7 +47,10 @@
   - [x] Parsing Dynamic Page Request through jQuery.
   - [x] Developer Mode
     - [x] ~~_TBD_~~ - View the codes directly!
-  - [ ] *TBD*
+  - [x] Special
+    - [x] Earth Hour
+    - [x] Earth Day
+    - [x] ~~_TBD_~~
 >- [ ] *TBD*
 
 
