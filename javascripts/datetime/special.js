@@ -27,7 +27,7 @@ else {
 
 // --------------- Earth Day ---------------
 var eddatenow = 22;
-var edmonthnow = 2; //March (Jan = 0)
+var edmonthnow = 3; //April (Jan = 0)
 var earthdayredirect = "/development/special/earth_day/";
 var EarthDay = sessionStorage.getItem('EarthDay') || '';
 
