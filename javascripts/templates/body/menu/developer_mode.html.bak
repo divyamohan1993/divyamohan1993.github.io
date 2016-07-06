@@ -5,7 +5,7 @@
 						<ul> 																\
 							<li><a href="/development/" target="I1" >Development</a></li> 	\
 							<li><a href="/development/recapatcha/encrypted_validate.html" target="I1" >Send Info</a></li> 	\
-							<li><a href="/development/recapatcha/encrypted_meter_reading.html" target="I1" >Meter Reading</a></li> 	\
+							<li><a href="/development/recapatcha/meter_reading.html" target="I1" >Meter Reading</a></li> 	\
 							<li><a href="/development/encoders/" target="I1">Encoders</a></li> 			\
 							<li><a href="/javascripts/" target="I1">JS</a></li> 			\
 							<li><a href="/media/" target="I1">Media</a></li>				\
