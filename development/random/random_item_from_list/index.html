@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+	<title>Get random item from array</title>
+	
+	<style>
+		.dead-center-no-content {
+			background: black;
+			color: white;
+			border-radius: 1em;
+			padding: 1em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}	
+		.dead-center-content {
+			background: transparent;
+			color: red;
+			text-shadow: 2px;
+			size: 28px;
+			border-radius: 1em;
+			padding: 1em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}	
+		</style>
+</head>
+
+<body>
+	<section class="dead-center-content">
+		<script>
+			var value = ['Buy Tank Coins', 'Dont Buy Tank Coins'];
+			var toss = ["Head's", "Tail's"];
+			var value = value[Math.floor(Math.random() * value.length)];
+			var toss = toss[Math.floor(Math.random() * toss.length)];
+			document.write(value+' - '+toss);
+		</script>
+	</section>
+</body>	
+</html>
