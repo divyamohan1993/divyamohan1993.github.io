@@ -35,9 +35,9 @@
 		<script>
 			var value = ['Buy Tank Coins', 'Dont Buy Tank Coins'];
 			var toss = ["Head's", "Tail's"];
-			var value1 = value[Math.floor(Math.random() * value.length)];
-			var toss1 = toss[Math.floor(Math.random() * toss.length)];
-			document.write(value1+' - '+toss1);
+			var value = value[Math.floor(Math.random() * value.length)];
+			var toss = toss[Math.floor(Math.random() * toss.length)];
+			document.write(value+' - '+toss);
 		</script>
 	</section>
 </body>	
