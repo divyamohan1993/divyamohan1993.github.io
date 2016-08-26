@@ -64,6 +64,11 @@
 					default: break;
 				}
 		
+			case "admin":
+				switch (page) {
+					case "tcrf": top.document.getElementById('I1').setAttribute("src", "/development/tcrf/index.html"); break;
+					default: break;
+				}
 			default: break;
 		}
 
