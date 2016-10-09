@@ -33,11 +33,12 @@
 <body>
 	<section class="dead-center-content">
 		<script>
-			var value = ['Buy Tank', 'Buy Turret'];
+			var value = ['Go', 'No Go'];
 			var toss = ["Head's", "Tail's"];
 			var value = value[Math.floor(Math.random() * value.length)];
 			var toss = toss[Math.floor(Math.random() * toss.length)];
-			document.write(value+' - '+toss);
+			document.write(value+' - '+toss+'<br />');			
+			document.write('Refresh '+Math.round(Math.random() * 10)+' times.');
 		</script>
 	</section>
 </body>	
