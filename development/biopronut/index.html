@@ -1,18 +1,38 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<head>
+	<title>Get random item from array</title>
+	
+	<style>
+		.dead-center-no-content {
+			background: black;
+			color: white;
+			border-radius: 1em;
+			padding: 1em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}	
+		.dead-center-content {
+			background: transparent;
+			color: red;
+			text-shadow: 2px;
+			size: 28px;
+			border-radius: 1em;
+			padding: 1em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}	
+		</style>
+</head>
 
-	<head>
-		<meta charset="utf-8">
-
-		<title>Divya Mohan || Happy</title>
-	</head>
-<body class=" meny-left" style="perspective: 800px; perspective-origin: 0px 50%;">
-
-		<!-- Menu Headers are hard coded. Refer document for editing -->
-		<script src="/javascripts/templates/body/menu/encrypted_menu_header.js"></script>
-		
-			<!-- Navigation Items :: todo: Replace with <nav></nav> -->
-			<h2>List of themes</h2>
+<body>
+	<section class="dead-center-content">
+		<h2>List of themes</h2>
 			<ul>
 				<li><a href="/development/1 Page templates/Cardio/" target="I1" class="fade">Cardio/</a></li>
 				<li><a href="/development/1 Page templates/HalcyonDays/" target="I1" class="fade">HalyconDays</a></li>
@@ -21,6 +41,7 @@
 				<li><a href="/development/diceware/" target="I1" class="fade">Diceware</a></li>
 				<!-- Developer Mode -->				
 				<script src="/javascripts/templates/body/menu/developer_mode.js"></script>
-			</ul>			
-
-		</div>
+			</ul>
+	</section>
+</body>	
+</html>

@@ -14,9 +14,9 @@
 			<!-- Navigation Items :: todo: Replace with <nav></nav> -->
 			<h2>List of themes</h2>
 			<ul>
-				<li><a href="/development/1 Page templates/Cardio/" target="I1" class="fade">Home</a></li>
-				<li><a href="/development/1 Page templates/HalcyonDays/" target="I1" class="fade">Home</a></li>
-				<li><a href="/development/1 Page templates/Sedna/" target="I1" class="fade">Home</a></li>
+				<li><a href="/development/1 Page templates/Cardio/" target="I1" class="fade">Cardio/</a></li>
+				<li><a href="/development/1 Page templates/HalcyonDays/" target="I1" class="fade">HalyconDays</a></li>
+				<li><a href="/development/1 Page templates/Sedna/" target="I1" class="fade">Sedna</a></li>
 				<li><a href="/" target="I1" class="fade">Starfield</a></li>
 				<li><a href="/development/diceware/" target="I1" class="fade">Diceware</a></li>
 				<!-- Developer Mode -->				
