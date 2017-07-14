@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Happy B'Day Divya Mohan!</title>
+	<title>Wishing you a very Happy B'Day!</title>
 	<meta name="robots" content="index, follow, all" />
-	<meta name="description" content="Will Go Live on January 1, 2014! Till then, Enjoy!!" />
+	<meta name="description" content="Divya Mohan wishes you a very Happy B'day!" />
 	<meta name="author" content="Divya Mohan" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta redirect=
 	
 	<noscript>
 		<h1><i>Javascript required</i></h1>
@@ -134,7 +135,7 @@
 		bottom: 20%;
 		width: 100%;
 		z-index:999999;
-		opacity: 0.15; 
+		opacity: 0.25; 
 	}
 	.footer {
 		position:absolute;
@@ -215,8 +216,10 @@
 
 	</style>
 
-	
-	
+	<script>
+	 setTimeout( "$('#hide').fadeOut();", 22000);
+	 setTimeout( "history.back()", 28000);
+	</script>
 
 </head>
 
@@ -231,7 +234,7 @@
 			<section id="name_animated" class="comment_rain">
 				<!--	Rainbow Text	-->
 					<script>
-						function changetext(){rainbow="#"+hex[r]+hex[g]+hex[b];storetext.style.color=rainbow}function change(){if(seq==6){b--;if(b==0)seq=1}if(seq==5){r++;if(r==12)seq=6}if(seq==4){g--;if(g==0)seq=5}if(seq==3){b++;if(b==12)seq=4}if(seq==2){r--;if(r==0)seq=3}if(seq==1){g++;if(g==12)seq=2}changetext()}function starteffect(){if(document.all||document.getElementById)flash=setInterval("change()",speed)}var text="Divya   Mohan";var speed=160;if(document.all||document.getElementById){document.write('<span id="highlight">'+text+"</span>");var storetext=document.getElementById?document.getElementById("highlight"):document.all.highlight}else document.write(text);var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0");var r=1;var g=1;var b=1;var seq=1;starteffect()
+						function changetext(){rainbow="#"+hex[r]+hex[g]+hex[b];storetext.style.color=rainbow}function change(){if(seq==6){b--;if(b==0)seq=1}if(seq==5){r++;if(r==12)seq=6}if(seq==4){g--;if(g==0)seq=5}if(seq==3){b++;if(b==12)seq=4}if(seq==2){r--;if(r==0)seq=3}if(seq==1){g++;if(g==12)seq=2}changetext()}function starteffect(){if(document.all||document.getElementById)flash=setInterval("change()",speed)}var text="Divya Mohan";var speed=160;if(document.all||document.getElementById){document.write('<span id="highlight">'+text+"</span>");var storetext=document.getElementById?document.getElementById("highlight"):document.all.highlight}else document.write(text);var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0");var r=1;var g=1;var b=1;var seq=1;starteffect()
 					</script>
 			</section>
 	
@@ -244,10 +247,31 @@
 		Please click anywhere for celebrations!
 	</section>
 
-	<audio autoplay="autoplay" preload="metadata">
+	<audio autoplay="autoplay" preload="metadata" id="bdaypiano">
 		<source src="media/bd_piano.mp3" type="audio/mpeg">
 	</audio>
+	<script>
+	function getSoundAndFadeAudio (audiosnippetId) {
 
+    var sound = document.getElementById('bdaypiano');
+
+    // Set the point in playback that fadeout begins. This is for a 2 second fade out.
+    var fadePoint = sound.duration - 2; 
+
+    var fadeAudio = setInterval(function () {
+
+        // Only fade if past the fade out point or not at zero already
+        if ((sound.currentTime >= fadePoint) && (sound.volume != 0.0)) {
+            sound.volume -= 0.1;
+        }
+        // When volume at zero stop all the intervalling
+        if (sound.volume === 0.0) {
+            clearInterval(fadeAudio);
+        }
+    }, 200);
+
+	}
+	</script>
 	
 	
 <div id="impress">
@@ -328,6 +352,7 @@ var Fireworks = (function() {
 
     // create a canvas for the fireworks
     mainCanvas = document.createElement('canvas');
+	mainCanvas.setAttribute("id", "hide");
     mainContext = mainCanvas.getContext('2d');
 
     // and another one for, like, an off screen buffer
@@ -358,7 +383,7 @@ var Fireworks = (function() {
    */
   function createFirework() {
 	setTimeout(createFirework, 2000);
-	setTimeout(createFirework, 7000);
+	setTimeout(createFirework, 4000);
 	createParticle();
   }
 
@@ -403,7 +428,7 @@ var Fireworks = (function() {
    * The main loop where everything happens
    */
   function update() {
-    clearContext();
+	clearContext();
     requestAnimFrame(update);
     drawFireworks();
   }
