@@ -1,14 +1,16 @@
 <?php
 
-// Page créé par Shepard [Fabian Pijcke] <Shepard8@laposte.net>
+// Page created by Shepard [Fabian Pijcke] <Shepard8@laposte.net>
 // Arno Esterhuizen <arno.esterhuizen@gmail.com>
-// et Romain Bourdon <rromain@romainbourdon.com>
-// et Hervé Leclerc <herve.leclerc@alterway.fr>
-// Icônes par Mark James <http://www.famfamfam.com/lab/icons/silk/>
-// Évolutions 2.5 -> 2.5.19 : Dominique Ottello (Otomatic)
+// and Romain Bourdon <rromain@romainbourdon.com>
+// and Hervé Leclerc <herve.leclerc@alterway.fr>
+// Icons by Mark James <http://www.famfamfam.com/lab/icons/silk/>
+// Version 2.5 -> 3.0.0 by Dominique Ottello aka Otomatic
+// Update 3.0.6
+// Check duplicate ServerName
+// Support of VitualHost by IP
 
-//Par défaut la valeur est "../"
-//$server_dir = "WAMPROOT/";
+
 $server_dir = "../";
 
 require $server_dir.'scripts/config.inc.php';
@@ -26,105 +28,22 @@ $phpVersion = $wampConf['phpVersion'];
 $apacheVersion = $wampConf['apacheVersion'];
 $doca_version = 'doca'.substr($apacheVersion,0,3);
 $mysqlVersion = $wampConf['mysqlVersion'];
-$wampserverVersion = $wampConf['wampserverVersion'];
 
 //On récupére la valeur de urlAddLocalhost
-$suppress_localhost = true;
-if(!empty($wampConf['urlAddLocalhost']) && $wampConf['urlAddLocalhost'] !== "off")
-	$suppress_localhost = false;
+$suppress_localhost = ($wampConf['urlAddLocalhost'] == 'off' ? true : false);
 
 //On récupère la valeur de VirtualHostMenu
-$VirtualHostMenu = !empty($wampConf['VirtualHostSubMenu']) ? $wampConf['VirtualHostSubMenu'] : "off";
+$VirtualHostMenu = $wampConf['VirtualHostSubMenu'];
 
 //on récupère la valeur de apachePortUsed
-$port = !empty($wampConf['apachePortUsed']) ? $wampConf['apachePortUsed'] : "80";
+$port = $wampConf['apachePortUsed'];
 $UrlPort = $port !== "80" ? ":".$port : '';
 //on récupère la valeur de mysqlPortUsed
-$Mysqlport = !empty($wampConf['mysqlPortUsed']) ? $wampConf['mysqlPortUsed'] : "3306";
+$Mysqlport = $wampConf['mysqlPortUsed'];
 
 
 // répertoires à ignorer dans les projets
-$projectsListIgnore = array ('.','..', 'wampthemes');
-
-// textes
-$langues = array(
-	'en' => array(
-		'langue' => 'English',
-		'locale' => 'english',
-		'autreLangue' => 'Version Française',
-		'autreLangueLien' => 'fr',
-		'titreHtml' => 'WAMPSERVER Homepage',
-		'titreConf' => 'Server Configuration',
-		'versa' => 'Apache Version:',
-		'doca2.2' => 'httpd.apache.org/docs/2.2/en/',
-		'doca2.4' => 'httpd.apache.org/docs/2.4/en/',
-		'versp' => 'PHP Version:',
-		'server' => 'Server Software:',
-		'docp' => 'www.php.net/manual/en/',
-		'versm' => 'MySQL Version:',
-		'docm' => 'dev.mysql.com/doc/index.html',
-		'phpExt' => 'Loaded Extensions : ',
-		'titrePage' => 'Tools',
-		'txtProjet' => 'Your Projects',
-		'txtNoProjet' => 'No projects yet.<br />To create a new one, just create a directory in \'www\'.',
-		'txtAlias' => 'Your Aliases',
-		'txtNoAlias' => 'No Alias yet.<br />To create a new one, use the WAMPSERVER menu.',
-		'txtVhost' => 'Your VirtualHost',
-		'txtServerName' => 'The ServerName %s has syntax error in file %s',
-		'txtVhostNotClean' => 'The %s file has not been cleaned. There remain VirtualHost examples like: dummy-host.example.com',
-		'txtNoVhost' => 'No VirtualHost yet. Add one for each project in the file: wamp/bin/apache/apache%s/conf/extra/httpd-vhosts.conf',
-		'txtNoIncVhost' => 'Uncomment or add <i>Include conf/extra/httpd-vhosts.conf</i> in file wamp/bin/apache/apache%s/conf/httpd.conf',
-		'txtNoVhostFile' => 'The file: %s does not exists',
-		'txtNoPath' => 'The path %s for %s does not exist (File %s)',
-		'txtNotWritable' => 'The file: %s is not writable',
-		'txtNbNotEqual' => 'The number of %s does not match the number of %s in %s file',
-		'txtAddVhost' => 'Add a Virtual Host',
-		'txtPortNumber' => 'Port number for %s has not correct value or is not the same in file %s',
-		'txtCorrected' => 'Some VirtualHosts errors can be corrected.',
-		'forum' => 'http://forum.wampserver.com/list.php?2',
-		'portUsed' => 'Port defined for Apache: ',
-		'mysqlportUsed' => 'Port defined for MySQL: ',
-		'nolocalhost' => 'It\'s a bad idea to add localhost in the url of launching projects. It is best to define VirtualHost in<br />wamp/bin/apache/apache%s/conf/extra/httpd-vhosts.conf<br />file and not add localhost in the url.',
-	),
-	'fr' => array(
-		'langue' => 'Français',
-		'locale' => 'french',
-		'autreLangue' => 'English Version',
-		'autreLangueLien' => 'en',
-		'titreHtml' => 'Accueil WAMPSERVER',
-		'titreConf' => 'Configuration Serveur',
-		'versa' => 'Version Apache :',
-		'doca2.2' => 'httpd.apache.org/docs/2.2/fr/',
-		'doca2.4' => 'httpd.apache.org/docs/2.4/fr/',
-		'versp' => 'Version de PHP :',
-		'server' => 'Server Software :',
-		'docp' => 'www.php.net/manual/fr/',
-		'versm' => 'Version de MySQL :',
-		'docm' => 'dev.mysql.com/doc/index.html',
-		'phpExt' => 'Extensions&nbsp;Chargées&nbsp;:',
-		'titrePage' => 'Outils',
-		'txtProjet' => 'Vos Projets',
-		'txtServerName' => 'Le ServerName %s comporte des erreurs de syntaxe dans le fichier %s',
-		'txtVhostNotClean' => 'Le fichier %s n\'a pas été nettoyé. Il reste des exemples de VirtualHost comme : dummy-host.example.com',
-		'txtNoProjet' => 'Aucun projet.<br /> Pour en ajouter un nouveau, créez simplement un répertoire dans \'www\'.',
-		'txtAlias' => 'Vos Alias',
-		'txtNoAlias' => 'Aucun alias.<br /> Pour en ajouter un nouveau, utilisez le menu de WAMPSERVER.',
-		'txtVhost' => 'Vos VirtualHost',
-		'txtNoVhost' => 'Aucun VirtualHost. Ajouter-en un par projet dans le fichier : wamp/bin/apache/apache%s/conf/extra/httpd-vhosts.conf',
-		'txtNoIncVhost' => 'Décommentez ou ajouter <i>Include conf/extra/httpd-vhosts.conf</i> dans le fichier wamp/bin/apache/apache%s/conf/httpd.conf',
-		'txtNoVhostFile' => 'Le fichier : %s n\'existe pas',
-		'txtNoPath' => 'Le chemin %s pour %s n\'existe pas (Fichier %s)',
-		'txtNotWritable' => 'Le fichier : %s est en lecture seule',
-		'txtNbNotEqual' => 'Le nombre %s ne correspond pas au nombre de %s dans le fichier %s',
-		'txtAddVhost' => 'Ajouter un Virtual Host',
-		'txtCorrected' => 'Certaines erreurs VirtualHosts pourront être corrigées.',
-		'txtPortNumber' => 'Le numéro de port pour %s n\'est pas correct ou ne sont pas identiques dans le fichier %s',
-		'forum' => 'http://forum.wampserver.com/list.php?1',
-		'portUsed' => 'Port défini pour Apache : ',
-		'mysqlportUsed' => 'Port défini pour MySQL : ',
-		'nolocalhost' => 'C\'est une mauvaise idée d\'ajouter localhost dans les url de lancement des projets. Il est préférable de définir des VirtualHost dans le fichier<br />wamp/bin/apache/apache%s/conf/extra/httpd-vhosts.conf<br />et de ne pas ajouter localhost dans les url.',
-	)
-);
+$projectsListIgnore = array ('.','..','wampthemes','wamplangues');
 
 // images
 $pngFolder = <<< EOFILE
@@ -251,18 +170,15 @@ rkJggg==
 EOFILE;
 
 // Recherche des différents thèmes disponibles
-$styleswitcher = '';
-if (strpos($_SERVER["HTTP_USER_AGENT"], "MSIE 7") === false && strpos($_SERVER["HTTP_USER_AGENT"], "MSIE 8") === false) {
-    $styleswitcher = '<select id="themes">'."\n";
-    $themes = glob('wampthemes/*', GLOB_ONLYDIR);
-    foreach ($themes as $theme) {
-        if (file_exists($theme.'/style.css')) {
-            $theme = str_replace('wampthemes/', '', $theme);
-            $styleswitcher .= '<option name="'.$theme.'" id="'.$theme.'">'.$theme.'</option>'."\n";
-        }
+$styleswitcher = '<select id="themes">'."\n";
+$themes = glob('wampthemes/*', GLOB_ONLYDIR);
+foreach ($themes as $theme) {
+    if (file_exists($theme.'/style.css')) {
+        $theme = str_replace('wampthemes/', '', $theme);
+        $styleswitcher .= '<option id="'.$theme.'">'.$theme.'</option>'."\n";
     }
-    $styleswitcher .= '</select>'."\n";
 }
+$styleswitcher .= '</select>'."\n";
 
 //affichage du phpinfo
 if (isset($_GET['phpinfo']))
@@ -270,7 +186,6 @@ if (isset($_GET['phpinfo']))
 	phpinfo();
 	exit();
 }
-
 
 //affichage des images
 if (isset($_GET['img']))
@@ -309,24 +224,32 @@ if (isset($_GET['img']))
     }
 }
 
+// Language
+$langue = $wampConf['language'];
 
-
-// Définition de la langue des textes
-
-if (isset ($_GET['lang']))
-{
+if (isset($_GET['lang']))
   $langue = htmlspecialchars($_GET['lang'],ENT_QUOTES);
-  if ($langue != 'en' && $langue != 'fr' ) {
-		$langue = 'en';
+
+// Recherche des différentes langues disponibles
+$langueswitcher = '<form method="get" style="display:inline-block;"><select name="lang" id="langues" onchange="this.form.submit();">'."\n";
+$i_langues = glob('wamplangues/index_*.php');
+$selected = false;
+foreach ($i_langues as $i_langue) {
+  $i_langue = str_replace(array('wamplangues/index_','.php'), '', $i_langue);
+  $langueswitcher .= '<option value="'.$i_langue.'"';
+  if(!$selected && $langue == $i_langue) {
+  	$langueswitcher .= ' selected ';
+  	$selected = true;
   }
+  $langueswitcher .= '>'.$i_langue.'</option>'."\n";
 }
-elseif (isset ($_SERVER['HTTP_ACCEPT_LANGUAGE']) AND preg_match("/^fr/", $_SERVER['HTTP_ACCEPT_LANGUAGE']))
-{
-	$langue = 'fr';
-}
-else
-{
-	$langue = 'en';
+$langueswitcher .= '</select></form>';
+
+include('wamplangues/index_english.php');
+if(file_exists('wamplangues/index_'.$langue.'.php')) {
+	$langue_temp = $langues;
+	include('wamplangues/index_'.$langue.'.php');
+	$langues = array_merge($langue_temp, $langues);
 }
 
 //initialisation
@@ -347,13 +270,13 @@ if (is_dir($aliasDir))
     closedir($handle);
 }
 if (empty($aliasContents))
-	$aliasContents = "<li>".$langues[$langue]['txtNoAlias']."</li>\n";
+	$aliasContents = "<li>".$langues['txtNoAlias']."</li>\n";
 
-//[modif oto] - Récupération des ServerName de httpd-vhosts.conf
-//$addVhost = "<li style='color:red;'>".$langues[$langue]['txtAddVhost']."</li>";
-$addVhost = "<li><a href='add_vhost.php?lang=".$langue."'>".$langues[$langue]['txtAddVhost']."</a></li>";
+//Récupération des ServerName de httpd-vhosts.conf
+$addVhost = "<li><a href='add_vhost.php?lang=".$langue."'>".$langues['txtAddVhost']."</a></li>";
 if($VirtualHostMenu == "on") {
 	$vhostError = false;
+	$vhostErrorCorrected = true;
 	$error_message = array();
     $allToolsClass = "four-columns";
 	$virtualHost = check_virtualhost();
@@ -361,13 +284,13 @@ if($VirtualHostMenu == "on") {
 	if($virtualHost['include_vhosts'] === false) {
 		$vhostsContents = "<li><i style='color:red;'>Error Include Apache</i></li>";
 		$vhostError = true;
-		$error_message[] = sprintf($langues[$langue]['txtNoIncVhost'],$wampConf['apacheVersion']);
+		$error_message[] = sprintf($langues['txtNoIncVhost'],$wampConf['apacheVersion']);
 	}
 	else {
 		if($virtualHost['vhosts_exist'] === false) {
 			$vhostsContents = "<li><i style='color:red;'>No vhosts file</i></li>";
 			$vhostError = true;
-			$error_message[] = sprintf($langues[$langue]['txtNoVhostFile'],$virtualHost['vhosts_file']);
+			$error_message[] = sprintf($langues['txtNoVhostFile'],$virtualHost['vhosts_file']);
 		}
 		else {
 				if($virtualHost['nb_Server'] > 0) {
@@ -381,26 +304,42 @@ if($VirtualHostMenu == "on") {
 				foreach($virtualHost['ServerName'] as $key => $value) {
 					if($virtualHost['ServerNameValid'][$value] === false) {
 						$vhostError = true;
+						$vhostErrorCorrected = false;
 						$vhostsContents .= '<li>'.$value.' - <i style="color:red;">syntax error</i></li>';
-						$error_message[] = sprintf($langues[$langue]['txtServerName'],"<span style='color:black;'>".$value."</span>",$virtualHost['vhosts_file']);
+						$error_message[] = sprintf($langues['txtServerName'],"<span style='color:black;'>".$value."</span>",$virtualHost['vhosts_file']);
 					}
 					elseif($virtualHost['ServerNameValid'][$value] === true) {
-						$vhostsContents .= '<li><a href="http://'.$value.$UrlPort.'">'.$value.'</a></li>';
+						if($virtualHost['ServerNameIp'][$value] !== false) {
+							$vh_ip = $virtualHost['ServerNameIp'][$value];
+							if($virtualHost['ServerNameIpValid'][$value] !== false) {
+								$vhostsContents .= '<li><a href="http://'.$vh_ip.$UrlPort.'">'.$vh_ip.'</a> <i>('.$value.')</i></li>';
+							}
+							else {
+								$vhostError = true;
+								$vhostErrorCorrected = false;
+								$vhostsContents .= '<li>'.$vh_ip.' for '.$value.' - <i style="color:red;">IP not valid</i></li>';
+								$error_message[] = sprintf($langues['txtServerNameIp'],"<span style='color:black;'>".$vh_ip."</span>","<span style='color:black;'>".$value."</span>",$virtualHost['vhosts_file']);
+							}
+						}
+						else
+							$vhostsContents .= '<li><a href="http://'.$value.$UrlPort.'">'.$value.'</a></li>';
 					}
 					else {
 						$vhostError = true;
-						$error_message[] = sprintf($langues[$langue]['txtVhostNotClean'],$virtualHost['vhosts_file']);
+						$error_message[] = sprintf($langues['txtVhostNotClean'],$virtualHost['vhosts_file']);
 					}
 				}
 				//Check number of <Directory and </Directory equals to number of ServerName
 				if($nb_Directory < $nb_Server || $nb_End_Directory != $nb_Directory) {
 					$vhostError = true;
-					$error_message[] = sprintf($langues[$langue]['txtNbNotEqual'],"&lt;Directory or &lt;/Directory&gt;","ServerName",$virtualHost['vhosts_file']);
+					$vhostErrorCorrected = false;
+					$error_message[] = sprintf($langues['txtNbNotEqual'],"&lt;Directory or &lt;/Directory&gt;","ServerName",$virtualHost['vhosts_file']);
 				}
 				//Check number of DocumentRoot equals to number of ServerName
 				if($nb_Document != $nb_Server) {
 					$vhostError = true;
-					$error_message[] = sprintf($langues[$langue]['txtNbNotEqual'],"DocumentRoot","ServerName",$virtualHost['vhosts_file']);
+					$vhostErrorCorrected = false;
+					$error_message[] = sprintf($langues['txtNbNotEqual'],"DocumentRoot","ServerName",$virtualHost['vhosts_file']);
 				}
 				//Check validity of DocumentRoot
 				if($virtualHost['document'] === false) {
@@ -408,7 +347,8 @@ if($VirtualHostMenu == "on") {
 						if($virtualHost['documentPathValid'][$value] === false) {
 							$documentPathError = $value;
 							$vhostError = true;
-							$error_message[] = sprintf($langues[$langue]['txtNoPath'],"<span style='color:black;'>".$value."</span>", "DocumentRoot", $virtualHost['vhosts_file']);
+							$vhostErrorCorrected = false;
+							$error_message[] = sprintf($langues['txtNoPath'],"<span style='color:black;'>".$value."</span>", "DocumentRoot", $virtualHost['vhosts_file']);
 							break;
 						}
 					}
@@ -419,28 +359,50 @@ if($VirtualHostMenu == "on") {
 						if($virtualHost['directoryPathValid'][$value] === false) {
 							$documentPathError = $value;
 							$vhostError = true;
-							$error_message[] = sprintf($langues[$langue]['txtNoPath'],"<span style='color:black;'>".$value."</span>", "&lt;Directory ...", $virtualHost['vhosts_file']);
+							$vhostErrorCorrected = false;
+							$error_message[] = sprintf($langues['txtNoPath'],"<span style='color:black;'>".$value."</span>", "&lt;Directory ...", $virtualHost['vhosts_file']);
 							break;
 						}
 					}
 				}
 				//Check number of <VirtualHost equals or > to number of ServerName
-				if($nb_Server != $nb_Virtual) {
+				if($nb_Server != $nb_Virtual && $wampConf['NotCheckDuplicate'] == 'off') {
 					$port_number = false;
 					$vhostError = true;
-					$error_message[] = sprintf($langues[$langue]['txtNbNotEqual'],"&lt;VirtualHost","ServerName",$virtualHost['vhosts_file']);
+					$vhostErrorCorrected = false;
+					$error_message[] = sprintf($langues['txtNbNotEqual'],"&lt;VirtualHost","ServerName",$virtualHost['vhosts_file']);
 				}
 				//Check number of port definition of <VirtualHost *:xx> equals to number of ServerName
-				if($virtualHost['nb_Virtual_Port'] != $nb_Virtual) {
+				if($virtualHost['nb_Virtual_Port'] != $nb_Virtual && $wampConf['NotCheckDuplicate'] == 'off') {
 					$port_number = false;
 					$vhostError = true;
-					$error_message[] = sprintf($langues[$langue]['txtNbNotEqual'],"port definition of &lt;VirtualHost *:xx&gt;","ServerName",$virtualHost['vhosts_file']);
+					$vhostErrorCorrected = false;
+					$error_message[] = sprintf($langues['txtNbNotEqual'],"port definition of &lt;VirtualHost *:xx&gt;","ServerName",$virtualHost['vhosts_file']);
 				}
 				//Check validity of port number
 				if($port_number && $virtualHost['port_number'] === false) {
 					$port_number = false;
 					$vhostError = true;
-					$error_message[] = sprintf($langues[$langue]['txtPortNumber'],"&lt;VirtualHost *:port&gt;",$virtualHost['vhosts_file']);
+					$vhostErrorCorrected = false;
+					$error_message[] = sprintf($langues['txtPortNumber'],"&lt;VirtualHost *:port&gt;",$virtualHost['vhosts_file']);
+				}
+				//Check if duplicate ServerName
+				if($virtualHost['nb_duplicate'] > 0) {
+					$DuplicateNames = '';
+					foreach($virtualHost['duplicate'] as $NameValue)
+						$DuplicateNames .= " ".$NameValue;
+					$vhostError = true;
+					$vhostErrorCorrected = false;
+					$error_message[] = "Duplicate ServerName <span style='color:blue;'>".$DuplicateNames."</span> into ".$virtualHost['vhosts_file'];
+				}
+				//Check if duplicate Server IP
+				if($virtualHost['nb_duplicateIp'] > 0) {
+					$DuplicateNames = '';
+					foreach($virtualHost['duplicateIp'] as $NameValue)
+						$DuplicateNames .= " ".$NameValue;
+					$vhostError = true;
+					$vhostErrorCorrected = false;
+					$error_message[] = "Duplicate IP <span style='color:blue;'>".$DuplicateNames."</span> into ".$virtualHost['vhosts_file'];
 				}
 			}
 		}
@@ -448,11 +410,11 @@ if($VirtualHostMenu == "on") {
 	if(empty($vhostsContents)) {
 		$vhostsContents = "<li><i style='color:red:'>No VirtualHost</i></li>";
 		$vhostError = true;
-		$error_message[] = sprintf($langues[$langue]['txtNoVhost'],$wampConf['apacheVersion']);
+		$error_message[] = sprintf($langues['txtNoVhost'],$wampConf['apacheVersion']);
 	}
 	if(!$c_hostsFile_writable){
 		$vhostError = true;
-		$error_message[] = sprintf($langues[$langue]['txtNotWritable'],$c_hostsFile);
+		$error_message[] = sprintf($langues['txtNotWritable'],$c_hostsFile);
 	}
 	if($vhostError) {
 		$vhostsContents .= "<li><i style='color:red;'>Error(s)</i> See below</li>";
@@ -461,14 +423,15 @@ if($VirtualHostMenu == "on") {
 			$error_content .= $value."<br />";
 		}
 		$error_content .= "</p>\n";
-		$addVhost = "<li><a href='add_vhost.php?lang=".$langue."'>".$langues[$langue]['txtAddVhost']."</a> <span style='font-size:0.72em;color:red;'>".$langues[$langue]['txtCorrected']."</span></li>";
+		if($vhostErrorCorrected)
+			$addVhost = "<li><a href='add_vhost.php?lang=".$langue."'>".$langues['txtAddVhost']."</a> <span style='font-size:0.72em;color:red;'>".$langues['txtCorrected']."</span></li>";
 	}
 }
 else {
     $allToolsClass = "three-columns";
 }
 
-//Fin modif oto - Récupération ServerName
+//Fin Récupération ServerName
 
 // récupération des projets
 $handle=opendir(".");
@@ -487,13 +450,13 @@ while (($file = readdir($handle))!==false)
 }
 closedir($handle);
 if (empty($projectContents))
-	$projectContents = "<li>".$langues[$langue]['txtNoProjet']."</li>\n";
+	$projectContents = "<li>".$langues['txtNoProjet']."</li>\n";
 else {
 	if(strpos($projectContents,"http://localhost/") !== false) {
 		$projectContents .= "<li><i style='color:blue;'>Warning:</i> See below</li>";
 		if(!isset($error_content))
 			$error_content = '';
-		$error_content .= "<p style='color:blue;'>".sprintf($langues[$langue]['nolocalhost'],$wampConf['apacheVersion'])."</p>";
+		$error_content .= "<p style='color:blue;'>".sprintf($langues['nolocalhost'],$wampConf['apacheVersion'])."</p>";
 	}
 }
 
@@ -503,7 +466,7 @@ $phpExtContents = '';
 // récupération des extensions PHP
 $loaded_extensions = get_loaded_extensions();
 // classement alphabétique des extensions
-setlocale(LC_ALL,"{$langues[$langue]['locale']}");
+setlocale(LC_ALL,"{$langues['locale']}");
 sort($loaded_extensions,SORT_LOCALE_STRING);
 foreach ($loaded_extensions as $extension)
 	$phpExtContents .= "<li>${extension}</li>";
@@ -516,6 +479,7 @@ $c_phpCliConf = strtolower($c_phpVersionDir.'/php'.$wampConf['phpVersion'].'/'.$
 
 if($phpini != strtolower($c_phpConfFile) && $phpini != $c_phpConfFileOri) {
 	$error_content .= "<p style='color:red;'>*** ERROR *** The PHP configuration loaded file is: ".$phpini." - should be: ".$c_phpConfFile." or ".$c_phpConfFileOri;
+	$error_content .= "<br>You must perform: <span style='color:green;'>Right-click icon Wampmanager -> Refresh</span><br>";
 	if($phpini == $c_phpCliConf || $phpini == $c_phpCliConfFile)
 		$error_content .= " - This file is only for PHP in Command Line - Maybe you've added 'PHPIniDir' in the 'httpd.conf' file. Delete or comment this line.";
 	$error_content .= "</p>";
@@ -534,7 +498,7 @@ $pageContents = <<< EOPAGE
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{$langues[$langue]['titreHtml']}</title>
+	<title>{$langues['titreHtml']}</title>
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
@@ -553,32 +517,31 @@ $pageContents = <<< EOPAGE
 		   </ul>
      </div>
 		<ul class="utility">
-		  <li>Version ${wampserverVersion}</li>
-		  <li><a href="?lang={$langues[$langue]['autreLangueLien']}">{$langues[$langue]['autreLangue']}</a></li>
-      <li>${styleswitcher}</li>
+		  <li>Version ${c_wampVersion} - ${c_wampMode}</li>
+      <li>${langueswitcher}${styleswitcher}</li>
 	  </ul>
 	</div>
 
 	<div class="config">
 	    <div class="innerconfig">
 
-	        <h2> {$langues[$langue]['titreConf']} </h2>
+	        <h2> {$langues['titreConf']} </h2>
 
 	        <dl class="content">
-		        <dt>{$langues[$langue]['versa']}</dt>
-		            <dd>${apacheVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$langue][$doca_version]}'>Documentation</a></dd>
-		        <dt>{$langues[$langue]['versp']}</dt>
-		            <dd>${phpVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$langue]['docp']}'>Documentation</a></dd>
-		        <dt>{$langues[$langue]['server']}</dt>
-		            <dd>${server_software}&nbsp;-&nbsp;{$langues[$langue]['portUsed']}{$port}</dd>
-		        <dt>{$langues[$langue]['phpExt']}</dt>
+		        <dt>{$langues['versa']}</dt>
+		            <dd>${apacheVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$doca_version]}'>Documentation</a></dd>
+		        <dt>{$langues['versp']}</dt>
+		            <dd>${phpVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues['docp']}'>Documentation</a></dd>
+		        <dt>{$langues['server']}</dt>
+		            <dd>${server_software}&nbsp;-&nbsp;{$langues['portUsed']}{$port}</dd>
+		        <dt>{$langues['phpExt']}</dt>
 		            <dd>
 			            <ul>
 			                ${phpExtContents}
 			            </ul>
 		            </dd>
-		        <dt>{$langues[$langue]['versm']}</dt>
-		            <dd>${mysqlVersion}&nbsp;-&nbsp;{$langues[$langue]['mysqlportUsed']}{$Mysqlport}&nbsp;-&nbsp; <a href='http://{$langues[$langue]['docm']}'>Documentation</a></dd>
+		        <dt>{$langues['versm']}</dt>
+		            <dd>${mysqlVersion}&nbsp;-&nbsp;{$langues['mysqlportUsed']}{$Mysqlport}&nbsp;-&nbsp; <a href='http://{$langues['docm']}'>Documentation</a></dd>
 	        </dl>
         </div>
     </div>
@@ -588,7 +551,7 @@ $pageContents = <<< EOPAGE
     <div class="alltools ${allToolsClass}">
 	    <div class="inneralltools">
 	        <div class="column">
-	            <h2>{$langues[$langue]['titrePage']}</h2>
+	            <h2>{$langues['titrePage']}</h2>
 	            <ul class="tools">
 		            <li><a href="?phpinfo=1">phpinfo()</a></li>
 		            <li><a href="phpmyadmin/">phpmyadmin</a></li>
@@ -596,13 +559,13 @@ $pageContents = <<< EOPAGE
 	            </ul>
 	        </div>
 	        		<div class="column">
-	            <h2>{$langues[$langue]['txtProjet']}</h2>
+	            <h2>{$langues['txtProjet']}</h2>
 	            <ul class="projects">
 	                ${projectContents}
 	            </ul>
 	        </div>
 	        	<div class="column">
-	            <h2>{$langues[$langue]['txtAlias']}</h2>
+	            <h2>{$langues['txtAlias']}</h2>
 	            <ul class="aliases">
 	                ${aliasContents}
 	            </ul>
@@ -611,7 +574,7 @@ EOPAGE;
 if($VirtualHostMenu == "on") {
 $pageContents .= <<< EOPAGEA
 	        <div class="column">
-	            <h2>{$langues[$langue]['txtVhost']}</h2>
+	            <h2>{$langues['txtVhost']}</h2>
 	            <ul class="vhost">
 	                ${vhostsContents}
 	            </ul>
@@ -631,7 +594,7 @@ $pageContents .= <<< EOPAGEC
 	<div class="divider2">&nbsp;</div>
 
 	<ul id="foot">
-		<li><a href="{$langues[$langue]['forum']}">WampServer Forum</a></li>
+		<li><a href="{$langues['forumLink']}">{$langues['forum']}</a></li>
 	</ul>
 
 <script>
@@ -651,7 +614,7 @@ if (select.addEventListener) {
         selectedOption = document.getElementById("classic");
         selectedOption.setAttribute("selected", "selected");
     }
-    /* Changing style when selct change */
+    /* Changing style when select change */
 
     select.addEventListener("change", function(){
         var styleName = this.value;
