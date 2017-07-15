@@ -72,7 +72,7 @@ var Fireworks = (function() {
    */
   function createFirework() {
 	setTimeout(createFirework, 2000);
-	setTimeout(createFirework, 4000);
+	setTimeout(createFirework, 6000);
 	createParticle();
   }
 
