@@ -1,0 +1,750 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: OnlineMag\n"
+"POT-Creation-Date: 2017-07-21 16:47+0545\n"
+"PO-Revision-Date: 2017-07-21 16:46+0545\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:32
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:244
+msgid "Browse:"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:245
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:246
+msgid "Home"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:247
+msgid "404 Not Found"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:248
+msgid "Archives"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:250
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:252
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:254
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:256
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:708
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:725
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:742
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:758
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:787
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:814
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:841
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:1181
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:759
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:815
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:1185
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:760
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:1189
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: assets/frameworks/breadcrumbs/breadcrumbs.php:788
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#. translators: %s: post title
+#: comments.php:33
+#, php-format
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:37
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:47 comments.php:68
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:50 comments.php:71
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:51 comments.php:72
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:85
+msgid "Comments are closed."
+msgstr ""
+
+#: front-page.php:20
+#, php-format
+msgid ""
+"All Section are based on page and post. Atleast enable slider or blog "
+"Sections from customizer example for </br> slider: Home/Front Main Slider -> "
+"Setting Options -> Enable. likewise to other sections </br> %s, add widget "
+"as well on <b>Home/Front Page Widget</b>"
+msgstr ""
+
+#: front-page.php:21
+msgid "click here"
+msgstr ""
+
+#: functions.php:56
+msgid "Primary"
+msgstr ""
+
+#: functions.php:57
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:58
+msgid "Footer"
+msgstr ""
+
+#: functions.php:124
+msgctxt "%s font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/customizer/blog-section/blog.php:16
+msgid "Home Blog Options"
+msgstr ""
+
+#: inc/customizer/blog-section/blog.php:25
+msgid "Enable Blog Section"
+msgstr ""
+
+#: inc/customizer/blog-section/blog.php:45
+#, php-format
+msgid "Select Category For Blog %s"
+msgstr ""
+
+#: inc/customizer/blog-section/blog.php:46
+msgid "Selected category will displayed below the slider"
+msgstr ""
+
+#: inc/customizer/color/color-section.php:47
+msgid "Site Identity Color"
+msgstr ""
+
+#: inc/customizer/color/color-section.php:48
+msgid "Site title and tagline color"
+msgstr ""
+
+#: inc/customizer/color/color-section.php:62
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer/color/color-section.php:77
+msgid "Reset"
+msgstr ""
+
+#: inc/customizer/color/color-section.php:78
+msgid ""
+"Caution: Reset all color settings above to default. Refresh the page after "
+"saving to view the effects"
+msgstr ""
+
+#: inc/customizer/customizer.php:107 inc/customizer/customizer.php:117
+msgid "Reset All Options"
+msgstr ""
+
+#: inc/customizer/customizer.php:118
+msgid ""
+"Caution: Reset all options settings to default. Refresh the page after save "
+"to view the effects. "
+msgstr ""
+
+#: inc/customizer/customizer.php:131
+msgid "Additional CSS"
+msgstr ""
+
+#: inc/customizer/customizer.php:138
+msgid "Header Image"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:41
+msgid "Font Family"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:51
+msgid "Site Identity/Logo"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:52
+msgid "Site Identity font family"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:69
+msgid "Body ( paragraph ) Primary"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:70
+msgid "change primary font family"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:87
+msgid "Section Title"
+msgstr ""
+
+#: inc/customizer/font/font-section.php:88
+msgid "section title font will be changed"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:22
+msgid "Home Main Slider"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:33
+msgid "Enable Feature Slider"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:35
+msgid "Enable \"Feature slider\" on checked"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:48
+msgid "Slider Mode"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:52
+msgid "Default"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:53
+msgid "Fade"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:54
+msgid "Fade-Out"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:55
+msgid "Flip-Horz"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:69
+msgid "Number Of Slider"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:70
+msgid ""
+"You need to have more than three post on that category to make slider "
+"section working properly"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:74
+#: inc/customizer/theme-option/footer.php:30
+msgid "1"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:75
+#: inc/customizer/theme-option/footer.php:31
+msgid "2"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:76
+#: inc/customizer/theme-option/footer.php:32
+msgid "3"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:77
+#: inc/customizer/theme-option/footer.php:33
+msgid "4"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:92
+msgid "Select Category For Slider"
+msgstr ""
+
+#: inc/customizer/main-slider-section/panel.php:93
+msgid ""
+"If you have only choosen category then slider will dispaly form it, if not "
+"then will display latest post"
+msgstr ""
+
+#: inc/customizer/theme-option/back-to-top.php:13
+msgid "Back To Top Options"
+msgstr ""
+
+#: inc/customizer/theme-option/back-to-top.php:23
+msgid "Enable Back To Top"
+msgstr ""
+
+#: inc/customizer/theme-option/breadcrumb.php:13
+msgid "Breadcrumb Options"
+msgstr ""
+
+#: inc/customizer/theme-option/breadcrumb.php:23
+msgid "Enable Breadcrumb"
+msgstr ""
+
+#: inc/customizer/theme-option/footer.php:9
+msgid "Copyright &copy; All right reserved."
+msgstr ""
+
+#: inc/customizer/theme-option/footer.php:15
+msgid "Footer Options"
+msgstr ""
+
+#: inc/customizer/theme-option/footer.php:25
+msgid "Number of Sidebars In Footer Area"
+msgstr ""
+
+#: inc/customizer/theme-option/footer.php:29
+msgid "Disable footer sidebar area"
+msgstr ""
+
+#: inc/customizer/theme-option/footer.php:47
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:17
+msgid "Layout Options"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:29
+msgid "Default Layout"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:30
+msgid ""
+"Please note that this section can be overridden for individual page/posts"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:34
+msgid "Content - Primary Sidebar"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:35
+msgid "Primary Sidebar - Content"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:36
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:50
+msgid "Alignment Of Image In Single Post/Page"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:54
+#: inc/post-meta/layout-meta.php:52
+msgid "Full"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:55
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:56
+#: inc/post-meta/layout-meta.php:60
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:57
+msgid "No image"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:60
+msgid "Please note that this setting can be override from individual post/page"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:70
+msgid "Excerpt Length (in words)"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:83
+msgid "Archive Layout"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:87
+msgid "Excerpt Only"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:88
+msgid "Thumbnail and Excerpt"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:89
+msgid "Full Post"
+msgstr ""
+
+#: inc/customizer/theme-option/layout-options.php:90
+msgid "Thumbnail and Full Post"
+msgstr ""
+
+#: inc/customizer/theme-option/option-panel.php:6
+msgid "Theme Options"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:11
+msgid "Header Section Settings"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:18
+msgid "Top Header Settings"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:25
+msgid "Header Advertisement Settings"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:35
+msgid "Latest"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:46
+msgid "Enable Search"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:60
+msgid "Enable Random"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:74
+msgid "Enable Home"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:87
+msgid "Enable Date"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:100
+msgid "Header Tiker Enable"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:113
+msgid "Header Tinker Title"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:126
+msgid "No of Tinker to Display"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:142
+msgid "Header Banner Addvertise"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:143
+msgid "Upload Image to be on header banner"
+msgstr ""
+
+#: inc/customizer/top-header/banner-add.php:158
+msgid "Redirect Advertisement URL"
+msgstr ""
+
+#: inc/frameworks/evision-customizer/inc/custom-control/evision-category-control.php:34
+#: inc/frameworks/evision-customizer/inc/custom-control/evision-post-dropdown-control.php:48
+#: inc/frameworks/evision-customizer/inc/custom-control/evision-tags-dropdown-control.php:46
+#: inc/frameworks/evision-customizer/inc/custom-control/evision-user-dropdown-control.php:43
+msgid "Select"
+msgstr ""
+
+#: inc/hooks/footer.php:115
+#, php-format
+msgid "Theme: %1$s by %2$s"
+msgstr ""
+
+#: inc/hooks/header.php:174
+msgid "Skip to content"
+msgstr ""
+
+#: inc/hooks/homepage-blog.php:86
+msgid "View More"
+msgstr ""
+
+#: inc/hooks/homepage-slider.php:109
+msgid "comment"
+msgstr ""
+
+#: inc/hooks/homepage-slider.php:110
+msgid "comments"
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:24
+msgid "Layout options"
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:56
+msgid "Right "
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:64
+msgid "No Image"
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:84
+msgid "Choose Sidebar Template"
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:109
+msgid "You can set up the sidebar content"
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:109
+msgid "here"
+msgstr ""
+
+#: inc/post-meta/layout-meta.php:113
+msgid "Featured Image Alignment"
+msgstr ""
+
+#: inc/sidebar-widget-init.php:9
+msgid "Sidebar"
+msgstr ""
+
+#: inc/sidebar-widget-init.php:19
+msgid "Home/Front Page Widget"
+msgstr ""
+
+#: inc/sidebar-widget-init.php:33
+msgid "Footer Column One"
+msgstr ""
+
+#: inc/sidebar-widget-init.php:35 inc/sidebar-widget-init.php:45
+#: inc/sidebar-widget-init.php:56 inc/sidebar-widget-init.php:67
+msgid "Displays items on footer section."
+msgstr ""
+
+#: inc/sidebar-widget-init.php:43
+msgid "Footer Column Two"
+msgstr ""
+
+#: inc/sidebar-widget-init.php:54
+msgid "Footer Column Three"
+msgstr ""
+
+#: inc/sidebar-widget-init.php:65
+msgid "Footer Column Four"
+msgstr ""
+
+#: inc/template-tags.php:30
+#, php-format
+msgctxt "post date"
+msgid "On %s"
+msgstr ""
+
+#: inc/template-tags.php:35
+#, php-format
+msgctxt "post author"
+msgid "By %s"
+msgstr ""
+
+#: inc/template-tags.php:54 inc/template-tags.php:60
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: inc/template-tags.php:66
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:66
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:66
+msgid "% Comments"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:73 template-parts/content-page.php:48
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:15
+msgid "OnlineMag Widget Style 1"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:16
+msgid "Homepage Widget with two column post display"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:171 inc/widgets/sidebar-style1.php:160
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:175 inc/widgets/sidebar-style1.php:164
+msgid "Category:"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:184 inc/widgets/sidebar-style1.php:173
+msgid "All Categories"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:190 inc/widgets/sidebar-style1.php:179
+msgid "Number of Posts:"
+msgstr ""
+
+#: inc/widgets/mainpage-style1.php:194 inc/widgets/sidebar-style1.php:183
+msgid "Custom Class:"
+msgstr ""
+
+#: inc/widgets/sidebar-style1.php:15
+msgid "OnlineMag Widget Style 2"
+msgstr ""
+
+#: inc/widgets/sidebar-style1.php:16
+msgid "Especially On Sidebar Effective For Recent-Post"
+msgstr ""
+
+#: inc/widgets/sidebar-style1.php:200
+#, php-format
+msgid "%d Column"
+msgstr ""
+
+#: inc/widgets/sidebar-style1.php:201
+#, php-format
+msgid "%d Columns"
+msgstr ""
+
+#: search.php:19
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: single.php:22
+msgid "NEXT POST"
+msgstr ""
+
+#: single.php:23
+msgid "Next post:"
+msgstr ""
+
+#: single.php:25
+msgid "PREVIOUS POST"
+msgstr ""
+
+#: single.php:26
+msgid "Previous post:"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:21
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:36 template-parts/content-single.php:55
+#: template-parts/content.php:90
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: Name of current post.
+#: template-parts/content.php:39 template-parts/content.php:63
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: trt-customize-pro/onlinemag/class-customize.php:77
+msgid "OnlineMag Pro - Buy Now"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "OnlineMag"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://evisionthemes.com/product/onlinemag/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"OnlineMag, a clean and professional WordPress Magazine by eVision Themes"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "eVision Themes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://evisionthemes.com"
+msgstr ""

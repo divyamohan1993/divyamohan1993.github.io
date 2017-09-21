@@ -1,0 +1,39 @@
+#customize-controls .control-section-onlinemag .accordion-section-title:hover,
+#customize-controls .control-section-onlinemag .accordion-section-title:focus {
+	background-color: #fff;
+}
+
+.control-section-onlinemag .accordion-section-title .cusbtn {
+	margin-top:  -4px;
+	font-weight: 400;
+	margin-left: 8px;
+}
+
+.rtl .control-section-onlinemag .accordion-section-title .cusbtn {
+	margin-left:  0;
+	margin-right: 8px;
+}
+
+.accordion-section-title .cusbtn{
+	text-align: center;
+	padding-left: 30px;
+	padding-right: 30px;
+  margin-top: 8px;
+}
+
+a.cusbtn,
+a.cusbtn:visited {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+  box-shadow: none;
+  font-size: 13px;
+  padding: 11px 20px 12px;
+  vertical-align: middle;
+  display: block;
+  text-align: center;
+  clear: both;
+  margin-bottom: 7px;
+  border-radius: 3px;
+  outline: none;
+}
