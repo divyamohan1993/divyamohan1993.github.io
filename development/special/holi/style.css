@@ -27,7 +27,7 @@ body {
 
 .caption {
 	width:auto;
-	max-width:450px;
+	max-width:auto;
 	margin:auto;
 	padding:4px;
 	background:rgba(0, 0, 0, 0.3);
