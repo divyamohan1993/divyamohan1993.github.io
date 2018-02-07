@@ -1,13 +1,10 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\SOFTWARE\NCH Software\VideoPad\Registration]
-"RD"="1475800639"
+"RD"="1517826851"
 
 [HKEY_CURRENT_USER\SOFTWARE\NCH Software\WavePad\Registration]
-"RD"="1475800639"
+"RD"="1517826851"
 
 [HKEY_CURRENT_USER\SOFTWARE\NCH Software\Debut\Registration]
-"RD"="1475800639"
-
-[HKEY_CURRENT_USER\SOFTWARE\NCH Software\MixPad\Registration]
-"RD"="1475800639"
+"RD"="1517826851"

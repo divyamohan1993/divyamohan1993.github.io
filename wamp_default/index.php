@@ -6,10 +6,10 @@
 // and Hervé Leclerc <herve.leclerc@alterway.fr>
 // Icons by Mark James <http://www.famfamfam.com/lab/icons/silk/>
 // Version 2.5 -> 3.0.0 by Dominique Ottello aka Otomatic
-// Update 3.0.6
-// Check duplicate ServerName
-// Support of VitualHost by IP
-
+// Update 3.1.0
+// No PhpMyAdmin or Adminer if not Mysql nor MariaDB
+//
+//
 
 $server_dir = "../";
 
@@ -38,6 +38,8 @@ $VirtualHostMenu = $wampConf['VirtualHostSubMenu'];
 //on récupère la valeur de apachePortUsed
 $port = $wampConf['apachePortUsed'];
 $UrlPort = $port !== "80" ? ":".$port : '';
+//On récupère le ou les valeurs des ports en écoute dans Apache
+$ListenPorts = implode(' - ',listen_ports());
 //on récupère la valeur de mysqlPortUsed
 $Mysqlport = $wampConf['mysqlPortUsed'];
 
@@ -253,6 +255,27 @@ if(file_exists('wamplangues/index_'.$langue.'.php')) {
 }
 
 //initialisation
+// Récupération MySQL si supporté
+$MySQLdb = '';
+if(isset($wampConf['SupportMySQL']) && $wampConf['SupportMySQL'] =='on') {
+	$MySQLdb = <<< EOF
+<dt>{$langues['versm']}</dt>
+	<dd>${mysqlVersion}&nbsp;-&nbsp;{$langues['mysqlportUsed']}{$Mysqlport}&nbsp;-&nbsp; <a href='http://{$langues['docm']}'>{$langues['documentation']}</a></dd>
+EOF;
+}
+
+// Récupération MariaDB si supporté
+$MariaDB = '';
+if(isset($wampConf['SupportMariaDB']) && $wampConf['SupportMariaDB'] =='on') {
+	$MariaDB = <<< EOF
+<dt>{$langues['versmaria']}</dt>
+  <dd>${c_mariadbVersion}&nbsp;-&nbsp;{$langues['mariaportUsed']}{$wampConf['mariaPortUsed']}&nbsp;-&nbsp; <a href='http://{$langues['docmaria']}'>{$langues['documentation']}</a></dd>
+EOF;
+}
+// No Database Mysql System
+$noDBMS = (empty($MySQLdb) && empty($MariaDB)) ? true : false;
+$phpmyadminTool = $noDBMS ? '' : '<li><a href="phpmyadmin/">phpmyadmin</a></li>';
+
 $aliasContents = '';
 
 // récupération des alias
@@ -263,14 +286,17 @@ if (is_dir($aliasDir))
     {
 	    if (is_file($aliasDir.$file) && strstr($file, '.conf'))
 	    {
-		    $msg = '';
-		    $aliasContents .= '<li><a href="'.str_replace('.conf','',$file).'/">'.str_replace('.conf','',$file).'</a></li>';
+	    	if(!($noDBMS && ($file == 'phpmyadmin.conf' || $file == 'adminer.conf'))) {
+		    	$msg = '';
+		    	$aliasContents .= '<li><a href="'.str_replace('.conf','',$file).'/">'.str_replace('.conf','',$file).'</a></li>';
+		  	}
 	    }
     }
     closedir($handle);
 }
 if (empty($aliasContents))
 	$aliasContents = "<li>".$langues['txtNoAlias']."</li>\n";
+
 
 //Récupération des ServerName de httpd-vhosts.conf
 $addVhost = "<li><a href='add_vhost.php?lang=".$langue."'>".$langues['txtAddVhost']."</a></li>";
@@ -309,10 +335,19 @@ if($VirtualHostMenu == "on") {
 						$error_message[] = sprintf($langues['txtServerName'],"<span style='color:black;'>".$value."</span>",$virtualHost['vhosts_file']);
 					}
 					elseif($virtualHost['ServerNameValid'][$value] === true) {
-						if($virtualHost['ServerNameIp'][$value] !== false) {
+						$UrlPortVH = ($virtualHost['ServerNamePort'][$value] != '80') ? ':'.$virtualHost['ServerNamePort'][$value] : '';
+						if(!$virtualHost['port_listen'] && $virtualHost['ServerNamePortListen'][$value] !== true) {
+							$vhostsContents .= '<li>'.$value.$UrlPortVH.' - <i style="color:red;">Not a Listen port</i></li>';
+							if(!$vhostError) {
+								$vhostError = true;
+								$vhostErrorCorrected = false;
+								$error_message[] = "Port used for the VirtualHost is not an Apache 'Listen port' in httpd.conf";
+							}
+						}
+						elseif($virtualHost['ServerNameIp'][$value] !== false) {
 							$vh_ip = $virtualHost['ServerNameIp'][$value];
 							if($virtualHost['ServerNameIpValid'][$value] !== false) {
-								$vhostsContents .= '<li><a href="http://'.$vh_ip.$UrlPort.'">'.$vh_ip.'</a> <i>('.$value.')</i></li>';
+								$vhostsContents .= '<li><a href="http://'.$vh_ip.$UrlPortVH.'">'.$vh_ip.'</a> <i>('.$value.')</i></li>';
 							}
 							else {
 								$vhostError = true;
@@ -322,18 +357,18 @@ if($VirtualHostMenu == "on") {
 							}
 						}
 						else
-							$vhostsContents .= '<li><a href="http://'.$value.$UrlPort.'">'.$value.'</a></li>';
+							$vhostsContents .= '<li><a href="http://'.$value.$UrlPortVH.'">'.$value.'</a></li>';
 					}
 					else {
 						$vhostError = true;
 						$error_message[] = sprintf($langues['txtVhostNotClean'],$virtualHost['vhosts_file']);
 					}
 				}
-				//Check number of <Directory and </Directory equals to number of ServerName
-				if($nb_Directory < $nb_Server || $nb_End_Directory != $nb_Directory) {
+				//Check number of <Directory equals </Directory
+				if($nb_End_Directory != $nb_Directory) {
 					$vhostError = true;
 					$vhostErrorCorrected = false;
-					$error_message[] = sprintf($langues['txtNbNotEqual'],"&lt;Directory or &lt;/Directory&gt;","ServerName",$virtualHost['vhosts_file']);
+					$error_message[] = sprintf($langues['txtNbNotEqual'],"&lt;Directory ....&gt;","&lt;/Directory&gt;",$virtualHost['vhosts_file']);
 				}
 				//Check number of DocumentRoot equals to number of ServerName
 				if($nb_Document != $nb_Server) {
@@ -529,19 +564,19 @@ $pageContents = <<< EOPAGE
 
 	        <dl class="content">
 		        <dt>{$langues['versa']}</dt>
-		            <dd>${apacheVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$doca_version]}'>Documentation</a></dd>
+		            <dd>${apacheVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues[$doca_version]}'>{$langues['documentation']}</a></dd>
 		        <dt>{$langues['versp']}</dt>
-		            <dd>${phpVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues['docp']}'>Documentation</a></dd>
+		            <dd>${phpVersion}&nbsp;&nbsp;-&nbsp;<a href='http://{$langues['docp']}'>{$langues['documentation']}</a></dd>
 		        <dt>{$langues['server']}</dt>
-		            <dd>${server_software}&nbsp;-&nbsp;{$langues['portUsed']}{$port}</dd>
+		            <dd>${server_software}&nbsp;-&nbsp;{$langues['portUsed']}{$ListenPorts}</dd>
 		        <dt>{$langues['phpExt']}</dt>
 		            <dd>
 			            <ul>
 			                ${phpExtContents}
 			            </ul>
 		            </dd>
-		        <dt>{$langues['versm']}</dt>
-		            <dd>${mysqlVersion}&nbsp;-&nbsp;{$langues['mysqlportUsed']}{$Mysqlport}&nbsp;-&nbsp; <a href='http://{$langues['docm']}'>Documentation</a></dd>
+						${MySQLdb}
+		        ${MariaDB}
 	        </dl>
         </div>
     </div>
@@ -554,7 +589,7 @@ $pageContents = <<< EOPAGE
 	            <h2>{$langues['titrePage']}</h2>
 	            <ul class="tools">
 		            <li><a href="?phpinfo=1">phpinfo()</a></li>
-		            <li><a href="phpmyadmin/">phpmyadmin</a></li>
+		            {$phpmyadminTool}
 		            {$addVhost}
 	            </ul>
 	        </div>

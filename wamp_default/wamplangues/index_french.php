@@ -1,4 +1,5 @@
 <?php
+// 3.0.7 - MariaDB
 $langues = array(
 	'langue' => 'Français',
 	'locale' => 'french',
@@ -9,9 +10,12 @@ $langues = array(
 	'doca2.4' => 'httpd.apache.org/docs/2.4/fr/',
 	'versp' => 'Version de PHP :',
 	'server' => 'Server Software :',
+	'documentation' => 'Documentation',
 	'docp' => 'www.php.net/manual/fr/',
 	'versm' => 'Version de MySQL :',
 	'docm' => 'dev.mysql.com/doc/index.html',
+	'versmaria' => 'Version de MariaDB :',
+	'docmaria' => 'mariadb.com/kb/fr/documentation-de-mariadb',
 	'phpExt' => 'Extensions&nbsp;Chargées&nbsp;:',
 	'titrePage' => 'Outils',
 	'txtProjet' => 'Vos Projets',
@@ -35,6 +39,7 @@ $langues = array(
 	'forumLink' => 'http://forum.wampserver.com/list.php?1',
 	'portUsed' => 'Port défini pour Apache : ',
 	'mysqlportUsed' => 'Port défini pour MySQL : ',
+	'mariaportUsed' => 'Port défini pour MariaDB : ',
 	'nolocalhost' => 'C\'est une mauvaise idée d\'ajouter localhost dans les url de lancement des projets. Il est préférable de définir des VirtualHost dans le fichier<br />wamp/bin/apache/apache%s/conf/extra/httpd-vhosts.conf<br />et de ne pas ajouter localhost dans les url.',
 	);
 ?>

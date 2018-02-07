@@ -1,0 +1,1168 @@
+	* {
+		margin: 0; 
+		padding: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	html::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+		border-radius: 5px;
+		background-color: #080510;
+	}
+
+	html::-webkit-scrollbar {
+		width: 5px;
+		background-color: #080510;
+	}
+
+	html::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.3);
+		background-color: #D62929;
+	}
+	
+	html, body {
+		margin: 0;
+		padding: 0;
+		font: 16px/1.4 'Lato', sans-serif;
+		color: #fefeff;
+		-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+	}
+	body {
+		background: rgb(8,5,16);
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	
+	h1 {
+		font: 44px 'Cinzel', serif;
+		font-weight: 400;
+		letter-spacing: 0.35em;
+		text-shadow: 0 0 25px rgba(254,254,255,0.85);
+	}
+	h2 {
+		font: 23px 'Cinzel', serif;
+		font-weight: 400;
+		letter-spacing: 0.5em;
+		text-shadow: 0 0 25px rgba(254,254,255,0.85);
+		text-transform: lowercase;
+	}
+	
+	h3 {
+		font: 20px 'Gruppo', serif;
+		font-weight: 400;
+		text-shadow: 0 0 25px rgba(254,254,255,0.85);
+	}
+	
+	blockquote {
+		font: 20px 'Gruppo', serif;
+		font-weight: 400;
+		text-shadow: 0 0 25px rgba(254,254,255,0.85);
+		overflow-x: hidden;
+		text-align: center justify;
+		text-justify: normal;
+	}
+	
+	class^="letter"] {
+		-webkit-transition: opacity 3s ease;
+		-moz-transition: opacity 3s ease;
+		transition: opacity 3s ease;
+	}
+	
+	h1, h2, h3, blockquote {
+		visibility: hidden;
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}	
+	h1.transition-in,
+	h2.transition-in,
+	blockquote.transition-in,
+	h3.transition-in {
+		visibility: visible;
+	}
+	h1 [class^="letter"], 
+	h2 [class^="letter"],
+	blockquote [class^="letter"],
+	h3 [class^="letter"] {
+		opacity: 0;
+	}
+	h1.transition-in [class^="letter"],
+	h2.transition-in [class^="letter"],
+	blockquote.transition-in [class^="letter"],
+	h3.transition-in [class^="letter"] {
+		opacity: 1;
+	}
+	
+	#container {
+		display: table;
+		position: absolute;
+		z-index: 20;
+		width: 100%;
+		height: 100%;		
+		text-align: center;
+		cursor: none;
+	}
+	#container div {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	footer {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: 25px;
+		font-size: 0.8em;
+		letter-spacing: 0.1em;
+		font-weight: 300;
+		color: #76747a;
+		-webkit-font-smoothing: subpixel-antialiased;
+		font-smoothing: subpixel-antialiased; 
+	}
+	footer strong {
+		font-weight: 300;
+		color: #b3abc5;
+	}
+	footer span {
+		font-size: 0.75em;
+		padding: 0 2px;
+	}
+	
+	footer .rights {
+		cursor: default;
+		margin-top:10;
+		position:absolute; 
+	}
+	
+	#canvas {
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		cursor: none;
+	}
+	
+	#stats { 
+		position: absolute; 
+		z-index: 10; 
+		left: 10px; 
+		top: 10px; 
+	}
+	
+	.dg.ac {
+		z-index: 100 !important;
+	}
+	
+	.letter-0  	{ transition-delay: 0.2s; }
+	.letter-1	{ transition-delay: 0.4s; } 
+	.letter-2	{ transition-delay: 0.6s; } 
+	.letter-3	{ transition-delay: 0.8s; } 
+	.letter-4	{ transition-delay: 1s; } 
+	.letter-5	{ transition-delay: 1.2s; } 
+	.letter-6	{ transition-delay: 1.4s; } 
+	.letter-7	{ transition-delay: 1.6s; } 
+	.letter-8	{ transition-delay: 1.8s; } 
+	.letter-9	{ transition-delay: 2s; } 
+	.letter-10	{ transition-delay: 2.2s; } 
+	.letter-11	{ transition-delay: 2.4s; } 
+	.letter-12	{ transition-delay: 2.6s; } 
+	.letter-13	{ transition-delay: 2.8s; } 
+	.letter-14	{ transition-delay: 3s; } 
+	.letter-15	{ transition-delay: 3.2s; } 
+	.letter-16	{ transition-delay: 3.4s; } 
+	.letter-17	{ transition-delay: 3.6s; } 
+	.letter-18	{ transition-delay: 3.8s; } 
+	.letter-19	{ transition-delay: 4s; } 
+	.letter-20	{ transition-delay: 4.2s; } 
+	.letter-21	{ transition-delay: 4.4s; } 
+	.letter-22	{ transition-delay: 4.6s; } 
+	.letter-23	{ transition-delay: 4.8s; } 
+	.letter-24	{ transition-delay: 5s; } 
+	.letter-25	{ transition-delay: 5.2s; } 
+	.letter-26	{ transition-delay: 5.4s; } 
+	.letter-27	{ transition-delay: 5.6s; } 
+	.letter-28	{ transition-delay: 5.8s; } 
+	.letter-29	{ transition-delay: 6s; } 
+	.letter-30	{ transition-delay: 6.2s; } 
+	.letter-31	{ transition-delay: 6.4s; } 
+	.letter-32	{ transition-delay: 6.6s; } 
+	.letter-33	{ transition-delay: 6.8s; } 
+	.letter-34	{ transition-delay: 7s; } 
+	.letter-35	{ transition-delay: 7.2s; } 
+	.letter-36	{ transition-delay: 7.4s; } 
+	.letter-37	{ transition-delay: 7.6s; } 
+	.letter-38	{ transition-delay: 7.8s; } 
+	.letter-39	{ transition-delay: 8s; } 
+	.letter-40	{ transition-delay: 8.2s; } 
+	.letter-41	{ transition-delay: 8.4s; } 
+	.letter-42	{ transition-delay: 8.6s; } 
+	.letter-43	{ transition-delay: 8.8s; } 
+	.letter-44	{ transition-delay: 9s; } 
+	.letter-45	{ transition-delay: 9.2s; } 
+	.letter-46	{ transition-delay: 9.4s; } 
+	.letter-47	{ transition-delay: 9.6s; } 
+	.letter-48	{ transition-delay: 9.8s; } 
+	.letter-49	{ transition-delay: 10s; } 
+	.letter-50	{ transition-delay: 10.2s; } 
+	.letter-51	{ transition-delay: 10.4s; } 
+	.letter-52	{ transition-delay: 10.6s; } 
+	.letter-53	{ transition-delay: 10.8s; } 
+	.letter-54	{ transition-delay: 11s; } 
+	.letter-55	{ transition-delay: 11.2s; } 
+	.letter-56	{ transition-delay: 11.4s; } 
+	.letter-57	{ transition-delay: 11.6s; } 
+	.letter-58	{ transition-delay: 11.8s; } 
+	.letter-59	{ transition-delay: 12s; } 
+	.letter-60	{ transition-delay: 12.2s; } 
+	.letter-61	{ transition-delay: 12.4s; } 
+	.letter-62	{ transition-delay: 12.6s; } 
+	.letter-63	{ transition-delay: 12.8s; } 
+	.letter-64	{ transition-delay: 13s; } 
+	.letter-65	{ transition-delay: 13.2s; } 
+	.letter-66	{ transition-delay: 13.4s; } 
+	.letter-67	{ transition-delay: 13.6s; } 
+	.letter-68	{ transition-delay: 13.8s; } 
+	.letter-69	{ transition-delay: 14s; } 
+	.letter-70	{ transition-delay: 14.2s; } 
+	.letter-71	{ transition-delay: 14.4s; } 
+	.letter-72	{ transition-delay: 14.6s; } 
+	.letter-73	{ transition-delay: 14.8s; } 
+	.letter-74	{ transition-delay: 15s; } 
+	.letter-75	{ transition-delay: 15.2s; } 
+	.letter-76	{ transition-delay: 15.4s; } 
+	.letter-77	{ transition-delay: 15.6s; } 
+	.letter-78	{ transition-delay: 15.8s; } 
+	.letter-79	{ transition-delay: 16s; } 
+	.letter-80	{ transition-delay: 16.2s; } 
+	.letter-81	{ transition-delay: 16.4s; } 
+	.letter-82	{ transition-delay: 16.6s; } 
+	.letter-83	{ transition-delay: 16.8s; } 
+	.letter-84	{ transition-delay: 17s; } 
+	.letter-85	{ transition-delay: 17.2s; } 
+	.letter-86	{ transition-delay: 17.4s; } 
+	.letter-87	{ transition-delay: 17.6s; } 
+	.letter-88	{ transition-delay: 17.8s; } 
+	.letter-89	{ transition-delay: 18s; } 
+	.letter-90	{ transition-delay: 18.2s; } 
+	.letter-91	{ transition-delay: 18.4s; } 
+	.letter-92	{ transition-delay: 18.6s; } 
+	.letter-93	{ transition-delay: 18.8s; } 
+	.letter-94	{ transition-delay: 19s; } 
+	.letter-95	{ transition-delay: 19.2s; } 
+	.letter-96	{ transition-delay: 19.4s; } 
+	.letter-97	{ transition-delay: 19.6s; } 
+	.letter-98	{ transition-delay: 19.8s; } 
+	.letter-99	{ transition-delay: 20s; } 
+	.letter-100	{ transition-delay: 20.2s; } 
+	.letter-101	{ transition-delay: 20.4s; } 
+	.letter-102	{ transition-delay: 20.6s; } 
+	.letter-103	{ transition-delay: 20.8s; } 
+	.letter-104	{ transition-delay: 21s; } 
+	.letter-105	{ transition-delay: 21.2s; } 
+	.letter-106	{ transition-delay: 21.4s; } 
+	.letter-107	{ transition-delay: 21.6s; } 
+	.letter-108	{ transition-delay: 21.8s; } 
+	.letter-109	{ transition-delay: 22s; } 
+	.letter-110	{ transition-delay: 22.2s; } 
+	.letter-111	{ transition-delay: 22.4s; } 
+	.letter-112	{ transition-delay: 22.6s; } 
+	.letter-113	{ transition-delay: 22.8s; } 
+	.letter-114	{ transition-delay: 23s; } 
+	.letter-115	{ transition-delay: 23.2s; } 
+	.letter-116	{ transition-delay: 23.4s; } 
+	.letter-117	{ transition-delay: 23.6s; } 
+	.letter-118	{ transition-delay: 23.8s; } 
+	.letter-119	{ transition-delay: 24s; } 
+	.letter-120	{ transition-delay: 24.2s; } 
+	.letter-121	{ transition-delay: 24.4s; } 
+	.letter-122	{ transition-delay: 24.6s; } 
+	.letter-123	{ transition-delay: 24.8s; } 
+	.letter-124	{ transition-delay: 25s; } 
+	.letter-125	{ transition-delay: 25.2s; } 
+	.letter-126	{ transition-delay: 25.4s; } 
+	.letter-127	{ transition-delay: 25.6s; } 
+	.letter-128	{ transition-delay: 25.8s; } 
+	.letter-129	{ transition-delay: 26s; } 
+	.letter-130	{ transition-delay: 26.2s; } 
+	.letter-131	{ transition-delay: 26.4s; } 
+	.letter-132	{ transition-delay: 26.6s; } 
+	.letter-133	{ transition-delay: 26.8s; } 
+	.letter-134	{ transition-delay: 27s; } 
+	.letter-135	{ transition-delay: 27.2s; } 
+	.letter-136	{ transition-delay: 27.4s; } 
+	.letter-137	{ transition-delay: 27.6s; } 
+	.letter-138	{ transition-delay: 27.8s; } 
+	.letter-139	{ transition-delay: 28s; } 
+	.letter-140	{ transition-delay: 28.2s; } 
+	.letter-141	{ transition-delay: 28.4s; } 
+	.letter-142	{ transition-delay: 28.6s; } 
+	.letter-143	{ transition-delay: 28.8s; } 
+	.letter-144	{ transition-delay: 29s; } 
+	.letter-145	{ transition-delay: 29.2s; } 
+	.letter-146	{ transition-delay: 29.4s; } 
+	.letter-147	{ transition-delay: 29.6s; } 
+	.letter-148	{ transition-delay: 29.8s; } 
+	.letter-149	{ transition-delay: 30s; } 
+	.letter-150	{ transition-delay: 30.2s; } 
+	.letter-151	{ transition-delay: 30.4s; } 
+	.letter-152	{ transition-delay: 30.6s; } 
+	.letter-153	{ transition-delay: 30.8s; } 
+	.letter-154	{ transition-delay: 31s; } 
+	.letter-155	{ transition-delay: 31.2s; } 
+	.letter-156	{ transition-delay: 31.4s; } 
+	.letter-157	{ transition-delay: 31.6s; } 
+	.letter-158	{ transition-delay: 31.8s; } 
+	.letter-159	{ transition-delay: 32s; } 
+	.letter-160	{ transition-delay: 32.2s; } 
+	.letter-161	{ transition-delay: 32.4s; } 
+	.letter-162	{ transition-delay: 32.6s; } 
+	.letter-163	{ transition-delay: 32.8s; } 
+	.letter-164	{ transition-delay: 33s; } 
+	.letter-165	{ transition-delay: 33.2s; } 
+	.letter-166	{ transition-delay: 33.4s; } 
+	.letter-167	{ transition-delay: 33.6s; } 
+	.letter-168	{ transition-delay: 33.8s; } 
+	.letter-169	{ transition-delay: 34s; } 
+	.letter-170	{ transition-delay: 34.2s; } 
+	.letter-171	{ transition-delay: 34.4s; } 
+	.letter-172	{ transition-delay: 34.6s; } 
+	.letter-173	{ transition-delay: 34.8s; } 
+	.letter-174	{ transition-delay: 35s; } 
+	.letter-175	{ transition-delay: 35.2s; } 
+	.letter-176	{ transition-delay: 35.4s; } 
+	.letter-177	{ transition-delay: 35.6s; } 
+	.letter-178	{ transition-delay: 35.8s; } 
+	.letter-179	{ transition-delay: 36s; } 
+	.letter-180	{ transition-delay: 36.2s; } 
+	.letter-181	{ transition-delay: 36.4s; } 
+	.letter-182	{ transition-delay: 36.6s; } 
+	.letter-183	{ transition-delay: 36.8s; } 
+	.letter-184	{ transition-delay: 37s; } 
+	.letter-185	{ transition-delay: 37.2s; } 
+	.letter-186	{ transition-delay: 37.4s; } 
+	.letter-187	{ transition-delay: 37.6s; } 
+	.letter-188	{ transition-delay: 37.8s; } 
+	.letter-189	{ transition-delay: 38s; } 
+	.letter-190	{ transition-delay: 38.2s; } 
+	.letter-191	{ transition-delay: 38.4s; } 
+	.letter-192	{ transition-delay: 38.6s; } 
+	.letter-193	{ transition-delay: 38.8s; } 
+	.letter-194	{ transition-delay: 39s; } 
+	.letter-195	{ transition-delay: 39.2s; } 
+	.letter-196	{ transition-delay: 39.4s; } 
+	.letter-197	{ transition-delay: 39.6s; } 
+	.letter-198	{ transition-delay: 39.8s; } 
+	.letter-199	{ transition-delay: 40s; } 
+	.letter-200	{ transition-delay: 40.2s; } 
+	.letter-201	{ transition-delay: 40.4s; } 
+	.letter-202	{ transition-delay: 40.6s; } 
+	.letter-203	{ transition-delay: 40.8s; } 
+	.letter-204	{ transition-delay: 41s; } 
+	.letter-205	{ transition-delay: 41.2s; } 
+	.letter-206	{ transition-delay: 41.4s; } 
+	.letter-207	{ transition-delay: 41.6s; } 
+	.letter-208	{ transition-delay: 41.8s; } 
+	.letter-209	{ transition-delay: 42s; } 
+	.letter-210	{ transition-delay: 42.2s; } 
+	.letter-211	{ transition-delay: 42.4s; } 
+	.letter-212	{ transition-delay: 42.6s; } 
+	.letter-213	{ transition-delay: 42.8s; } 
+	.letter-214	{ transition-delay: 43s; } 
+	.letter-215	{ transition-delay: 43.2s; } 
+	.letter-216	{ transition-delay: 43.4s; } 
+	.letter-217	{ transition-delay: 43.6s; } 
+	.letter-218	{ transition-delay: 43.8s; } 
+	.letter-219	{ transition-delay: 44s; } 
+	.letter-220	{ transition-delay: 44.2s; } 
+	.letter-221	{ transition-delay: 44.4s; } 
+	.letter-222	{ transition-delay: 44.6s; } 
+	.letter-223	{ transition-delay: 44.8s; } 
+	.letter-224	{ transition-delay: 45s; } 
+	.letter-225	{ transition-delay: 45.2s; } 
+	.letter-226	{ transition-delay: 45.4s; } 
+	.letter-227	{ transition-delay: 45.6s; } 
+	.letter-228	{ transition-delay: 45.8s; } 
+	.letter-229	{ transition-delay: 46s; } 
+	.letter-230	{ transition-delay: 46.2s; } 
+	.letter-231	{ transition-delay: 46.4s; } 
+	.letter-232	{ transition-delay: 46.6s; } 
+	.letter-233	{ transition-delay: 46.8s; } 
+	.letter-234	{ transition-delay: 47s; } 
+	.letter-235	{ transition-delay: 47.2s; } 
+	.letter-236	{ transition-delay: 47.4s; } 
+	.letter-237	{ transition-delay: 47.6s; } 
+	.letter-238	{ transition-delay: 47.8s; } 
+	.letter-239	{ transition-delay: 48s; } 
+	.letter-240	{ transition-delay: 48.2s; } 
+	.letter-241	{ transition-delay: 48.4s; } 
+	.letter-242	{ transition-delay: 48.6s; } 
+	.letter-243	{ transition-delay: 48.8s; } 
+	.letter-244	{ transition-delay: 49s; } 
+	.letter-245	{ transition-delay: 49.2s; } 
+	.letter-246	{ transition-delay: 49.4s; } 
+	.letter-247	{ transition-delay: 49.6s; } 
+	.letter-248	{ transition-delay: 49.8s; } 
+	.letter-249	{ transition-delay: 50s; } 
+	.letter-250	{ transition-delay: 50.2s; } 
+	.letter-251	{ transition-delay: 50.4s; } 
+	.letter-252	{ transition-delay: 50.6s; } 
+	.letter-253	{ transition-delay: 50.8s; } 
+	.letter-254	{ transition-delay: 51s; } 
+	.letter-255	{ transition-delay: 51.2s; } 
+	.letter-256	{ transition-delay: 51.4s; } 
+	.letter-257	{ transition-delay: 51.6s; } 
+	.letter-258	{ transition-delay: 51.8s; } 
+	.letter-259	{ transition-delay: 52s; } 
+	.letter-260	{ transition-delay: 52.2s; } 
+	.letter-261	{ transition-delay: 52.4s; } 
+	.letter-262	{ transition-delay: 52.6s; } 
+	.letter-263	{ transition-delay: 52.8s; } 
+	.letter-264	{ transition-delay: 53s; } 
+	.letter-265	{ transition-delay: 53.2s; } 
+	.letter-266	{ transition-delay: 53.4s; } 
+	.letter-267	{ transition-delay: 53.6s; } 
+	.letter-268	{ transition-delay: 53.8s; } 
+	.letter-269	{ transition-delay: 54s; } 
+	.letter-270	{ transition-delay: 54.2s; } 
+	.letter-271	{ transition-delay: 54.4s; } 
+	.letter-272	{ transition-delay: 54.6s; } 
+	.letter-273	{ transition-delay: 54.8s; } 
+	.letter-274	{ transition-delay: 55s; } 
+	.letter-275	{ transition-delay: 55.2s; } 
+	.letter-276	{ transition-delay: 55.4s; } 
+	.letter-277	{ transition-delay: 55.6s; } 
+	.letter-278	{ transition-delay: 55.8s; } 
+	.letter-279	{ transition-delay: 56s; } 
+	.letter-280	{ transition-delay: 56.2s; } 
+	.letter-281	{ transition-delay: 56.4s; } 
+	.letter-282	{ transition-delay: 56.6s; } 
+	.letter-283	{ transition-delay: 56.8s; } 
+	.letter-284	{ transition-delay: 57s; } 
+	.letter-285	{ transition-delay: 57.2s; } 
+	.letter-286	{ transition-delay: 57.4s; } 
+	.letter-287	{ transition-delay: 57.6s; } 
+	.letter-288	{ transition-delay: 57.8s; } 
+	.letter-289	{ transition-delay: 58s; } 
+	.letter-290	{ transition-delay: 58.2s; } 
+	.letter-291	{ transition-delay: 58.4s; } 
+	.letter-292	{ transition-delay: 58.6s; } 
+	.letter-293	{ transition-delay: 58.8s; } 
+	.letter-294	{ transition-delay: 59s; } 
+	.letter-295	{ transition-delay: 59.2s; } 
+	.letter-296	{ transition-delay: 59.4s; } 
+	.letter-297	{ transition-delay: 59.6s; } 
+	.letter-298	{ transition-delay: 59.8s; } 
+	.letter-299	{ transition-delay: 60s; } 
+	.letter-300	{ transition-delay: 60.2s; } 
+	.letter-301	{ transition-delay: 60.4s; } 
+	.letter-302	{ transition-delay: 60.6s; } 
+	.letter-303	{ transition-delay: 60.8s; } 
+	.letter-304	{ transition-delay: 61s; } 
+	.letter-305	{ transition-delay: 61.2s; } 
+	.letter-306	{ transition-delay: 61.4s; } 
+	.letter-307	{ transition-delay: 61.6s; } 
+	.letter-308	{ transition-delay: 61.8s; } 
+	.letter-309	{ transition-delay: 62s; } 
+	.letter-310	{ transition-delay: 62.2s; } 
+	.letter-311	{ transition-delay: 62.4s; } 
+	.letter-312	{ transition-delay: 62.6s; } 
+	.letter-313	{ transition-delay: 62.8s; } 
+	.letter-314	{ transition-delay: 63s; } 
+	.letter-315	{ transition-delay: 63.2s; } 
+	.letter-316	{ transition-delay: 63.4s; } 
+	.letter-317	{ transition-delay: 63.6s; } 
+	.letter-318	{ transition-delay: 63.8s; } 
+	.letter-319	{ transition-delay: 64s; } 
+	.letter-320	{ transition-delay: 64.2s; } 
+	.letter-321	{ transition-delay: 64.4s; } 
+	.letter-322	{ transition-delay: 64.6s; } 
+	.letter-323	{ transition-delay: 64.8s; } 
+	.letter-324	{ transition-delay: 65s; } 
+	.letter-325	{ transition-delay: 65.2s; } 
+	.letter-326	{ transition-delay: 65.4s; } 
+	.letter-327	{ transition-delay: 65.6s; } 
+	.letter-328	{ transition-delay: 65.8s; } 
+	.letter-329	{ transition-delay: 66s; } 
+	.letter-330	{ transition-delay: 66.2s; } 
+	.letter-331	{ transition-delay: 66.4s; } 
+	.letter-332	{ transition-delay: 66.6s; } 
+	.letter-333	{ transition-delay: 66.8s; } 
+	.letter-334	{ transition-delay: 67s; } 
+	.letter-335	{ transition-delay: 67.2s; } 
+	.letter-336	{ transition-delay: 67.4s; } 
+	.letter-337	{ transition-delay: 67.6s; } 
+	.letter-338	{ transition-delay: 67.8s; } 
+	.letter-339	{ transition-delay: 68s; } 
+	.letter-340	{ transition-delay: 68.2s; } 
+	.letter-341	{ transition-delay: 68.4s; } 
+	.letter-342	{ transition-delay: 68.6s; } 
+	.letter-343	{ transition-delay: 68.8s; } 
+	.letter-344	{ transition-delay: 69s; } 
+	.letter-345	{ transition-delay: 69.2s; } 
+	.letter-346	{ transition-delay: 69.4s; } 
+	.letter-347	{ transition-delay: 69.6s; } 
+	.letter-348	{ transition-delay: 69.8s; } 
+	.letter-349	{ transition-delay: 70s; } 
+	.letter-350	{ transition-delay: 70.2s; } 
+	.letter-351	{ transition-delay: 70.4s; } 
+	.letter-352	{ transition-delay: 70.6s; } 
+	.letter-353	{ transition-delay: 70.8s; } 
+	.letter-354	{ transition-delay: 71s; } 
+	.letter-355	{ transition-delay: 71.2s; } 
+	.letter-356	{ transition-delay: 71.4s; } 
+	.letter-357	{ transition-delay: 71.6s; } 
+	.letter-358	{ transition-delay: 71.8s; } 
+	.letter-359	{ transition-delay: 72s; } 
+	.letter-360	{ transition-delay: 72.2s; } 
+	.letter-361	{ transition-delay: 72.4s; } 
+	.letter-362	{ transition-delay: 72.6s; } 
+	.letter-363	{ transition-delay: 72.8s; } 
+	.letter-364	{ transition-delay: 73s; } 
+	.letter-365	{ transition-delay: 73.2s; } 
+	.letter-366	{ transition-delay: 73.4s; } 
+	.letter-367	{ transition-delay: 73.6s; } 
+	.letter-368	{ transition-delay: 73.8s; } 
+	.letter-369	{ transition-delay: 74s; } 
+	.letter-370	{ transition-delay: 74.2s; } 
+	.letter-371	{ transition-delay: 74.4s; } 
+	.letter-372	{ transition-delay: 74.6s; } 
+	.letter-373	{ transition-delay: 74.8s; } 
+	.letter-374	{ transition-delay: 75s; } 
+	.letter-375	{ transition-delay: 75.2s; } 
+	.letter-376	{ transition-delay: 75.4s; } 
+	.letter-377	{ transition-delay: 75.6s; } 
+	.letter-378	{ transition-delay: 75.8s; } 
+	.letter-379	{ transition-delay: 76s; } 
+	.letter-380	{ transition-delay: 76.2s; } 
+	.letter-381	{ transition-delay: 76.4s; } 
+	.letter-382	{ transition-delay: 76.6s; } 
+	.letter-383	{ transition-delay: 76.8s; } 
+	.letter-384	{ transition-delay: 77s; } 
+	.letter-385	{ transition-delay: 77.2s; } 
+	.letter-386	{ transition-delay: 77.4s; } 
+	.letter-387	{ transition-delay: 77.6s; } 
+	.letter-388	{ transition-delay: 77.8s; } 
+	.letter-389	{ transition-delay: 78s; } 
+	.letter-390	{ transition-delay: 78.2s; } 
+	.letter-391	{ transition-delay: 78.4s; } 
+	.letter-392	{ transition-delay: 78.6s; } 
+	.letter-393	{ transition-delay: 78.8s; } 
+	.letter-394	{ transition-delay: 79s; } 
+	.letter-395	{ transition-delay: 79.2s; } 
+	.letter-396	{ transition-delay: 79.4s; } 
+	.letter-397	{ transition-delay: 79.6s; } 
+	.letter-398	{ transition-delay: 79.8s; } 
+	.letter-399	{ transition-delay: 80s; } 
+	.letter-400	{ transition-delay: 80.2s; } 
+	.letter-401	{ transition-delay: 80.4s; } 
+	.letter-402	{ transition-delay: 80.6s; } 
+	.letter-403	{ transition-delay: 80.8s; } 
+	.letter-404	{ transition-delay: 81s; } 
+	.letter-405	{ transition-delay: 81.2s; } 
+	.letter-406	{ transition-delay: 81.4s; } 
+	.letter-407	{ transition-delay: 81.6s; } 
+	.letter-408	{ transition-delay: 81.8s; } 
+	.letter-409	{ transition-delay: 82s; } 
+	.letter-410	{ transition-delay: 82.2s; } 
+	.letter-411	{ transition-delay: 82.4s; } 
+	.letter-412	{ transition-delay: 82.6s; } 
+	.letter-413	{ transition-delay: 82.8s; } 
+	.letter-414	{ transition-delay: 83s; } 
+	.letter-415	{ transition-delay: 83.2s; } 
+	.letter-416	{ transition-delay: 83.4s; } 
+	.letter-417	{ transition-delay: 83.6s; } 
+	.letter-418	{ transition-delay: 83.8s; } 
+	.letter-419	{ transition-delay: 84s; } 
+	.letter-420	{ transition-delay: 84.2s; } 
+	.letter-421	{ transition-delay: 84.4s; } 
+	.letter-422	{ transition-delay: 84.6s; } 
+	.letter-423	{ transition-delay: 84.8s; } 
+	.letter-424	{ transition-delay: 85s; } 
+	.letter-425	{ transition-delay: 85.2s; } 
+	.letter-426	{ transition-delay: 85.4s; } 
+	.letter-427	{ transition-delay: 85.6s; } 
+	.letter-428	{ transition-delay: 85.8s; } 
+	.letter-429	{ transition-delay: 86s; } 
+	.letter-430	{ transition-delay: 86.2s; } 
+	.letter-431	{ transition-delay: 86.4s; } 
+	.letter-432	{ transition-delay: 86.6s; } 
+	.letter-433	{ transition-delay: 86.8s; } 
+	.letter-434	{ transition-delay: 87s; } 
+	.letter-435	{ transition-delay: 87.2s; } 
+	.letter-436	{ transition-delay: 87.4s; } 
+	.letter-437	{ transition-delay: 87.6s; } 
+	.letter-438	{ transition-delay: 87.8s; } 
+	.letter-439	{ transition-delay: 88s; } 
+	.letter-440	{ transition-delay: 88.2s; } 
+	.letter-441	{ transition-delay: 88.4s; } 
+	.letter-442	{ transition-delay: 88.6s; } 
+	.letter-443	{ transition-delay: 88.8s; } 
+	.letter-444	{ transition-delay: 89s; } 
+	.letter-445	{ transition-delay: 89.2s; } 
+	.letter-446	{ transition-delay: 89.4s; } 
+	.letter-447	{ transition-delay: 89.6s; } 
+	.letter-448	{ transition-delay: 89.8s; } 
+	.letter-449	{ transition-delay: 90s; } 
+	.letter-450	{ transition-delay: 90.2s; } 
+	.letter-451	{ transition-delay: 90.4s; } 
+	.letter-452	{ transition-delay: 90.6s; } 
+	.letter-453	{ transition-delay: 90.8s; } 
+	.letter-454	{ transition-delay: 91s; } 
+	.letter-455	{ transition-delay: 91.2s; } 
+	.letter-456	{ transition-delay: 91.4s; } 
+	.letter-457	{ transition-delay: 91.6s; } 
+	.letter-458	{ transition-delay: 91.8s; } 
+	.letter-459	{ transition-delay: 92s; } 
+	.letter-460	{ transition-delay: 92.2s; } 
+	.letter-461	{ transition-delay: 92.4s; } 
+	.letter-462	{ transition-delay: 92.6s; } 
+	.letter-463	{ transition-delay: 92.8s; } 
+	.letter-464	{ transition-delay: 93s; } 
+	.letter-465	{ transition-delay: 93.2s; } 
+	.letter-466	{ transition-delay: 93.4s; } 
+	.letter-467	{ transition-delay: 93.6s; } 
+	.letter-468	{ transition-delay: 93.8s; } 
+	.letter-469	{ transition-delay: 94s; } 
+	.letter-470	{ transition-delay: 94.2s; } 
+	.letter-471	{ transition-delay: 94.4s; } 
+	.letter-472	{ transition-delay: 94.6s; } 
+	.letter-473	{ transition-delay: 94.8s; } 
+	.letter-474	{ transition-delay: 95s; } 
+	.letter-475	{ transition-delay: 95.2s; } 
+	.letter-476	{ transition-delay: 95.4s; } 
+	.letter-477	{ transition-delay: 95.6s; } 
+	.letter-478	{ transition-delay: 95.8s; } 
+	.letter-479	{ transition-delay: 96s; } 
+	.letter-480	{ transition-delay: 96.2s; } 
+	.letter-481	{ transition-delay: 96.4s; } 
+	.letter-482	{ transition-delay: 96.6s; } 
+	.letter-483	{ transition-delay: 96.8s; } 
+	.letter-484	{ transition-delay: 97s; } 
+	.letter-485	{ transition-delay: 97.2s; } 
+	.letter-486	{ transition-delay: 97.4s; } 
+	.letter-487	{ transition-delay: 97.6s; } 
+	.letter-488	{ transition-delay: 97.8s; } 
+	.letter-489	{ transition-delay: 98s; } 
+	.letter-490	{ transition-delay: 98.2s; } 
+	.letter-491	{ transition-delay: 98.4s; } 
+	.letter-492	{ transition-delay: 98.6s; } 
+	.letter-493	{ transition-delay: 98.8s; } 
+	.letter-494	{ transition-delay: 99s; } 
+	.letter-495	{ transition-delay: 99.2s; } 
+	.letter-496	{ transition-delay: 99.4s; } 
+	.letter-497	{ transition-delay: 99.6s; } 
+	.letter-498	{ transition-delay: 99.8s; } 
+	.letter-499	{ transition-delay: 100s; } 
+	.letter-500	{ transition-delay: 100.2s; } 
+	.letter-501	{ transition-delay: 100.4s; } 
+	.letter-502	{ transition-delay: 100.6s; } 
+	.letter-503	{ transition-delay: 100.8s; } 
+	.letter-504	{ transition-delay: 101s; } 
+	.letter-505	{ transition-delay: 101.2s; } 
+	.letter-506	{ transition-delay: 101.4s; } 
+	.letter-507	{ transition-delay: 101.6s; } 
+	.letter-508	{ transition-delay: 101.8s; } 
+	.letter-509	{ transition-delay: 102s; } 
+	.letter-510	{ transition-delay: 102.2s; } 
+	.letter-511	{ transition-delay: 102.4s; } 
+	.letter-512	{ transition-delay: 102.6s; } 
+	.letter-513	{ transition-delay: 102.8s; } 
+	.letter-514	{ transition-delay: 103s; } 
+	.letter-515	{ transition-delay: 103.2s; } 
+	.letter-516	{ transition-delay: 103.4s; } 
+	.letter-517	{ transition-delay: 103.6s; } 
+	.letter-518	{ transition-delay: 103.8s; } 
+	.letter-519	{ transition-delay: 104s; } 
+	.letter-520	{ transition-delay: 104.2s; } 
+	.letter-521	{ transition-delay: 104.4s; } 
+	.letter-522	{ transition-delay: 104.6s; } 
+	.letter-523	{ transition-delay: 104.8s; } 
+	.letter-524	{ transition-delay: 105s; } 
+	.letter-525	{ transition-delay: 105.2s; } 
+	.letter-526	{ transition-delay: 105.4s; } 
+	.letter-527	{ transition-delay: 105.6s; } 
+	.letter-528	{ transition-delay: 105.8s; } 
+	.letter-529	{ transition-delay: 106s; } 
+	.letter-530	{ transition-delay: 106.2s; } 
+	.letter-531	{ transition-delay: 106.4s; } 
+	.letter-532	{ transition-delay: 106.6s; } 
+	.letter-533	{ transition-delay: 106.8s; } 
+	.letter-534	{ transition-delay: 107s; } 
+	.letter-535	{ transition-delay: 107.2s; } 
+	.letter-536	{ transition-delay: 107.4s; } 
+	.letter-537	{ transition-delay: 107.6s; } 
+	.letter-538	{ transition-delay: 107.8s; } 
+	.letter-539	{ transition-delay: 108s; } 
+	.letter-540	{ transition-delay: 108.2s; } 
+	.letter-541	{ transition-delay: 108.4s; } 
+	.letter-542	{ transition-delay: 108.6s; } 
+	.letter-543	{ transition-delay: 108.8s; } 
+	.letter-544	{ transition-delay: 109s; } 
+	.letter-545	{ transition-delay: 109.2s; } 
+	.letter-546	{ transition-delay: 109.4s; } 
+	.letter-547	{ transition-delay: 109.6s; } 
+	.letter-548	{ transition-delay: 109.8s; } 
+	.letter-549	{ transition-delay: 110s; } 
+	.letter-550	{ transition-delay: 110.2s; } 
+	.letter-551	{ transition-delay: 110.4s; } 
+	.letter-552	{ transition-delay: 110.6s; } 
+	.letter-553	{ transition-delay: 110.8s; } 
+	.letter-554	{ transition-delay: 111s; } 
+	.letter-555	{ transition-delay: 111.2s; } 
+	.letter-556	{ transition-delay: 111.4s; } 
+	.letter-557	{ transition-delay: 111.6s; } 
+	.letter-558	{ transition-delay: 111.8s; } 
+	.letter-559	{ transition-delay: 112s; } 
+	.letter-560	{ transition-delay: 112.2s; } 
+	.letter-561	{ transition-delay: 112.4s; } 
+	.letter-562	{ transition-delay: 112.6s; } 
+	.letter-563	{ transition-delay: 112.8s; } 
+	.letter-564	{ transition-delay: 113s; } 
+	.letter-565	{ transition-delay: 113.2s; } 
+	.letter-566	{ transition-delay: 113.4s; } 
+	.letter-567	{ transition-delay: 113.6s; } 
+	.letter-568	{ transition-delay: 113.8s; } 
+	.letter-569	{ transition-delay: 114s; } 
+	.letter-570	{ transition-delay: 114.2s; } 
+	.letter-571	{ transition-delay: 114.4s; } 
+	.letter-572	{ transition-delay: 114.6s; } 
+	.letter-573	{ transition-delay: 114.8s; } 
+	.letter-574	{ transition-delay: 115s; } 
+	.letter-575	{ transition-delay: 115.2s; } 
+	.letter-576	{ transition-delay: 115.4s; } 
+	.letter-577	{ transition-delay: 115.6s; } 
+	.letter-578	{ transition-delay: 115.8s; } 
+	.letter-579	{ transition-delay: 116s; } 
+	.letter-580	{ transition-delay: 116.2s; } 
+	.letter-581	{ transition-delay: 116.4s; } 
+	.letter-582	{ transition-delay: 116.6s; } 
+	.letter-583	{ transition-delay: 116.8s; } 
+	.letter-584	{ transition-delay: 117s; } 
+	.letter-585	{ transition-delay: 117.2s; } 
+	.letter-586	{ transition-delay: 117.4s; } 
+	.letter-587	{ transition-delay: 117.6s; } 
+	.letter-588	{ transition-delay: 117.8s; } 
+	.letter-589	{ transition-delay: 118s; } 
+	.letter-590	{ transition-delay: 118.2s; } 
+	.letter-591	{ transition-delay: 118.4s; } 
+	.letter-592	{ transition-delay: 118.6s; } 
+	.letter-593	{ transition-delay: 118.8s; } 
+	.letter-594	{ transition-delay: 119s; } 
+	.letter-595	{ transition-delay: 119.2s; } 
+	.letter-596	{ transition-delay: 119.4s; } 
+	.letter-597	{ transition-delay: 119.6s; } 
+	.letter-598	{ transition-delay: 119.8s; } 
+	.letter-599	{ transition-delay: 120s; } 
+	.letter-600	{ transition-delay: 120.2s; } 
+	.letter-601	{ transition-delay: 120.4s; } 
+	.letter-602	{ transition-delay: 120.6s; } 
+	.letter-603	{ transition-delay: 120.8s; } 
+	.letter-604	{ transition-delay: 121s; } 
+	.letter-605	{ transition-delay: 121.2s; } 
+	.letter-606	{ transition-delay: 121.4s; } 
+	.letter-607	{ transition-delay: 121.6s; } 
+	.letter-608	{ transition-delay: 121.8s; } 
+	.letter-609	{ transition-delay: 122s; } 
+	.letter-610	{ transition-delay: 122.2s; } 
+	.letter-611	{ transition-delay: 122.4s; } 
+	.letter-612	{ transition-delay: 122.6s; } 
+	.letter-613	{ transition-delay: 122.8s; } 
+	.letter-614	{ transition-delay: 123s; } 
+	.letter-615	{ transition-delay: 123.2s; } 
+	.letter-616	{ transition-delay: 123.4s; } 
+	.letter-617	{ transition-delay: 123.6s; } 
+	.letter-618	{ transition-delay: 123.8s; } 
+	.letter-619	{ transition-delay: 124s; } 
+	.letter-620	{ transition-delay: 124.2s; } 
+	.letter-621	{ transition-delay: 124.4s; } 
+	.letter-622	{ transition-delay: 124.6s; } 
+	.letter-623	{ transition-delay: 124.8s; } 
+	.letter-624	{ transition-delay: 125s; } 
+	.letter-625	{ transition-delay: 125.2s; } 
+	.letter-626	{ transition-delay: 125.4s; } 
+	.letter-627	{ transition-delay: 125.6s; } 
+	.letter-628	{ transition-delay: 125.8s; } 
+	.letter-629	{ transition-delay: 126s; } 
+	.letter-630	{ transition-delay: 126.2s; } 
+	.letter-631	{ transition-delay: 126.4s; } 
+	.letter-632	{ transition-delay: 126.6s; } 
+	.letter-633	{ transition-delay: 126.8s; } 
+	.letter-634	{ transition-delay: 127s; } 
+	.letter-635	{ transition-delay: 127.2s; } 
+	.letter-636	{ transition-delay: 127.4s; } 
+	.letter-637	{ transition-delay: 127.6s; } 
+	.letter-638	{ transition-delay: 127.8s; } 
+	.letter-639	{ transition-delay: 128s; } 
+	.letter-640	{ transition-delay: 128.2s; } 
+	.letter-641	{ transition-delay: 128.4s; } 
+	.letter-642	{ transition-delay: 128.6s; } 
+	.letter-643	{ transition-delay: 128.8s; } 
+	.letter-644	{ transition-delay: 129s; } 
+	.letter-645	{ transition-delay: 129.2s; } 
+	.letter-646	{ transition-delay: 129.4s; } 
+	.letter-647	{ transition-delay: 129.6s; } 
+	.letter-648	{ transition-delay: 129.8s; } 
+	.letter-649	{ transition-delay: 130s; } 
+	.letter-650	{ transition-delay: 130.2s; } 
+	.letter-651	{ transition-delay: 130.4s; } 
+	.letter-652	{ transition-delay: 130.6s; } 
+	.letter-653	{ transition-delay: 130.8s; } 
+	.letter-654	{ transition-delay: 131s; } 
+	.letter-655	{ transition-delay: 131.2s; } 
+	.letter-656	{ transition-delay: 131.4s; } 
+	.letter-657	{ transition-delay: 131.6s; } 
+	.letter-658	{ transition-delay: 131.8s; } 
+	.letter-659	{ transition-delay: 132s; } 
+	.letter-660	{ transition-delay: 132.2s; } 
+	.letter-661	{ transition-delay: 132.4s; } 
+	.letter-662	{ transition-delay: 132.6s; } 
+	.letter-663	{ transition-delay: 132.8s; } 
+	.letter-664	{ transition-delay: 133s; } 
+	.letter-665	{ transition-delay: 133.2s; } 
+	.letter-666	{ transition-delay: 133.4s; } 
+	.letter-667	{ transition-delay: 133.6s; } 
+	.letter-668	{ transition-delay: 133.8s; } 
+	.letter-669	{ transition-delay: 134s; } 
+	.letter-670	{ transition-delay: 134.2s; } 
+	.letter-671	{ transition-delay: 134.4s; } 
+	.letter-672	{ transition-delay: 134.6s; } 
+	.letter-673	{ transition-delay: 134.8s; } 
+	.letter-674	{ transition-delay: 135s; } 
+	.letter-675	{ transition-delay: 135.2s; } 
+	.letter-676	{ transition-delay: 135.4s; } 
+	.letter-677	{ transition-delay: 135.6s; } 
+	.letter-678	{ transition-delay: 135.8s; } 
+	.letter-679	{ transition-delay: 136s; } 
+	.letter-680	{ transition-delay: 136.2s; } 
+	.letter-681	{ transition-delay: 136.4s; } 
+	.letter-682	{ transition-delay: 136.6s; } 
+	.letter-683	{ transition-delay: 136.8s; } 
+	.letter-684	{ transition-delay: 137s; } 
+	.letter-685	{ transition-delay: 137.2s; } 
+	.letter-686	{ transition-delay: 137.4s; } 
+	.letter-687	{ transition-delay: 137.6s; } 
+	.letter-688	{ transition-delay: 137.8s; } 
+	.letter-689	{ transition-delay: 138s; } 
+	.letter-690	{ transition-delay: 138.2s; } 
+	.letter-691	{ transition-delay: 138.4s; } 
+	.letter-692	{ transition-delay: 138.6s; } 
+	.letter-693	{ transition-delay: 138.8s; } 
+	.letter-694	{ transition-delay: 139s; } 
+	.letter-695	{ transition-delay: 139.2s; } 
+	.letter-696	{ transition-delay: 139.4s; } 
+	.letter-697	{ transition-delay: 139.6s; } 
+	.letter-698	{ transition-delay: 139.8s; } 
+	.letter-699	{ transition-delay: 140s; } 
+	.letter-700	{ transition-delay: 140.2s; } 
+	.letter-701	{ transition-delay: 140.4s; } 
+	.letter-702	{ transition-delay: 140.6s; } 
+	.letter-703	{ transition-delay: 140.8s; } 
+	.letter-704	{ transition-delay: 141s; } 
+	.letter-705	{ transition-delay: 141.2s; } 
+	.letter-706	{ transition-delay: 141.4s; } 
+	.letter-707	{ transition-delay: 141.6s; } 
+	.letter-708	{ transition-delay: 141.8s; } 
+	.letter-709	{ transition-delay: 142s; } 
+	.letter-710	{ transition-delay: 142.2s; } 
+	.letter-711	{ transition-delay: 142.4s; } 
+	.letter-712	{ transition-delay: 142.6s; } 
+	.letter-713	{ transition-delay: 142.8s; } 
+	.letter-714	{ transition-delay: 143s; } 
+	.letter-715	{ transition-delay: 143.2s; } 
+	.letter-716	{ transition-delay: 143.4s; } 
+	.letter-717	{ transition-delay: 143.6s; } 
+	.letter-718	{ transition-delay: 143.8s; } 
+	.letter-719	{ transition-delay: 144s; } 
+	.letter-720	{ transition-delay: 144.2s; } 
+	.letter-721	{ transition-delay: 144.4s; } 
+	.letter-722	{ transition-delay: 144.6s; } 
+	.letter-723	{ transition-delay: 144.8s; } 
+	.letter-724	{ transition-delay: 145s; } 
+	.letter-725	{ transition-delay: 145.2s; } 
+	.letter-726	{ transition-delay: 145.4s; } 
+	.letter-727	{ transition-delay: 145.6s; } 
+	.letter-728	{ transition-delay: 145.8s; } 
+	.letter-729	{ transition-delay: 146s; } 
+	.letter-730	{ transition-delay: 146.2s; } 
+	.letter-731	{ transition-delay: 146.4s; } 
+	.letter-732	{ transition-delay: 146.6s; } 
+	.letter-733	{ transition-delay: 146.8s; } 
+	.letter-734	{ transition-delay: 147s; } 
+	.letter-735	{ transition-delay: 147.2s; } 
+	.letter-736	{ transition-delay: 147.4s; } 
+	.letter-737	{ transition-delay: 147.6s; } 
+	.letter-738	{ transition-delay: 147.8s; } 
+	.letter-739	{ transition-delay: 148s; } 
+	.letter-740	{ transition-delay: 148.2s; } 
+	.letter-741	{ transition-delay: 148.4s; } 
+	.letter-742	{ transition-delay: 148.6s; } 
+	.letter-743	{ transition-delay: 148.8s; } 
+	.letter-744	{ transition-delay: 149s; } 
+	.letter-745	{ transition-delay: 149.2s; } 
+	.letter-746	{ transition-delay: 149.4s; } 
+	.letter-747	{ transition-delay: 149.6s; } 
+	.letter-748	{ transition-delay: 149.8s; } 
+	.letter-749	{ transition-delay: 150s; } 
+	.letter-750	{ transition-delay: 150.2s; } 
+	.letter-751	{ transition-delay: 150.4s; } 
+	.letter-752	{ transition-delay: 150.6s; } 
+	.letter-753	{ transition-delay: 150.8s; } 
+	.letter-754	{ transition-delay: 151s; } 
+	.letter-755	{ transition-delay: 151.2s; } 
+	.letter-756	{ transition-delay: 151.4s; } 
+	.letter-757	{ transition-delay: 151.6s; } 
+	.letter-758	{ transition-delay: 151.8s; } 
+	.letter-759	{ transition-delay: 152s; } 
+	.letter-760	{ transition-delay: 152.2s; } 
+	.letter-761	{ transition-delay: 152.4s; } 
+	.letter-762	{ transition-delay: 152.6s; } 
+	.letter-763	{ transition-delay: 152.8s; } 
+	.letter-764	{ transition-delay: 153s; } 
+	.letter-765	{ transition-delay: 153.2s; } 
+	.letter-766	{ transition-delay: 153.4s; } 
+	.letter-767	{ transition-delay: 153.6s; } 
+	.letter-768	{ transition-delay: 153.8s; } 
+	.letter-769	{ transition-delay: 154s; } 
+	.letter-770	{ transition-delay: 154.2s; } 
+	.letter-771	{ transition-delay: 154.4s; } 
+	.letter-772	{ transition-delay: 154.6s; } 
+	.letter-773	{ transition-delay: 154.8s; } 
+	.letter-774	{ transition-delay: 155s; } 
+	.letter-775	{ transition-delay: 155.2s; } 
+	.letter-776	{ transition-delay: 155.4s; } 
+	.letter-777	{ transition-delay: 155.6s; } 
+	.letter-778	{ transition-delay: 155.8s; } 
+	.letter-779	{ transition-delay: 156s; } 
+	.letter-780	{ transition-delay: 156.2s; } 
+	.letter-781	{ transition-delay: 156.4s; } 
+	.letter-782	{ transition-delay: 156.6s; } 
+	.letter-783	{ transition-delay: 156.8s; } 
+	.letter-784	{ transition-delay: 157s; } 
+	.letter-785	{ transition-delay: 157.2s; } 
+	.letter-786	{ transition-delay: 157.4s; } 
+	.letter-787	{ transition-delay: 157.6s; } 
+	.letter-788	{ transition-delay: 157.8s; } 
+	.letter-789	{ transition-delay: 158s; } 
+	.letter-790	{ transition-delay: 158.2s; } 
+	.letter-791	{ transition-delay: 158.4s; } 
+	.letter-792	{ transition-delay: 158.6s; } 
+	.letter-793	{ transition-delay: 158.8s; } 
+	.letter-794	{ transition-delay: 159s; } 
+	.letter-795	{ transition-delay: 159.2s; } 
+	.letter-796	{ transition-delay: 159.4s; } 
+	.letter-797	{ transition-delay: 159.6s; } 
+	.letter-798	{ transition-delay: 159.8s; } 
+	.letter-799	{ transition-delay: 160s; } 
+	.letter-800	{ transition-delay: 160.2s; } 
+	.letter-801	{ transition-delay: 160.4s; } 
+	.letter-802	{ transition-delay: 160.6s; } 
+	.letter-803	{ transition-delay: 160.8s; } 
+	.letter-804	{ transition-delay: 161s; } 
+	.letter-805	{ transition-delay: 161.2s; } 
+	.letter-806	{ transition-delay: 161.4s; } 
+	.letter-807	{ transition-delay: 161.6s; } 
+	.letter-808	{ transition-delay: 161.8s; } 
+	.letter-809	{ transition-delay: 162s; } 
+	.letter-810	{ transition-delay: 162.2s; } 
+	.letter-811	{ transition-delay: 162.4s; } 
+	.letter-812	{ transition-delay: 162.6s; } 
+	.letter-813	{ transition-delay: 162.8s; } 
+	.letter-814	{ transition-delay: 163s; } 
+	.letter-815	{ transition-delay: 163.2s; } 
+	.letter-816	{ transition-delay: 163.4s; } 
+	.letter-817	{ transition-delay: 163.6s; } 
+	.letter-818	{ transition-delay: 163.8s; } 
+	.letter-819	{ transition-delay: 164s; } 
+	.letter-820	{ transition-delay: 164.2s; } 
+	.letter-821	{ transition-delay: 164.4s; } 
+	.letter-822	{ transition-delay: 164.6s; } 
+	.letter-823	{ transition-delay: 164.8s; } 
+	.letter-824	{ transition-delay: 165s; } 
+	.letter-825	{ transition-delay: 165.2s; } 
+	.letter-826	{ transition-delay: 165.4s; } 
+	.letter-827	{ transition-delay: 165.6s; } 
+	.letter-828	{ transition-delay: 165.8s; } 
+	.letter-829	{ transition-delay: 166s; } 
+	.letter-830	{ transition-delay: 166.2s; } 
+	.letter-831	{ transition-delay: 166.4s; } 
+	.letter-832	{ transition-delay: 166.6s; } 
+	.letter-833	{ transition-delay: 166.8s; } 
+	.letter-834	{ transition-delay: 167s; } 
+	.letter-835	{ transition-delay: 167.2s; } 
+	.letter-836	{ transition-delay: 167.4s; } 
+	.letter-837	{ transition-delay: 167.6s; } 
+	.letter-838	{ transition-delay: 167.8s; } 
+	.letter-839	{ transition-delay: 168s; } 
+	.letter-840	{ transition-delay: 168.2s; } 
+	.letter-841	{ transition-delay: 168.4s; } 
+	.letter-842	{ transition-delay: 168.6s; } 
+	.letter-843	{ transition-delay: 168.8s; } 
+	.letter-844	{ transition-delay: 169s; } 
+	.letter-845	{ transition-delay: 169.2s; } 
+	.letter-846	{ transition-delay: 169.4s; } 
+	.letter-847	{ transition-delay: 169.6s; } 
+	.letter-848	{ transition-delay: 169.8s; } 
+	.letter-849	{ transition-delay: 170s; } 
+	.letter-850	{ transition-delay: 170.2s; } 
+	.letter-851	{ transition-delay: 170.4s; } 
+	.letter-852	{ transition-delay: 170.6s; } 
+	.letter-853	{ transition-delay: 170.8s; } 
+	.letter-854	{ transition-delay: 171s; } 
+	.letter-855	{ transition-delay: 171.2s; } 
+	.letter-856	{ transition-delay: 171.4s; } 
+	.letter-857	{ transition-delay: 171.6s; } 
+	.letter-858	{ transition-delay: 171.8s; } 
+	.letter-859	{ transition-delay: 172s; } 
+	.letter-860	{ transition-delay: 172.2s; } 
+	.letter-861	{ transition-delay: 172.4s; } 
+	.letter-862	{ transition-delay: 172.6s; } 
+	.letter-863	{ transition-delay: 172.8s; } 
+	.letter-864	{ transition-delay: 173s; } 
+	.letter-865	{ transition-delay: 173.2s; } 
+	.letter-866	{ transition-delay: 173.4s; } 
+	.letter-867	{ transition-delay: 173.6s; } 
+	.letter-868	{ transition-delay: 173.8s; } 
+	.letter-869	{ transition-delay: 174s; } 
+	.letter-870	{ transition-delay: 174.2s; } 
+	.letter-871	{ transition-delay: 174.4s; } 
+	.letter-872	{ transition-delay: 174.6s; } 
+	.letter-873	{ transition-delay: 174.8s; } 
+	.letter-874	{ transition-delay: 175s; } 
+	.letter-875	{ transition-delay: 175.2s; } 
+	.letter-876	{ transition-delay: 175.4s; } 
+	.letter-877	{ transition-delay: 175.6s; } 
+	.letter-878	{ transition-delay: 175.8s; } 
+	.letter-879	{ transition-delay: 176s; } 
+	.letter-880	{ transition-delay: 176.2s; } 
+	.letter-881	{ transition-delay: 176.4s; } 
+	.letter-882	{ transition-delay: 176.6s; } 
+	.letter-883	{ transition-delay: 176.8s; } 
+	.letter-884	{ transition-delay: 177s; } 
+	.letter-885	{ transition-delay: 177.2s; } 
+	.letter-886	{ transition-delay: 177.4s; } 
+	.letter-887	{ transition-delay: 177.6s; } 
+	.letter-888	{ transition-delay: 177.8s; } 
+	.letter-889	{ transition-delay: 178s; } 
+	.letter-890	{ transition-delay: 178.2s; } 
+	.letter-891	{ transition-delay: 178.4s; } 
+	.letter-892	{ transition-delay: 178.6s; } 
+	.letter-893	{ transition-delay: 178.8s; } 
+	.letter-894	{ transition-delay: 179s; } 
+	.letter-895	{ transition-delay: 179.2s; } 
+	.letter-896	{ transition-delay: 179.4s; } 
+	.letter-897	{ transition-delay: 179.6s; } 
+	.letter-898	{ transition-delay: 179.8s; } 
+	.letter-899	{ transition-delay: 180s; } 
+	.letter-900	{ transition-delay: 180.2s; } 
+	.letter-901	{ transition-delay: 180.4s; } 
+	.letter-902	{ transition-delay: 180.6s; } 
+	.letter-903	{ transition-delay: 180.8s; } 
+	.letter-904	{ transition-delay: 181s; } 
+	.letter-905	{ transition-delay: 181.2s; } 
+	.letter-906	{ transition-delay: 181.4s; } 
+	.letter-907	{ transition-delay: 181.6s; } 
+	.letter-908	{ transition-delay: 181.8s; } 
+	.letter-909	{ transition-delay: 182s; } 
+	.letter-910	{ transition-delay: 182.2s; } 
+	.letter-911	{ transition-delay: 182.4s; } 
+	.letter-912	{ transition-delay: 182.6s; } 
+	.letter-913	{ transition-delay: 182.8s; } 
+	.letter-914	{ transition-delay: 183s; } 
+	.letter-915	{ transition-delay: 183.2s; } 
+	.letter-916	{ transition-delay: 183.4s; } 
+	.letter-917	{ transition-delay: 183.6s; } 
+	.letter-918	{ transition-delay: 183.8s; } 
+	.letter-919	{ transition-delay: 184s; } 
+	.letter-920	{ transition-delay: 184.2s; } 
+	.letter-921	{ transition-delay: 184.4s; } 
+	.letter-922	{ transition-delay: 184.6s; } 
+	.letter-923	{ transition-delay: 184.8s; } 
+	.letter-924	{ transition-delay: 185s; } 
+	.letter-925	{ transition-delay: 185.2s; } 
+	.letter-926	{ transition-delay: 185.4s; } 
+	.letter-927	{ transition-delay: 185.6s; } 
+	.letter-928	{ transition-delay: 185.8s; } 
+	.letter-929	{ transition-delay: 186s; } 
+	.letter-930	{ transition-delay: 186.2s; } 
+	.letter-931	{ transition-delay: 186.4s; } 
+	.letter-932	{ transition-delay: 186.6s; } 
+	.letter-933	{ transition-delay: 186.8s; } 
+	.letter-934	{ transition-delay: 187s; } 
+	.letter-935	{ transition-delay: 187.2s; } 
+	.letter-936	{ transition-delay: 187.4s; } 
+	.letter-937	{ transition-delay: 187.6s; } 
+	.letter-938	{ transition-delay: 187.8s; } 
+	.letter-939	{ transition-delay: 188s; } 
+	.letter-940	{ transition-delay: 188.2s; } 
+	.letter-941	{ transition-delay: 188.4s; } 
+	.letter-942	{ transition-delay: 188.6s; } 
+	.letter-943	{ transition-delay: 188.8s; } 
+	.letter-944	{ transition-delay: 189s; } 
+	.letter-945	{ transition-delay: 189.2s; } 
+	.letter-946	{ transition-delay: 189.4s; } 
+	.letter-947	{ transition-delay: 189.6s; } 
+	.letter-948	{ transition-delay: 189.8s; } 
+	.letter-949	{ transition-delay: 190s; } 
+	.letter-950	{ transition-delay: 190.2s; } 
+	.letter-951	{ transition-delay: 190.4s; } 
+	.letter-952	{ transition-delay: 190.6s; } 
+	.letter-953	{ transition-delay: 190.8s; } 
+	.letter-954	{ transition-delay: 191s; } 
+	.letter-955	{ transition-delay: 191.2s; } 
+	.letter-956	{ transition-delay: 191.4s; } 
+	.letter-957	{ transition-delay: 191.6s; } 
+	.letter-958	{ transition-delay: 191.8s; } 
+	.letter-959	{ transition-delay: 192s; } 
+	.letter-960	{ transition-delay: 192.2s; } 
+	.letter-961	{ transition-delay: 192.4s; } 
+	.letter-962	{ transition-delay: 192.6s; } 
+	.letter-963	{ transition-delay: 192.8s; } 
+	.letter-964	{ transition-delay: 193s; } 
+	.letter-965	{ transition-delay: 193.2s; } 
+	.letter-966	{ transition-delay: 193.4s; } 
+	.letter-967	{ transition-delay: 193.6s; } 
+	.letter-968	{ transition-delay: 193.8s; } 
+	.letter-969	{ transition-delay: 194s; } 
+	.letter-970	{ transition-delay: 194.2s; } 
+	.letter-971	{ transition-delay: 194.4s; } 
+	.letter-972	{ transition-delay: 194.6s; } 
+	.letter-973	{ transition-delay: 194.8s; } 
+	.letter-974	{ transition-delay: 195s; } 
+	.letter-975	{ transition-delay: 195.2s; } 
+	.letter-976	{ transition-delay: 195.4s; } 
+	.letter-977	{ transition-delay: 195.6s; } 
+	.letter-978	{ transition-delay: 195.8s; } 
+	.letter-979	{ transition-delay: 196s; } 
+	.letter-980	{ transition-delay: 196.2s; } 
+	.letter-981	{ transition-delay: 196.4s; } 
+	.letter-982	{ transition-delay: 196.6s; } 
+	.letter-983	{ transition-delay: 196.8s; } 
+	.letter-984	{ transition-delay: 197s; } 
+	.letter-985	{ transition-delay: 197.2s; } 
+	.letter-986	{ transition-delay: 197.4s; } 
+	.letter-987	{ transition-delay: 197.6s; } 
+	.letter-988	{ transition-delay: 197.8s; } 
+	.letter-989	{ transition-delay: 198s; } 
+	.letter-990	{ transition-delay: 198.2s; } 
+	.letter-991	{ transition-delay: 198.4s; } 
+	.letter-992	{ transition-delay: 198.6s; } 
+	.letter-993	{ transition-delay: 198.8s; } 
+	.letter-994	{ transition-delay: 199s; } 
+	.letter-995	{ transition-delay: 199.2s; } 
+	.letter-996	{ transition-delay: 199.4s; } 
+	.letter-997	{ transition-delay: 199.6s; } 
+	.letter-998	{ transition-delay: 199.8s; } 
+	.letter-999	{ transition-delay: 200s; } 
+	.letter-1000	{ transition-delay: 200.2s; } 
+	

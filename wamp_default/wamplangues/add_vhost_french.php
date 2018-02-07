@@ -1,5 +1,5 @@
 <?php
-//3.0.6
+//3.0.7 - VirtualHostPort - VirtualPortNotExist - VirtualPortExist
 $langues = array(
 	'langue' => 'Français',
 	'locale' => 'french',
@@ -18,8 +18,11 @@ $langues = array(
 	'VirtualHostName' => 'Nom du <code>Virtual Host</code> Pas de caractères diacritiques (éçëñ) - Pas d\'espace - Pas de tiret bas (_) ',
 	'VirtualHostFolder' => '<code>Chemin</code> complet absolu du <code>dossier</code> VirtualHost - <i>Exemples : C:/wamp/www/projet/ ou E:/www/site1/</i> ',
 	'VirtualHostIP' => '<code class="option">Si</code> vous voulez utiliser les VirtualHost par IP : <code class="option">IP locale</code> 127.x.y.z ',
+	'VirtualHostPort' => '<code class="option">Si</code> vous voulez utiliser un "Listen port" autre que celui par défaut <code class="option">Ports acceptés</code> %s',
 	'VirtualAlreadyExist' => 'Le ServerName <code>%s</code> existe déjà',
 	'VirtualIpAlreadyUsed' => 'L\'IP locale <code>%s</code> existe déjà',
+	'VirtualPortNotExist' => 'Le port <code>%s</code> ne fait pas partie des "Listen port" Apache',
+	'VirtualPortExist' => 'Le port <code>%s</code> fait partie des "Listen port" Apache par défaut et ne doit pas être mentionné',
 	'VirtualHostExists' => 'VirtualHost déjà définis :',
 	'Start' => 'Démarrer la création du VirtualHost (Peut prendre un certain temps)',
 	'GreenErrors' => 'Les erreurs encadrées en vert peuvent être corrigées automatiquement"',

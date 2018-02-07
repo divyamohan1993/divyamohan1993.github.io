@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Quote</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Welcome!">
+	<meta name="author" content="Divya Mohan">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Cinzel" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:100,300,700" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Gruppo" />
+	<link rel="stylesheet" href="/stylesheets/chromeexperiments/lightandmagic/style.css" />
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	
+</head>
+<body>
+
+<div id="container">
+
+	<div>
+		<h1 id="h1">Greetings!</h1>
+		<h2 id="h2">Lets learn this!</h2>
+		<blockquote id="qod-quote-text"></blockquote>
+	</div>
+	
+	<footer>
+	Listening to <strong>Lights and Motion - Ultraviolet</strong><sup>&#8471;</sup><span> &bull; </span><script src="/javascripts/datetime/footeryear.js"></script>
+	</footer>
+
+</div>
+
+<canvas id="canvas"></canvas>
+
+<audio autoplay="autoplay" preload="metadata">
+	<source src="/media/audio/chromeexperiments/lightandmotion/Ultraviolet.ogg" type="audio/ogg">
+	<source src="/media/audio/chromeexperiments/lightandmotion/Ultraviolet.mp3" type="audio/mpeg">
+</audio>
+
+<script src="/javascripts/forkit/forkit.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
+<script src="/javascripts/chromeexperiments/lightandmotion/quote2.js?v=2.0"></script>
+<script src="/javascripts/chromeexperiments/lightandmotion/main.min.js"></script>
+
+
+</body>
+</html>
