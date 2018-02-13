@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content="3D Dice Roller"/>
+	<meta name="description" content="3D dice roller"/>
+	<title>3D Dice Roller</title>
+
+	<link rel="stylesheet preconnect" href="main.css">
+	<link rel="stylesheet preconnect" href="dice.css">
+	<link rel="stylesheet preconnect" href="//fonts.googleapis.com/css?family=Megrim|Vollkorn|Cinzel|Lato:100,300,400,700,400italic,700italic|Gruppo">
+	<link rel="stylesheet preconnect" href="back_btn.css">
+
+</head>
+
+<body style="margin: 0">
+	<div class="control_panel">
+		<p id="loading_text">Loading libraries, please wait a bit...</p>
+	</div>
+    <div id="info_div" style="display: none">
+        <div class="center_field">
+            <span id="label"></span>
+        </div>
+        <div class="center_field">
+            <div class="bottom_field">
+                <span id="labelhelp">Click to continue or click and drag to roll again</span>
+            </div>
+        </div>
+    </div>
+    <div id="selector_div" style="display: none">
+        <div class="center_field">
+			<div id="sethelp">
+				Choose your dice set by clicking the dices or by direct input of notation,<br/>
+				Click and drag on free space of screen or hit throw button to roll
+			</div>
+        </div>
+        <div class="center_field">
+            <form>
+			<input type="text" id="set" value="d6"></input><br/>
+            <button id="clear">Reset</button>
+            <button style="margin-left: 0.6em" id="throw">Roll</button>
+			</form>
+        </div>
+    </div>
+    <div id="canvas"></div>
+	
+	<footer class="footercs"><script src="/javascripts/footer/copyright.js"></script></footer>
+		
+	<!--
+	<div class="p-utility-menu" id="backbtn"><a class="c-button c-button--white" href="javascript:history.back()"><span class="c-button__icon c-button__icon--back c-button__icon--white"></span><span class="c-button__label"><span class="js-split-str">b</span><span class="js-split-str">a</span><span class="js-split-str">c</span><span class="js-split-str">k</span></span></a></div>
+	-->
+	
+    <script src="libs/three.min.js"></script>
+    <script src="libs/cannon.min.js"></script>
+
+    <script type="text/javascript" src="teal.js"></script>
+    <script type="text/javascript" src="dice.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" defer="defer">
+        dice_initialize(document.body);
+    </script>
+</body>
+</html>

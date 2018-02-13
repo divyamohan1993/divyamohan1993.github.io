@@ -1,0 +1,105 @@
+a {
+	color: #FFF;
+	xtext-decoration: none;
+	xposition: relative;
+	pointer-events: auto;
+}
+
+.footercs {
+  position: fixed;
+  bottom: 0;
+  left: 45%;
+  z-index: 9999999;
+  list-style: none;
+  font-family: 'Megrim', Verdena;
+  color: #FFF;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  background-color: green;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+body{
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+.vhead {
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	font-family: 'Megrim', serif;
+	color: #000;
+	position: relative;
+	top: 1%;
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.numcheck {
+	text-align: center;
+	font-family: 'Gruppo', serif;
+	font-weight: bold;
+	margin-top: 10px;
+	color: #000;
+	position: relative;
+	top: 1%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.sticky {
+  position: fixed;
+}
+
+.info {
+	color: #000;
+    text-align: center;
+	font-weight: bold;
+	font-family: 'Gruppo';
+	padding-top: 1px;
+	position: relative;
+    text-justify: auto;
+	width:100%;
+}
+
+.numcheck header {
+	color: #000;
+    text-align: center;
+	font-weight: bold;
+	font-family: 'Gruppo';
+	padding-top: 10px;
+	font-size: 17px;
+	position: relative;
+    text-justify: auto;
+	width:100%;
+}
+
+.ncmb {
+	color: #000;
+    text-align: center;
+	font-weight: bold;
+	font-family: 'Gruppo';
+	font-size: 18px;	
+}
+
+.sticky + .millionroses {
+  margin-bottom: 10px;
+;
+}

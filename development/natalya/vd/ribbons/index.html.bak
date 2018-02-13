@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>For Natalya</title>
+	<meta charset="utf-8">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Megrim|Vollkorn|Cinzel|Lato:100,300,700|Gruppo">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	
+	<link rel="stylesheet preconnect" href="css/back_btn.css">
+
+
+</head>
+<body>
+	<div class="webgl"></div>
+	<div class="over">
+		<h1>Fire Water!</h1>
+		<p><iframe width="720" height="405"
+src="https://www.youtube.com/embed/Z2_rwr_qEkA?autoplay=1&controls=0&disablekb=1&fs=0&rel=0&showinfo=0&iv_load_policy=3"
+frameborder="0" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z2_rwr_qEkA?rel=0&amp;controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
+		<div class="btn-container">
+			<div class="big-btn">Close</div>
+		</div>
+	</div>
+	<div class="p-utility-menu"><a class="c-button c-button--white" href="javascript:history.back()"><span class="c-button__icon c-button__icon--back c-button__icon--white"></span><span class="c-button__label"><span class="js-split-str">b</span><span class="js-split-str">a</span><span class="js-split-str">c</span><span class="js-split-str">k</span></span></a></div>
+
+	<script src="lib/three.min.js"></script>
+	<script src="lib/stats.min.js"></script>
+	<script src="lib/SimplexNoise.js"></script>
+	<script src="lib/minivents.min.js"></script>
+	<script src="lib/TweenMax.min.js"></script>
+
+	<script src="lib/OrbitControls.js"></script>
+	<script src="lib/dat.gui.min.js"></script>
+	<script src="lib/atutil.js"></script>
+	<script src="lib/seedrandom.js"></script>
+
+	<script src="lib/three/postprocessing/EffectComposer.js"></script>
+	<script src="lib/three/postprocessing/RenderPass.js"></script>
+	<script src="lib/three/postprocessing/MaskPass.js"></script>
+	<script src="lib/three/postprocessing/ShaderPass.js"></script>
+
+	<script src="lib/three/shaders/FXAAShader.js"></script>
+	<script src="lib/three/shaders/CopyShader.js"></script>
+	<script src="lib/three/shaders/VignetteShader.js"></script>
+
+	<script src="js/SuperShader.js"></script>
+	<script src="js/TiltShiftShader.js"></script>
+	<script src="js/NoiseShader.js"></script>
+	<script src="js/SpaceShader.js"></script>
+	<script src="js/CustomRGBShiftShader.js"></script>
+	<script src='js/StarShader.js'></script>
+
+	<script src='js/Stars.js'></script>
+	<script src='js/Confetti.js'></script>
+	<script src='js/Ribbon.js'></script>
+	<script src="js/main.js"></script>
+
+
+
+</body>
+</html>
