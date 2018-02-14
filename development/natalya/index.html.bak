@@ -84,7 +84,7 @@
 			break;
 		case "3":
 			text = "Redirecting...";
-			self.location.href = '/development/natalya/vd/black_rain/';
+			self.location.href = '/development/natalya/vd/rain/';
 			break;
 		case "4":
 			text = "Redirecting...";
@@ -92,7 +92,7 @@
 			break;
 		case "5":
 			text = "Redirecting...";
-			self.location.href = '//www.youtube.com/playlist?list=PLbkRGUFrc7fihduc2rxpl-g1s8FpXPOz_';
+			self.location.href = '//www.youtube.com/embed/videoseries?list=PLbkRGUFrc7fihduc2rxpl-g1s8FpXPOz_';
 			break;
 		case "6":
 			text = "Sorry my love, I could only complete 5 projects. Please roll again and enter between 1 to 5 ♥";

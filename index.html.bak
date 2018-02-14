@@ -75,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<li><a href="/development/chromeexperiments/lightandmotion/" target="I1" class="fade">Home</a></li>
 				<li><a href="/old_index_starfield.html" target="I1" class="fade">Starfield</a></li>
 				<li><a href="/development/diceware/" target="I1" class="fade">Diceware</a></li>
-				<li><div class="timeit" data-start="2018-02-15 04:00" data-end="2018-02-16 20:00"><a href="/development/natalya/" target="I1" class="fade">V Day</a></div></li>
+				<li><div class="valentine" data-start="2018-02-15 04:00" data-end="2018-02-16 20:00"><a href="/development/natalya/" target="I1" class="fade">♥</a></div></li>
 
 				<!-- Developer Mode -->				
 				<script src="/javascripts/templates/body/menu/developer_mode.js"></script>
@@ -102,16 +102,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<script src="/javascripts/templates/footer/encrypted_dynRe.js"></script>
 		<script src="/javascripts/templates/footer/encrypted_m_body_onload.js"></script>
 		<script src="/javascripts/footer/datetime/special.js"></script>
-		<script src="//res.cloudinary.com/vsevolodts/raw/upload/v1503371762/timeit.min.js"></script>
+
 	
-	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ4VPSD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-	<div id="google_translate_element"></div><script type="text/javascript">
+	<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ4VPSD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+<div id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT, gaTrack: true, gaId: 'UA-26013850-2'}, 'google_translate_element');
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+	<script>
+		$(document).ready(function() 
+{
+ var pDate = new Date();
+ var pHour = pDate.getHours();
+ var pMonth = pDate.getMonth();
+ var pDay = pDate.getDay();
+
+ if 
+   // show only the first month and first day between 10 and 17 hours of the day
+   ((pHour >= 10) && (pHour < 17)  && pMonth == 2 && pDay == 12) 
+   {
+   $(".valentine").show();
+  }
+});
+	</script>
 	  </body>
 </html>
