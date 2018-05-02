@@ -39,7 +39,7 @@
 				<li><a href="/development/1 Page templates/Sedna/" target="I1" class="fade">Sedna</a></li>				
 			</ul>
 			
-			<button type="submit" onclick="window.open('//payumoney.com')" type="button">Pay with PayUMoney</button>
+			<button type="submit" onclick="location.href='//payumoney.com'" type="button">Pay with PayUMoney</button>
 
 			<ul>
 				<li><a href="//www.strawpoll.me/11666251" target="_blank" class="fade">Vote your choice</a></li>				
