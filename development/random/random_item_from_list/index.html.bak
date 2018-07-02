@@ -38,7 +38,7 @@
 			var value = value[Math.floor(Math.random() * value.length)];
 			var toss = toss[Math.floor(Math.random() * toss.length)];
 			document.write(value+' - '+toss+'<br />');			
-			document.write(Math.round(Math.random() * 10));			
+			document.write('Refresh '+Math.round(Math.random() * 10)+' times.');
 		</script>
 	</section>
 </body>	
