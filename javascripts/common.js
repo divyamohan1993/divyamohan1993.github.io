@@ -3,7 +3,7 @@ function copyright() {
 }
 
 // Decode Encrypted Variable's - Call this function to decode variables.
-// Example: execute the vars by calling <script>decodeencryptedvar(_varname_);</script> in html where it is required.
+// Example: execute the vars by calling <script>decenv(_varname_);</script> in html where it is required.
 // abbr: DECodeENcryptedVar - decenv
 function decenv(s) {
     var s1 = unescape(s.substr(0, s.length - 1));
