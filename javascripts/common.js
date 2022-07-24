@@ -1,5 +1,5 @@
 function copyright() {
-    document.write('&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan & Vanshika');
+    document.write('&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan');
 }
 
 // Decode Encrypted Variable's - Call this function to decode variables.
