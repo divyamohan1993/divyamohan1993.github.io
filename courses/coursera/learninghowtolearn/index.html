@@ -1,82 +1,46 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
-	<head>
-		<meta charset="utf-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="X-Frame-Bypass: Web Component extending IFrame to bypass X-Frame-Options: deny/sameorigin">
+	<title>X-Frame-Bypass Web Component Demo</title>
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+		}
 
-		<title>Divya Mohan || Happy</title>
+		iframe {
+			display: block;
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+		}
 
-		<meta name="description" content="">
-		<meta name="keywords" content="divyamohan1993, Divya Mohan, divyamohan1993.github.io">
-		<meta name="author" content="Divya Mohan">
-		<meta name="robots" content="index, follow">
-		<meta name="revisit-after" content="2 days">
-		<meta name="copyright" content="2016, Divya Mohan">
-		<meta name="language" content="en">
-		<meta name="revised" content="">
-		<meta name="summary" content="">
-		<meta name="classification" content="Personal">
-		<meta name="designer" content="Divya Mohan">
-		<meta name="owner" content="Divya Mohan">
-		<meta name='url' content=''>
-		<meta name='identifier-url' content=''>
-		<meta name='category' content='Personal, Development'>
-		<meta name='coverage' content='Worldwide'>
-		<meta name='distribution' content='Global'>
-		<meta name='rating' content='General'>
-		<meta name='date' content=''>
-		<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Expires" content="0">
+		img {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	</style>
+	<script>
+		!function (P, H, k) { "use strict"; if (1 == P.importNode.length && !H.get("ungap-li")) { var D = "extends"; try { var e = { extends: "li" }, t = HTMLLIElement, n = function () { return Reflect.construct(t, [], n) }; if (n.prototype = k.create(t.prototype), H.define("ungap-li", n, e), !/is="ungap-li"/.test((new n).outerHTML)) throw e } catch (e) { !function () { var l = "attributeChangedCallback", n = "connectedCallback", r = "disconnectedCallback", e = Element.prototype, i = k.assign, t = k.create, o = k.defineProperties, a = k.getOwnPropertyDescriptor, s = k.setPrototypeOf, u = H.define, c = H.get, f = H.upgrade, p = H.whenDefined, v = t(null), d = new WeakMap, g = { childList: !0, subtree: !0 }; Reflect.ownKeys(self).filter(function (e) { return "string" == typeof e && /^HTML(?!Element)/.test(e) }).forEach(function (e) { function t() { } var n = self[e]; s(t, n), (t.prototype = n.prototype).constructor = t, (n = {})[e] = { value: t }, o(self, n) }), new MutationObserver(m).observe(P, g), O(Document.prototype, "importNode"), O(Node.prototype, "cloneNode"), o(H, { define: { value: function (e, t, n) { if (e = e.toLowerCase(), n && D in n) { v[e] = i({}, n, { Class: t }); for (var e = n[D] + '[is="' + e + '"]', r = P.querySelectorAll(e), o = 0, a = r.length; o < a; o++)A(r[o]) } else u.apply(H, arguments) } }, get: { value: function (e) { return e in v ? v[e].Class : c.call(H, e) } }, upgrade: { value: function (e) { var t = L(e); !t || e instanceof t.Class ? f.call(H, e) : N(e, t) } }, whenDefined: { value: function (e) { return e in v ? Promise.resolve() : p.call(H, e) } } }); var h = P.createElement; o(P, { createElement: { value: function (e, t) { e = h.call(P, e); return t && "is" in t && (e.setAttribute("is", t.is), H.upgrade(e)), e } } }); var b = a(e, "attachShadow").value, y = a(e, "innerHTML"); function m(e) { for (var t = 0, n = e.length; t < n; t++) { for (var r = e[t], o = r.addedNodes, a = r.removedNodes, i = 0, l = o.length; i < l; i++)A(o[i]); for (i = 0, l = a.length; i < l; i++)C(a[i]) } } function w(e) { for (var t = 0, n = e.length; t < n; t++) { var r = e[t], o = r.attributeName, a = r.oldValue, i = r.target, r = i.getAttribute(o); l in i && (a != r || null != r) && i[l](o, a, i.getAttribute(o), null) } } function C(e) { var t; 1 === e.nodeType && ((t = L(e)) && e instanceof t.Class && r in e && d.get(e) !== r && (d.set(e, r), Promise.resolve(e).then(T)), E(e, C)) } function L(e) { e = e.getAttribute("is"); return e && (e = e.toLowerCase()) in v ? v[e] : null } function M(e) { e[n]() } function T(e) { e[r]() } function N(e, t) { var t = t.Class, n = t.observedAttributes || []; if (s(e, t.prototype), n.length) { new MutationObserver(w).observe(e, { attributes: !0, attributeFilter: n, attributeOldValue: !0 }); for (var r = [], o = 0, a = n.length; o < a; o++)r.push({ attributeName: n[o], oldValue: null, target: e }); w(r) } } function A(e) { var t; 1 === e.nodeType && ((t = L(e)) && (e instanceof t.Class || N(e, t), n in e && e.isConnected && d.get(e) !== n && (d.set(e, n), Promise.resolve(e).then(M))), E(e, A)) } function E(e, t) { for (var n = e.content, r = (n && 11 == n.nodeType ? n : e).querySelectorAll("[is]"), o = 0, a = r.length; o < a; o++)t(r[o]) } function O(e, t) { var n = e[t], r = {}; r[t] = { value: function () { var e = n.apply(this, arguments); switch (e.nodeType) { case 1: case 11: E(e, A) }return e } }, o(e, r) } o(e, { attachShadow: { value: function () { var e = b.apply(this, arguments); return new MutationObserver(m).observe(e, g), e } }, innerHTML: { get: y.get, set: function (e) { y.set.call(this, e), /\bis=("|')?[a-z0-9_-]+\1/i.test(e) && E(this, A) } } }) }() } } }(document, customElements, Object);
+	</script>
+	<script src="x-frame-bypass.js" type="module"></script>
+</head>
 
-		<meta name="viewport" content="width=800, user-scalable=no">
+<body>
+	<iframe is="x-frame-bypass" seamless name="I1" id="I1" src="https://sites.google.com/view/learningwithvanshika/home"
+		style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>
+<!----	<iframe is="x-frame-bypass" src="https://news.ycombinator.com/"></iframe> -->
+	<a href="https://github.com/niutech/x-frame-bypass"><img
+			src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</body>
 
-		<link rel="fluid-icon" href="/images/common/logo.png">
-		<link rel="shortcut icon" href="/images/common/logo.png?v=2">
-		<link rel="apple-touch-icon" href="/images/common/logo.png">
-
-		<link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet preconnect' type='text/css'>
-		<link rel="stylesheet preconnect" href="/stylesheets/meny/meny.css">
-		<link rel='publisher preconnect' href='//plus.google.com/+DivyaMohan1993'>
-
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-
-		<script src="/javascripts/force_https/https.js"></script>
-
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774" crossorigin="anonymous"></script>
-
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D8EG8249SV');
-</script>
-		<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PQ4VPSD');</script>
-<!-- End Google Tag Manager -->
-
-	</head>
-
-	<body class=" meny-left" style="perspective: 800px; perspective-origin: 0px 50%;">
-		
-<iframe seamless name="I1" id="I1" src="https://divyamohan1993.wixsite.com/testsite" style="width: 100%; height: 100%; border: 0; position: absolute;"></iframe>
-
-	<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ4VPSD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
-<div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT, gaTrack: true, gaId: 'UA-26013850-2'}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-	
-	  </body>
 </html>
