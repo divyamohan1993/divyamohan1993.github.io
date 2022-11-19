@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /development/
+Allow: /
+
+Sitemap: https://dmj.one/sitemap.xml
