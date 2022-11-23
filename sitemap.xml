@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
 		<loc>https://www.clearvoice.com/blog/post-sitemap1.xml</loc>
@@ -29,7 +29,7 @@
     <lastmod>2022-10-06T18:04:03+00:00</lastmod>
   </sitemap>
 </sitemapindex>
-
+-->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
