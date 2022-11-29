@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://dmj.one/</loc>
     <lastmod>2022-06-04</lastmod>
@@ -9,4 +10,301 @@
     <loc>https://su.dmj.one/</loc>
     <lastmod>2022-10-20</lastmod>
   </url>
-</urlset>
+  <url>
+    <loc>https://dmj.one/edu/su/</loc>
+    <lastmod>2022-10-20</lastmod>
+  </url>  
+  <url>
+    <loc>https://dmj.one/edu/su/course/</loc>
+    <lastmod>2022-10-20</lastmod>
+  </url>
+
+
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/</loc>
+	    <lastmod>2022-10-20</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p1</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p2</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p3</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p4</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p5</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p6</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p7</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p8</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p9</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p10</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p11</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p12</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p13</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p14</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p15</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p16</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p17</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p18</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p19</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p20</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p21</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p22</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p23</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p24</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p25</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p26</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p27</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p28</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p29</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p30</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p31</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p1</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p2</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p3</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p4</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p5</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p6</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p7</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p8</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p9</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p10</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p11</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p12</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p13</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p14</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p15</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p16</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p17</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p18</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p19</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p20</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p21</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p22</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p23</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p24</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p25</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p26</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p27</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p28</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p29</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p30</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+  	<url>
+	    <loc>https://dmj.one/edu/su/course/csu1128/program/p31</loc>
+	    <lastmod>2022-11-27</lastmod>
+  	</url>
+  	
+</urlset>	
