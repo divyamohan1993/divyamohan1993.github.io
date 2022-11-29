@@ -1,7 +1,10 @@
-# Allow crawling of all content except development. 
+# www.robotstxt.org/
+# Allow crawling of all content
 
 User-agent: *
+Disallow: /doc/
 Disallow: /development/
+Disallow: /.github/
 Allow: /
 
-Sitemap: https://dmj.one/sitemap.xml
+Sitemap: https://dmjone.github.io/sitemap.xml

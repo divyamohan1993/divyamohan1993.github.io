@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lte 8]><html class="pre-ie9" lang="en"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <script src="../var.js"></script>
+        <script src="/js/edu_su_var.js"></script>
+        <script src="/js/edu_su_common.js"></script>
+
+        <title>Program 7 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to check maximum between three numbers.">
+
+        <meta property="og:image" content="/logo.png">
+        <meta property="og:type" content="article">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@divyamohan1993">
+        <meta name="twitter:creator" content="@divyamohan1993">
+        <meta name="twitter:image" content="/logo.png">
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    </head>
+
+    <body>
+
+        <script>header_author("dm");</script>
+
+        <main>
+            <article>
+                <h2>
+                    Program to check maximum between three numbers.
+                </h2>
+            </article>
+            <article></article>
+            <article class="syntax">
+                <pre>
+                    <code>
+/*******
+ *
+ *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
+ *
+ *  This program contains all the programs done in the course
+ *  Logic Building with Computer Programming with the course code CSU1128.
+ *
+ *  DO NOT COPY
+ *  DO NOT REPRODUCE
+ *  DO NOT MODIFY
+ *
+ *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
+ *
+ * */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int d, m, j, o, n;
+    printf("\n\n Program to check maximum between three numbers. \n\n");
+    printf("Enter three numbers with a space - (Example: 23 54 76) - and press enter: ");
+    scanf("%d %d %d", &d, &m, &j);
+    printf("\n Maximum between the entered number is ");
+
+    o = d > m ? d : m;
+    n = o > j ? o : j;
+    printf(" %d.\n", n);
+    return 0;
+}                    </code>
+                </pre>
+            </article>
+
+            <article>
+                <h3>
+                    Output:
+                </h3>
+                <p class="codeoutput text-justify">
+                    Program to check maximum between three numbers
+                </p>
+                <p class="codeoutput text-justify">
+                    Enter three numbers with a space - (Example: 23 54 76) - and press enter: 32 77 43 <br>
+                    &emsp;Maximum between the entered number is 77.
+                </p>
+            </article>
+        </main>
+
+        <script>copyright("all");</script>
+    </body>
+
+</html>

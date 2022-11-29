@@ -1,0 +1,56 @@
+{
+    "name": "dmj.one",
+    "short_name": "A Sholinian, dmj.one",
+    "theme_color": "#fafafa",
+    "background_color": "#fafafa",
+    "display": "minimal-ui",
+    "scope": "/edu/su/",
+    "start_url": "/edu/su/",
+    "lang": "en-us",
+    "orientation": "any",
+    "dir": "ltr",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "description": "An educational initiative by dmj.one in the subject of Computer Science at graduation level.",
+    "shortcuts": [
+        {
+            "name": "Study @ Shoolini",
+            "short_name": "Study @ Shoolini",
+            "description": "Learn with us! Start by select the course to get into its details",
+            "url": "course/"
+        }
+    ],
+    "features": [
+        "Cross Platform",
+        "fast",
+        "simple"
+    ],
+    "categories": [
+        "books",
+        "education",
+        "lifestyle",
+        "magazines",
+        "productivity",
+        "utilities"
+    ],
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/manifest/logo_r_512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/img/manifest/screenshot.png",
+            "sizes": "1319x780",
+            "type": "image/png"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Chef: Divya Mohan
+	Contact: hello [at] dmj.one
+	Twitter: @divyamohan1993
+	From: India
+
+	UI developer: me?
+	Twitter: @divyamohan1993
+	From:India
+
+	One eyed illustrator: uhh...
+	Twitter: @divyamohan1993
+	From:India
+
+	Standard Man: Still me?
+	Twitter: @divyamohan1993
+	From:India
+
+	Web designer: Yep just me!
+	Twitter: @divyamohan1993
+	From:India
+
+# THANKS
+
+    myself?
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, jQuery, JavaScript
+    Apache Server Configs, jQuery, Modernizr, Normalize.css, highlight.js, bootstrap
