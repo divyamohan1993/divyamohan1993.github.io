@@ -33,19 +33,3 @@
 		<changefreq>monthly</changefreq>
 	</sitemap>-->
 </sitemapindex>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-    	<loc>https://dmj.one/edu/su/course/csu1128/</loc>
-    	<lastmod>2022-10-27</lastmod>
-  	</url>
-	<url>
-    	<loc>https://dmj.one/edu/su/course/csu953/</loc>
-    	<lastmod>2022-10-27</lastmod>
-  	</url>
-	<url>
-    	<loc>https://dmj.one/edu/su/course/fsu030/</loc>
-    	<lastmod>2022-10-27</lastmod>
-  	</url>
-  	
-</urlset>	

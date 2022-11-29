@@ -6,15 +6,4 @@
 		<changefreq>weekly</changefreq>
 	</sitemap>
 </sitemapindex>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  	<url>
-	    <loc>https://dmj.one/edu/su/course/</loc>
-	    <lastmod>2022-11-27</lastmod>
-  	</url>
-  	<url>
-	    <loc>https://su.dmj.one/course/</loc>
-	    <lastmod>2022-11-24</lastmod>
-  	</url>
-</urlset>	
+	
