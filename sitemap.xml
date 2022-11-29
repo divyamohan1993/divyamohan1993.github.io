@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://dmj.one/edu/su/sitemap.xml</loc>
+		<lastmod>2021-06-29T01:08:10-05:00</lastmod>
+	</sitemap>
+</sitemapindex>
+
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dmj.one/</loc>
@@ -11,10 +19,4 @@
   </url>
 </urlset>
 
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<sitemap>
-		<loc>https://dmj.one/edu/su/sitemap.xml</loc>
-		<lastmod>2021-06-29T01:08:10-05:00</lastmod>
-	</sitemap>
-</sitemapindex>
 
