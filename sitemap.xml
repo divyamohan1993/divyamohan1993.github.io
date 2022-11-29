@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://dmj.one/</loc>
     <lastmod>2022-06-04</lastmod>
@@ -19,8 +17,6 @@
     <lastmod>2022-10-20</lastmod>
   </url>
 
-
-<!-- CSU1128 -->
   	<url>
 	    <loc>https://dmj.one/edu/su/course/csu1128/</loc>
 	    <lastmod>2022-10-20</lastmod>
@@ -154,5 +150,4 @@
 	    <loc>https://dmj.one/edu/su/course/csu1128/program/p31</loc>
 	    <lastmod>2022-11-27</lastmod>
   	</url>
-
-</urlset>	
+</urlset>
