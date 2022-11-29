@@ -110,7 +110,7 @@ function header_author(author_init) {
                     break;
                 case "fsu030":
                     var prof = "Dr. Pawan Kumar";
-                    var prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 17 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
+                    var prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 20 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
                     var prof_href = "mailto:pawankumarsu783@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one";
                     var course = "FSU030";
                     var course_detail = "Engineering Physics";

@@ -9,9 +9,9 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 31 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <title>Program 32 - CSU1128 - CSE 2026 - Shoolini University</title>
         <meta name="description"
-            content="Program to print the triangle of numbers of the range entered by the user. Example 3 = 3 2 1 2 3">
+            content="Program to print the rhombus (triangle on an inverted triangle) of numbers of the range entered by the user. Example 3 = 3 2 1 2 3">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,7 +33,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print the triangle of numbers of the range entered by the user. Example 3 = 3 2 1 2 3
+                    Program to print the rhombus of numbers of the range entered by the user. Example 3 = 3 2 1 2 3
                 </h2>
             </article>
             <article></article>
@@ -61,11 +61,11 @@
 int main()
 {
     int d, m, j, o = 0, n;
-    printf("\n\n Program to print the triangle of numbers of the range entered by the user. Example 3 = 3 2 1 2 3 \n\n");
+    printf("\n\n Program to print the rhombus of numbers frpm the range entered by the user. Example 3 = 3 2 1 2 3 \n\n");
 
-    printf("Enter a number for which you want to print its triangle and its reverse (Example: 4 = 4 3 2 1 2 3 4) - and press enter: ");
+    printf("Enter a number for which you want to print its triangle and its reverse to form a rhombus (Example: 4 = 4 3 2 1 2 3 4) - and press enter: ");
     scanf("%d", &d);
-    printf("\n Triangle for the entered range %d is: \n", d);
+    printf("\n Rhombus for the entered range %d is: \n", d);
     int q = d + 1;
     for (m = 0; m <= d; m++)
     {
@@ -83,6 +83,23 @@ int main()
         }
         printf("\n");
     }
+    for (m = 0; m <= d; m++)
+    { 
+        for (j = 1; j <= m; j++)
+        {
+            printf("  ");
+        }
+        
+        for (int l = d ; l >= m; l--)
+        {
+            printf(" %d", l);
+        }
+         for (o = 1; o <= d-m;o++)
+        {
+            printf(" %d", o+m);
+        }
+        printf("\n");
+    }
     return 0;
 }
 
@@ -95,21 +112,36 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the triangle of numbers of the range entered by the user. Example 3 = 3 2 1 2 3
+                    Program to print the rhombus of numbers frpm the range entered by the user. Example 3 = 3 2 1 2 3
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter a number for which you want to print its triangle and its reverse (Example: 4 = 4 3 2 1 2 3 4)
-                    - and press enter: 5<br>
-                    Triangle for the entered range 5 is:
+                    Enter a number for which you want to print its triangle and its reverse to form a rhombus (Example:
+                    4 = 4 3 2 1 2 3 4)
+                    - and press enter: 10<br>
+                    Rhombus for the entered range 10 is:
                 </p>
 
                 <p class="codeoutput text-center">
-                    5<br>
-                    5 4 5<br>
-                    5 4 3 4 5<br>
-                    5 4 3 2 3 4 5<br>
-                    5 4 3 2 1 2 3 4 5<br>
-                    5 4 3 2 1 0 1 2 3 4 5<br>
+                    9<br>
+                    9 8 9<br>
+                    9 8 7 8 9<br>
+                    9 8 7 6 7 8 9<br>
+                    9 8 7 6 5 6 7 8 9<br>
+                    9 8 7 6 5 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 2 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 2 1 2 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 2 1 2 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 2 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 3 4 5 6 7 8 9<br>
+                    9 8 7 6 5 4 5 6 7 8 9<br>
+                    9 8 7 6 5 6 7 8 9<br>
+                    9 8 7 6 7 8 9<br>
+                    9 8 7 8 9<br>
+                    9 8 9<br>
+                    9<br>
                 </p>
             </article>
         </main>
