@@ -96,7 +96,7 @@ function get_menu_list() {
     }
 
     function get_programs() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,32];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "C Language";
@@ -271,8 +271,9 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 32:
-                    date = "Thu September 27, 2022";
-                    desc = "To print a loop which prints a triangle in top down order.";
+                    date = "Mon November 21, 2022";
+                    desc = "Program to print the rhombus of numbers of the range entered by the user. Example 3 = 3 2 1 2 3";
+                    author = "vp";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 33:
