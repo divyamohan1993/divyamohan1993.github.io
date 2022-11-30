@@ -102,6 +102,11 @@ function get_menu_list() {
                     desc = "VIVA based on questions directed towards odd and even students.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
+                case 7:
+                    date = "Thu November 24, 2022";
+                    desc = "Form elements, radio and 10 ul and ol lists.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
                 default:
                     link = "#";
                     date = "Not Applicable";
