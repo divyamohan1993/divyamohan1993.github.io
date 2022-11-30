@@ -105,17 +105,17 @@
         &lt;input type="text" name="username" /&gt;
         &lt;label&gt;Password&lt;/label&gt;
         &lt;input type="password" name="password" /&gt;
-        &lt;label&gt;Select the location for login&lt;/label&gt;
+        &lt;label&gt;Page&lt;/label&gt;
         &lt;select name="location" id="location"&gt;
             &lt;option value="volvo"&gt;Homepage&lt;/option&gt;
             &lt;option value="saab"&gt;Dashboard&lt;/option&gt;
         &lt;/select&gt;
-        &lt;label for="browser"&gt;Choose your browser from the list:&lt;/label&gt;
-        &lt;input list="browsers" name="browser" id="browser"&gt;
-        &lt;datalist id="browsers"&gt;
-            &lt;option value="Edge"&gt;
-            &lt;option value="Chrome"&gt;
-            &lt;option value="Other"&gt;
+        &lt;label for="work"&gt;Got Work?&lt;/label&gt;
+        &lt;input list="works" name="work" id="work"&gt;
+        &lt;datalist id="works"&gt;
+            &lt;option value="Yes"&gt;
+            &lt;option value="No"&gt;
+            &lt;option value="Undecided"&gt;
         &lt;/datalist&gt;
         &lt;input type="submit" value="Login" name="submit" class="submit" /&gt;
     &lt;/fieldset&gt;
@@ -153,9 +153,9 @@
                                 <option value="volvo">Homepage</option>
                                 <option value="saab">Dashboard</option>
                             </select>
-                            <label for="browser">Got Work?</label>
-                            <input list="browsers" name="browser" id="browser">
-                            <datalist id="browsers">
+                            <label for="work">Got Work?</label>
+                            <input list="works" name="work" id="work">
+                            <datalist id="works">
                                 <option value="Yes">
                                 <option value="No">
                                 <option value="Undecided">
