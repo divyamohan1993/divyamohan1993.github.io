@@ -133,7 +133,7 @@ function get_menu_list() {
     }
 
     function get_file() {
-        var cases = [1, 2, 3, 4, 5, 6, 7];
+        var cases = [1, 2, 3, 4, 5, 6];
 
         for (let i = 0; i < cases.length; i++) {
 
