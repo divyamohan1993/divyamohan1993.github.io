@@ -28,7 +28,7 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1];
+        var cases = [1, 2];
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
@@ -41,6 +41,15 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
+                    link = "file/";
+                    date = "Last Updated: Wed November 30, 2022";
+                    title = "Practical File";
+                    desc = "Lets create the practical file! This section contains list of the practicals which were to be written in the HTML practical notebook.";
+                    codetype = "HTML Labs";
+                    // readtime = "10";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 3:
                     link = "books";
                     date = "Thu September 27, 2022";
                     title = "Reference Books";
