@@ -9,8 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Creating of Table - CSU953 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Creation of Table using table tags.">
+        <title>Practical 3 - CSU953 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Practical 3 discusses about table and its tags">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -34,38 +34,48 @@
         <main>
             <article>
                 <h2>
-                    5. Creation of table using its respective tags.
+                    Create a static web page using table tags of HTML.
                 </h2>
-                <p>
-                    <strong>Question 1. Create a webpage with lightgreen background and use the following tags</strong>
-                <ol>
-                    <li>p</li>
-                    <li>abbr</li>
-                    <li>br</li>
-                    <li>h1</li>
-                    <li>address</li>
-                </ol>
-                <strong>Question 2. Create 5 shades of yellow and blue color respectively.</strong>
-                </p>
             </article>
 
             <article>
-                <h3>Details of the tags: </h3>
                 <p>
-                    p: This tag is used to create a paragraph
+                    table: This tag starts the table
                 </p>
                 <p>
-                    abbr: This tag is used to create an abbreviation.
+                    tr: This tag defines the row of a table
                 </p>
                 <p>
-                    br: This tag is used to create a line break.
+                    td: This tag defines the table daat in the given row
                 </p>
                 <p>
-                    h1: This is an heading 1 tag.
+                    tbody: This tag defines the body of a table.
                 </p>
                 <p>
-                    address: This is an address tag used for syntactical marking of an address.
+                    thead: This tag defines the head of a table.
                 </p>
+                <p>
+                    caption: This tag gives a caption to the table
+                </p>
+                <h6>Following is the hierchy required for the tags:</h6>
+                <p>
+                    rowspan: This tag merges the number of rows specified together
+                </p>
+                <p>
+                    colspan: This tag merges the number of columns specified together
+                </p>
+
+                <h6>Following is the hierarchy required for the tags:</h6>
+                <ol>
+                    <li>table is declared insie the body of the html</li>
+                    <li>caption is defined at the top incase you want caption at the top or bottom if tou want caption at the bottom.</li>
+                    <li>thead is defined to start a header section</li>
+                    <li>tr is defiend to start a row</li>
+                    <li>th is used to define the header row of the table</li>
+                    <li>tr is used to close the header section and subsequently start the data section</li>
+                    <li>tbody is used to define th body of the table</li>
+                    <li>td is used to define the data in the respective tr (row) inside the body of the table</li>
+                </ol>
             </article>
 
             <article class="syntax">
@@ -77,7 +87,6 @@
     &lt;title&gt;Practical 3 - CSU953 - CSE 2026&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    
 &lt;div class="row"&gt;
     &lt;div class="col"&gt;
         &lt;img src="https://shooliniuniversity.com/assets/images/logo.png" style="width:100px; height:50px;"&gt;
@@ -155,7 +164,7 @@
                                 height:50px;">
                             </div>
                             <div class="col" style="margin-left: -20%;">
-                                <h1 style="font-size: 50px;">Table</h1>
+                                <h1 style="font-size: 50px;">Practical 3</h1>
                             </div>
                         </div>
 
