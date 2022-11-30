@@ -13,6 +13,9 @@ function get_menu_list() {
             case "books":
                 get_books();
                 break;
+            case "file":
+                get_file();
+                break;
             case "program":
                 get_programs();
                 break;
@@ -111,6 +114,62 @@ function get_menu_list() {
                     link = "#";
                     date = "Not Applicable";
                     title = "Classes for current " + course + " has not been defined.";
+                    desc = "Please define a hierchy for the classes of course " + course + ".";
+                    codetype = "#CourseNotDefined";
+                    readtime = "0";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+            }
+        }
+    }
+
+    function get_file() {
+        var cases = [1, 2, 3, 4, 5, 6, 7];
+
+        for (let i = 0; i < cases.length; i++) {
+
+            var codetype = "HTML";
+            var d = i + 1;
+            var link = "f" + d;
+            var title = "Practical " + d;
+            var readtime = Math.floor(Math.random() * 5) + 2;
+            var author = 1;
+
+            switch (cases[i]) {
+                case 1:
+                    date = "Thu September 27, 2022";
+                    desc = "Create a basic HTML file by using following tags: title, h1, p, image, a, div.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 2:
+                    date = "Thu September 27, 2022";
+                    desc = "Design a web page to display Shoolini University with hyperlink.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 3:
+                    date = "Thu September 27, 2022";
+                    desc = "Create a static web page using table tags of HTML.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 4:
+                    date = "Thu September 27, 2022";
+                    desc = "Create a static web page which defines all text formatting tags of HTML in tabular format";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 5:
+                    date = "Thu September 27, 2022";
+                    desc = "Create webpage using list tag of HTML, (Display your family information in a list).";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 6:
+                    date = "Thu November 17, 2022";
+                    desc = "Create a form in html.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                default:
+                    link = "#";
+                    date = "Not Applicable";
+                    title = "Practical list is incomplete / not defined for current " + course + " / Extra selection has been made, check the array info.";
                     desc = "Please define a hierchy for the classes of course " + course + ".";
                     codetype = "#CourseNotDefined";
                     readtime = "0";
