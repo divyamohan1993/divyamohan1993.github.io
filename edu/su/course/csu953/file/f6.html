@@ -127,12 +127,28 @@
                         </div>
                     </div>
                     <form action="#">
-                        <legend>Simple inline Login Box</legend>
-                        <label>Username</label>
-                        <input type="text" name="username" />
-                        <label>Password</label>
-                        <input type="password" name="password" />
-                        <input type="submit" value="Login" name="submit" class="submit" />
+                        <fieldset>
+                            <legend>Simple inline Login Box</legend>
+                            <label>Username</label>
+                            <input type="text" name="username" />
+                            <label>Password</label>
+                            <input type="password" name="password" />
+                            <label>Password</label>
+                            <input type="password" name="password" />
+                            <label>Select the location for login</label>
+                            <select name="location" id="location">
+                                <option value="volvo">Homepage</option>
+                                <option value="saab">Dashboard</option>
+                            </select>
+                            <label for="browser">Choose your browser from the list:</label>
+                            <input list="browsers" name="browser" id="browser">
+                            <datalist id="browsers">
+                                <option value="Edge">
+                                <option value="Chrome">
+                                <option value="Other">
+                            </datalist>
+                            <input type="submit" value="Login" name="submit" class="submit" />
+                        </fieldset>
                     </form>
                 </div>
             </article>
