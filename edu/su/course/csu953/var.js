@@ -119,7 +119,7 @@ function get_menu_list() {
                     desc = "Form elements, radio and 10 ul and ol lists.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 7:
+                case 8:
                     date = "Thu December 1, 2022";
                     desc = "Create border, color the border, color the text and create types of border.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
