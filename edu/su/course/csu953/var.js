@@ -72,7 +72,7 @@ function get_menu_list() {
     }
 
     function get_classes() {
-        var cases = [1, 2, 3, 4, 5, 6, 7];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8];
 
         for (let i = 0; i < cases.length; i++) {
 
@@ -117,6 +117,11 @@ function get_menu_list() {
                 case 7:
                     date = "Thu November 24, 2022";
                     desc = "Form elements, radio and 10 ul and ol lists.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 7:
+                    date = "Thu December 1, 2022";
+                    desc = "Create border, color the border, color the text and create types of border.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
