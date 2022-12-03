@@ -151,6 +151,7 @@ function get_menu_list() {
 
             switch (cases[i]) {
                 case 1:
+                    title += ": Use of tags title, h1, p, img, a, div.";
                     date = "Thu September 27, 2022";
                     desc = "Create a basic HTML file by using following tags: title, h1, p, image, a, div.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
