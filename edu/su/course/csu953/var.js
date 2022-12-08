@@ -72,7 +72,7 @@ function get_menu_list() {
     }
 
     function get_classes() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
         for (let i = 0; i < cases.length; i++) {
 
@@ -122,6 +122,11 @@ function get_menu_list() {
                 case 8:
                     date = "Thu December 1, 2022";
                     desc = "Create border, color the border, color the text and create types of border.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 9:
+                    date = "Thu December 8, 2022";
+                    desc = "Create checkbox and write the difference between margin and padding.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
