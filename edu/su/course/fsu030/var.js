@@ -204,7 +204,7 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     // link = "add_link like 'c2' ";
-                    date = "Tue October 18, 2022";
+                    date = "Tue October 11, 2022";
                     title += ": Application of Fundamental Mechanics on Saturn V Rocket.";
                     desc = "This assignment is based on the fundamental mechanics of Saturn V Rocket";
                     // codetype = "replace here with custom var";
