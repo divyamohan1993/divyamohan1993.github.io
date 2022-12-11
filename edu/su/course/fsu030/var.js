@@ -191,20 +191,20 @@ function get_menu_list() {
         }
     }
     function get_assignment() {
-        var cases = [1];
+        var cases = [1, 2];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "assignment@physics";
             var d = i + 1;
             var link = "a" + d;
-            var title = "Section ";
+            var title = "Assignment " + d;
             var readtime = Math.floor(Math.random() * 5) + 2;
             var author = 1;
 
             switch (cases[i]) {
                 case 1:
                     // link = "add_link like 'c2' ";
-                    date = "Sat December 3, 2022";
+                    date = "Tue October 18, 2022";
                     title += ": Application of Fundamental Mechanics on Saturn V Rocket.";
                     desc = "This assignment is based on the fundamental mechanics of Saturn V Rocket";
                     // codetype = "replace here with custom var";
@@ -213,9 +213,9 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    date = "Sat December 3, 2022";
-                    title += "B: Electricity and Magnetism";
-                    desc = "This topic discusses about electricity and magnetism namely EM waves and dielectrics: Relationship between electric field & potential, Dielectric polarization, displacement current, Types of polarization, Maxwell's equations, Equation of EM waves in free space, Velocity of EM waves, Electromagnetic Spectrum (Basic idea) Magnetic materials & Superconductivity: Basic idea of Dia, Para, Ferro & Ferri, Ferrites, Magnetic anisotropy, Magnetostriction and its applications in production of Ultrasonic waves, Superconductivity, Superconductors as ideal diamagnetic materials, Signatures of Superconducting state, Type I & Type II superconductors.";
+                    date = "Sun December 10, 2022";
+                    title += ": Types of Magnetic Materials and Application of Lasers.";
+                    desc = "This topic discusses about types of Magnetic Materials and application of LASER's";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
