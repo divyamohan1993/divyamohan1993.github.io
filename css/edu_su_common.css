@@ -956,3 +956,11 @@ a:hover {
     min-width: 1340px;
   }
 }
+
+@media print {
+
+  header p a,
+  nav {
+    display: none;
+  }
+}
