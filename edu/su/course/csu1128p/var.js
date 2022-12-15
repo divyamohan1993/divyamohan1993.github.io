@@ -96,7 +96,7 @@ function get_menu_list() {
     }
 
     function get_programs() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,32];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "C Language";
@@ -110,8 +110,8 @@ function get_menu_list() {
                 case 1:
                     // link = "add_link like 'c2' ";
                     date = "Mon October 2, 2022";
-                    // title = "Program 31 / title += 'append something' ";
-                    desc = "Hello World";
+                    title += ": WAP to take 5 numbers and display their average while grading them.";
+                    desc = "WAP to take 5 numbers of the respective subjects, calculate its average, and grade the sudent based on their performance percentage.";
                     // codetype = "replace here with custom var";
                     // readtime = "2";
                     // author = "vp";
@@ -119,12 +119,12 @@ function get_menu_list() {
                     break;
                 case 2:
                     date = "Wed October 5, 2022";
-                    desc = "Program to calculate sum aftertaking two numbers as input from user.";
+                    desc = "WAP to swap two variables using all possible methods.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
                     date = "Mon October 17, 2022";
-                    desc = "Program which demonstrates use of all operators of arithmatic, modulo, relational, logical bitwise, increment, decrement, assignment, and conditional operators.";
+                    desc = "WAP to display all four digit perfect square numbers using for loop";
                     // codetype = "HTML";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;

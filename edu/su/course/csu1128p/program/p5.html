@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lte 8]><html class="pre-ie9" lang="en"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <script src="../var.js"></script>
+        <script src="/js/edu_su_var.js"></script>
+        <script src="/js/edu_su_common.js"></script>
+
+        <title>Program 5 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description"
+            content="Program to check if an entered year is leap or not without if else statement.">
+
+        <meta property="og:image" content="/logo.png">
+        <meta property="og:type" content="article">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@divyamohan1993">
+        <meta name="twitter:creator" content="@divyamohan1993">
+        <meta name="twitter:image" content="/logo.png">
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    </head>
+
+    <body>
+
+        <script>header_author("dm");</script>
+
+        <main>
+            <article>
+                <h2>
+                    Program to check if an entered year is leap or not without if else statement.
+                </h2>
+            </article>
+            <article></article>
+            <article class="syntax">
+                <pre>
+                    <code>
+/*******
+ *
+ *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
+ *
+ *  This program contains all the programs done in the course
+ *  Logic Building with Computer Programming with the course code CSU1128.
+ *
+ *  DO NOT COPY
+ *  DO NOT REPRODUCE
+ *  DO NOT MODIFY
+ *
+ *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
+ *
+ * */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int d;
+    printf("\n\n Program to check if an entered year is leap or not without if else statement. \n\n");
+    printf("Enter an year - (Example: 2100) - and press enter: ");
+    scanf("%d", &d);
+    printf("\n The entered year is");
+    (d % 4 == 0 || d % 400 == 0) ? printf(" a leap year.\n") : printf(" not a leap year.\n");
+    return 0;
+}                    </code>
+                </pre>
+            </article>
+
+            <article>
+                <h3>
+                    Output:
+                </h3>
+                <p class="codeoutput text-justify">
+                    Program to check if an entered year is leap or not without if else statement.
+                </p>
+                <p class="codeoutput text-justify">
+                    Enter an year - (Example: 2100) - and press enter: 2000
+                </p>
+                <p class="codeoutput text-justify">
+                    &emsp;The entered year is a leap year.
+                </p>
+            </article>
+        </main>
+
+        <script>copyright("all");</script>
+    </body>
+
+</html>

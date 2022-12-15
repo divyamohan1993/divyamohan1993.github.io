@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--[if lte 8]><html class="pre-ie9" lang="en"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <script src="../var.js"></script>
+        <script src="/js/edu_su_var.js"></script>
+        <script src="/js/edu_su_common.js"></script>
+
+        <title>Program 3 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description"
+            content="Program which demonstrates use of all operators of arithmatic, modulo, relational, logical bitwise, increment, decrement, assignment, and conditional operators.">
+
+        <meta property="og:image" content="/logo.png">
+        <meta property="og:type" content="article">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@divyamohan1993">
+        <meta name="twitter:creator" content="@divyamohan1993">
+        <meta name="twitter:image" content="/logo.png">
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    </head>
+
+    <body>
+
+        <script>header_author("dm");</script>
+
+        <main>
+            <article>
+                <h2>
+                    Program which demonstrates use of all operators of arithmatic, modulo, relational, logical bitwise,
+                    increment, decrement, assignment, and conditional operators.
+                </h2>
+            </article>
+            <article></article>
+            <article class="syntax">
+                <pre>
+                    <code>
+/*******
+ *
+ *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
+ *
+ *  This program contains all the programs done in the course
+ *  Logic Building with Computer Programming with the course code CSU1128.
+ *
+ *  DO NOT COPY
+ *  DO NOT REPRODUCE
+ *  DO NOT MODIFY
+ *
+ *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
+ *
+ * */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int d, m;
+    printf("\n\n Program which demonstrates use of all operators of arithmatic, modulo, relational, logical bitwise, increment, decrement, assignment, and conditional operators. \n\n");
+    printf("Enter 2 numbers with space and without decimal - (Example: 20 50) - and press enter: ");
+    scanf("%d %d", &d, &m);
+
+    /** Statement Generator
+        char arr[100][100] = {"+", "-", "/", "*", "%", "<", ">", "<=", ">=", "!=", "=", "==", "&&", "||", "!", "&", "|", "^", "a++", "a--", "if (a>b)", "if (b>a)", "\0"};
+        for (int i = 0; i < 22; i++)
+        {
+            printf("printf(\"For the operator %s the value for aaaa and bbbb will be cccc \\n\", d, m, d %s m); \n", arr[i], arr[i]);
+        }
+    */
+    // Program Start
+    printf("\n\n Arithmatic Operators: \n");
+    printf("\t For the operator + the value for %d and %d will be %d \n", d, m, d + m);
+    printf("\t For the operator - the value for %d and %d will be %d \n", d, m, d - m);
+    printf("\t For the operator / the value for %d and %d will be %d \n", d, m, d / m);
+    printf("\t For the operator * the value for %d and %d will be %d \n", d, m, d * m);
+
+    printf("\n\n Modulo Operator: \n");
+    char mod[10][10] = {"%", "!"};
+    printf("\t For the operator %s the value for %d and %d will be %d \n", mod[0], d, m, d % m);
+
+    printf("\n\n Relational Operators: \n");
+    printf("\t For the operator < the value for %d and %d will be %d \n", d, m, d < m);
+    printf("\t For the operator > the value for %d and %d will be %d \n", d, m, d > m);
+    printf("\t For the operator <= the value for %d and %d will be %d \n", d, m, d <= m);
+    printf("\t For the operator >= the value for %d and %d will be %d \n", d, m, d >= m);
+    printf("\t For the operator != the value for %d and %d will be %d \n", d, m, d != m);
+
+    printf("\n\n Assignment Operators: \n");
+    int e = d;
+    d = m;
+    printf("\t For the operator = the value for a (%d) will become the value of b (%d) \n", d, m);
+    d = e;
+
+    printf("\n\n Logical Operators: \n");
+    printf("\t For the operator == the value for %d and %d will be %d \n", d, m, d == m);
+    printf("\t For the operator && the value for %d and %d will be %d \n", d, m, d && m);
+    printf("\t For the operator || the value for %d and %d will be %d \n", d, m, d || m);
+
+    printf("\n\n Bitwise Operators: \n");
+
+    printf("\t For the operator %s the value for %d and %d will be %d \n", mod[1], d, m, !m);
+    printf("\t For the operator & the value for %d and %d will be %d \n", d, m, d & m);
+    printf("\t For the operator | the value for %d and %d will be %d \n", d, m, d | m);
+    printf("\t For the operator ^ the value for %d and %d will be %d \n", d, m, d ^ m);
+
+    printf("\n\n Increment and Decrement Operators: \n");
+    int o = d++;
+    printf("\t For the operator a++ the value for %d and %d will be %d \n", d, m, o);
+    int n = d--;
+    printf("\t For the operator a-- the value for %d and %d will be %d \n", d, m, n);
+
+    printf("\n\n Conditional Operators: \n");
+    printf("\t For the operation - if (a>b) printf(a) - the value for %d and %d will be %d \n", d, m, d > m);
+    printf("\t For the operation - if (b>a) printf(b) - the value for %d and %d will be %d \n", d, m, m > d);
+
+    return 0;
+}                    </code>
+                </pre>
+            </article>
+
+            <article>
+                <h3>
+                    Output:
+                </h3>
+                <p class="codeoutput text-justify">
+                    Program which demonstrates use of all operators of arithmatic, modulo, relational, logical bitwise,
+                    increment,
+                    decrement, assignment, and conditional operators.
+                </p>
+                <p class="codeoutput text-justify">
+                    Enter 2 numbers with space and without decimal - (Example: 20 50) - and press enter: 3 5
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Arithmatic Operators: <br>
+                    &emsp;For the operator + the value for 3 and 5 will be 8 <br>
+                    &emsp;For the operator - the value for 3 and 5 will be -2<br>
+                    &emsp;For the operator / the value for 3 and 5 will be 0<br>
+                    &emsp;For the operator * the value for 3 and 5 will be 15<br>
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Modulo Operator: <br>
+                    &emsp;For the operator % the value for 3 and 5 will be 3 <br>
+                </p>
+                <p class="codeoutput text-justify">
+                    Relational Operators: <br>
+                    &emsp;For the operator < the value for 3 and 5 will be 1 <br>
+                        &emsp;For the operator> the value for 3 and 5 will be 0 <br>
+                        &emsp;For the operator <= the value for 3 and 5 will be 1 For the operator>= the value for 3 and
+                            5 will be 0 <br>
+                            &emsp;For the operator != the value for 3 and 5 will be 1 <br>
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Assignment Operators: <br>
+                    &emsp;For the operator = the value for a (5) will become the value of b (5) <br>
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Logical Operators:<br>
+                    &emsp;For the operator == the value for 3 and 5 will be 0<br>
+                    &emsp;For the operator && the value for 3 and 5 will be 1<br>
+                    &emsp;For the operator || the value for 3 and 5 will be 1<br>
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Bitwise Operators:<br>
+                    &emsp;For the operator ! the value for 3 and 5 will be 0<br>
+                    &emsp;For the operator & the value for 3 and 5 will be 1<br>
+                    &emsp;For the operator | the value for 3 and 5 will be 7<br>
+                    &emsp;For the operator ^ the value for 3 and 5 will be 6<br>
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Increment and Decrement Operators:<br>
+                    &emsp;For the operator a++ the value for 4 and 5 will be 3<br>
+                    &emsp;For the operator a-- the value for 3 and 5 will be 4<br>
+                </p>
+
+                <p class="codeoutput text-justify">
+                    Conditional Operators:<br>
+                    &emsp;For the operation - if (a>b) printf(a) - the value for 3 and 5 will be 0<br>
+                    &emsp;For the operation - if (b>a) printf(b) - the value for 3 and 5 will be 1<br>
+                </p>
+            </article>
+        </main>
+
+        <script>copyright("all");</script>
+    </body>
+
+</html>
