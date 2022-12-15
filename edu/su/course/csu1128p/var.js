@@ -96,7 +96,7 @@ function get_menu_list() {
     }
 
     function get_programs() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
+        var cases = [1];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "C Language";
@@ -108,6 +108,12 @@ function get_menu_list() {
 
             switch (cases[i]) {
                 case 1:
+                    date = "NA";
+                    desc = "Write the structure of C. Write the difference between  difference keywords, constants, and variables.";
+                    // codetype = "HTML";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 2:
                     // link = "add_link like 'c2' ";
                     date = "Mon October 2, 2022";
                     title += ": WAP to take 5 numbers and display their average while grading them.";
@@ -117,20 +123,14 @@ function get_menu_list() {
                     // author = "vp";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 2:
+                case 3:
                     date = "Wed October 5, 2022";
                     desc = "WAP to swap two variables using all possible methods.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 3:
+                case 4:
                     date = "Mon October 17, 2022";
                     desc = "WAP to display all four digit perfect square numbers using for loop";
-                    // codetype = "HTML";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 4:
-                    date = "Wed October 19, 2022";
-                    desc = "Program to find max between 2 digits";
                     // codetype = "HTML";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
