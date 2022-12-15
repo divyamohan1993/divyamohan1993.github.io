@@ -57,11 +57,38 @@
 #include &lt;stdio.h&gt;
 int main()
 {
-    float d, m, j;
-    printf("\n\n Program to calculate sum aftertaking two numbers as input from user. \n\n");
-    printf("Enter 2 numbers - (Example: 2.34 5.66) and press enter: ");
-    scanf("%f %f", &d, &m);
-    printf("Sum of the the entered numbers %.2f and %.2f is %.2f\n", d, m, d + m);
+    int d, m, j, o, n, e;
+    printf(" Enter numbers of Chemistry, Biology, Physics, Maths, English respectively: (Example: 88 65 95 78 83) : ");
+    scanf("%d %d %d %d %d", &d, &m, &j, &o, &n);
+    e = d + m + j + o + n;
+    float ave = e / 5;
+    if ((int)ave < 100)
+    {
+        switch ((int)ave)
+        {
+        case 90 ... 100:
+            printf("Congratulations! You are awarded grade O as ");
+            break;
+
+        case 80 ... 89:
+            printf("Congratulations! You are awarded grade A.");
+            break;
+
+        case 70 ... 79:
+            printf("Congratulations! You are awarded grade B.");
+            break;
+
+        case 60 ... 69:
+            printf("Congratulations! You are awarded grade C.");
+            break;
+
+        default:
+            printf("You are awarded grade F. Better Luck Next Time.");
+            break;
+        }
+
+    char per = "%";
+    printf("You got %.2f%c", ave, per);
     return 0;
 }                    </code>
                 </pre>
@@ -72,11 +99,10 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to calculate sum aftertaking two numbers as input from user.
+                    Enter numbers of Chemistry, Biology, Physics, Maths, English respectively: (Example: 88 65 95 78 83) :99 98 98 94 90
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter 2 numbers - (Example: 2.34 5.66) and press enter: 3 20
-                    Sum of the the entered numbers 3.00 and 20.00 is 23.00
+                    &emsp;You got 96.00% and Congratulations! You are awarded grade O.
                 </p>
             </article>
         </main>

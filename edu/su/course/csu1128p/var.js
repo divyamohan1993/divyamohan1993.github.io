@@ -96,7 +96,7 @@ function get_menu_list() {
     }
 
     function get_programs() {
-        var cases = [1];
+        var cases = [1, 2, 3, 4];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "C Language";
