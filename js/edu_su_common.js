@@ -170,8 +170,8 @@ function header_author(author_init) {
     var row_button_start = '<div class="row" style="padding-bottom:30px;">';
     var row_button_end = "</div>";
     // Just write the content in the vars
-    var csu1128_button = '<div class="col"><a href="/' + course.toLowerCase() + '/"><button type="button" class="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="' + course_detail + '">' + course + '</button></a></div>';
-    var csu1128p_button = '<div class="col"><a href="/' + course.toLowerCase() + 'p/"><button type="button" class="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="' + course_detail + '!">' + course + '(P)</button></a></div>';
+    var csu1128_button = '<div class="col"><a href="//dmj.one/edu/su/course/csu1128/"><button type="button" class="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Logic Building with Computer Programming">CSU1128</button></a></div>';
+    var csu1128p_button = '<div class="col"><a href="//dmj.one/edu/su/course/csu1128p/"><button type="button" class="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Logic Building with Computer Programming Lab!">CSU1128(P)</button></a></div>';
     var fsu030_button = "";
     var csu953_button = "";
 
