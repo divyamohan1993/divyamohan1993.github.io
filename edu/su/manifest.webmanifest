@@ -3,7 +3,7 @@
     "short_name": "Shoolini @ dmj.one",
     "theme_color": "#fafafa",
     "background_color": "#fafafa",
-    "display": "minimal-ui",
+    "display": "standalone",
     "scope": "/edu/su/",
     "start_url": "/edu/su/",
     "lang": "en-us",
