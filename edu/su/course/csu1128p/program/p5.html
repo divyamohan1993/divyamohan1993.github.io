@@ -9,17 +9,17 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 5 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to check if an entered year is leap or not without if else statement.">
+        <title>Practical 5 - CSU1128P - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Write about compile time and runtime errors with an example">
 
-        <meta property="og:image" content="/logo.png">
+        <!----        <meta property="og:image" content="/logo.png"> --
+    <meta name="twitter:image" content="/logo.png">
+-->
         <meta property="og:type" content="article">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@divyamohan1993">
         <meta name="twitter:creator" content="@divyamohan1993">
-        <meta name="twitter:image" content="/logo.png">
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -33,16 +33,29 @@
         <main>
             <article>
                 <h2>
-                    Program to check if an entered year is leap or not without if else statement.
+                    Write about compile time and runtime errors with an example.
                 </h2>
             </article>
-            <article></article>
-            <article class="syntax">
-                <pre>
+
+
+            <section>
+                <article>
+                    <h3>Compile Time Errors</h3>
+                    <ul>
+                        <li>Occur when the program does not conform to the language's syntax rules.</li>
+                        <li>Are detected during compilation before the program is executed.</li>
+                        <li>Generally results from a typo or a wrong statement in the code.</li>
+                        <li>It Can be easily identified and fixed by looking at the compiler's error messages.</li>
+                        <li>Do not cause any harm to the system.</li>
+                    </ul>
+                    <p>Let us look at an example of compile time error.</p>
+                </article>
+                <article class="syntax">
+                    <pre>
                     <code>
-/*******
+/* *
  *
- *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
+ *  Logic Building with Computer Programming (CSU1128P) by Dr. Pankaj Vaidya and Abdullahi Adem
  *
  *  This program contains all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
@@ -56,33 +69,101 @@
  * */
 
 #include &lt;stdio.h&gt;
-int main()
-{
-    int d;
-    printf("\n\n Program to check if an entered year is leap or not without if else statement. \n\n");
-    printf("Enter an year - (Example: 2100) - and press enter: ");
-    scanf("%d", &d);
-    printf("\n The entered year is");
-    (d % 4 == 0 || d % 400 == 0) ? printf(" a leap year.\n") : printf(" not a leap year.\n");
+int main() {
+    int a = 1;
+    int b = 2;
+    int c = a + b
     return 0;
-}                    </code>
+}
+                    </code>
                 </pre>
-            </article>
+                </article>
+                <article>
+                    <h3>
+                        Output
+                    </h3>
+                    <p class="codeoutput text-justify">
+                        gcc /tmp/gnqKaOW3lQ.c -lm
+                        /tmp/gnqKaOW3lQ.c: In function 'main':
+                        /tmp/gnqKaOW3lQ.c:5:3: error: expected ',' or ';' before 'return'
+                        &emsp;&emsp;5 | int c = a + b
+                        &emsp;&emsp;&nbsp;&nbsp;| ^~~
+                    </p>
+                </article>
+            </section>
 
-            <article>
-                <h3>
-                    Output:
-                </h3>
-                <p class="codeoutput text-justify">
-                    Program to check if an entered year is leap or not without if else statement.
-                </p>
-                <p class="codeoutput text-justify">
-                    Enter an year - (Example: 2100) - and press enter: 2000
-                </p>
-                <p class="codeoutput text-justify">
-                    &emsp;The entered year is a leap year.
-                </p>
-            </article>
+            <section>
+                <article>
+                    <h3>Run Time Errors</h3>
+                    <ol>
+                        <li>Occur when the program runs, and there is an unexpected result due to incorrect logic or
+                            input data.</li>
+                        <li>Are detected during execution after the program has started running.</li>
+                        <li>Generally result from a logical mistake or invalid input data.</li>
+                        <li>It Cannot be easily identified and fixed by looking at the compiler's error messages.</li>
+                        <li>Can cause harm to the system, such as crashing programs or corrupting data.</li>
+                    </ol>
+                    <p>Let us look at an example of run time error.</p>
+                </article>
+                <article class="syntax">
+                    <pre>
+                        <code>
+/* *
+ *
+ *  Logic Building with Computer Programming (CSU1128P) by Dr. Pankaj Vaidya and Abdullahi Adem
+ *
+ *  This program contains all the programs done in the course
+ *  Logic Building with Computer Programming with the course code CSU1128.
+ *
+ *  DO NOT COPY
+ *  DO NOT REPRODUCE
+ *  DO NOT MODIFY
+ *
+ *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
+ *
+ * */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 1;
+    int b = 2;
+    int c = a + b;
+    int d = c / 0;
+    return 0;
+}
+                    </code>
+                </pre>
+                </article>
+                <article>
+                    <h3>
+                        Output
+                    </h3>
+                    <p class="codeoutput text-justify">
+                    Floating point exception
+                    </p>
+                </article>
+            </section>
+            <section>
+                <h3>Difference between Compile time and run time errors.</h3>
+                <article>
+                    <ol>
+                        <li>Compile time errors occur when the code is being compiled, while run time errors occur
+                            when code is being executed.</li>
+                        <li>Compile time errors are usually syntax errors and can be easily identified and fixed,
+                            while run time errors are more
+                            difficult to debug.</li>
+                        <li>Compile time errors prevent the code from being executed, while run time errors can
+                            occur after the code has been
+                            successfully compiled.</li>
+                        <li>Compile time errors are usually detected by the compiler, while run time errors are
+                            usually detected by the program
+                            itself.</li>
+                        <li>Compile time errors can be fixed by simply correcting the code, while run time errors
+                            often require more in-depth
+                            debugging and analysis.</li>
+                    </ol>
+                </article>
+            </section>
         </main>
 
         <script>copyright("all");</script>
