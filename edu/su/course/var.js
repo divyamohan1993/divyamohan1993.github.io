@@ -52,9 +52,9 @@ function get_menu_list() {
                     break;
                 case 3:
                     link = "csu1128p/";
-                    date = "Last Updated: Sun November 27, 2022";
+                    date = "Last Updated: Sun December 18, 2022";
                     title = "Logic Building with Computer Programming Lab";
-                    desc = "<strong>WIP: Work in Progress! </strong> No content uploaded";
+                    desc = "Lets learn to code C! This section contains all the course related things of Logic Building with Computer Programming.";
                     codetype = "CSU1128P";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
