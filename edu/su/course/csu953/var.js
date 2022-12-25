@@ -42,7 +42,7 @@ function get_menu_list() {
                     break;
                 case 2:
                     link = "file/";
-                    date = "Last Updated: Wed November 30, 2022";
+                    date = "Last Updated: Sun December 25, 2022";
                     title = "Practical File";
                     desc = "Lets create the practical file! This section contains list of the practicals which were to be written in the HTML practical notebook.";
                     codetype = "HTML Labs";
@@ -143,7 +143,7 @@ function get_menu_list() {
     }
 
     function get_file() {
-        var cases = [1, 2, 3, 4, 5, 6];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
         for (let i = 0; i < cases.length; i++) {
 
@@ -157,33 +157,68 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     title += ": Use of tags title, h1, p, img, a, div.";
-                    date = "Thu September 27, 2022";
+                    date = "Thu October 6, 2022";
                     desc = "Create a basic HTML file by using following tags: title, h1, p, image, a, div.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    date = "Thu September 27, 2022";
+                    date = "Thu October 13, 2022";
                     desc = "Design a web page to display Shoolini University with hyperlink.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
-                    date = "Thu September 27, 2022";
+                    date = "Thu October 20, 2022";
                     desc = "Create a static web page using table tags of HTML.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 4:
-                    date = "Thu September 27, 2022";
+                    date = "Thu October 27, 2022";
                     desc = "Create a static web page which defines all text formatting tags of HTML in tabular format";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 5:
-                    date = "Thu September 27, 2022";
+                    date = "Thu November 3, 2022";
                     desc = "Create webpage using list tag of HTML, (Display your family information in a list).";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 6:
-                    date = "Thu November 17, 2022";
+                    date = "Thu November 10, 2022";
                     desc = "Create a form in html.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 7:
+                    date = "Thu November 17, 2022";
+                    desc = "Using HTML, CSS create a styled checkbox.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 8:
+                    date = "Thu November 24, 2022";
+                    desc = "Using CSS create and display text on an image.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 9:
+                    date = "Thu December 1, 2022";
+                    desc = "Create a margin and padding space in a Box by using CSS.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 10:
+                    date = "Thu December 8, 2022";
+                    desc = "By using CSS specifies 50% opacity to an image.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 11:
+                    date = "Thu December 15, 2022";
+                    desc = "Create a navigation bar (horizontal and vertical)  by using CSS.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 12:
+                    date = "Thu December 22, 2022";
+                    desc = "Create a dropdown box that appears when the user moves the mouse over an element.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 13:
+                    date = "Thu December 29, 2022";
+                    desc = "Create animation effect by using CSS.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
