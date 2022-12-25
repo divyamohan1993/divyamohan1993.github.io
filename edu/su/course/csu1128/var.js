@@ -49,6 +49,15 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
+                    link = "all.exe";
+                    date = "Last Updated: Sun December 25, 2022";
+                    title = "All Programs Compiled";
+                    desc = "All the programs compiled in an executable file for usage in Windows.";
+                    codetype = "C Programming";
+                    // readtime = "10";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 4:
                     link = "books";
                     date = "Thu September 27, 2022";
                     title = "Reference Books";
