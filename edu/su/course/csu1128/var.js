@@ -27,7 +27,7 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1];
+        var cases = [1, 2];
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
@@ -40,6 +40,15 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
+                    link = "../csu1128p/program/";
+                    date = "Last Updated: Sun December 25, 2022";
+                    title = "Programs done in Lab";
+                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
+                    codetype = "C Programming";
+                    // readtime = "10";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 3:
                     link = "books";
                     date = "Thu September 27, 2022";
                     title = "Reference Books";
@@ -96,7 +105,7 @@ function get_menu_list() {
     }
 
     function get_programs() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,32];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "C Language";

@@ -27,7 +27,7 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1, 2, 3, 4];
+        var cases = [1, 2, 3];
 
         // var readtime = Math.floor(Math.random() * 5) + 2;
         // var author = 1;
@@ -50,21 +50,20 @@ function get_menu_list() {
                     codetype = "CSU953";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-
+                case 3:
+                    link = "fsu030/";
+                    date = "Last Updated: Sun December 25, 2022";
+                    title = "Engineering Physics";
+                    desc = "Revisit the concepts of Physics and its real-world applications! This section contains all the course related things of Engineering Physics";
+                    codetype = "FSU030";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
                 case 33: // commented
                     link = "csu1128p/";
                     date = "Last Updated: Sun December 18, 2022";
                     title = "Logic Building with Computer Programming Lab";
                     desc = "Lets learn to code C! This section contains all the course related things of Logic Building with Computer Programming.";
                     codetype = "CSU1128P";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 4:
-                    link = "fsu030/";
-                    date = "Last Updated: Sun December 25, 2022";
-                    title = "Engineering Physics";
-                    desc = "Revisit the concepts of Physics and its real-world applications! This section contains all the course related things of Engineering Physics";
-                    codetype = "FSU030";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 5:
