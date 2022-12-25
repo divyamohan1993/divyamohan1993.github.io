@@ -9,8 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Practical 8 - CSU953 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Practical 8 discusses how to create text on image using CSS">
+        <title>Practical 10 - CSU953 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Practical 10 discusses about the opacity using CSS.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
         <main>
             <article>
                 <h2>
-                    Using CSS create and display text on an image.
+                    By using CSS specifies 50% opacity to an image.
                 </h2>
             </article>
 
@@ -86,37 +86,56 @@
                     <code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
-
     &lt;head&gt;
-        &lt;meta charset="UTF-8" /&gt;
-        &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Practical 10&lt;/title&gt;
+        &lt;!-- &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"&gt; --&gt;
         &lt;style&gt;
-            @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas');
-
             body {
                 margin: 0;
                 height: 100vh;
                 display: grid;
                 place-items: center;
             }
-
-            h1 {
-                position: absolute;
-                font-family: 'Mountains of Christmas', cursive;
-                color: red;
-                font-size: 80px;
-            }
-
+            
             img {
                 max-width: 100%;
-                height: auto
+                height: auto;
+            }
+
+            .op4 {
+                opacity: 0.4;
+            }
+            table {
+                text-align: center;
+                vertical-align: middle;
             }
         &lt;/style&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
-        &lt;img src="grass_sides.png" class="img-fluid" alt="grass"&gt;
-        &lt;h1&gt;Merry Christmas!&lt;/h1&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;img
+                        src="https://images.wallpaperscraft.com/image/single/art_lettering_letters_creative_minimalism_95487_320x480.jpg"&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;img class="op4"
+                        src="https://images.wallpaperscraft.com/image/single/art_lettering_letters_creative_minimalism_95487_320x480.jpg"&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;h3&gt;Full Opacity&lt;/h3&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;h3&gt;Reduced Opacity&lt;/h3&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
     &lt;/body&gt;
 
 &lt;/html&gt;
@@ -136,7 +155,7 @@
                                 height:50px;">
                         </div>
                         <div class="col" style="margin-left: -20%;">
-                            <h1 style="font-size: 50px;">Practical 8</h1>
+                            <h1 style="font-size: 50px;">Practical 10</h1>
                         </div>
                     </div>
                     <style>
@@ -146,21 +165,44 @@
                             display: grid;
                             place-items: center;
                         }
-                        .ont h1 {
-                            position: absolute;
-                            font-family: 'Mountains of Christmas', cursive;
-                            color: red;
-                            font-size: 80px;
-                        }
+
                         .ont img {
                             max-width: 100%;
                             height: auto;
                         }
+
+                        .op4 {
+                            opacity: 0.4;
+                        }
+
+                        .ont table {
+                            text-align: center;
+                            vertical-align: middle;
+                        }
                     </style>
 
+
                     <div class="ont">
-                        <img src="grass_sides.png" class="img-fluid" alt="grass">
-                        <h1>Merry Christmas!</h1>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img
+                                        src="https://images.wallpaperscraft.com/image/single/art_lettering_letters_creative_minimalism_95487_320x480.jpg">
+                                </td>
+                                <td>
+                                    <img class="op4"
+                                        src="https://images.wallpaperscraft.com/image/single/art_lettering_letters_creative_minimalism_95487_320x480.jpg">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h3>Full Opacity</h3>
+                                </td>
+                                <td>
+                                    <h3>Reduced Opacity</h3>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
 
                 </div>

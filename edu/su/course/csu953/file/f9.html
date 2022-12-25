@@ -9,8 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Practical 8 - CSU953 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Practical 8 discusses how to create text on image using CSS">
+        <title>Practical 9 - CSU953 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Practical 9 discusses about the margin and padding space using CSS">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
         <main>
             <article>
                 <h2>
-                    Using CSS create and display text on an image.
+                    Create a margin and padding space in a Box by using CSS.
                 </h2>
             </article>
 
@@ -88,11 +88,12 @@
 &lt;html lang="en"&gt;
 
     &lt;head&gt;
-        &lt;meta charset="UTF-8" /&gt;
-        &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Practical 9&lt;/title&gt;
+        &lt;!-- &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"&gt; --&gt;
         &lt;style&gt;
-            @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas');
-
             body {
                 margin: 0;
                 height: 100vh;
@@ -100,23 +101,37 @@
                 place-items: center;
             }
 
-            h1 {
+            .div1 {
                 position: absolute;
-                font-family: 'Mountains of Christmas', cursive;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 color: red;
-                font-size: 80px;
+                font-size: 100px;
+                background-color: aqua;
+                padding:auto;
+                text-align: center;   
             }
-
+            .padding {
+                padding: 10px;
+                background-color: white;
+            }
+            
+            .margin{
+                background-color: white;
+                margin: 30px;
+            }
             img {
                 max-width: 100%;
-                height: auto
+                height: auto;
             }
         &lt;/style&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
-        &lt;img src="grass_sides.png" class="img-fluid" alt="grass"&gt;
-        &lt;h1&gt;Merry Christmas!&lt;/h1&gt;
+        &lt;img src="https://images.wallpaperscraft.com/image/single/gray_light_background_dots_perforation_72423_1600x900.jpg"&gt;
+        &lt;div class="div1"&gt;
+            &lt;div class="margin"&gt;Margin: 10px&lt;/div&gt;
+            &lt;div class="padding"&gt;Padding: 10px&lt;/div&gt;
+        &lt;/div&gt;
     &lt;/body&gt;
 
 &lt;/html&gt;
@@ -136,7 +151,7 @@
                                 height:50px;">
                         </div>
                         <div class="col" style="margin-left: -20%;">
-                            <h1 style="font-size: 50px;">Practical 8</h1>
+                            <h1 style="font-size: 50px;">Practical 9</h1>
                         </div>
                     </div>
                     <style>
@@ -146,21 +161,41 @@
                             display: grid;
                             place-items: center;
                         }
-                        .ont h1 {
+
+                        .div1 {
                             position: absolute;
-                            font-family: 'Mountains of Christmas', cursive;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                             color: red;
-                            font-size: 80px;
+                            font-size: 100px;
+                            background-color: aqua;
+                            padding: auto;
+                            text-align: center;
                         }
+
+                        .padding {
+                            padding: 10px;
+                            background-color: white;
+                        }
+
+                        .margin {
+                            background-color: white;
+                            margin: 30px;
+                        }
+
                         .ont img {
                             max-width: 100%;
                             height: auto;
                         }
                     </style>
 
+
                     <div class="ont">
-                        <img src="grass_sides.png" class="img-fluid" alt="grass">
-                        <h1>Merry Christmas!</h1>
+                        <img
+                            src="https://images.wallpaperscraft.com/image/single/gray_light_background_dots_perforation_72423_1600x900.jpg">
+                        <div class="div1">
+                            <div class="margin">Margin: 10px</div>
+                            <div class="padding">Padding: 10px</div>
+                        </div>
                     </div>
 
                 </div>
