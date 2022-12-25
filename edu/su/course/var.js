@@ -38,7 +38,7 @@ function get_menu_list() {
                     link = "csu1128/";
                     date = "Last Updated: Sun December 25, 2022";
                     title = "Logic Building with Computer Prgramming and its Lab";
-                    desc = "Lets learn to code C! This section contains all the course related things of Logic Building with Computer Programming and its lab.";
+                    desc = "Semester 1 - CSU1128 and CSU1128P <br> Lets learn to code C! This section contains all the course related things of Logic Building with Computer Programming and its lab.";
                     codetype = "CSU1128 | CSU1128P";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
@@ -46,7 +46,7 @@ function get_menu_list() {
                     link = "csu953/";
                     date = "Last Updated: Sun December 25, 2022";
                     title = "Front End Development Lab";
-                    desc = "Lets learn to code HTML! This section contains all the course related things of Front End Development Lab";
+                    desc = "Semester 1 - CSU953 <br> Lets learn to code HTML! This section contains all the course related things of Front End Development Lab";
                     codetype = "CSU953";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
@@ -54,7 +54,7 @@ function get_menu_list() {
                     link = "fsu030/";
                     date = "Last Updated: Sun December 25, 2022";
                     title = "Engineering Physics";
-                    desc = "Revisit the concepts of Physics and its real-world applications! This section contains all the course related things of Engineering Physics";
+                    desc = "Semester 1 - FSU030 <br> Revisit the concepts of Physics and its real-world applications! This section contains all the course related things of Engineering Physics";
                     codetype = "FSU030";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
