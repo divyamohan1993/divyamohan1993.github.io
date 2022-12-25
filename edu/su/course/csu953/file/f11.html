@@ -9,8 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Practical 7 - CSU953 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Practical 6 discusses about the form tag and its properties">
+        <title>Practical 11 - CSU953 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Practical 11 discusses about the horizontal and vertical navigation bar">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -31,13 +31,13 @@
         <main>
             <article>
                 <h2>
-                    Using HTML, CSS create a styled checkbox.
+                    Create a navigation bar (horizontal and vertical) by using CSS.
                 </h2>
             </article>
 
             <article>
                 <p>
-                    form: This tag is used to start making a form
+                    navigation bar: This tag is used to start making a form
                 </p>
                 <p>
                     label: This tag is used to define a label for form element
@@ -87,6 +87,64 @@
 &lt;!doctype html&gt;
 &lt;head&gt;
     &lt;title&gt;Practical 11&lt;/title&gt;
+    &lt;style&gt;
+    .ont {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    }
+    
+    img {
+    max-width: 100%;
+    height: auto;
+    }
+    
+    table {
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    margin-top: -50px;
+    }
+    
+    .nav {
+    list-style: none;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .nav li {
+    text-align: center !important;
+    padding: 0px !important;
+    background: #333 !important;
+    }
+    
+    .hor {
+    display: flex;
+    }
+    
+    .hor li {
+    flex: 1;
+    }
+    
+    .ver,
+    .ver li {
+    display: block;
+    }
+    
+    
+    .nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    }
+    
+    .nav a:hover {
+    background-color: #111;
+    }
+    &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div class="row"&gt;
@@ -95,31 +153,38 @@
             height:50px;"&gt;
     &lt;/div&gt;
     &lt;div class="col" style="margin-left: -20%;"&gt;
-        &lt;h1 style="font-size: 50px;"&gt;Practical 6&lt;/h1&gt;
+        &lt;h1 style="font-size: 50px;"&gt;Practical 11&lt;/h1&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;form action="#"&gt;
-    &lt;fieldset&gt;
-        &lt;legend&gt;Simple inline Login Box&lt;/legend&gt;
-        &lt;label&gt;Username&lt;/label&gt;
-        &lt;input type="text" name="username" /&gt;
-        &lt;label&gt;Password&lt;/label&gt;
-        &lt;input type="password" name="password" /&gt;
-        &lt;label&gt;Page&lt;/label&gt;
-        &lt;select name="location" id="location"&gt;
-            &lt;option value="home"&gt;Homepage&lt;/option&gt;
-            &lt;option value="dash"&gt;Dashboard&lt;/option&gt;
-        &lt;/select&gt;
-        &lt;label for="work"&gt;Got Work?&lt;/label&gt;
-        &lt;input list="works" name="work" id="work"&gt;
-        &lt;datalist id="works"&gt;
-            &lt;option value="Yes"&gt;
-            &lt;option value="No"&gt;
-            &lt;option value="Undecided"&gt;
-        &lt;/datalist&gt;
-        &lt;input type="submit" value="Login" name="submit" class="submit" /&gt;
-    &lt;/fieldset&gt;
-&lt;/form&gt;
+&lt;div class="ont"&gt;
+    &lt;img src="https://img.freepik.com/free-vector/coronavirus-global-spread-banner-with-text-space_1017-24740.jpg?w=2000"&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;ul class="nav hor"&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Wear a Mask&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Use Sanitizer&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Wash Hands&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;ul class="nav ver"&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Wear a Mask&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Use Sanitizer&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Wash Hands&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;h3&gt;Horizontal Navigation&lt;/h3&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;h3&gt;Vertical Navigation&lt;/h3&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
                     </code>
@@ -138,7 +203,7 @@
                                 height:50px;">
                         </div>
                         <div class="col" style="margin-left: -20%;">
-                            <h1 style="font-size: 50px;">Practical 6</h1>
+                            <h1 style="font-size: 50px;">Practical 11</h1>
                         </div>
                     </div>
                     <style>
@@ -199,7 +264,7 @@
                             background-color: #111;
                         }
                     </style>
-                    </head>
+
 
                     <div class="ont">
                         <img
