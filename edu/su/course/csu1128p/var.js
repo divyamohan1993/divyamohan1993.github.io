@@ -67,19 +67,19 @@ function get_menu_list() {
                 case 1:
                     link = "program/";
                     date = "Last Updated: Wed November 23, 2022";
-                    title = "Programs done in Class";
-                    desc = "This contains list of programs written in C language done in class.";
+                    title = "Programs done in Lab";
+                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    link = "books";
-                    date = "Thu September 27, 2022";
-                    title = "Reference Books";
-                    desc = "Learn where";
-                    // codetype = "HTML";
-                    readtime = "2";
+                    link = "../csu1128/program/";
+                    date = "Last Updated: Sun December 25, 2022";
+                    title = "Programs done in Class";
+                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the class and is written in C language.";
+                    codetype = "C Programming";
+                    // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
