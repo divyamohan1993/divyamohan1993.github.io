@@ -144,8 +144,8 @@ function header_author(author_init) {
             var prof = "";
             var prof_bio = "";
             var prof_href = "";
-            var course = "Shoolini University with dmj.one";
-            var course_detail = "";
+            var course = "B. Tech CSE @ Shoolini University";
+            var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
 
