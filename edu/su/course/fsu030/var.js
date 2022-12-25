@@ -51,7 +51,7 @@ function get_menu_list() {
                     break;
                 case 3:
                     link = "assignment/";
-                    date = "Thu September 27, 2022";
+                    date = "Last Updated: Sun December 25, 2022";
                     title = "Assignments";
                     desc = "Assignments which were given in the class";
                     codetype = "Assignment";
@@ -121,7 +121,7 @@ function get_menu_list() {
                     // link = "add_link like 'c2' ";
                     date = "Sat December 3, 2022";
                     title += "A: Work, Energy and Fluid motion";
-                    desc = "This topic discusses about Work, Energy and Fluid Motions namely Work and energy theorem, Conservative and non-conservative forces, Potential energy, Energy diagram, Stable and unstable equilibrium, Gravitational potential energy,  Elastic potential energy, Types of fluids, Significance of fluid mechanics, Fluid properties, Pascal's law, Surface tension and capillarity, Continuity equation, Bernoulli's equation.";
+                    desc = "WIP: This topic discusses about Work, Energy and Fluid Motions namely Work and energy theorem, Conservative and non-conservative forces, Potential energy, Energy diagram, Stable and unstable equilibrium, Gravitational potential energy,  Elastic potential energy, Types of fluids, Significance of fluid mechanics, Fluid properties, Pascal's law, Surface tension and capillarity, Continuity equation, Bernoulli's equation.";
                     // codetype = "replace here with custom var";
                     // readtime = "2";
                     // author = "vp";
@@ -213,7 +213,7 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    date = "Sun December 10, 2022";
+                    date = "Sun December 18, 2022";
                     title += ": Types of Magnetic Materials and Application of Lasers.";
                     desc = "This topic discusses about types of Magnetic Materials and application of LASER's";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
