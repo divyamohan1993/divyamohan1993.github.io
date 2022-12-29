@@ -160,6 +160,11 @@ function header_author(author_init) {
             var author_bio = "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
             var author_href = "mailto:vp@dmj.one";
             break;
+        case "harshal":
+            var author = "Harshal Khajuria";
+            var author_bio = "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
+            var author_href = "mailto:harshalkotakhajuria@gmail.com";
+            break;
         default:
             var author = "Divya Mohan";
             var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
