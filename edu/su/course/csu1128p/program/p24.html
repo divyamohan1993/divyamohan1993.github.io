@@ -61,40 +61,39 @@
 #include &lt;math.h&gt;
 int main()
 {
-    int d, m, j;
-    printf("\n\n Program to print the armstrong number. An armstrong number is ");
-    printf("the number where the sum of cube of each digit is equal to the number itself. ");
-    printf("Example 370 = 27 + 343 + 0 = 370 \n\n");
-
-    printf("Enter two number between which you want to print armstrong numbers ");
-    printf("(Example: 21 1200) - and press enter: ");
+    // Get the lower and upper bounds from the user
+    int d, m;
+    printf("\n\n Program to print the armstrong number. An armstrong number is the number where the sum of cube of each digit is equal to the number itself. Example 370 = 27 + 343 + 0 = 370 \n\n");
+    printf("Enter two number between which you want to print armstrong numbers (Example: 21 1200) - and press enter: ");
     scanf("%d %d", &d, &m);
+
     printf("\n Armstrong numbers between %d and %d are: \n", d, m);
 
-    for (j = d; j <= m; j++)
+    // Iterate through the range of numbers
+    for (int j = d; j <= m; j++)
     {
-        int o, n, e = 0, s = 0;
-        o = j;
+        // Initialize sum
+        int o = 0;
 
-        while (o != 0)
+        // Find the sum of the cube of each digit
+        int n = j;
+        while (n > 0)
         {
-            e += 1;
-            o /= 10;
+            int e = n % 10;
+            o += pow(e, 3);
+            n /= 10;
         }
 
-        for (o = j; o > 0; o = o / 10)
+        // Check if the number is an Armstrong number
+        if (j == o)
         {
-            n = o % 10;
-            s += pow(n, e);
-
-            if (j == s)
-                printf("\t %d ", j);
+            printf("%d\t", j);
         }
     }
 
-    printf("\n");
     return 0;
-}                    </code>
+}
+                    </code>
                 </pre>
             </article>
 
