@@ -135,7 +135,6 @@ function get_menu_list() {
                 case 2:
                     // link = "add_link like 'c2' ";
                     date = "Thu October 20, 2022";
-                    title += ": WAP to take 5 numbers and display their average while grading them.";
                     desc = "WAP to take 5 numbers of the respective subjects, calculate its average, and grade the sudent based on their performance percentage.";
                     // codetype = "replace here with custom var";
                     // readtime = "2";
@@ -169,6 +168,7 @@ function get_menu_list() {
                     desc = "Program to compare two matrices and check if they are identical or not";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     date = "Thu November 24, 2022";
+                    title += ": Another Method by Harshal";
                     author = "Harshal Khajuria";
                     link += "_m2";
                     desc = "Another method by Harshal Khajuria - Program to compare two matrices and check if they are identical or not";
