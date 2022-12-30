@@ -169,8 +169,8 @@ function get_menu_list() {
                     desc = "Program to compare two matrices and check if they are identical or not";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     date = "Thu November 24, 2022";
-                    author = "harshal";
-                    link+= "_m2";
+                    author = "Harshal Khajuria";
+                    link += "_m2";
                     desc = "Another method by Harshal Khajuria - Program to compare two matrices and check if they are identical or not";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
