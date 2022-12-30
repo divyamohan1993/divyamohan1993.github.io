@@ -15,8 +15,8 @@ function get_menu_list() {
             case "books":
                 get_books();
                 break;
-            case "program":
-                get_programs();
+            case "labfile":
+                get_labfile();
                 break;
             default:
                 break;
@@ -31,7 +31,7 @@ function get_menu_list() {
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
-                    link = "program/";
+                    link = "labfile/";
                     date = "Last Updated: Sun December 25, 2022";
                     title = "Programs done in Lab";
                     desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
@@ -113,7 +113,7 @@ function get_menu_list() {
         }
     }
 
-    function get_programs() {
+    function get_labfile() {
         var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         for (let i = 0; i < cases.length; i++) {
 
