@@ -10,7 +10,7 @@
         <script src="/js/edu_su_common.js"></script>
 
         <title>Program 8 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Program to swap the values with temp.">
+        <meta name="description" content="Program to find the nth term of fibonacci series">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -32,7 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to swap the values with temp.
+                    Program to find the nth term of fibonacci series
                 </h2>
             </article>
             <article></article>
@@ -55,18 +55,25 @@
  * */
 
 #include &lt;stdio.h&gt;
+void swap(int *d, int *m);
+int fibonacci();
 int main()
 {
-    int d, m, j;
-    printf("\n\n Program to swap the values with temp. \n\n");
-    printf("Enter two numbers with a space - (Example: 23 76) - and press enter: ");
-    scanf("%d %d", &d, &m);
-    printf("\n Input values of a and b are %d and %d respectively.\n", d, m);
-    j = d;
-    d = m;
-    m = j;
-    printf("\n Swapped input values of a and b are %d and %d respectively.\n", d, m);
+    int n;
+    printf("\n\n-- This program finds the nth term of fibonacci series --\n\n");
+    printf("Enter the place of the fibonacci term you want to know : ");
+    scanf("%d", &n);
+    printf("\n\tThe %dth Fibonacci term is: %d\n", n, fibonacci(n));
     return 0;
+}
+int fibonacci(int n)
+{
+    // base case
+    if (n == 0 || n == 1)
+        return n;
+
+    // recursive case
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }                    </code>
                 </pre>
             </article>
@@ -76,13 +83,10 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to swap the values with temp.
-                </p>
-                <p class="codeoutput text-justify">
-                    Enter two numbers with a space - (Example: 23 76) - and press enter: 34 65<br>
-                    &emsp;Input values of a and b are 34 and 65 respectively.<br>
-                    &emsp;Swapped input values of a and b are 65 and 34 respectively.<br>
-
+                    -- This program finds the nth term of fibonacci series --<br>
+                    <br>
+                    Enter the place of the fibonacci term you want to know : 12<br>
+                    &emsp;The 12th Fibonacci term is: 144<br>
                 </p>
             </article>
         </main>

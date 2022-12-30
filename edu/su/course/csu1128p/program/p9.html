@@ -10,7 +10,7 @@
         <script src="/js/edu_su_common.js"></script>
 
         <title>Program 9 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Program to swap the values without temp.">
+        <meta name="description" content="Program to swap the values by using call by reference.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -32,7 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to swap the values without temp.
+                    Program to swap the values by using call by reference.
                 </h2>
             </article>
             <article></article>
@@ -55,26 +55,26 @@
  * */
 
 #include &lt;stdio.h&gt;
+void swap(int *d, int *m);
 int main()
 {
-    int d, m, j;
-    printf("\n\n Program to swap the values without temp. \n\n");
-    printf("Enter two numbers with a space - (Example: 23 76) - and press enter: ");
-    scanf("%d %d", &d, &m);
-    printf("\n Input values of a and b are %d and %d respectively.\n", d, m);
-    // Logic 1
-    d = d * m;
-    m = d / m;
-    d = d / m;
-    printf("\n Swapped input values of a and b using first method are %d and %d respectively.\n", d, m);
-    // Logic 2
-    d = d + m;
-    m = d - m;
-    d = d - m;
-    printf("\n Swapped input values of a and b using second method are %d and %d respectively.\n", d, m);
-
+    int j, o;
+    printf("\n\n -- This program swaps two values by call by reference --\n\n");
+    printf("Enter the value of d and m: ");
+    scanf("%d %d", &j, &o);
+    printf("\tBefore swapping: d = %d, m = %d\n", j, o);
+    swap(&j, &o);
+    printf("\tAfter swapping: d = %d, m = %d\n", j, o);
     return 0;
-}                    </code>
+}
+// Function to swap two elements using call by reference
+void swap(int *d, int *m)
+{
+    int n = *d;
+    *d = *m;
+    *m = n;
+}
+                    </code>
                 </pre>
             </article>
 
@@ -83,14 +83,10 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to swap the values without temp.</p>
-                <p class="codeoutput text-justify">
-                    Enter two numbers with a space - (Example: 23 76) - and press enter: 34 54
-                </p>
-                <p class="codeoutput text-justify">
-                    Input values of a and b are 34 and 54 respectively.<br>
-                    &emsp;Swapped input values of a and b using first method are 54 and 34 respectively.<br>
-                    &emsp;Swapped input values of a and b using second method are 34 and 54 respectively.
+                    -- This program swaps two values by call by reference --<br>
+                    Enter the value of d and m: 43 76<br>
+                    &emsp;Before swapping: d = 43, m = 76<br>
+                    &emsp;After swapping: d = 76, m = 43<br>
                 </p>
             </article>
         </main>

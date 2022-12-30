@@ -10,7 +10,7 @@
         <script src="/js/edu_su_common.js"></script>
 
         <title>Program 10 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Program to calculate the actual bill under conditions.">
+        <meta name="description" content="Program to count the number of vowels and consonents from the sentence entered by the user">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -32,9 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to calculate the actual bill under conditions such that if the bill amount is greater than
-                    Rs 1000/- then a discount of 10%s will be given else no discount will be given. Display the total
-                    bill.
+                    Program to count the number of vowels and consonents from the sentence entered by the user
                 </h2>
             </article>
             <article></article>
@@ -57,21 +55,33 @@
  * */
 
 #include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
 int main()
 {
-    float d, m = 0, j;
-    printf("\n\n Program to calculate the actual bill under conditions that:");
-    char o[10][10] = {"%"};
-    printf("\n\t - if the bill amount is greater than Rs 1000/- then a discount of 10%s will be given.", o[0]);
-    printf("\n\t - else no discount will be given. Display the total bill. \n\n");
-    printf("Enter the bill amount - (Example: 2336) - and press enter: ");
-    scanf("%f", &d);
-    if (d > 1000)
+    char d[100];
+    int m = 0, n = 0;
+    printf("\n\n -- This program counts the number of vowels and consonents from the sentence entered by the user --\n\n");
+    printf("Enter a string: ");
+    fgets(d, sizeof(d), stdin); // read the string from the user using fgets
+
+    char *j = d; // create a pointer to the first character in the string
+
+    while (*j != '\0') // iterate until the null character is reached
     {
-        m = 10;
+        if (isalpha(*j)) // check if the character is a letter
+        {
+            if (tolower(*j) == 'a' || tolower(*j) == 'e' || tolower(*j) == 'i' || tolower(*j) == 'o' || tolower(*j) == 'u')
+                m++;
+            else
+                n++;
+        }
+
+        j++; // move the pointer to the next character
     }
-    j = d - d * m / 100;
-    printf("\n Total bill is %.2f \n", j);
+
+    printf("\tNumber of vowels: %d\n", m);
+    printf("\tNumber of consonants: %d\n", n);
+
     return 0;
 }                    </code>
                 </pre>
@@ -82,13 +92,12 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to calculate the actual bill under conditions that:<br>
-                    &emsp;- if the bill amount is greater than Rs 1000/- then a discount of 10% will be given.<br>
-                    &emsp;- else no discount will be given. Display the total bill.
-                </p>
-                <p class="codeoutput text-justify">
-                    Enter the bill amount - (Example: 2336) - and press enter: 4332<br>
-                    &emsp;Total bill is 3898.80
+                    -- This program counts the number of vowels and consonents from the sentence entered by the user
+                    --<br>
+                    <br>
+                    Enter a string: this is a string.<br>
+                    &emsp;Number of vowels: 4<br>
+                    &emsp;Number of consonants: 9<br>
                 </p>
             </article>
         </main>

@@ -114,7 +114,7 @@ function get_menu_list() {
     }
 
     function get_programs() {
-        var cases = [1, 2, 3, 4, 5, 6, 7];
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         for (let i = 0; i < cases.length; i++) {
 
             var codetype = "C Language";
@@ -126,7 +126,7 @@ function get_menu_list() {
 
             switch (cases[i]) {
                 case 1:
-                    date = "Thu December 1, 2022";
+                    date = "Thu October 13, 2022";
                     title = "Practical 1";
                     desc = "Write the structure of C. Write the difference between  difference keywords, constants, and variables.";
                     // codetype = "HTML";
@@ -134,7 +134,7 @@ function get_menu_list() {
                     break;
                 case 2:
                     // link = "add_link like 'c2' ";
-                    date = "Thu November 24, 2022";
+                    date = "Thu October 20, 2022";
                     title += ": WAP to take 5 numbers and display their average while grading them.";
                     desc = "WAP to take 5 numbers of the respective subjects, calculate its average, and grade the sudent based on their performance percentage.";
                     // codetype = "replace here with custom var";
@@ -143,55 +143,60 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
-                    date = "Thu November 24, 2022";
+                    date = "Thu October 27, 2022";
                     desc = "WAP to swap two variables using all possible methods.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 4:
-                    date = "Thu December 8, 2022";
+                    date = "Thu November 3, 2022";
                     desc = "WAP to display all four digit perfect square numbers using for loop";
                     // codetype = "HTML";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 5:
-                    date = "Thu December 15, 2022";
+                    date = "Thu November 10, 2022";
                     title = "Practical 5 - Compile vs Runtime errors.";
                     desc = "Write about compile time and runtime errors with an example.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 6:
-                    date = "Thu December 15, 2022";
+                    date = "Thu November 17, 2022";
                     desc = "Program to print the rhombus (triangle on an inverted triangle) of numbers of the range entered by the user. Example 3 = 3 2 1 2 3";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 7:
-                    date = "Thu December 15, 2022";
+                    date = "Thu November 24, 2022";
                     desc = "Program to compare two matrices and check if they are identical or not";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    date = "Thu November 24, 2022";
+                    author = "harshal";
+                    link+= "_m2";
+                    desc = "Another method by Harshal Khajuria - Program to compare two matrices and check if they are identical or not";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 8:
-                    date = "Thu December 21, 2022";
-                    desc = "Program to swap the values with temp.";
+                    date = "Thu December 1, 2022";
+                    desc = "Program to find the nth term of fibonacci series";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 9:
-                    date = "Mon November 7, 2022";
-                    desc = "Program to swap the values without temp.";
+                    date = "Thu December 8, 2022";
+                    desc = "Program to swap the values by using call by reference.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 10:
-                    date = "Mon November 7, 2022";
-                    desc = "Program to calculate the actual bill under given conditions.";
+                    date = "Thu December 15, 2022";
+                    desc = "Program to count the number of vowels and consonents from the sentence entered by the user";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 11:
-                    date = "Tue November 8, 2022";
-                    desc = "Program to check if an entered year is leap or not with if else statement.";
+                    date = "Thu December 22, 2022";
+                    desc = "Program to take input of a sentence, write it in the file, convert it in both lower and upper caser and write them both to the file again";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 12:
-                    date = "Wed November 9, 2022";
-                    desc = "Program to calculate the gross salary of employee as per the given norms.";
+                    date = "Thu December 29, 2022";
+                    desc = "Program to create a student structure having fields studname, ID and mark. Accept the details of 'n' students, rearrange the data in alphabetical order of student name and display it.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 13:

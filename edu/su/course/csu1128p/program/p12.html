@@ -10,7 +10,7 @@
         <script src="/js/edu_su_common.js"></script>
 
         <title>Program 12 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Program to calculate the gross salary of employee as per the given norms.">
+        <meta name="description" content="Program to create a student structure having fields studname, ID and mark. Accept the details of 'n' students, rearrange the data in alphabetical order of student name and display it.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -32,9 +32,8 @@
         <main>
             <article>
                 <h2>
-                    Program to calculate the gross salary of employee as per the following norms that if salary is
-                    greater than 25000, HRA is 20%s of basic pay and DA is 50%s of basic pay else HRA is 15%s of basic
-                    pay and DA is 25%s ofbasic pay.
+                    Program to create a student structure having fields studname, ID and mark. Accept the details of 'n'
+                    students, rearrange the data in alphabetical order of student name and display it.
                 </h2>
             </article>
             <article></article>
@@ -57,29 +56,65 @@
  * */
 
 #include &lt;stdio.h&gt;
-int main()
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+// Define the student structure
+struct s
 {
-    float d, m, j, o;
-    printf("\n\n Program to calculate the gross salary of employee as per the following norms:");
-    char n[10][10] = {"%"};
-    printf("\n\t - if salary is greater than 25000, HRA is 20%s of basic pay and DA is 50%s of basic pay", n[0], n[0]);
-    printf("\n\t - else HRA is 15%s of basic pay and DA is 25%s ofbasic pay. \n\n", n[0], n[0]);
-    printf("Enter the basic pay of the employee - (Example: 23236) - and press enter: ");
-    scanf("%f", &d);
-    if (d > 25000)
+    char n[2][100]; // modified to be an array of strings
+    char i[100];    // added a field for the student ID
+    int m;
+};
+
+// Function to compare two students by name
+int c(const void *d, const void *e)
+{
+    struct s *o = (struct s *)d;
+    struct s *n = (struct s *)e;
+    // compare the last names first, then the first names
+    int l = strcmp(o->n[1], n->n[1]);
+    if (l != 0)
     {
-        m = 20;
-        j = 50;
+        return l;
     }
     else
     {
-        m = 15;
-        j = 25;
+        return strcmp(o->n[0], n->n[0]);
     }
-    o = d + d * m / 100 + d * j / 100;
-    printf("\n Gross salary of the employee is %.2f with %.2f as HRA and %.2f as DA amount given to them. \n", o, d * m / 100, d * j / 100);
+}
+
+int main()
+{
+    // Read in the number of students
+    int d;
+    printf("Program to create a student structure having fields studname, ID and mark. Accept the details of 'n'
+    students, rearrange the data in alphabetical order of student name and display it.");
+    printf("Enter the number of students: ");
+    scanf("%d", &d);
+
+    // Create an array of students
+    struct s m[d];
+
+    // Read in the details of each student
+    for (int o = 0; o < d; o++)
+    {
+        printf("\tEnter the first and last name, ID, and mark for student %d: ", o + 1);
+        scanf("%s %s %s %d", m[o].n[0], m[o].n[1], m[o].i, &m[o].m);
+    }
+
+    // Sort the students by name using the compare function
+    qsort(m, d, sizeof(struct s), c);
+
+    // Print the sorted list of students
+    printf("\nSorted list of students:\n");
+    for (int o = 0; o < d; o++)
+    {
+        printf("\t %s %s %s %d\n", m[o].n[0], m[o].n[1], m[o].i, m[o].m);
+    }
+
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -88,14 +123,16 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to calculate the gross salary of employee as per the following norms:<br>
-                    &emsp;- if salary is greater than 25000, HRA is 20% of basic pay and DA is 50% of basic pay<br>
-                    &emsp;- else HRA is 15% of basic pay and DA is 25% ofbasic pay.
+                    Program to create a student structure having fields studname, ID and mark. Accept the details of 'n'
+                    students, rearrange the data in alphabetical order of student name and display it.<br>
+                    Enter the number of students: 2<br>
+                    &emsp;Enter the first and last name, ID, and mark for student 1: Vanshaly Mohanan, XYZ309, 99<br>
+                    &emsp;Enter the first and last name, ID, and mark for student 2: Divya Mohan, ABCD1234, 98<br>
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter the basic pay of the employee - (Example: 23236) - and press enter: 65334<br>
-                    &emsp;Gross salary of the employee is 111067.80 with 13066.80 as HRA and 32667.00 as DA amount given
-                    to them.
+                    Sorted list of students:<br>
+                    &emsp;Divya Mohan, ABCD1234, 98<br>
+                    &emsp;Vanshaly Mohanan, XYZ309, 99<br>
                 </p>
             </article>
         </main>
