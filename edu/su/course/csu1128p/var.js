@@ -32,9 +32,9 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     link = "labfile/";
-                    date = "Last Updated: Sun December 25, 2022";
-                    title = "Programs done in Lab";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
+                    date = "Last Updated: Fri December 30, 2022";
+                    title = "Programs done in Lab File";
+                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab file and is written in C language.";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);

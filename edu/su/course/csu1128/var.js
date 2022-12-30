@@ -40,9 +40,9 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    link = "../csu1128p/program/";
-                    date = "Last Updated: Sun December 25, 2022";
-                    title = "Programs done in Lab";
+                    link = "../csu1128p/labfile/";
+                    date = "Last Updated: Fri December 30, 2022";
+                    title = "Programs done in Lab File";
                     desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
                     codetype = "C Programming";
                     // readtime = "10";
