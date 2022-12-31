@@ -9,9 +9,9 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 21 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <title>Program 34 - CSU1128 - CSE 2026 - Shoolini University</title>
         <meta name="description"
-            content="Program to print the table of the number entered by the user. Example 2 = 2 x 1 = 2">
+            content="Program to count the number of words in the sentence entered by the user. Example: This is dmj.one and you are learning about a code made in C: Total Words = 14.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,7 +33,8 @@
         <main>
             <article>
                 <h2>
-                    Program to print the table of the number entered by the user. Example 2 = 2 x 1 = 2
+                    Program to count the number of words in the sentence entered by the user. Example: This is dmj.one and you are learning
+                    about a code made in C: Total Words = 14.
                 </h2>
             </article>
             <article></article>
@@ -44,7 +45,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -56,23 +57,35 @@
  * */
 
 #include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 int main()
 {
-    int d, m;
-    printf("\n\n Program to print the table of the number entered by the user. Example 2 = 2 x 1 = 2 \n\n");
+    char d[100];
 
-    printf("Enter a number for which you want to print its table (Example: 21) - and press enter: ");
-    scanf("%d", &d);
-    printf("\nTable for the entered number %d is:\n", d);
+    printf("\n\n Program to count the number of words in the sentence entered by the user. Example: This is dmj.one and you are learning about a code made in C: Total Words = 14. \n\n");
 
-    for (m = 1; m <= 10; m++)
+    printf("Enter a sentence: ");
+    fgets(d, sizeof(d), stdin); // Read the sentence, including spaces
+
+    // Count the number of words in the d
+    int j = 0;
+    int len = strlen(d);
+    for (int m = 0; m < len; m++)
     {
-        printf("\t %d x %d = %d \n", d, m, d * m);
+        if (d[m] == ' ' || d[m] == '\t' || d[m] == '\n')
+        {
+            // If the current character is a space, tab, or newline, increment the word count
+            j++;
+        }
     }
 
-    printf("\n");
+    // Print the result
+    printf("Number of words: %d\n", j);
+
     return 0;
-}                    </code>
+}
+
+                    </code>
                 </pre>
             </article>
 
@@ -81,23 +94,12 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the table of the number entered by the user. Example 2 = 2 x 1 = 2
+                    Program to count the number of words in the sentence entered by the user. Example: This is dmj.one and you are learning
+                    about a code made in C: Total Words = 14.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter a number for which you want to print its table (Example: 21) - and press enter: 4
-                </p>
-                <p class="codeoutput text-justify">
-                    Table for the entered number 4 is:<br>
-                    &emsp;4 x 1 = 4<br>
-                    &emsp;4 x 2 = 8<br>
-                    &emsp;4 x 3 = 12<br>
-                    &emsp;4 x 4 = 16<br>
-                    &emsp;4 x 5 = 20<br>
-                    &emsp;4 x 6 = 24<br>
-                    &emsp;4 x 7 = 28<br>
-                    &emsp;4 x 8 = 32<br>
-                    &emsp;4 x 9 = 36<br>
-                    &emsp;4 x 10 = 40<br>
+                    Enter a sentence: This is a demo sentence.<br>
+                    Number of words: 5
                 </p>
             </article>
         </main>

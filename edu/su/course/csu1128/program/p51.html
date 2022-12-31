@@ -9,11 +9,10 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 23 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to print all numbers which four digit perfect square and where its first two digit and last two digits are also a perfect square. Example 1681.">
+        <title>Program 51 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to assign value of d entered by the user to value of m by pointers.">
 
-        <meta property="og:image" content="/logo.png">
+        <meta property=" og:image" content="/logo.png">
         <meta property="og:type" content="article">
 
         <meta name="twitter:card" content="summary">
@@ -33,9 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print all numbers which four digit perfect square and where its first two digit and last
-                    two digits are also
-                    a perfect square. Example 1681.
+                    Program to assign value of d entered by the user to value of m by pointers.
                 </h2>
             </article>
             <article></article>
@@ -46,7 +43,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -58,33 +55,27 @@
  * */
 
 #include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
+
 int main()
 {
-    int d;
-    printf("\n\n Program to print all numbers which four digit perfect square and where");
-    printf("its first two digit and last two digits are also a perfect square. Example 1681. \n\n");
+    printf("\n\n Program to assign value of d entered by the user to value of m by pointers. \n\n");
 
-    printf("All four digit special perfect square numbers between 1111 and 9999 are:\n");
-    for (d = 1000; d <= 9999; d++)
-    {
-        int m = sqrt(d); // Take root of i
-        if (m * m == d)
-        {
-            int j = d / 100;
-            int o = d % 100;
-            int n = sqrt(j);
-            int e = sqrt(o);
+    int d; // Declare and initialize an integer variable
+    int m; // Declare another integer variable
 
-            if (n * n == j && e * e == o)
-            {
-                printf("\t %d \t", d);
-            }
-        }
-    }
-    printf("\n");
+    // Get value from user
+    printf("Enter the value of d: ");
+    scanf("%d", &d);
+
+    // Use a pointer to assign the value of d to m
+    int *ptr = &d; // Declare a pointer to d and initialize it with the address of d
+    m = *ptr;      // Dereference the pointer and assign the value at that address to m
+
+    printf("d = %d, m = %d\n", d, m); // Print the values of d and m
+
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -93,13 +84,11 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print all numbers which four digit perfect square and where its first two digit and last
-                    two digits are also
-                    a perfect square. Example 1681.
+                    Program to assign value of d entered by the user to value of m by pointers.
                 </p>
                 <p class="codeoutput text-justify">
-                    All four digit special perfect square numbers between 1111 and 9999 are:<br>
-                    1600 1681 2500 3600 4900 6400 8100
+                    Enter the value of d: 5<br>
+                    d = 5, m = 5<br>
                 </p>
             </article>
         </main>

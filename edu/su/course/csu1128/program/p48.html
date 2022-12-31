@@ -9,9 +9,9 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 27 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <title>Program 48 - CSU1128 - CSE 2026 - Shoolini University</title>
         <meta name="description"
-            content="Program to print the power of the two numbers entered by the user. (Example: 2 3) = 2 to the power 3 = 8">
+            content="Program to generate factorial of the number entered by the user through function recursion.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,8 +33,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print the power of the two numbers entered by the user. (Example: 2 3) = 2 to the power 3
-                    = 8
+                    Program to generate factorial of the number entered by the user through function recursion.
                 </h2>
             </article>
             <article></article>
@@ -45,7 +44,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -57,19 +56,40 @@
  * */
 
 #include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
+
+// Declare a recursive function to calculate the factorial of a number
+int factorial(int n)
+{
+    // Define the base case where the factorial of 0 is 1
+    if (n == 0)
+    {
+        return 1;
+    }
+
+    // Define the recursive case where the factorial of n is equal to n multiplied by the factorial of n - 1
+    return n * factorial(n - 1);
+}
+
 int main()
 {
-    long double d, m;
-    printf("\n\n Program to print the power of the two numbers entered by the user. (Example: 2 3) = 2 to the power 3 = 8\n\n");
+    printf("\n\n Program to generate factorial of the number entered by the user through function recursion. \n\n");
 
-    printf("Enter a number and its power for which you want to print x raised to the power y (Example: 3 6) - and press enter: ");
-    scanf("%Lf %Lf", &d, &m);
-    printf("\n Power for the entered number %.1Lf to the power %.1Lf is: %.1Lf", d, m, pow(d, m));
+    // Declare a variable to hold the number entered by the user
+    int n;
 
-    printf("\n");
+    // Read the number from the user
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    // Calculate the factorial of the number using the factorial function
+    int result = factorial(n);
+
+    // Print the result
+    printf("The factorial of %d is %d\n", n, result);
+
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -78,13 +98,11 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the power of the two numbers entered by the user. (Example: 2 3) = 2 to the power 3
-                    = 8
+                    Program to generate factorial of the number entered by the user through function recursion.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter a number and its power for which you want to print x raised to the power y (Example: 3 6) -
-                    and press enter: 3 7<br>
-                    &emsp;Power for the entered number 3 to the power 7 is: 2187.0
+                    Enter a number: 25<br>
+                    The factorial of 25 is 2076180480<br>
                 </p>
             </article>
         </main>

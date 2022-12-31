@@ -9,8 +9,9 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 19 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description" content="Program to print the sum of the digits a user enters. 370 = 3 + 7 + 0 = 10">
+        <title>Program 49 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description"
+            content="Program to generate fibonacci series till the number of terms entered by the user through function recursion.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -32,7 +33,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print the sum of the digits a user enters. 370 = 3 + 7 + 0 = 10
+                    Program to generate fibonacci series till the number of terms entered by the user through function recursion.
                 </h2>
             </article>
             <article></article>
@@ -43,7 +44,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -55,26 +56,47 @@
  * */
 
 #include &lt;stdio.h&gt;
-int main()
+
+// Declare a recursive function to generate the nth element in the Fibonacci series
+int fibonacci(int n)
 {
-    int d, m = 0, j, o;
-    printf("\n\n Program to print the sum of the digits a user enters. 370 = 3 + 7 + 0 = 10 \n\n");
-
-    printf("Enter a number for which you want to calculate the sum of its digits (Example: 211290) - and press enter: ");
-    scanf("%d", &d);
-    o = d;
-
-    while (d > 0)
+    // Define the base case where the first two elements in the series are 0 and 1
+    if (n == 0)
     {
-        j = d % 10;
-        m += j;
-        d /= 10;
+        return 0;
+    }
+    if (n == 1)
+    {
+        return 1;
     }
 
-    printf("\nSum of digits of the entered number %d is %d.", o, m);
+    // Define the recursive case where the nth element is equal to the sum of the previous two elements
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    printf("\n\n Program to generate fibonacci series till the number of terms entered by the user through function recursion. \n\n");
+
+    // Declare a variable to hold the number of elements in the series
+    int n;
+
+    // Read the number of elements from the user
+    printf("Enter the number of elements in the series: ");
+    scanf("%d", &n);
+
+    // Generate the Fibonacci series using the fibonacci function
+    printf("Fibonacci series: ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", fibonacci(i));
+    }
     printf("\n");
+
     return 0;
-}                    </code>
+}
+
+</code>
                 </pre>
             </article>
 
@@ -83,12 +105,11 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the sum of the digits a user enters. 370 = 3 + 7 + 0 = 10
+                    Program to generate fibonacci series till the number of terms entered by the user through function recursion.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter a number for which you want to calculate the sum of its digits (Example: 211290) - and press
-                    enter: 6643<br>
-                    &emsp;Sum of digits of the entered number 6643 is 19.
+                    Enter the number of elements in the series: 10<br>
+                    Fibonacci series: 0 1 1 2 3 5 8 13 21 34<br>
                 </p>
             </article>
         </main>

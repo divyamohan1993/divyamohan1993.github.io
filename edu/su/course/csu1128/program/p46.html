@@ -9,9 +9,9 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 28 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <title>Program 46 - CSU1128 - CSE 2026 - Shoolini University</title>
         <meta name="description"
-            content="Program to find the maximum number from the numbers stored in an array entered by the user.">
+            content="Program to generate total sum for the sequence x^1/1! + x^2/2! + x^3/3! + .....where x is entered by the user.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,7 +33,8 @@
         <main>
             <article>
                 <h2>
-                    Program to find the maximum number from the numbers stored in an array entered by the user.
+                    Program to generate total sum for the sequence x^1/1! + x^2/2! + x^3/3! + .....where x is entered by
+                    the user.
                 </h2>
             </article>
             <article></article>
@@ -44,7 +45,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -56,34 +57,41 @@
  * */
 
 #include &lt;stdio.h&gt;
+
+double fact(double x)
+{
+    double f = 1, i;
+    for (i = 1; i <= x; i++)
+        f *= i;
+    return f;
+}
+double power(double x, double y)
+{
+    double p = 1, i;
+    for (i = 1; i <= y; i++)
+        p *= x;
+    return p;
+}
+
 int main()
 {
-    int d, m, o;
-    printf("\n\n Program to find the maximum number from the numbers stored in an array entered by the user. Example 3 8 5 = 8 \n\n");
+    printf("\n\n Program to generate total sum for the sequence x^1/1! + x^2/2! + x^3/3! + .....where x is entered by the user. \n\n");
 
-    printf("Enter total number of numbers you want to find the maximum number from - (Example: 5) - and press enter: ");
-    scanf("%d", &d);
+    double x, n, s = 0, p, f, i;
 
-    int j[d];
-    for (m = 0; m < d; m++)
+    printf("Enter the value of x and n: ");
+    scanf("%lf %lf", &x, &n);
+
+    for (i = 1; i <= n; i++)
     {
-        printf("\tNumber %d: ", m + 1);
-        scanf("%d", &j[m]);
+        p = power(x, i);
+        f = fact(i);
+        s += p / f;
     }
-
-    o = j[0];
-    for (m = 0; m < d; m++)
-    {
-        if (j[m] > o)
-        {
-            o = j[m];
-        }
-    }
-
-    printf("The maximum number from the entered array of numbers is %d \n", o);
-    printf("\n\n");
+    printf("Sum = %.lf \n", s);
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -92,18 +100,12 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to find the maximum number from the numbers stored in an array entered by the user. Example
-                    3 8 5 = 8
+                    Program to generate total sum for the sequence x^1/1! + x^2/2! + x^3/3! + .....where x is entered by
+                    the user.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter total number of numbers you want to find the maximum number from - (Example: 5) - and press
-                    enter: 5 <br>
-                    &emsp;Number 1: 45<br>
-                    &emsp;Number 2: 76<br>
-                    &emsp;Number 3: 56<br>
-                    &emsp;Number 4: 87<br>
-                    &emsp;Number 5: 67<br>
-                    &emsp;&emsp;The maximum number from the entered array of numbers is 87
+                    Enter the value of x and n: 5 10<br>
+                    Sum = 145<br>
                 </p>
             </article>
         </main>

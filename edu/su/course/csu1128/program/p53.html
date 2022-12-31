@@ -9,11 +9,10 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 17 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to calculate and print the sum of all numbers between the numbers that the user chooses. Example 1 to 100.">
+        <title>Program 53 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to check the use of pointers an its use of address space.">
 
-        <meta property="og:image" content="/logo.png">
+        <meta property=" og:image" content="/logo.png">
         <meta property="og:type" content="article">
 
         <meta name="twitter:card" content="summary">
@@ -33,8 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to calculate and print the sum of all numbers between the numbers that the user chooses.
-                    Example 1 to 100.
+                    Program to check the use of pointers an its use of address space.
                 </h2>
             </article>
             <article></article>
@@ -45,7 +43,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -57,32 +55,20 @@
  * */
 
 #include &lt;stdio.h&gt;
+
 int main()
 {
-    int d, m, j = 0;
-    printf("\n\n Program to calculate and print the sum of all numbers between the numbers that the user chooses. Example 1 to 100. \n\n");
-
-    printf("Enter two numbers between which you want to find the sum of all the numbers - (Example: 2 100) - and press enter: ");
-    scanf("%d %d", &d, &m);
-
-    // if loop to swap max number if user enters a bigger number first.
-    if (d > m)
-    {
-        int o = d;
-        d = m;
-        m = o;
-    }
-
-    printf("\nSum of all the numbers between %d and %d is ", d, m);
-    while (d <= m)
-    {
-        j += d;
-        d++;
-    }
-    printf("%d\t", j);
-    printf("\n");
+    printf("\n\n Program to check the use of pointers an its use of address space. \n\n");
+    
+    int d;
+    printf("Enter the value: ");
+    scanf("%d", &d);
+    
+    printf("\n\n Number (d) is defined as %d. \n Its address (&d) is %p.\n Points to value at that address (*(&d)) is %i
+    \n\n", d, &d, *(&d));
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -91,13 +77,14 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to calculate and print the sum of all numbers between the numbers that the user chooses.
-                    Example 1 to 100.
+                    Program to check the use of pointers an its use of address space.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter two numbers between which you want to find the sum of all the numbers - (Example: 2 100) - and
-                    press enter: 22 34<br>
-                    &emsp;Sum of all the numbers between 22 and 34 is 364
+                    Enter the value: 54<br>
+
+                    Number (d) is defined as 54.<br>
+                    Its address (&d) is 0x7ffc31b70228.<br>
+                    Points to value at that address (*(&d)) is 54<br>
                 </p>
             </article>
         </main>

@@ -9,9 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 25 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to print the factorial of the number entered by the user. Example 3 = 3 x 2 x 1 = 3">
+        <title>Program 44 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to print name and age entered by the user using function.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,7 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print the factorial of the number entered by the user. Example 3 = 3 x 2 x 1 = 3
+                    Program to print name and age entered by the user using function.
                 </h2>
             </article>
             <article></article>
@@ -44,7 +43,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -56,23 +55,33 @@
  * */
 
 #include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+void printNameAndAge();
+
 int main()
 {
-    long int d, m, j = 1;
-    printf("\n\n Program to print the factorial of the number entered by the user. Example 3 = 3 x 2 x 1 = 3 \n\n");
+    printf("\n\n Program to print name and age entered by the user using function. \n\n");
 
-    printf("Enter a number till 25 for which you want to print its factorial (Example: 21) - and press enter: ");
-    scanf("%ld", &d);
-    printf("\n Factorial of the entered number %ld is: ", d);
+    char name[100];
+    int age;
 
-    for (m = 1; m <= d; m++)
-    {
-        j *= m;
-    }
-    printf(" %ld", j);
-    printf("\n\n");
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = 0;
+
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    printNameAndAge(name, age);
+
     return 0;
-}                    </code>
+}
+void printNameAndAge(char *name, int age)
+{
+    printf("Your name is %s and your age is %d years.\n", name, age);
+}
+</code>
                 </pre>
             </article>
 
@@ -81,12 +90,12 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the factorial of the number entered by the user. Example 3 = 3 x 2 x 1 = 3
+                    Program to print name and age entered by the user using function.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter a number till 25 for which you want to print its factorial (Example: 21) - and press enter:
-                    6<br>
-                    &emsp;Factorial of the entered number 6 is: 720
+                    Enter your name: dmj.one<br>
+                    Enter your age: 11<br>
+                    Your name is dmj.one and your age is 11 years.<br>
                 </p>
             </article>
         </main>

@@ -9,9 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 15 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to print even numbers between the numbers that the user chooses. Example 1 to 100.">
+        <title>Program 43 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to find sum of two numbers entered by the user through function.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,7 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print even numbers between the numbers that the user chooses. Example 1 to 100.
+                    Program to find sum of two numbers entered by the user through function.
                 </h2>
             </article>
             <article></article>
@@ -44,7 +43,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -56,34 +55,29 @@
  * */
 
 #include &lt;stdio.h&gt;
+
+int sum(int o, int n)
+{
+    return o + n;
+}
+
 int main()
 {
-    int d, m;
-    printf("\n\n Program to print even numbers between the numbers that the user chooses. Example 1 to 100. \n\n");
+    printf("\n\n Program to find sum of two numbers entered by the user through function. \n\n");
 
-    printf("Enter two numbers between which you want to print all the even numbers - (Example: 2 100) - and press enter: ");
+    // Declare variables to hold the input numbers
+    int d, m;
+
+    // Read the input numbers from the user
+    printf("Enter first and second number: ");
     scanf("%d %d", &d, &m);
 
-    // if loop to swap max number if user enters a bigger number first.
-    if (d > m)
-    {
-        int j = d;
-        d = m;
-        m = j;
-    }
+    // Print the result
+    printf("Sum: %d\n", sum(d, m));
 
-    printf("\nPrinting all the even numbers between %d and %d: \n\t", d, m);
-    while (d <= m)
-    {
-        if (d % 2 == 0)
-        {
-            printf("%d\t", d);
-        }
-        d++;
-    }
-    printf("\n");
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -92,13 +86,11 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print even numbers between the numbers that the user chooses. Example 1 to 100.
+                    Program to find sum of two numbers entered by the user through function.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter two numbers between which you want to print all the even numbers - (Example: 2 100) - and
-                    press enter: 23 54<br>
-                    &emsp;Printing all the even numbers between 23 and 54:
-                    24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54
+                    Enter first and second number: 2 5<br>
+                    Sum: 7<br>
                 </p>
             </article>
         </main>

@@ -9,9 +9,9 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 20 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <title>Program 33 - CSU1128 - CSE 2026 - Shoolini University</title>
         <meta name="description"
-            content="Program to print the fibonacci series till an entered number. Fibonacci series is a series where the number at any point is the sum of previous two numbers. Example 9 = 1 2 3 5 8">
+            content="Program to take the full name entered by the user and store it in an array. Example: dmj.one">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,9 +33,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print the fibonacci series till an entered number. Fibonacci series is a series where the
-                    number at any point
-                    is the sum of previous two numbers. Example 9 = 1 2 3 5 8
+                    Program to take the full name entered by the user and store it in an array. Example: dmj.one
                 </h2>
             </article>
             <article></article>
@@ -46,7 +44,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -60,28 +58,18 @@
 #include &lt;stdio.h&gt;
 int main()
 {
-    int d, m = 0, j = 1, o = 0;
-    printf("\n\n Program to print the fibonacci series till an entered number.");
-    printf("Fibonacci series is a series where the number at any point is the sum of previous two numbers.");
-    printf("Example 9 = 1 2 3 5 8 \n\n");
+    char d[100];
 
-    printf("Enter a number till which you want to count the number of digits (Example: 2100) - and press enter: ");
-    scanf("%d", &d);
+    printf("\n\n Program to take the full name entered by the user and store it in an array. Example: dmj.one \n\n");
 
-    // display the first two terms which is always 0 and 1
-    printf("Fibonacci Series till the entered number %d is: %d, %d, ", d, m, j);
-    o = m + j;
+    printf("Enter your full name: ");
+    fgets(d, sizeof(d), stdin); // Read the full name, including spaces
 
-    while (o <= d)
-    {
-        printf(", %d", o);
-        m = j;
-        j = o;
-        o = m + j;
-    }
-    printf("\n");
+    printf("Nice to meet you %s", d); // The name already includes a newline character
+
     return 0;
-}                    </code>
+}
+                    </code>
                 </pre>
             </article>
 
@@ -90,14 +78,11 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the fibonacci series till an entered number. Fibonacci series is a series where the
-                    number at any point
-                    is the sum of previous two numbers. Example 9 = 1 2 3 5 8
+                    Program to take the full name entered by the user and store it in an array. Example: dmj.one
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter a number till which you want to count the number of digits (Example: 2100) - and press enter:
-                    44<br>
-                    &emsp;Fibonacci Series till the entered number 44 is: 0, 1, , 1, 2, 3, 5, 8, 13, 21, 34
+                    Enter your full name: Divya Mohan<br>
+                    Nice to meet you Divya Mohan
                 </p>
             </article>
         </main>

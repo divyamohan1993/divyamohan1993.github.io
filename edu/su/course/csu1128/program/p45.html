@@ -9,9 +9,8 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 16 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to print all numbers which are divisible by 5 between the numbers that the user chooses. Example 1 to 100.">
+        <title>Program 45 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to make function blocks as a calculator which calculates the operations entered by the user.">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -33,8 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print all numbers which are divisible by 5 between the numbers that the user chooses.
-                    Example 1 to 100.
+                    Program to make function blocks as a calculator which calculates the operations entered by the user.
                 </h2>
             </article>
             <article></article>
@@ -45,7 +43,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -57,34 +55,68 @@
  * */
 
 #include &lt;stdio.h&gt;
+
+double add(double d, double m);
+double sub(double d, double m);
+double mul(double d, double m);
+double divide(double d, double m);
+
 int main()
 {
-    int d, m;
-    printf("\n\n Program to print all numbers which are divisible by 5 between the numbers that the user chooses. Example 1 to 100. \n\n");
+    printf("\n\n Program to make function blocks as a calculator which calculates the operations entered by the user. \n\n");
 
-    printf("Enter two numbers between which you want to print all the numbers divisible by 5 - (Example: 2 100) - and press enter: ");
-    scanf("%d %d", &d, &m);
+    double d, m;
+    char j;
 
-    // if loop to swap max number if user enters a bigger number first.
-    if (d > m)
+    printf("Enter an expression in the form number operand number or (2 + 2): ");
+    scanf("%lf %c %lf", &d, &j, &m);
+
+    double result;
+    switch (j)
     {
-        int j = d;
-        d = m;
-        m = j;
+    case '+':
+        result = add(d, m);
+        break;
+    case '-':
+        result = sub(d, m);
+        break;
+    case '*':
+        result = mul(d, m);
+        break;
+    case '/':
+        result = divide(d, m);
+        break;
+    default:
+        printf("Invalid operator.\n");
+        return 1;
     }
 
-    printf("\nPrinting all the numbers divisible by 5 between %d and %d: \n\t", d, m);
-    while (d <= m)
-    {
-        if (d % 5 == 0)
-        {
-            printf("%d\t", d);
-        }
-        d++;
-    }
-    printf("\n");
+    printf("Result: %.2lf\n", result);
+
     return 0;
-}                    </code>
+}
+
+// Function definitions
+double add(double d, double m)
+{
+    return d + m;
+}
+
+double sub(double d, double m)
+{
+    return d - m;
+}
+
+double mul(double d, double m)
+{
+    return d * m;
+}
+
+double divide(double d, double m)
+{
+    return d / m;
+}
+</code>
                 </pre>
             </article>
 
@@ -93,15 +125,11 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print all numbers which are divisible by 5 between the numbers that the user chooses.
-                    Example 1 to 100.
+                    Program to make function blocks as a calculator which calculates the operations entered by the user.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter two numbers between which you want to print all the numbers divisible by 5 - (Example: 2 100)
-                    - and press enter: 2
-                    55 <br>
-                    &emsp;Printing all the numbers divisible by 5 between 2 and 55:
-                    5 10 15 20 25 30 35 40 45 50 55
+                    Enter an expression in the form number operand number or (2 + 2): 2 * 2<br>
+                    Result: 4.00<br>
                 </p>
             </article>
         </main>

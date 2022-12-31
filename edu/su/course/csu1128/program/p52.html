@@ -9,11 +9,10 @@
         <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
-        <title>Program 26 - CSU1128 - CSE 2026 - Shoolini University</title>
-        <meta name="description"
-            content="Program to print the average of the numbers stored in an array entered by the user. ">
+        <title>Program 52 - CSU1128 - CSE 2026 - Shoolini University</title>
+        <meta name="description" content="Program to demonstrate the pointers.">
 
-        <meta property="og:image" content="/logo.png">
+        <meta property=" og:image" content="/logo.png">
         <meta property="og:type" content="article">
 
         <meta name="twitter:card" content="summary">
@@ -33,7 +32,7 @@
         <main>
             <article>
                 <h2>
-                    Program to print the average of the numbers stored in an array entered by the user.
+                    Program to demonstrate the pointers.
                 </h2>
             </article>
             <article></article>
@@ -44,7 +43,7 @@
  *
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
- *  This program contains all the programs done in the course
+ *  This initiative comprises of all the programs done in the course
  *  Logic Building with Computer Programming with the course code CSU1128.
  *
  *  DO NOT COPY
@@ -56,27 +55,38 @@
  * */
 
 #include &lt;stdio.h&gt;
+
 int main()
 {
-    int d, m, o = 0;
-    float n = 0;
-    printf("\n\n Program to print the average of the numbers stored in an array entered by the user. \n\n");
-
-    printf("Enter total number of numbers you want to find its average - (Example: 5) - and press enter: ");
+    printf("\n\n Program to demonstrate the pointers. \n\n");
+    
+    // Declare an integer variable and a pointer to that variable
+    int d;
+    int *m = &d;
+    
+    // Get input for the value of X
+    printf("Enter the value of X: ");
     scanf("%d", &d);
-
-    for (m = 0; m < d; m++)
-    {
-        int j[d];
-        printf("\tNumber %d: ", m + 1);
-        scanf("%d", &j[m]);
-        o += j[m];
-    }
-    n = o / m;
-    printf("Total sum of the numbers entered is %d and averge is %.2f \n", o, n);
-    printf("\n\n");
+    
+    // Print the value of d and the memory address of d
+    printf("d = %d\n", d);
+    printf("&d = %p\n", &d);
+    
+    // Print the value of m and the value stored at the memory address pointed to by m
+    printf("m = %p\n", m);
+    printf("*m = %d\n", *m);
+    
+    // Modify the value of d using the pointer
+    
+    printf("Enter the new value of *m pointer to modify the value of X: ");
+    scanf("%d", &*m);
+    
+    // Print the modified value of d
+    printf("d = %d\n", d);
+    
     return 0;
-}                    </code>
+}
+</code>
                 </pre>
             </article>
 
@@ -85,14 +95,16 @@ int main()
                     Output:
                 </h3>
                 <p class="codeoutput text-justify">
-                    Program to print the average of the numbers stored in an array entered by the user.
+                    Program to demonstrate the pointers.
                 </p>
                 <p class="codeoutput text-justify">
-                    Enter total number of numbers you want to find its average - (Example: 5) - and press enter: 3<br>
-                    &emsp;Number 1: 23<br>
-                    &emsp;Number 2: 54<br>
-                    &emsp;Number 3: 34<br>
-                    &emsp;&emsp;Total sum of the numbers entered is 111 and averge is 37.00
+                    Enter the value of X: 6<br>
+                    d = 6<br>
+                    &d = 0x7ffc22169b88<br>
+                    m = 0x7ffc22169b88<br>
+                    *m = 6<br>
+                    Enter the new value of *m pointer to modify the value of X: 3<br>
+                    d = 3<br>
                 </p>
             </article>
         </main>
