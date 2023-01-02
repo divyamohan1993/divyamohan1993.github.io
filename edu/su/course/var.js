@@ -36,7 +36,7 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     link = "csu1128/";
-                    date = "Last Updated: Sun December 25, 2022";
+                    date = "Last Updated: Mon January 2, 2023";
                     title = "Logic Building with Computer Prgramming and its Lab";
                     desc = "Semester 1 - CSU1128 and CSU1128P <br> Lets learn to code C! This section contains all the course related things of Logic Building with Computer Programming and its lab.";
                     codetype = "CSU1128 | CSU1128P";

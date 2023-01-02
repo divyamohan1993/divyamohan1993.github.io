@@ -36,7 +36,7 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     link = "course/";
-                    date = "Last Updated: Sun December 25, 2022";
+                    date = "Last Updated: Mon January 2, 2023";
                     title = "Study @ Shoolini";
                     desc = "Let us study! This section contains all the courses required for graduation in Computer Science and Engineering.";
                     codetype = "study@shoolini";
