@@ -28,7 +28,7 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1, 2];
+        var cases = [1, 2, 3];
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
@@ -49,7 +49,16 @@ function get_menu_list() {
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 3:
+                case 2:
+                    link = "https://youtu.be/SKDKwalxgSQ";
+                    date = "Last Updated: Wed January 4, 2022";
+                    title = "Project Report Video";
+                    desc = "Video of Project Report. Upon clicking, you will be redirected to YouTube.";
+                    codetype = "Video";
+                    // readtime = "10";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 4:
                     link = "books";
                     date = "Thu September 27, 2022";
                     title = "Reference Books";
