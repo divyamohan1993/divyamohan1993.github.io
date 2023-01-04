@@ -49,7 +49,7 @@ function get_menu_list() {
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 2:
+                case 3:
                     link = "https://youtu.be/SKDKwalxgSQ";
                     date = "Last Updated: Wed January 4, 2022";
                     title = "Project Report Video";
