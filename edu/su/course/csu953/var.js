@@ -50,10 +50,10 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
-                    link = "https://youtu.be/SKDKwalxgSQ";
+                    link = "project_report_video";
                     date = "Last Updated: Wed January 4, 2022";
                     title = "Project Report Video";
-                    desc = "Video of Project Report. Upon clicking, you will be redirected to YouTube.";
+                    desc = "Video of Project Report for CSU953. Shoolini University.";
                     codetype = "Video";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
