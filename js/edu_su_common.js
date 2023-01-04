@@ -306,7 +306,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
     if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
     if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
-    var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + '"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
+    var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + '" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
 
     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
 }
