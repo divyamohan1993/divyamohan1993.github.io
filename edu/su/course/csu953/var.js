@@ -59,6 +59,15 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 4:
+                    link = "viva";
+                    date = "Last Updated: Thu January 5, 2022";
+                    title = "Viva Practice Questions";
+                    desc = "VIVA Practice Questions";
+                    codetype = "VIVA";
+                    readtime = "10";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 5:
                     link = "books";
                     date = "Thu September 27, 2022";
                     title = "Reference Books";
