@@ -320,7 +320,7 @@ function printAllLinks() {
     // Get the folder hierarchy after "/edu/su/" from the URL
     var url = new URL(location.href);
     var path = url.pathname.split('/');
-    var folders = path.slice(3);
+    var folders = path.slice(1);
 
     // Generate the variable name
     var varName = folders.join('_');
