@@ -326,10 +326,11 @@ function printAllLinks() {
     var varName = folders.join('_');
 
     // Generate the output
-    var finalvar = "var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];";
+    console.log(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
+    navigator.clipboard.writeText(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
 
-    navigator.clipboard.writeText(finalvar);
-    console.log(finalvar);
+    navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
+    //console.log(allLinks.map(link => `'${link}'`).join(', '));
 }
 
 
