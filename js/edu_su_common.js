@@ -293,7 +293,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         else { author = author; }
     }
 
-    // Append the current URL to the link
+    // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
     var resolvedLink = new URL(link, location.href).toString();
     allLinks.push(resolvedLink);
 
