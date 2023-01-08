@@ -316,7 +316,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 }
 
 function printAllLinks() {
-    body.innerHTML("<h1>MAINTAINENCE MODE</h1>");
+    //body.innerHTML("<h1>MAINTAINENCE MODE</h1>");
     // Get the folder hierarchy after "/edu/su/" from the URL
     var url = new URL(location.href);
     var path = url.pathname.split('/');
