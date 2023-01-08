@@ -316,15 +316,22 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 }
 
 function printAllLinks() {
-    //body.innerHTML("<h1>MAINTAINENCE MODE</h1>");
+    // Get the body element of the webpage
+    var body = document.querySelector('body');
+    // Clear the contents of the body element
+    body.innerHTML = '';
+    // Create a new element to display the message
+    var message = document.createElement('h1');
+    message.innerHTML = "Maintenance mode";
+    // Append the message to the body element
+    body.appendChild(message);
+
     // Get the folder hierarchy after "/edu/su/" from the URL
     var url = new URL(location.href);
     var path = url.pathname.split('/');
     var folders = path.slice(1);
-
     // Generate the variable name
     var varName = folders.join('_');
-
     // Generate the output
     console.log(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
     navigator.clipboard.writeText(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
