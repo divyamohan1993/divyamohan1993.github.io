@@ -4,15 +4,6 @@
 var hljs = "";
 function highlightAll() { };
 
-// Sitemaps:
-var sitemap_edu_su_ = ['https://dmj.one/edu/su/course/'];
-
-
-
-
-
-
-
 // Verify If jquery and hljs is loaded
 // window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>');
 // if (!hljs) { document.write('<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>'); }
@@ -324,7 +315,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
 }
 
-function sitemap_var_gen() {
+function sitemap_var_gen_clipboard() {
     // maintenance_mode();
     // Get the folder hierarchy after "/edu/su/" from the URL
     var url = new URL(location.href);
@@ -351,7 +342,6 @@ function maintenance_mode() {
     // Append the message to the body element
     body.appendChild(message);
 }
-
 
 // Footer Codes
 
@@ -386,7 +376,7 @@ function maintenance_mode() {
 
 /******** Footer ***********/
 function copyright(rights) {
-    sitemap_var_gen();
+    // sitemap_var_gen_clipboard();
 
     var footer_all_rights = ' &#8226; All rights reserved';
     var footer_some_rights = ' &#8226; Some rights reserved';
