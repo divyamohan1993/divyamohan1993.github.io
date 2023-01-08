@@ -281,7 +281,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    if (link) { allLinks.push(link); } else link = "#";
+    if (link) { } else link = "#";
     if (date) { } else var date = new Date().toDateString();
     if (title) { } else title = "Unknown Title";
     if (desc) { } else desc = "No desc provided";
@@ -293,8 +293,11 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         else { author = author; }
     }
 
+    // Append the current URL to the link
+    var resolvedLink = new URL(link, location.href).toString();
+    allLinks.push(resolvedLink);
 
-
+    // Get color and start generating the block.
     var color = ["yellow", "blue", "red", "green"];
     var getcolor = color[randomNum(0, 3)];
     // https://picsum.photos/
