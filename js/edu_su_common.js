@@ -316,6 +316,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 }
 
 function printAllLinks() {
+    body.innerHTML("<h1>MAINTAINENCE MODE</h1>");
     navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
     console.log(allLinks.map(link => `'${link}'`).join(', '));
 }
