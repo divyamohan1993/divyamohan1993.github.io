@@ -272,6 +272,7 @@ function body_genmenu(course) {
     document.write(gen_end);
 }
 
+var allLinks = [];
 function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
     // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
@@ -280,7 +281,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    if (link) { } else link = "#";
+    if (link) { allLinks.push(link); } else link = "#";
     if (date) { } else var date = new Date().toDateString();
     if (title) { } else title = "Unknown Title";
     if (desc) { } else desc = "No desc provided";
@@ -370,7 +371,6 @@ function copyright(rights) {
         hljs.highlightAll();
 
         // Notification - Privacy - I accept
-
         $('.i-accept').on('click', function () {
             if (localStorage.noshow !== '1') {
                 $('#cookie-notice').addClass('d-none');
@@ -395,6 +395,7 @@ function copyright(rights) {
             throwOnError: false
         });
 
+        console.log(allLinks.map(link => `'${link}'`).join(', '));
     };
 }
 
