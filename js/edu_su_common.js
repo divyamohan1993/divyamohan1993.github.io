@@ -317,8 +317,19 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
 function printAllLinks() {
     body.innerHTML("<h1>MAINTAINENCE MODE</h1>");
-    navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
-    console.log(allLinks.map(link => `'${link}'`).join(', '));
+    // Get the folder hierarchy after "/edu/su/" from the URL
+    var url = new URL(location.href);
+    var path = url.pathname.split('/');
+    var folders = path.slice(3);
+
+    // Generate the variable name
+    var varName = folders.join('_');
+
+    // Generate the output
+    var finalvar = `var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`;
+
+    navigator.clipboard.writeText(finalvar);
+    console.log(finalvar);
 }
 
 
