@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crawler</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script>
+            async function generateSitemap(url) {
+                // Fetch the page
+                const response = await fetch(url);
+                const html = await response.text();
+
+                // Parse the HTML using the DOMParser API
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                // Find all the links on the page
+                const links = doc.querySelectorAll('a');
+
+                // Create the sitemap XML
+                let sitemap = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+                // Add each link to the sitemap
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    sitemap += `<url><loc>${href}</loc></url>`;
+                });
+
+                // Close the sitemap
+                sitemap += '</urlset>';
+
+                return sitemap;
+            }
+        </script>
+        <script>
+            generateSitemap('https://su.dmj.one').then(sitemap => {
+                console.log(sitemap);
+            });
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
