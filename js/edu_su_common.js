@@ -316,6 +316,22 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 }
 
 function printAllLinks() {
+    maintenance_mode();
+    // Get the folder hierarchy after "/edu/su/" from the URL
+    var url = new URL(location.href);
+    var path = url.pathname.split('/');
+    var folders = path.slice(1);
+    // Generate the variable name
+    var varName = folders.join('_');
+    // Generate the output
+    // console.log(`var sitemap_${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
+    navigator.clipboard.writeText(`var sitemap_${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
+
+    //navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
+    //console.log(allLinks.map(link => `'${link}'`).join(', '));
+}
+
+function maintenance_mode() {
     // Get the body element of the webpage
     var body = document.querySelector('body');
     // Clear the contents of the body element
@@ -325,19 +341,6 @@ function printAllLinks() {
     message.innerHTML = "Maintenance mode";
     // Append the message to the body element
     body.appendChild(message);
-
-    // Get the folder hierarchy after "/edu/su/" from the URL
-    var url = new URL(location.href);
-    var path = url.pathname.split('/');
-    var folders = path.slice(1);
-    // Generate the variable name
-    var varName = folders.join('_');
-    // Generate the output
-    console.log(`var sitemap_${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
-    navigator.clipboard.writeText(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
-
-    //navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
-    //console.log(allLinks.map(link => `'${link}'`).join(', '));
 }
 
 
