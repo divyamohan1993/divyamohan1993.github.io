@@ -6,4 +6,4 @@ Disallow: /doc/
 Disallow: /.github/
 Allow: /
 
-Sitemap: https://dmjone.github.io/sitemap.xml
+Sitemap: https://dmj.one/sitemap.xml
