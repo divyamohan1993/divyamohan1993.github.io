@@ -4,6 +4,15 @@
 var hljs = "";
 function highlightAll() { };
 
+// Sitemaps:
+var sitemap_edu_su_ = ['https://dmj.one/edu/su/course/'];
+
+
+
+
+
+
+
 // Verify If jquery and hljs is loaded
 // window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>');
 // if (!hljs) { document.write('<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>'); }
@@ -272,7 +281,7 @@ function body_genmenu(course) {
     document.write(gen_end);
 }
 
-var allLinks = [];
+var sitemap_links = [];
 function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
     // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
@@ -295,7 +304,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
     // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
     var resolvedLink = new URL(link, location.href).toString();
-    allLinks.push(resolvedLink);
+    sitemap_links.push(resolvedLink);
 
     // Get color and start generating the block.
     var color = ["yellow", "blue", "red", "green"];
@@ -315,8 +324,8 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
 }
 
-function printAllLinks() {
-    maintenance_mode();
+function sitemap_var_gen() {
+    // maintenance_mode();
     // Get the folder hierarchy after "/edu/su/" from the URL
     var url = new URL(location.href);
     var path = url.pathname.split('/');
@@ -324,11 +333,11 @@ function printAllLinks() {
     // Generate the variable name
     var varName = folders.join('_');
     // Generate the output
-    // console.log(`var sitemap_${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
-    navigator.clipboard.writeText(`var sitemap_${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
+    // console.log(`var sitemap_${varName} = [${sitemap_links.map(link => `'${link}'`).join(', ')}];`);
+    navigator.clipboard.writeText(`var sitemap_${varName} = [${sitemap_links.map(link => `'${link}'`).join(', ')}];`);
 
-    //navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
-    //console.log(allLinks.map(link => `'${link}'`).join(', '));
+    //navigator.clipboard.writeText(sitemap_links.map(link => `'${link}'`).join(', '));
+    //console.log(sitemap_links.map(link => `'${link}'`).join(', '));
 }
 
 function maintenance_mode() {
@@ -377,7 +386,7 @@ function maintenance_mode() {
 
 /******** Footer ***********/
 function copyright(rights) {
-    printAllLinks();
+    sitemap_var_gen();
 
     var footer_all_rights = ' &#8226; All rights reserved';
     var footer_some_rights = ' &#8226; Some rights reserved';
@@ -428,8 +437,6 @@ function copyright(rights) {
             // • rendering keys, e.g.:
             throwOnError: false
         });
-
-        console.log(allLinks.map(link => `'${link}'`).join(', '));
     };
 }
 
