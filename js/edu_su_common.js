@@ -333,7 +333,7 @@ function printAllLinks() {
     // Generate the variable name
     var varName = folders.join('_');
     // Generate the output
-    console.log(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
+    console.log(`var sitemap_${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
     navigator.clipboard.writeText(`var ${varName} = [${allLinks.map(link => `'${link}'`).join(', ')}];`);
 
     //navigator.clipboard.writeText(allLinks.map(link => `'${link}'`).join(', '));
