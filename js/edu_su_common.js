@@ -312,6 +312,11 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
 }
 
+function printAllLinks() {
+    console.log(allLinks.map(link => `'${link}'`).join(', '));
+}
+
+
 // Footer Codes
 
 
@@ -345,6 +350,8 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
 /******** Footer ***********/
 function copyright(rights) {
+    printAllLinks();
+
     var footer_all_rights = ' &#8226; All rights reserved';
     var footer_some_rights = ' &#8226; Some rights reserved';
     var footer_link_privacy = ' &#8226; <a href="/privacy">Privacy</a>';
