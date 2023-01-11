@@ -127,6 +127,11 @@ function get_menu_list() {
                     // author = "vp";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
+                case 15:
+                    title += ": Inductive Order";
+                    desc = "Lecture 15 Inductive Order";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
                 case 23:
                     date = "Sat December 3, 2022";
                     title += "Vocabulary";
