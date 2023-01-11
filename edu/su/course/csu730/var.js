@@ -114,6 +114,7 @@ function get_menu_list() {
             var link = "lec" + d;
             date = "Wed January 10, 2022";
             var title = "Lecture " + d;
+            var desc = "Lecture " + d;
             var readtime = Math.floor(Math.random() * 5) + 2;
             var author = 1;
 
@@ -121,7 +122,7 @@ function get_menu_list() {
                 case 14:
                     // link = "add_link like 'c2' ";
                     title += ": Paragraph";
-                    desc = "Lecture 14 Paragraph";
+                    desc = " Paragraph";
                     // codetype = "replace here with custom var";
                     // readtime = "2";
                     // author = "vp";
@@ -129,7 +130,12 @@ function get_menu_list() {
                     break;
                 case 15:
                     title += ": Inductive Order";
-                    desc = "Lecture 15 Inductive Order";
+                    desc += " Inductive Order";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 16:
+                    title += ": Deductive Order";
+                    desc += " Deductive Order";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 23:
