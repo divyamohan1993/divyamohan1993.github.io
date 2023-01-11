@@ -9,8 +9,8 @@ function get_menu_list() {
 
     if (path) {
         switch (path) {
-            case "section":
-                get_section();
+            case "lecture":
+                get_lecture();
                 break;
             case "seminar":
                 get_seminar();
@@ -31,10 +31,10 @@ function get_menu_list() {
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
-                    link = "vocab.html";
+                    link = "lecture/";
                     date = "Last Updated: Wed January 10, 2023";
-                    title = "Vocabulary";
-                    desc = "All the words of vocabulary with its meaning from comprehension.";
+                    title = "Lectures";
+                    desc = "All the important lectures";
                     codetype = "Vocabulary";
                     readtime = "";
                     author = "";
@@ -105,32 +105,32 @@ function get_menu_list() {
         }
     }
 
-    function get_section() {
-        var cases = [1, 2];
-        for (let i = 0; i < cases.length; i++) {
+    function get_lecture() {
+        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13 ,14, 15,16, 17,18, 19,20,21,22, 23];
+        for (let i = 13; i < cases.length; i++) {
 
-            var codetype = "Physics";
+            var codetype = "English";
             var d = i + 1;
-            var link = "s" + d;
-            var title = "Section ";
+            var link = "lec" + d;
+            date = "Wed January 10, 2022";
+            var title = "Lecture " + d;
             var readtime = Math.floor(Math.random() * 5) + 2;
             var author = 1;
 
             switch (cases[i]) {
-                case 1:
+                case 14:
                     // link = "add_link like 'c2' ";
-                    date = "Sat December 3, 2022";
-                    title += "A: Work, Energy and Fluid motion";
-                    desc = "WIP: This topic discusses about Work, Energy and Fluid Motions namely Work and energy theorem, Conservative and non-conservative forces, Potential energy, Energy diagram, Stable and unstable equilibrium, Gravitational potential energy,  Elastic potential energy, Types of fluids, Significance of fluid mechanics, Fluid properties, Pascal's law, Surface tension and capillarity, Continuity equation, Bernoulli's equation.";
+                    title += ": Paragraph";
+                    desc = "Lecture 14 Paragraph";
                     // codetype = "replace here with custom var";
                     // readtime = "2";
                     // author = "vp";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 2:
+                case 23:
                     date = "Sat December 3, 2022";
-                    title += "B: Electricity and Magnetism";
-                    desc = "This topic discusses about electricity and magnetism namely EM waves and dielectrics: Relationship between electric field & potential, Dielectric polarization, displacement current, Types of polarization, Maxwell's equations, Equation of EM waves in free space, Velocity of EM waves, Electromagnetic Spectrum (Basic idea) Magnetic materials & Superconductivity: Basic idea of Dia, Para, Ferro & Ferri, Ferrites, Magnetic anisotropy, Magnetostriction and its applications in production of Ultrasonic waves, Superconductivity, Superconductors as ideal diamagnetic materials, Signatures of Superconducting state, Type I & Type II superconductors.";
+                    title += "Vocabulary";
+                    desc = "All the words of vocabulary with its meaning from comprehension.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 36:
