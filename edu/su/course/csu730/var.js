@@ -148,8 +148,17 @@ function get_menu_list() {
                     desc += " Time and Space Order";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
+                case 20:
+                    title += ": Capitalization and Punctuation I";
+                    desc += " Capitalization and Punctuation I.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 21:
+                    title += ": Capitalization and Punctuation II";
+                    desc += " Capitalization and Punctuation II";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
                 case 23:
-                    date = "Sat December 3, 2022";
                     title += "Vocabulary";
                     desc = "All the words of vocabulary with its meaning from comprehension.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
