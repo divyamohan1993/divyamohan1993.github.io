@@ -27,7 +27,7 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1, 2, 3];
+        var cases = [1, 2, 3, 4];
 
         // var readtime = Math.floor(Math.random() * 5) + 2;
         // var author = 1;
@@ -56,6 +56,14 @@ function get_menu_list() {
                     title = "Engineering Physics";
                     desc = "Semester 1 - FSU030 <br> Revisit the concepts of Physics and its real-world applications! This section contains all the course related things of Engineering Physics";
                     codetype = "FSU030";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 4:
+                    link = "csu730/";
+                    date = "Last Updated: Wed January 10, 2023";
+                    title = "Functional English";
+                    desc = "Semester 1 - CSU730 <br> Functional English by Rajesh Williams.";
+                    codetype = "CSU730";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 33: // commented
