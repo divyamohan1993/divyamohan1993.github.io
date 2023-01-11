@@ -138,6 +138,16 @@ function get_menu_list() {
                     desc += " Deductive Order";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
+                case 17:
+                    title += ": Comparision and Contrast";
+                    desc += " Comparision and Contrast";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 18:
+                    title += ": Time and Space Order";
+                    desc += " Time and Space Order";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
                 case 23:
                     date = "Sat December 3, 2022";
                     title += "Vocabulary";
@@ -150,13 +160,13 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
-                    link = "#";
+                    /* link = "#";
                     date = "Not Applicable";
                     title = "Classes for current course " + course + " has not been defined.";
                     desc = "Please define a hierchy for the classes of course " + course + ".";
                     codetype = "#CourseNotDefined";
                     readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    body_blockcards(link, date, title, desc, codetype, readtime, author); */
                     break;
             }
         }
