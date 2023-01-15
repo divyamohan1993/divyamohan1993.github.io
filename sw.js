@@ -140,7 +140,7 @@ self.addEventListener('install', (event) => {
           });
       }).then(() => {
         // Fetch resources and cache them
-        fetch('/edu/su/allurls.json')
+        fetch('/sw_allurls.json')
           .then((response) => response.json())
           .then((data) => {
             // Extract URLs from the fetched data
@@ -179,7 +179,7 @@ self.addEventListener('activate', (event) => {
       );
     }).then(() => {
       // Fetch resources and cache them
-      fetch('/edu/su/allurls.json')
+      fetch('/sw_allurls.json')
         .then((response) => response.json())
         .then((data) => {
           // Extract URLs from the fetched data
