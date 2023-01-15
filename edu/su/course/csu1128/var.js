@@ -63,8 +63,8 @@ function get_menu_list() {
                 case 4:
                     link = "misc/";
                     date = "Last Updated: Sat January 14, 2023";
-                    title = "Miscellaneous";
-                    desc = "Miscellaneous Programs by dmj.one to test your knowledge";
+                    title = "Test Your Knowledge";
+                    desc = "Miscellaneous Programs and Questions to test your knowledge";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
