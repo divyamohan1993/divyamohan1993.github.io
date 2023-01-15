@@ -178,62 +178,60 @@ self.addEventListener('fetch', (event) => {
   );
 }); */
 
-const CACHE_NAME = "my-site-cache-v1";
+const CACHE_NAME = 'dmjone_shoolini';
+const urlsToCache = [
+  'https://dmj.one/js/*.js',
+  'https://dmj.one/img/*.{jpg,png,gif}',
+  'https://dmj.one/css/*.css'
+];
 
-self.addEventListener("install", (event) => {
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
   );
 });
 
-self.addEventListener('fetch', function (event) {
-  if (event.request.url.endsWith('.js') || event.request.url.endsWith('.css')) {
-    event.respondWith(
-      caches.match(event.request)
-        .then(function (response) {
-          if (navigator.onLine) {
-            // if online and there is a match in the cache, return it
-            if (response) {
-              return response;
-            }
-            // if online and no match in the cache, fetch from server
-            else {
-              return fetch(event.request)
-                .then(function (res) {
-                  return caches.open(CACHE_NAME)
-                    .then(function (cache) {
-                      cache.put(event.request.url, res.clone());
-                      return res;
-                    })
-                });
-            }
-          } else {
-            // if offline and there is a match in the cache, return it
-            if (response) {
-              return response;
-            }
-            // if offline and no match in the cache, return a default response
-            else {
-              return caches.match('/offline.html');
-            }
-          }
-        })
-    );
-  }
-});
-
-self.addEventListener('activate', function (event) {
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.filter(function (cacheName) {
-          // Return true if you want to remove this cache,
-          // but remember that caches are shared across
-          // the whole origin
-        }).map(function (cacheName) {
-          return caches.delete(cacheName);
-        })
+    caches.keys().then(keys => {
+      return Promise.all(keys
+        .filter(key => key !== CACHE_NAME)
+        .map(key => caches.delete(key))
       );
     })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+
+        let fetchRequest = event.request.clone();
+
+        return fetch(fetchRequest)
+          .then(response => {
+            if (!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            let responseToCache = response.clone();
+            caches.open(CACHE_NAME)
+              .then(cache => {
+                let date = new Date(response.headers.get('date'));
+                let cacheAge = (Date.now() - date.getTime()) / 1000;
+                if (cacheAge < 2 * 24 * 60 * 60) {
+                  cache.put(event.request, responseToCache);
+                }
+              });
+            return response;
+          });
+      })
   );
 });
