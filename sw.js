@@ -178,60 +178,90 @@ self.addEventListener('fetch', (event) => {
   );
 }); */
 
-const CACHE_NAME = 'dmjone_shoolini';
-const urlsToCache = [
-  'https://dmj.one/js/*.js',
-  'https://dmj.one/img/*.{jpg,png,gif}',
-  'https://dmj.one/css/*.css'
-];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
+/* ===========================================================
+ * docsify sw.js
+ * ===========================================================
+ * Copyright 2016 @huxpro
+ * Licensed under Apache 2.0
+ * Register service worker.
+ * ========================================================== */
 
+const RUNTIME = 'docsify'
+const HOSTNAME_WHITELIST = [
+  self.location.hostname,
+  'fonts.gstatic.com',
+  'fonts.googleapis.com',
+  'cdn.jsdelivr.net',
+  'cdnjs.cloudflare.com',
+  'dmj.one',
+  'fonts.googleapis.com',
+  'picsum.photos'
+]
+
+// The Util Function to hack URLs of intercepted requests
+const getFixedUrl = (req) => {
+  var now = Date.now()
+  var url = new URL(req.url)
+
+  // 1. fixed http URL
+  // Just keep syncing with location.protocol
+  // fetch(httpURL) belongs to active mixed content.
+  // And fetch(httpRequest) is not supported yet.
+  url.protocol = self.location.protocol
+
+  // 2. add query for caching-busting.
+  // Github Pages served with Cache-Control: max-age=600
+  // max-age on mutable content is error-prone, with SW life of bugs can even extend.
+  // Until cache mode of Fetch API landed, we have to workaround cache-busting with query string.
+  // Cache-Control-Bug: https://bugs.chromium.org/p/chromium/issues/detail?id=453190
+  if (url.hostname === self.location.hostname) {
+    url.search += (url.search ? '&' : '?') + 'cache-bust=' + now
+  }
+  return url.href
+}
+
+/**
+ *  @Lifecycle Activate
+ *  New one activated when old isnt being used.
+ *
+ *  waitUntil(): activating ====> activated
+ */
 self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(keys
-        .filter(key => key !== CACHE_NAME)
-        .map(key => caches.delete(key))
-      );
-    })
-  );
-});
+  event.waitUntil(self.clients.claim())
+})
+
+/**
+ *  @Functional Fetch
+ *  All network requests are being intercepted here.
+ *
+ *  void respondWith(Promise<Response> r)
+ */
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-
-        let fetchRequest = event.request.clone();
-
-        return fetch(fetchRequest)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            let responseToCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                let date = new Date(response.headers.get('date'));
-                let cacheAge = (Date.now() - date.getTime()) / 1000;
-                if (cacheAge < 2 * 24 * 60 * 60) {
-                  cache.put(event.request, responseToCache);
-                }
-              });
-            return response;
-          });
-      })
-  );
+  // Skip some of cross-origin requests, like those for Google Analytics.
+  if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
+    // Check if internet is connected
+    if (navigator.onLine) {
+      // Check if cache is older than 24 hours
+      const cacheAge = caches.match(event.request)
+        .then(response => {
+          if (response) {
+            const age = Date.now() - response.headers.get('date');
+            return age;
+          }
+        });
+      if (cacheAge > 86400000) {
+        // Invalidate cache and refresh from internet
+        caches.delete(event.request);
+        const fixedUrl = getFixedUrl(event.request);
+        const fetched = fetch(fixedUrl, { cache: 'no-store' });
+        event.respondWith(fetched);
+        return;
+      }
+    }
+    // Stale-while-revalidate
+    const cached = caches.match(event.request);
+    event.respondWith(cached);
+  }
 });
