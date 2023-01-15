@@ -323,7 +323,7 @@ self.addEventListener("fetch", event => {
  */
 
 
-const CACHE_NAME = "cache-v1";
+/* const CACHE_NAME = "cache-v1";
 const RESOURCES_JSON = "sw_allurl.json";
 
 // Listen for the install event
@@ -338,6 +338,69 @@ self.addEventListener("install", event => {
         .then(resources => {
           // Add all URLs in resources.json to the cache
           return cache.addAll([...resources, "*.js", "*.css"]);
+        });
+    })
+  );
+});
+
+// Listen for the activate event
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames
+          .filter(cacheName => {
+            // Delete any cache that doesn't match the current cache name
+            return cacheName !== CACHE_NAME;
+          })
+          .map(cacheName => {
+            return caches.delete(cacheName);
+          })
+      );
+    })
+  );
+});
+
+// Listen for the fetch event
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    // Check if the internet is connected
+    navigator.onLine
+      ? // If connected, try to fetch the resource from the server
+      fetch(event.request)
+        .then(response => {
+          // If the fetch is successful, update the cache with the new version
+          let responseClone = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseClone);
+          });
+          return response;
+        })
+        .catch(() => {
+          // If the fetch fails, return the cached version
+          return caches.match(event.request);
+        })
+      : // If not connected, return the cached version
+      caches.match(event.request)
+  );
+});
+ */
+
+const CACHE_NAME = "cache-v1";
+const RESOURCES_JSON = "sw_allurl.json";
+
+// Listen for the install event
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      // Fetch the resources.json file
+      return fetch(RESOURCES_JSON)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          // Add all URLs in resources.json to the cache
+          return cache.addAll([...data.resources, "*.js", "*.css"]);
         });
     })
   );
