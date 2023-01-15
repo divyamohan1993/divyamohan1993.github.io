@@ -82,7 +82,7 @@ const CACHE_NAME = 'shoolini-cache-v2';
 // Set the domain of the website
 const DOMAIN = 'https://dmj.one';
 
-// On service worker installation
+/* // On service worker installation
 self.addEventListener('install', (event) => {
   event.waitUntil(
     // Fetch all the pages of the website
@@ -96,6 +96,26 @@ self.addEventListener('install', (event) => {
           .then((cache) => {
             console.log('Opened cache');
             return cache.addAll(urls);
+          });
+      })
+  );
+}); */
+
+// On service worker installation
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    // Fetch all the pages of the website
+    fetch(DOMAIN)
+      .then((response) => response.text())
+      .then((data) => {
+        // Extract all the URLs from the fetched data
+        const urls = data.match(/(https?:\/\/[^\s]+)/g);
+        const validUrls = urls.filter((url) => url.startsWith(DOMAIN));
+        // Open a cache and add all the URLs to it
+        return caches.open(CACHE_NAME)
+          .then((cache) => {
+            console.log('Opened cache');
+            return cache.addAll(validUrls);
           });
       })
   );
