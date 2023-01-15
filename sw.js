@@ -386,8 +386,6 @@ self.addEventListener("fetch", event => {
 });
  */
 
-const CACHE_NAME = "cache-v1";
-const RESOURCES_JSON = "sw_allurl.json";
 
 
 /* 
