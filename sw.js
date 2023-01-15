@@ -389,7 +389,6 @@ self.addEventListener("fetch", event => {
 const CACHE_NAME = "cache-v1";
 const RESOURCES_JSON = "sw_allurl.json";
 
-
 // Listen for the install event
 self.addEventListener("install", event => {
   event.waitUntil(
@@ -402,17 +401,24 @@ self.addEventListener("install", event => {
         .then(data => {
           // Add all URLs in resources.json to the cache
           data.resources.forEach(url => {
-            try {
-              cache.add(url);
-            } catch (err) {
-              console.log("Failed to add URL to cache: ", url);
-            }
+            fetch(url)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`Request failed with status code ${response.status}`);
+                }
+                cache.add(url);
+              })
+              .catch(err => {
+                console.log("Failed to add URL to cache: ", url);
+                console.log(err);
+              });
           });
         });
     })
   );
 });
 
+/* 
 // Listen for the activate event
 self.addEventListener("activate", event => {
   event.waitUntil(
@@ -454,3 +460,4 @@ self.addEventListener("fetch", event => {
       caches.match(event.request)
   );
 });
+ */
