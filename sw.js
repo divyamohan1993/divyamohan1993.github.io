@@ -389,22 +389,6 @@ self.addEventListener("fetch", event => {
 const CACHE_NAME = "cache-v1";
 const RESOURCES_JSON = "sw_allurl.json";
 
-// Listen for the install event
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      // Fetch the resources.json file
-      return fetch(RESOURCES_JSON)
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          // Add all URLs in resources.json to the cache
-          return cache.addAll([...data.resources, "*.js", "*.css"]);
-        });
-    })
-  );
-});
 
 // Listen for the install event
 self.addEventListener("install", event => {
