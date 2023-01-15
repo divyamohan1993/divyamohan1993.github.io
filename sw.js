@@ -421,7 +421,7 @@ self.addEventListener("install", event => {
 }); */
 
 
-// Listen for the install event
+/* // Listen for the install event
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -478,7 +478,7 @@ self.addEventListener("fetch", event => {
       : // If not connected, return the cached version
       caches.match(event.request)
   );
-});
+}); */
 
 
 
@@ -525,3 +525,71 @@ self.addEventListener("fetch", event => {
   );
 });
  */
+
+const CACHE_NAME = "my-site-cache-v1";
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/styles.css',
+          '/app.js',
+          '/images/logo.png',
+          // Add any other resources here
+        ]);
+      })
+  );
+});
+
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function (response) {
+        if (navigator.onLine) {
+          // if online and there is a match in the cache, return it
+          if (response) {
+            return response;
+          }
+          // if online and no match in the cache, fetch from server
+          else {
+            return fetch(event.request)
+              .then(function (res) {
+                return caches.open(CACHE_NAME)
+                  .then(function (cache) {
+                    cache.put(event.request.url, res.clone());
+                    return res;
+                  })
+              });
+          }
+        } else {
+          // if offline and there is a match in the cache, return it
+          if (response) {
+            return response;
+          }
+          // if offline and no match in the cache, return a default response
+          else {
+            return caches.match('/offline.html');
+          }
+        }
+      })
+  );
+});
+
+self.addEventListener('activate', function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function (cacheName) {
+          // Return true if you want to remove this cache,
+          // but remember that caches are shared across
+          // the whole origin
+        }).map(function (cacheName) {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
