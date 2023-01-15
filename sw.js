@@ -76,15 +76,14 @@ self.addEventListener('fetch', (event) => {
 
 
 /******* CACHE ALL URLS OF DOMAIN AUTOMATICALLY *******/
-
 const CACHE_NAME = 'shoolini-cache-v2';
 const DOMAIN = 'https://dmj.one';
 
 // Helper function to cache resources
 function cacheResources(urls) {
+  const requests = urls.map(url => new Request(url));
   return caches.open(CACHE_NAME)
-    .then((cache) => {
-      const requests = urls.map(url => new Request(url));
+    .then(cache => {
       return cache.addAll(requests);
     });
 }
@@ -102,7 +101,7 @@ self.addEventListener('install', event => {
         return caches.open(CACHE_NAME)
           .then(cache => {
             console.log('Opened cache');
-            return cache.addAll(validUrls);
+            return cacheResources(validUrls);
           });
       })
       .then(() => {
@@ -114,6 +113,9 @@ self.addEventListener('install', event => {
             const urls = data.resources;
             return cacheResources(urls);
           });
+      })
+      .catch(error => {
+        console.log("An error occured while caching: " + error);
       })
   );
 });
@@ -138,6 +140,9 @@ self.addEventListener('activate', event => {
             const urls = data.resources;
             return cacheResources(urls);
           });
+      })
+      .catch(error => {
+        console.log("An error occured while activating: " + error);
       })
   );
 });
