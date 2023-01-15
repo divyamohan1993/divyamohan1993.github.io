@@ -27,6 +27,14 @@
                 // Copy the sitemap to the clipboard
                 await navigator.clipboard.writeText(sitemap);
             }
+
+            function createSitemapJSON(...urlArrays) {
+                let resources = [];
+                for (let urlArray of urlArrays) {
+                    resources = resources.concat(urlArray);
+                }
+                return { resources };
+            }
         </script>
     </head>
 
@@ -52,7 +60,11 @@
             var sitemap_edu_su_course_fsu030_seminar_ = ['https://dmj.one/edu/su/course/fsu030/seminar/s1', 'https://dmj.one/edu/su/course/fsu030/seminar/s2'];
             var sitemap_edu_su_course_fsu030_assignment_ = ['https://dmj.one/edu/su/course/fsu030/assignment/a1', 'https://dmj.one/edu/su/course/fsu030/assignment/a2'];
 
-            generateSitemap(sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_, sitemap_edu_su_course_csu1128p_, sitemap_edu_su_course_csu1128p_labfile_, sitemap_edu_su_course_csu953_, sitemap_edu_su_course_csu953_lab_, sitemap_edu_su_course_csu953_file_, sitemap_edu_su_course_fsu030_, sitemap_edu_su_course_fsu030_section_, sitemap_edu_su_course_fsu030_seminar_, sitemap_edu_su_course_fsu030_assignment_);
+            var urlarray = (sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_, sitemap_edu_su_course_csu1128p_, sitemap_edu_su_course_csu1128p_labfile_, sitemap_edu_su_course_csu953_, sitemap_edu_su_course_csu953_lab_, sitemap_edu_su_course_csu953_file_, sitemap_edu_su_course_fsu030_, sitemap_edu_su_course_fsu030_section_, sitemap_edu_su_course_fsu030_seminar_, sitemap_edu_su_course_fsu030_assignment_);
+            generateSitemap(urlaray);
+
+            var json = createSitemapJSON(urlarray);
+            console.log(json);
         </script>
     </body>
 

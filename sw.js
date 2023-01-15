@@ -100,7 +100,7 @@ self.addEventListener('install', (event) => {
       })
   );
 }); */
-
+/* 
 // On service worker installation
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -120,8 +120,38 @@ self.addEventListener('install', (event) => {
       })
   );
 });
+ */
 
-// On service worker activation
+// On service worker installation
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    // Fetch all the pages of the website
+    fetch(DOMAIN)
+      .then((response) => response.text())
+      .then((data) => {
+        // Extract all the URLs from the fetched data
+        const urls = data.match(/(https?:\/\/[^\s]+)/g);
+        const validUrls = urls.filter((url) => url.startsWith(DOMAIN));
+        // Open a cache and add all the URLs to it
+        return caches.open(CACHE_NAME)
+          .then((cache) => {
+            console.log('Opened cache');
+            return cache.addAll(validUrls);
+          });
+      }).then(() => {
+        // Fetch resources and cache them
+        fetch('/edu/su/allurls.json')
+          .then((response) => response.json())
+          .then((data) => {
+            // Extract URLs from the fetched data
+            const urls = data.resources;
+            cacheResources(urls);
+          });
+      })
+  );
+});
+
+/* // On service worker activation
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -134,7 +164,32 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+}); */
+
+// On service worker activation
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(() => {
+      // Fetch resources and cache them
+      fetch('/edu/su/allurls.json')
+        .then((response) => response.json())
+        .then((data) => {
+          // Extract URLs from the fetched data
+          const urls = data.resources;
+          cacheResources(urls);
+        });
+    })
+  );
 });
+
 
 // On service worker fetch
 self.addEventListener('fetch', (event) => {

@@ -1,0 +1,8 @@
+{
+  "resources": [
+    "https://example.com/styles/main.css",
+    "https://example.com/scripts/main.js",
+    "https://example.com/images/logo.png",
+    "https://example.com/data/user_data.json"
+  ]
+}
