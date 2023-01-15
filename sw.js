@@ -406,6 +406,29 @@ self.addEventListener("install", event => {
   );
 });
 
+// Listen for the install event
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      // Fetch the resources.json file
+      return fetch(RESOURCES_JSON)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          // Add all URLs in resources.json to the cache
+          data.resources.forEach(url => {
+            try {
+              cache.add(url);
+            } catch (err) {
+              console.log("Failed to add URL to cache: ", url);
+            }
+          });
+        });
+    })
+  );
+});
+
 // Listen for the activate event
 self.addEventListener("activate", event => {
   event.waitUntil(
