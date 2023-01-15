@@ -187,7 +187,9 @@ self.addEventListener('fetch', (event) => {
  * Register service worker.
  * ========================================================== */
 
-const RUNTIME = 'docsify'
+const CACHE_NAME = 'v1';
+
+const RUNTIME = 'docsify';
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   'fonts.gstatic.com',
@@ -231,6 +233,22 @@ self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim())
 })
 
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(cacheName => {
+          return cacheName.startsWith('docsify-') &&
+            cacheName !== CACHE_NAME;
+        }).map(cacheName => {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
+
 /**
  *  @Functional Fetch
  *  All network requests are being intercepted here.
@@ -244,24 +262,25 @@ self.addEventListener('fetch', event => {
     // Check if internet is connected
     if (navigator.onLine) {
       // Check if cache is older than 24 hours
-      const cacheAge = caches.match(event.request)
-        .then(response => {
+      caches.open(CACHE_NAME).then(cache => {
+        cache.match(event.request).then(response => {
           if (response) {
             const age = Date.now() - response.headers.get('date');
-            return age;
+            if (age > 86400000) {
+              // Invalidate cache and refresh from internet
+              caches.delete(event.request);
+              const fixedUrl = getFixedUrl(event.request);
+              const fetched = fetch(fixedUrl, { cache: 'no-store' });
+              event.respondWith(fetched);
+              return;
+            }
           }
         });
-      if (cacheAge > 86400000) {
-        // Invalidate cache and refresh from internet
-        caches.delete(event.request);
-        const fixedUrl = getFixedUrl(event.request);
-        const fetched = fetch(fixedUrl, { cache: 'no-store' });
-        event.respondWith(fetched);
-        return;
-      }
+      });
     }
     // Stale-while-revalidate
     const cached = caches.match(event.request);
     event.respondWith(cached);
   }
 });
+
