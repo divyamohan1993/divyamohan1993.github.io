@@ -178,402 +178,48 @@ self.addEventListener('fetch', (event) => {
   );
 }); */
 
-/* const CACHE_NAME = 'shoolini-cache-v2';
-
-// Helper function to cache resources
-function cacheResources(urls) {
-  const requests = urls.map(url => new Request(url));
-  return caches.open(CACHE_NAME)
-    .then(cache => {
-      return cache.addAll(requests);
-    });
-}
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll([
-          '/',
-          '/index.html',
-          '/sw.js',
-          '/styles.css',
-          '/app.js',
-          '/favicon.ico',
-        ]);
-      })
-      .then(() => {
-        // Fetch additional resources and cache them
-        return fetch('/sw_allurls.json')
-          .then(response => response.json())
-          .then(data => {
-            // Extract URLs from the fetched data
-            const urls = data.resources;
-            return cacheResources(urls);
-          });
-      })
-      .catch(error => {
-        console.log("An error occured while caching: " + error);
-      })
-  );
-});
-
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-      .then(() => {
-        // Fetch additional resources and cache them
-        return fetch('/sw_allurls.json')
-          .then(response => response.json())
-          .then(data => {
-            // Extract URLs from the fetched data
-            const urls = data.resources;
-            return cacheResources(urls);
-          });
-      })
-      .catch(error => {
-        console.log("An error occured while activating: " + error);
-      })
-  );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      })
-  );
-});
- */
-
-
-/* const CACHE_NAME = "cache-v1";
-const RESOURCES_JSON = "data.json";
-
-// Listen for the install event
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      // Fetch the resources.json file
-      return fetch(RESOURCES_JSON)
-        .then(response => {
-          return response.json();
-        })
-        .then(resources => {
-          // Add all URLs in resources.json to the cache
-          return cache.addAll([...resources, "*.js", "*.css"]);
-        });
-    })
-  );
-});
-
-// Listen for the activate event
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(cacheName => {
-            // Delete any cache that doesn't match the current cache name
-            return cacheName !== CACHE_NAME;
-          })
-          .map(cacheName => {
-            return caches.delete(cacheName);
-          })
-      );
-    })
-  );
-});
-
-// Listen for the fetch event
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    // Check if the internet is connected
-    navigator.onLine
-      ? // If connected, try to fetch the resource from the server
-      fetch(event.request)
-        .then(response => {
-          // If the fetch is successful, update the cache with the new version
-          let responseClone = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
-          return response;
-        })
-        .catch(() => {
-          // If the fetch fails, return the cached version
-          return caches.match(event.request);
-        })
-      : // If not connected, return the cached version
-      caches.match(event.request)
-  );
-});
- */
-
-
-/* const CACHE_NAME = "cache-v1";
-const RESOURCES_JSON = "sw_allurl.json";
-
-// Listen for the install event
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      // Fetch the resources.json file
-      return fetch(RESOURCES_JSON)
-        .then(response => {
-          return response.json();
-        })
-        .then(resources => {
-          // Add all URLs in resources.json to the cache
-          return cache.addAll([...resources, "*.js", "*.css"]);
-        });
-    })
-  );
-});
-
-// Listen for the activate event
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(cacheName => {
-            // Delete any cache that doesn't match the current cache name
-            return cacheName !== CACHE_NAME;
-          })
-          .map(cacheName => {
-            return caches.delete(cacheName);
-          })
-      );
-    })
-  );
-});
-
-// Listen for the fetch event
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    // Check if the internet is connected
-    navigator.onLine
-      ? // If connected, try to fetch the resource from the server
-      fetch(event.request)
-        .then(response => {
-          // If the fetch is successful, update the cache with the new version
-          let responseClone = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
-          return response;
-        })
-        .catch(() => {
-          // If the fetch fails, return the cached version
-          return caches.match(event.request);
-        })
-      : // If not connected, return the cached version
-      caches.match(event.request)
-  );
-});
- */
-
-
-
-/* 
-// Listen for the install event
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      // Fetch the resources.json file
-      return fetch(RESOURCES_JSON)
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          // Add all URLs in resources.json to the cache
-          data.resources.forEach(url => {
-            fetch(url)
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error(`Request failed with status code ${response.status}`);
-                }
-                cache.add(url);
-              })
-              .catch(err => {
-                console.log("Failed to add URL to cache: ", url);
-                console.log(err);
-              });
-          });
-        });
-    })
-  );
-}); */
-
-
-/* // Listen for the install event
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      // Fetch the resources.json file
-      return fetch(RESOURCES_JSON)
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          // Add all URLs in resources.json to the cache
-          return cache.addAll([...data.resources, "*.js", "*.css"]);
-        });
-    })
-  );
-});
-
-// Listen for the activate event
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(cacheName => {
-            // Delete any cache that doesn't match the current cache name
-            return cacheName !== CACHE_NAME;
-          })
-          .map(cacheName => {
-            return caches.delete(cacheName);
-          })
-      );
-    })
-  );
-});
-
-// Listen for the fetch event
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    // Check if the internet is connected
-    navigator.onLine
-      ? // If connected, try to fetch the resource from the server
-      fetch(event.request)
-        .then(response => {
-          // If the fetch is successful, update the cache with the new version
-          let responseClone = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
-          return response;
-        })
-        .catch(() => {
-          // If the fetch fails, return the cached version
-          return caches.match(event.request);
-        })
-      : // If not connected, return the cached version
-      caches.match(event.request)
-  );
-}); */
-
-
-
-/* 
-// Listen for the activate event
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(cacheName => {
-            // Delete any cache that doesn't match the current cache name
-            return cacheName !== CACHE_NAME;
-          })
-          .map(cacheName => {
-            return caches.delete(cacheName);
-          })
-      );
-    })
-  );
-});
-
-// Listen for the fetch event
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    // Check if the internet is connected
-    navigator.onLine
-      ? // If connected, try to fetch the resource from the server
-      fetch(event.request)
-        .then(response => {
-          // If the fetch is successful, update the cache with the new version
-          let responseClone = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
-          return response;
-        })
-        .catch(() => {
-          // If the fetch fails, return the cached version
-          return caches.match(event.request);
-        })
-      : // If not connected, return the cached version
-      caches.match(event.request)
-  );
-});
- */
-
 const CACHE_NAME = "my-site-cache-v1";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll([
-          '/',
-          '/index.html',
-          '/styles.css',
-          '/app.js',
-          '/images/logo.png',
-          // Add any other resources here
-        ]);
-      })
   );
 });
 
 self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function (response) {
-        if (navigator.onLine) {
-          // if online and there is a match in the cache, return it
-          if (response) {
-            return response;
+  if (event.request.url.endsWith('.js') || event.request.url.endsWith('.css')) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(function (response) {
+          if (navigator.onLine) {
+            // if online and there is a match in the cache, return it
+            if (response) {
+              return response;
+            }
+            // if online and no match in the cache, fetch from server
+            else {
+              return fetch(event.request)
+                .then(function (res) {
+                  return caches.open(CACHE_NAME)
+                    .then(function (cache) {
+                      cache.put(event.request.url, res.clone());
+                      return res;
+                    })
+                });
+            }
+          } else {
+            // if offline and there is a match in the cache, return it
+            if (response) {
+              return response;
+            }
+            // if offline and no match in the cache, return a default response
+            else {
+              return caches.match('/offline.html');
+            }
           }
-          // if online and no match in the cache, fetch from server
-          else {
-            return fetch(event.request)
-              .then(function (res) {
-                return caches.open(CACHE_NAME)
-                  .then(function (cache) {
-                    cache.put(event.request.url, res.clone());
-                    return res;
-                  })
-              });
-          }
-        } else {
-          // if offline and there is a match in the cache, return it
-          if (response) {
-            return response;
-          }
-          // if offline and no match in the cache, return a default response
-          else {
-            return caches.match('/offline.html');
-          }
-        }
-      })
-  );
+        })
+    );
+  }
 });
 
 self.addEventListener('activate', function (event) {
