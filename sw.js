@@ -229,9 +229,6 @@ const getFixedUrl = (req) => {
  *
  *  waitUntil(): activating ====> activated
  */
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim())
-})
 
 self.addEventListener('activate', event => {
   event.waitUntil(
