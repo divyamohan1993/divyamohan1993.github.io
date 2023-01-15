@@ -84,7 +84,8 @@ const DOMAIN = 'https://dmj.one';
 function cacheResources(urls) {
   return caches.open(CACHE_NAME)
     .then((cache) => {
-      return cache.addAll(urls);
+      const requests = urls.map(url => new Request(url));
+      return cache.addAll(requests);
     });
 }
 
