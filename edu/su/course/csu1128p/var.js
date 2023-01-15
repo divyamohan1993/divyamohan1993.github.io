@@ -61,7 +61,7 @@ function get_menu_list() {
                     link = "../csu1128/misc/";
                     date = "Last Updated: Sun January 15, 2023";
                     title = "Miscellaneous";
-                    desc = "Mescellaneous programs and questions.";
+                    desc = "Miscellaneous programs and questions.";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
