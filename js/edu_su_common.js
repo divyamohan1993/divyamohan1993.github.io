@@ -376,7 +376,7 @@ function maintenance_mode() {
 
 /******** Footer ***********/
 function copyright(rights) {
-    // sitemap_var_gen_clipboard();
+    sitemap_var_gen_clipboard();
 
     var footer_all_rights = ' &#8226; All rights reserved';
     var footer_some_rights = ' &#8226; Some rights reserved';
