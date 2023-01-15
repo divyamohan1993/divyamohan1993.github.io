@@ -27,6 +27,10 @@
             section {
                 border-top: 7px solid #747474;
             }
+
+            .noborder {
+                border: none;
+            }
         </style>
     </head>
 
@@ -45,8 +49,8 @@
                     guidance by Dr. Pankaj Vaidya.</p>
             </article>
 
-         
-            <section>
+
+            <section class="noborder">
                 <article class="syntax">
                     <pre><code class="hljs language-cpp">
 /*  Miscellaneous Program by dmj.one
@@ -70,7 +74,7 @@ int main() {
                 </article>
             </section>
 
-        
+
             <section>
                 <article class="syntax">
                     <pre><code class="hljs language-cpp">
@@ -95,33 +99,6 @@ int main() {
                 </article>
             </section>
 
-      
-            <section>
-                <article class="syntax">
-                    <pre><code class="hljs language-cpp">
-/*  Miscellaneous Program by dmj.one
- *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
- *  
- * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
- */
-
-#include &lt;stdio.h&gt;
-int main() {
-    int i = 1;
-    i = i + ++i;
-    printf("%d\n", i);
-    return 0;
-}</code></pre>
-                </article>
-                <article>
-                    <h3>Output:</h3>
-                    <samp class="codeoutput text-justify">
-                        &emsp; 4
-                    </samp>
-                </article>
-            </section>
-
-      
             <section>
                 <article class="syntax">
                     <pre><code class="hljs language-cpp">
@@ -165,19 +142,20 @@ int main() {
 
 #include &lt;stdio.h&gt;
 int main() {
-    int i = 5, j = 8;
-    i = i++ + ++j;
-    printf("%d %d\n", i, j);
+    int i = 5;
+    i = i + i++ * i++;
+    printf("%d\n", i);
     return 0;
 }
 </code></pre>
                 </article>
                 <article>
                     <h3>Output:</h3><samp class="codeoutput text-justify">
-                        &emsp; 14 9
+                        &emsp; 27 / 37? You decide!
                     </samp>
                 </article>
             </section>
+
 
             <section>
                 <article class="syntax">
@@ -190,16 +168,16 @@ int main() {
 
 #include &lt;stdio.h&gt;
 int main() {
-    int i = 5;
-    i = i + i++ * i++;
+    int i = 1;
+    i = i + ++i;
     printf("%d\n", i);
     return 0;
-}
-</code></pre>
+}</code></pre>
                 </article>
                 <article>
-                    <h3>Output:</h3><samp class="codeoutput text-justify">
-                        &emsp; 27 / 37? You decide!
+                    <h3>Output:</h3>
+                    <samp class="codeoutput text-justify">
+                        &emsp; 4
                     </samp>
                 </article>
             </section>
@@ -237,6 +215,31 @@ int main() {
                 <article>
                     <h3>Output:</h3><samp class="codeoutput text-justify">
                         &emsp; 3 5 7 9 / 3 2 5 4? You decide!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int i = 5, j = 8;
+    i = i++ + ++j;
+    printf("%d %d\n", i, j);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 14 9
                     </samp>
                 </article>
             </section>
@@ -290,7 +293,7 @@ int main() {
                     </samp>
                 </article>
             </section>
-            
+
             <section>
                 <article class="syntax">
                     <pre><code class="hljs language-cpp">
@@ -349,6 +352,752 @@ int main() {
                     </samp>
                 </article>
             </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int i = 0, j = 0;
+    i = i + j++;
+    i = i + ++j;
+    printf("i = %d j = %d\n", i, j);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; i = 2 j = 2 / i = 3 j = 2? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 0, b = 0, c = 0;
+    a = b = c = 5;
+    printf("a = %d b = %d c = %d\n", a, b, c);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 5 b = 5 c = 5
+                    </samp>
+                </article>
+            </section>
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int i = 5, j = 3;
+    i += j += i += j;
+    printf("i = %d j = %d\n", i, j);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; i = 16 j = 8 / i = 19 j = 11? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int a = 0, b = 0;
+    a = (b = 5) + (b = 3);
+    printf("a = %d b = %d\n", a, b);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 8 b = 3 / a = 6 b = 3? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int i = 0, j = 0;
+    i += ++j;
+    i += j++;
+    printf("i = %d j = %d\n", i, j);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; i = 2 j = 2
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int i = 0, j = 0;
+    i = i++ + j++;
+    i = i + j;
+    printf("i = %d j = %d\n", i, j);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; i = 2 j = 2 / i = 1 j = 1 / i = 3 j = 1? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+void fun(int x)
+{
+    x = x + 1;
+    printf("x = %d\n", x);
+}
+
+int main()
+{
+    int y = 5;
+    fun(y++);
+    printf("y = %d\n", y);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; x = 6 y = 6
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int a = 5;
+    a = (a++) + (++a);
+    printf("a = %d\n", a);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 7 / a = 12? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    int a[] = {1, 2, 3, 4, 5};
+    int *p = (int*) malloc(5 * sizeof(int));
+    memcpy(p, a, 5 * sizeof(int));
+    int i;
+    for (i = 0; i < 5; i++) {
+        printf("%d ", p[i]);
+    }
+    free(p);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 1 2 3 4 5
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int a = 5;
+    a = (a--) + (--a);
+    printf("a = %d\n", a);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 3 / a = 7 / a = 8?You decide!!
+                    </samp>
+                </article>
+            </section>
+
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+    char s1[] = "Hello";
+    char s2[] = "World";
+    int i = strcmp(s1, s2);
+    if (i == 0) {
+        printf("Equal\n");
+    } else {
+        printf("Not Equal\n");
+    }
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; Not Equal
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+int main() {
+    time_t t;
+    srand((unsigned) time(&t));
+    int r = rand() % 100;
+    printf("%d\n", r);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; (random number between 0-99) 79
+                    </samp>
+                </article>
+            </section>
+
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int a = 5;
+    a = (++a) + (a++);
+    printf("a = %d\n", a);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 11 / a = 13? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main()
+{
+    int a = 5;
+    a = (--a) + (a--);
+    printf("a = %d\n", a);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 7 / a = 3? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+int main() {
+    char c = 'a';
+    printf("%c\n", toupper(c));
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; A
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+void func(int a[]) {
+    a[0] = a[1] + a[2];
+    a[1] = a[2] - a[0];
+    a[2] = a[0] * a[1];
+}
+
+int main() {
+    int a[] = {2, 3, 4};
+    func(a);
+    printf("%d %d %d\n", a[0], a[1], a[2]);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; a = 7 -3 -21 / a = 4 -1 -4 / a = 3 -1 -14? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    int i = atoi("123");
+    printf("%d\n", i);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 123
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 0;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (i == j) {
+                x++;
+                continue;
+            }
+            if (i < j) {
+                x += 2;
+            }
+            if (i > j) {
+                x -= 2;
+            }
+        }
+    }
+    printf("%d\n", x);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 0 / 4? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    x = x << 2 + 1;
+    printf("%d\n", x);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 2
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    int y = x++ + ++x + x--;
+    printf("%d\n", y);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 13 / 19? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    int y = 2;
+    int z = x / y * y + x % y;
+    printf("%d\n", z);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 5
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    x = x << 2 + 1;
+    printf("%d\n", x);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 21 / 40? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    int x = 10;
+    int y = 20;
+    int z = (x > y) ? x : y;
+    printf("%d\n", z);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 20
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main() {
+    int a[100];
+    srand(time(NULL));
+    for (int i = 0; i < 100; i++) {
+        a[i] = rand() % 1000;
+    }
+
+    int max = a[0];
+    for (int i = 0; i < 100; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+    printf("%d\n", max);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; (random number between 0-999) 334
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    int y = 2;
+    int z = x + y - (x = y);
+    printf("%d\n", z);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 3 / 5? You decide!!
+                    </samp>
+                </article>
+            </section>
+
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    int y = 2;
+    int *p1 = &x;
+    int *p2 = &y;
+    int z = *p1 + *p2 - (*p1 = *p2);
+    printf("%d\n", z);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 5
+                    </samp>
+                </article>
+            </section>
+
+            <section>
+                <article class="syntax">
+                    <pre><code class="hljs language-cpp">
+/*  Miscellaneous Program by dmj.one
+ *  DO NOT COPY     DO NOT REPRODUCE    DO NOT MODIFY
+ *  
+ * (c) 2023, Divya Mohan for dmj.one. All rights reserved.
+ */
+
+#include &lt;stdio.h&gt;
+int main() {
+    int x = 5;
+    int y = 2;
+    int z = x++ + y - (x = y);
+    printf("%d\n", z);
+    return 0;
+}
+</code></pre>
+                </article>
+                <article>
+                    <h3>Output:</h3><samp class="codeoutput text-justify">
+                        &emsp; 3 / 4 / 5? You decide!!
+                    </samp>
+                </article>
+            </section>
+
 
         </main>
 
