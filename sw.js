@@ -76,7 +76,7 @@ self.addEventListener('fetch', (event) => {
 
 
 /******* CACHE ALL URLS OF DOMAIN AUTOMATICALLY *******/
-const CACHE_NAME = 'shoolini-cache-v2';
+/* const CACHE_NAME = 'shoolini-cache-v2';
 const DOMAIN = 'https://dmj.one';
 
 // Helper function to cache resources
@@ -174,6 +174,85 @@ self.addEventListener('fetch', (event) => {
 
           return response;
         });
+      })
+  );
+}); */
+
+const CACHE_NAME = 'shoolini-cache-v2';
+
+// Helper function to cache resources
+function cacheResources(urls) {
+  const requests = urls.map(url => new Request(url));
+  return caches.open(CACHE_NAME)
+    .then(cache => {
+      return cache.addAll(requests);
+    });
+}
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/sw.js',
+          '/styles.css',
+          '/app.js',
+          '/favicon.ico',
+        ]);
+      })
+      .then(() => {
+        // Fetch additional resources and cache them
+        return fetch('/sw_allurls.json')
+          .then(response => response.json())
+          .then(data => {
+            // Extract URLs from the fetched data
+            const urls = data.resources;
+            return cacheResources(urls);
+          });
+      })
+      .catch(error => {
+        console.log("An error occured while caching: " + error);
+      })
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+      .then(() => {
+        // Fetch additional resources and cache them
+        return fetch('/sw_allurls.json')
+          .then(response => response.json())
+          .then(data => {
+            // Extract URLs from the fetched data
+            const urls = data.resources;
+            return cacheResources(urls);
+          });
+      })
+      .catch(error => {
+        console.log("An error occured while activating: " + error);
+      })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
       })
   );
 });
