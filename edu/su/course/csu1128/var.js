@@ -66,7 +66,7 @@ function get_menu_list() {
                     title = "Test Your Knowledge";
                     desc = "Miscellaneous Programs and Questions to test your knowledge";
                     codetype = "C Programming";
-                    readtime = "1 hour+";
+                    // readtime = "60+";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 5:
