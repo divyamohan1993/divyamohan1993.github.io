@@ -420,8 +420,6 @@ self.addEventListener("install", event => {
   );
 }); */
 
-const CACHE_NAME = "cache-v1";
-const RESOURCES_JSON = "data.json";
 
 // Listen for the install event
 self.addEventListener("install", event => {
