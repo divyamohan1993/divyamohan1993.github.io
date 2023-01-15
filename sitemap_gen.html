@@ -5,10 +5,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title>Document</title>
+        <title>Sitemap Generator</title>
         <script>
-            async function generateSitemap(...arrays) {
+            function generateSitemap(...arrays) {
                 // Create the XML sitemap
                 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
                 sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -24,9 +23,9 @@
                     });
                 });
                 sitemap += '</urlset>';
+                return sitemap;
 
-                // Copy the sitemap to the clipboard
-                await navigator.clipboard.writeText(sitemap);
+                // Copy the sitemap to the clipboard || await navigator.clipboard.writeText(sitemap);
             }
 
             function createSitemapJSON(...urlArrays) {
@@ -37,14 +36,31 @@
                 return { resources };
             }
         </script>
+
+        <style>
+            .button-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            button {
+                padding: 10px 20px;
+                margin: 10px;
+            }
+        </style>
     </head>
 
     <body>
-        <div id="sitemap"></div>
+        <div class="button-container">
+            <button id="xml-button">XML</button>
+            <button id="json-button">JSON</button>
+        </div>
 
         <script>
             // Sitemaps:
-            var sitemap_edu_su_ = ['https://dmj.one/edu/su/course/'];
+            var sitemap_edu_su_ = ['https://dmj.one/edu/su/', 'https://dmj.one/edu/su/course/'];
             var sitemap_edu_su_course_ = ['https://dmj.one/edu/su/course/csu1128/', 'https://dmj.one/edu/su/course/csu953/', 'https://dmj.one/edu/su/course/fsu030/'];
 
             var sitemap_edu_su_course_csu1128_ = ['https://dmj.one/edu/su/course/csu1128/program/', 'https://dmj.one/edu/su/course/csu1128p/labfile/', 'https://dmj.one/edu/su/course/csu1128/download.html'];
@@ -61,11 +77,26 @@
             var sitemap_edu_su_course_fsu030_seminar_ = ['https://dmj.one/edu/su/course/fsu030/seminar/s1', 'https://dmj.one/edu/su/course/fsu030/seminar/s2'];
             var sitemap_edu_su_course_fsu030_assignment_ = ['https://dmj.one/edu/su/course/fsu030/assignment/a1', 'https://dmj.one/edu/su/course/fsu030/assignment/a2'];
 
-            var urlarray = (sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_, sitemap_edu_su_course_csu1128p_, sitemap_edu_su_course_csu1128p_labfile_, sitemap_edu_su_course_csu953_, sitemap_edu_su_course_csu953_lab_, sitemap_edu_su_course_csu953_file_, sitemap_edu_su_course_fsu030_, sitemap_edu_su_course_fsu030_section_, sitemap_edu_su_course_fsu030_seminar_, sitemap_edu_su_course_fsu030_assignment_);
-            generateSitemap(urlarray);
+            var arraylist = [sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_, sitemap_edu_su_course_csu1128p_, sitemap_edu_su_course_csu1128p_labfile_, sitemap_edu_su_course_csu953_, sitemap_edu_su_course_csu953_lab_, sitemap_edu_su_course_csu953_file_, sitemap_edu_su_course_fsu030_, sitemap_edu_su_course_fsu030_section_, sitemap_edu_su_course_fsu030_seminar_, sitemap_edu_su_course_fsu030_assignment_];
 
-            var json = createSitemapJSON(urlarray);
-            console.log(json);
+            // Creates different list of url as one list. 
+            var flattenedArray = arraylist.reduce((a, b) => a.concat(b), []);
+
+            // Generates the respectives sitemap. 
+            var sitemapXML = generateSitemap(flattenedArray);
+            var sitemapJSON = createSitemapJSON(flattenedArray);
+
+            // Add the click function to the buttons
+            document.getElementById("xml-button").addEventListener("click", function () {
+                var sitemap = generateSitemap(sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_);
+                navigator.clipboard.writeText(sitemap);
+            });
+
+            document.getElementById("json-button").addEventListener("click", function () {
+                var sitemap = createSitemapJSON(sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_);
+                navigator.clipboard.writeText(JSON.stringify(sitemap));
+            });
+
         </script>
     </body>
 
