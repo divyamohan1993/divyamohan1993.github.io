@@ -86,27 +86,26 @@ if (condition) {
             </article>
             <article>
                <pre>What is the difference between a struct and a union in C?
+                A struct in C is a composite data type that allows you to store a group of related variables under a single name. A
+                union, on the other hand, is a composite data type that allows you to store different variables in the same memory
+                location. This means that when you use a union, only one of the variables in the union can be stored in memory at any
+                given time.
+
             How do you use pointers in C?
-            What is the purpose of the "const" keyword in C?
-            How do you use the "switch" statement to control the flow of a program?
-            What is the difference between a static function and a non-static function in C?</pre>
-
-
-            A struct in C is a composite data type that allows you to store a group of related variables under a single name. A
-            union, on the other hand, is a composite data type that allows you to store different variables in the same memory
-            location. This means that when you use a union, only one of the variables in the union can be stored in memory at any
-            given time.
-            
             Pointers in C are variables that store the memory address of another variable. You can use pointers to access and modify
             the value of a variable indirectly, rather than directly accessing the variable itself. To declare a pointer in C, you
             use the "*" operator. For example:
             
             int *pointer;
-            
+
+
+            What is the purpose of the "const" keyword in C?
             The "const" keyword in C is used to declare a variable as constant, which means that the value of the variable cannot be
             modified after it is initialized. This is useful for ensuring that the value of a variable is not accidentally changed
             by other parts of the program.
-            
+
+
+            How do you use the "switch" statement to control the flow of a program?
             The "switch" statement in C is used to execute a block of code based on the value of a specific expression. The syntax
             for a "switch" statement in C is as follows:
             
@@ -121,7 +120,9 @@ if (condition) {
             default:
             // code to be executed if expression does not match any of the cases
             }
-            
+
+
+            What is the difference between a static function and a non-static function in C?
             A static function in C is a function that is only accessible within the file in which it is defined. This means that the
             function cannot be called from other files in the program. A non-static function, on the other hand, is a function that
             is accessible to all parts of the program.
@@ -129,42 +130,45 @@ if (condition) {
             <article>
                 <pre>
                 What is the difference between an "automatic" variable and a "static" variable in C?
-                How do you use recursion to solve a problem in C?
-                What is the purpose of the "typedef" keyword in C?
-                How do you use the "goto" statement in C?
-                How do you use the "sizeof" operator in C?
+                
+                
+                
+                
 
                 An "automatic" variable in C is a variable that is created on the stack when a function is called and is automatically
                 destroyed when the function returns. A "static" variable, on the other hand, is a variable that is created in memory
                 when the program starts and remains in memory until the program ends. This means that a static variable retains its
                 value between function calls, whereas an automatic variable does not.
                 
+                How do you use recursion to solve a problem in C?
                 Recursion is a programming technique in which a function calls itself to solve a problem. In C, you can use recursion to
                 solve problems that can be divided into smaller subproblems that can be solved independently. To use recursion in C, you
                 need to define a base case that the function can use to stop calling itself, and you need to make sure that the function
                 calls itself with a modified version of the original problem each time it is called.
                 
+                What is the purpose of the "typedef" keyword in C?
                 The "typedef" keyword in C is used to create an alias for a data type. This allows you to use the alias as if it were a
                 new data type in your program. For example:
-                
-                typedef unsigned int UINT;
-                
+                <pre><code>typedef unsigned int UINT;</code></pre>
+            
                 You can then use the "UINT" type in your program like this:
-                
-                UINT x;
-                
+                <pre><code>UINT x;</code></pre>
+            
+                How do you use the "goto" statement in C?
                 The "goto" statement in C is used to transfer control to a different part of a program. The syntax for a "goto"
                 statement in C is as follows:
-                goto label;
+                <pre><code>goto label;
                 
                 ...
                 
                 label:
                 // code to be executed
-                
+                </code></pre>
+
                 Using the "goto" statement is generally considered to be bad programming practice, as it can make code harder to read
                 and understand.
                 
+                How do you use the "sizeof" operator in C?
                 The "sizeof" operator in C is used to determine the size of a data type or a variable in bytes. For example:
                 int x;
                 printf("%d\n", sizeof(x)); // prints "4"
@@ -179,18 +183,14 @@ if (condition) {
             <article>
                 <pre>
                     What is the difference between a "dynamic" and a "static" memory allocation in C?
-                    How do you use the "fopen" and "fclose" functions to read and write to a file in C?
-                    What is the difference between a "deep copy" and a "shallow copy" in C?
-                    How do you use the "assert" function to test assumptions in a C program?
-                    What is the difference between a "blocking" and a "non-blocking" function in C?
-
-
                     In C, you can use "dynamic" memory allocation to allocate memory for a variable at runtime, using functions such as
                     "malloc" and "calloc". This means that the amount of memory allocated for the variable is not fixed at compile-time, but
                     can be changed at runtime based on the needs of the program. "Static" memory allocation, on the other hand, is the
                     process of allocating memory for a variable at compile-time, using the "static" keyword. This means that the amount of
                     memory allocated for the variable is fixed at compile-time and cannot be changed at runtime.
                     
+                    
+                    How do you use the "fopen" and "fclose" functions to read and write to a file in C?
                     The "fopen" function in C is used to open a file for reading or writing. The syntax for "fopen" is as follows:
                     
                     FILE *fopen(const char *filename, const char *mode);
@@ -203,11 +203,15 @@ if (condition) {
                     
                     The "stream" argument is a pointer to the file stream you want to close.
                     
+
+                    What is the difference between a "deep copy" and a "shallow copy" in C?
                     A "deep copy" in C is a copy of an object that includes not just the values of the object's attributes, but also any
                     dynamically-allocated memory associated with the object. A "shallow copy", on the other hand, is a copy of an object
                     that includes only the values of the object's attributes, and does not include any dynamically-allocated memory
                     associated with the object.
                     
+                    
+                    How do you use the "assert" function to test assumptions in a C program?
                     The "assert" function in C is used to test assumptions in a program. If the assumption being tested is false, the
                     "assert" function will print an error message and terminate the program. The syntax for "assert" is as follows:
                     
@@ -216,11 +220,12 @@ if (condition) {
                     If "expression" is true, the "assert" function does nothing. If "expression" is false, the "assert" function prints an
                     error message and terminates the program.
                     
+                    
+                    What is the difference between a "blocking" and a "non-blocking" function in C?
                     A "blocking" function in C is a function that stops the program from executing until it finishes running. A
                     "non-blocking" function, on the other hand, is a function that allows the program to continue running while the function
                     is executing. Non-blocking functions are useful for performing tasks that may take a long time to complete, as they
                     allow the program to continue running and perform other tasks while the function is running.
-
 
 
                     What is the difference between a "preprocessor" directive and a "compiler" directive in C?

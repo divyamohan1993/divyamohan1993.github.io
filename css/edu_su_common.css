@@ -62,6 +62,14 @@ hr {
   padding: 0;
 }
 
+/* hr {
+  height: 7px;
+  border: none;
+  margin: 0px;
+  color: black;
+  background-color: black;
+} */
+
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
@@ -965,6 +973,4 @@ a:hover {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  
-}
+@media (prefers-color-scheme: dark) {}

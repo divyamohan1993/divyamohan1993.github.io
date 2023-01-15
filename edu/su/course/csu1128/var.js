@@ -12,6 +12,9 @@ function get_menu_list() {
             case "class":
                 get_classes();
                 break;
+            case "misc":
+                get_misc();
+                break;
             case "books":
                 get_books();
                 break;
@@ -58,7 +61,7 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 4:
-                    link = "misc.html";
+                    link = "misc/";
                     date = "Last Updated: Sat January 14, 2023";
                     title = "Miscellaneous";
                     desc = "Miscellaneous Programs by dmj.one to test your knowledge";
@@ -87,6 +90,40 @@ function get_menu_list() {
             }
         }
     }
+    function get_misc() {
+        var cases = [1, 2];
+        date = "Last Updated: Sun January 15, 2023";
+        codetype = "C Programming";
+        readtime = "10";
+        for (let i = 0; i < cases.length; i++) {
+            switch (cases[i]) {
+                case 1:
+                    link = "program";
+                    title = "Miscellaneous Programs";
+                    desc = "Test your knowledge using these miscellaneous programs.";
+                    readtime = "60";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 2:
+                    link = "question";
+                    title = "Miscellaneous Questions";
+                    desc = "Test your knowledge and prepare for VIVA using these Miscellaneous Questions";
+                    readtime = "15";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                default:
+                    link = "#";
+                    date = "Not Applicable";
+                    title = "Classes for current " + course + " has not been defined.";
+                    desc = "Please define a hierchy for the classes of course " + course + ".";
+                    codetype = "#CourseNotDefined";
+                    readtime = "0";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+            }
+        }
+    }
+
     function get_classes() {
         var cases = [1];
         for (let i = 0; i < cases.length; i++) {
