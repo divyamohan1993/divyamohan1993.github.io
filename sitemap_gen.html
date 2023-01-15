@@ -89,13 +89,11 @@
 
             // Add the click function to the buttons
             document.getElementById("xml-button").addEventListener("click", function () {
-                var sitemap = generateSitemap(sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_);
-                navigator.clipboard.writeText(sitemap);
+                navigator.clipboard.writeText(sitemapXML);
             });
 
             document.getElementById("json-button").addEventListener("click", function () {
-                var sitemap = createSitemapJSON(sitemap_edu_su_, sitemap_edu_su_course_, sitemap_edu_su_course_csu1128_, sitemap_edu_su_course_csu1128_program_);
-                navigator.clipboard.writeText(JSON.stringify(sitemap));
+                navigator.clipboard.writeText(JSON.stringify(sitemapJSON));
             });
 
         </script>
