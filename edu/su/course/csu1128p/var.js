@@ -27,7 +27,7 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1, 2, 3];
+        var cases = [1, 2, 3, 4];
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
@@ -57,7 +57,16 @@ function get_menu_list() {
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 4:
+                case 5:
+                    link = "../csu1128/misc/";
+                    date = "Last Updated: Sun January 15, 2023";
+                    title = "Miscellaneous";
+                    desc = "Mescellaneous programs and questions.";
+                    codetype = "C Programming";
+                    // readtime = "10";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
+                case 5:
                     link = "books";
                     date = "Thu September 27, 2022";
                     title = "Reference Books";
