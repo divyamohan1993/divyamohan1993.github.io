@@ -1,31 +1,23 @@
 {
-    "name": "Shoolini @ dmj.one",
-    "short_name": "Shoolini",
+    "name": "dmj.one",
+    "short_name": "Shoolini @ dmj.one",
     "theme_color": "#fafafa",
     "background_color": "#fafafa",
-    "logo": "/logo.png",
     "display": "standalone",
     "scope": "/edu/su/",
     "start_url": "/edu/su/",
     "lang": "en-us",
-    "orientation": "portrait",
+    "orientation": "any",
     "dir": "ltr",
     "related_applications": [],
     "prefer_related_applications": false,
-    "description": "Computer Science education at graduation level. An educational initiative by dmj.one. ",
-    
+    "description": "An educational initiative by dmj.one in the subject of Computer Science at graduation level.",
     "shortcuts": [
         {
             "name": "Study @ Shoolini",
-            "short_name": "Study",
-            "description": "Learn with us! Start by selecting the course",
+            "short_name": "Study @ Shoolini",
+            "description": "Learn with us! Start by select the course to get into its details",
             "url": "course/"
-        },
-        {
-            "name": "Life @ Shoolini",
-            "short_name": "Life",
-            "description": "Live with us! Enjoy the luxurious living lifestyle in the mountains of Kasauli Hills",
-            "url": "life/"
         }
     ],
     "features": [
