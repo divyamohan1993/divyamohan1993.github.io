@@ -224,7 +224,8 @@ self.addEventListener('fetch', event => {
           if (response && response.headers.get('date')) {
             const age = Date.now() - response.headers.get('date');
             if (age > 86400000) {
-              cache.delete(event.request);
+              // Delete the cache instead of request
+              cache.delete(CACHE_NAME);
               const fixedUrl = getFixedUrl(event.request);
               event.respondWith(fetch(fixedUrl, { cache: 'no-store' }));
               return;
