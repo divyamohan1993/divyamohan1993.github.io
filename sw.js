@@ -253,25 +253,21 @@ const getFixedUrl = (req) => {
   return url.href
 }
 
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim())
-})
 
-self.addEventListener('fetch', event => {
-  if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
-    const fixedUrl = getFixedUrl(event.request)
-    event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(fixedUrl).then((networkResponse) => {
-          caches.open(RUNTIME).then((cache) => cache.put(event.request, networkResponse.clone()));
-          return networkResponse;
-        });
-      }).catch(() => {
-        return caches.match('/offline.html');
-      })
-    );
-  }
-});
+if (navigator.onLine) {
+  self.addEventListener('fetch', event => {
+    if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
+      const fixedUrl = new URL(event.request.url);
+      fixedUrl.protocol = self.location.protocol;
+      fixedUrl.search += (fixedUrl.search ? '&' : '?') + 'cache-bust=' + Date.now();
+      event.respondWith(fetch(fixedUrl, { cache: 'no-store' }));
+    }
+  });
+} else {
+  self.addEventListener('fetch', event => {
+    if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
+      event.respondWith(caches.match(event.request));
+    }
+  });
+}
+self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
