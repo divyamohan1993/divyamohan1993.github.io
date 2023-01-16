@@ -1,8 +1,18 @@
 /* 
  * This file contains all the js combined.
  */
-var hljs = "";
-function highlightAll() { };
+// var hljs = "";
+// function highlightAll() { };
+
+(function () {
+    var script = document.createElement('script'); // Create script element for highlight.js
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"; // url to be loaded
+    script.onload = function () { hljs.highlightAll(); }; // Add an onload event to the script element
+    document.head.appendChild(script); // Append the script element to the head of the document
+})();
+
+
+
 
 // Verify If jquery and hljs is loaded
 // window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>');
@@ -401,7 +411,7 @@ function copyright(rights) {
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
-        hljs.highlightAll();
+        // hljs.highlightAll();
 
         // // Notification - Privacy - I accept
         // $('.i-accept').on('click', function () {
