@@ -438,7 +438,7 @@ function copyright(rights) {
 
 
 
-/********************* Plugins *********************/
+/********************* Custom Plugins *********************/
 /*******Generate Blockquote **********/
 function gen_blockquote() {
     var quoteblock = '<figure class="text-center shadow p-4 rounded bg-warning bg-gradient bg-opacity-25 p-5"><blockquote class="blockquote showquote"></blockquote><figcaption class="blockquote-footer showauthor"></figcaption>';
