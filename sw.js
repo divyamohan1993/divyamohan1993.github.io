@@ -179,8 +179,10 @@ self.addEventListener('fetch', (event) => {
 }); */
 
 
-const CACHE_NAME = 'v1';
-const HOSTNAME_WHITELIST = [
+// sw.js
+
+const CACHE_NAME = 'cache-v1';
+const RESOURCES_TO_CACHE = [
   self.location.hostname,
   'fonts.gstatic.com',
   'fonts.googleapis.com',
@@ -189,51 +191,40 @@ const HOSTNAME_WHITELIST = [
   'dmj.one',
   'fonts.googleapis.com',
   'picsum.photos'
-]
+];
 
-//function to hack URLs of intercepted requests
-const getFixedUrl = (req) => {
-  var url = new URL(req.url)
-  url.protocol = self.location.protocol;
-  if (url.hostname === self.location.hostname) {
-    url.search += (url.search ? '&' : '?') + 'cache-bust=' + Date.now();
-  }
-  return url.href;
-}
-
-self.addEventListener('activate', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        console.log('Opened cache');
+        return cache.addAll(RESOURCES_TO_CACHE);
+      })
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.filter(cacheName => {
-          return cacheName !== CACHE_NAME;
-        }).map(cacheName => {
-          return caches.delete(cacheName);
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
         })
       );
     })
   );
-});
-
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
-  if (HOSTNAME_WHITELIST.indexOf(url.hostname) > -1) {
-    if (navigator.onLine) {
-      caches.open(CACHE_NAME).then(cache => {
-        cache.match(event.request).then(response => {
-          if (response && response.headers.get('date')) {
-            const age = Date.now() - response.headers.get('date');
-            if (age > 86400000) {
-              // Delete the cache instead of request
-              cache.delete(CACHE_NAME);
-              const fixedUrl = getFixedUrl(event.request);
-              event.respondWith(fetch(fixedUrl, { cache: 'no-store' }));
-              return;
-            }
-          }
-        });
-      });
-    }
-    event.respondWith(caches.match(event.request));
-  }
 });
