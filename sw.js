@@ -218,20 +218,22 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   if (HOSTNAME_WHITELIST.indexOf(url.hostname) > -1) {
-    event.respondWith(
-      caches.open(CACHE_NAME)
-        .then(cache => {
-          return cache.match(event.request)
-            .then(response => {
-              if (!response) {
-                return fetch(event.request).then(response => {
-                  cache.put(event.request, response.clone());
-                  return response;
-                });
-              }
-              return response;
-            })
-        })
-    );
+    if (navigator.onLine) {
+      caches.open(CACHE_NAME).then(cache => {
+        cache.match(event.request).then(response => {
+          if (response && response.headers.get('date')) {
+            const age = Date.now() - response.headers.get('date');
+            if (age > 86400000) {
+              // Delete the cache instead of request
+              cache.delete(CACHE_NAME);
+              const fixedUrl = getFixedUrl(event.request);
+              event.respondWith(fetch(fixedUrl, { cache: 'no-store' }));
+              return;
+            }
+          }
+        });
+      });
+    }
+    event.respondWith(caches.match(event.request));
   }
 });
