@@ -179,18 +179,7 @@ self.addEventListener('fetch', (event) => {
 }); */
 
 
-
-/* ===========================================================
- * docsify sw.js
- * ===========================================================
- * Copyright 2016 @huxpro
- * Licensed under Apache 2.0
- * Register service worker.
- * ========================================================== */
-
 const CACHE_NAME = 'v1';
-
-const RUNTIME = 'docsify';
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   'fonts.gstatic.com',
@@ -202,42 +191,22 @@ const HOSTNAME_WHITELIST = [
   'picsum.photos'
 ]
 
-// The Util Function to hack URLs of intercepted requests
+//function to hack URLs of intercepted requests
 const getFixedUrl = (req) => {
-  var now = Date.now()
   var url = new URL(req.url)
-
-  // 1. fixed http URL
-  // Just keep syncing with location.protocol
-  // fetch(httpURL) belongs to active mixed content.
-  // And fetch(httpRequest) is not supported yet.
-  url.protocol = self.location.protocol
-
-  // 2. add query for caching-busting.
-  // Github Pages served with Cache-Control: max-age=600
-  // max-age on mutable content is error-prone, with SW life of bugs can even extend.
-  // Until cache mode of Fetch API landed, we have to workaround cache-busting with query string.
-  // Cache-Control-Bug: https://bugs.chromium.org/p/chromium/issues/detail?id=453190
+  url.protocol = self.location.protocol;
   if (url.hostname === self.location.hostname) {
-    url.search += (url.search ? '&' : '?') + 'cache-bust=' + now
+    url.search += (url.search ? '&' : '?') + 'cache-bust=' + Date.now();
   }
-  return url.href
+  return url.href;
 }
-
-/**
- *  @Lifecycle Activate
- *  New one activated when old isnt being used.
- *
- *  waitUntil(): activating ====> activated
- */
 
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.filter(cacheName => {
-          return cacheName.startsWith('docsify-') &&
-            cacheName !== CACHE_NAME;
+          return cacheName !== CACHE_NAME;
         }).map(cacheName => {
           return caches.delete(cacheName);
         })
@@ -246,39 +215,24 @@ self.addEventListener('activate', event => {
   );
 });
 
-
-/**
- *  @Functional Fetch
- *  All network requests are being intercepted here.
- *
- *  void respondWith(Promise<Response> r)
- */
-
 self.addEventListener('fetch', event => {
-  // Skip some of cross-origin requests, like those for Google Analytics.
-  if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
-    // Check if internet is connected
+  const url = new URL(event.request.url);
+  if (HOSTNAME_WHITELIST.indexOf(url.hostname) > -1) {
     if (navigator.onLine) {
-      // Check if cache is older than 24 hours
       caches.open(CACHE_NAME).then(cache => {
         cache.match(event.request).then(response => {
-          if (response) {
+          if (response && response.headers.get('date')) {
             const age = Date.now() - response.headers.get('date');
             if (age > 86400000) {
-              // Invalidate cache and refresh from internet
-              caches.delete(event.request);
+              cache.delete(event.request);
               const fixedUrl = getFixedUrl(event.request);
-              const fetched = fetch(fixedUrl, { cache: 'no-store' });
-              event.respondWith(fetched);
+              event.respondWith(fetch(fixedUrl, { cache: 'no-store' }));
               return;
             }
           }
         });
       });
     }
-    // Stale-while-revalidate
-    const cached = caches.match(event.request);
-    event.respondWith(cached);
+    event.respondWith(caches.match(event.request));
   }
 });
-
