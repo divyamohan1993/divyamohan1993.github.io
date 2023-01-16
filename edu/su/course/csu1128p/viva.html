@@ -30,210 +30,313 @@
         <script>header_author("dm");</script>
 
         <main id="main" name="main">
-            <article>
-                <h3>What is the difference between a global variable and a local variable?</h3>
-                <p>A global variable is a variable that is declared outside of any function and is accessible to all
-                    functions in the
-                    program. A local variable, on the other hand, is a variable that is declared inside a function and
-                    is only accessible
-                    within that function.</p>
-            </article>
-            <article>
-                <h3>What is the purpose of the "main" function in a C program?</h3>
-                <p>The "main" function is the entry point of a C program. It is the function where the program begins
-                    executing and is
-                    usually where the majority of the program logic is contained.</p>
-            </article>
-            <article>
-                <h3>How do you use the "if" statement to control the flow of a program?</h3>
-                <p>The "if" statement is used to control the flow of a program based on a specific condition. The syntax
-                    for an "if"
-                    statement in C is as follows:
-                <pre><code>
-if (condition) {
-// code to be executed if condition is true
+<pre><code>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+void func1(int *p)
+{
+    *p += 2;
+    p += 2;
 }
-</code></pre>
-                </p>
-            </article>
-            <article>
-                <h3>How do you declare and use an array in a C program?</h3>
-                <p>To declare an array in C, you need to specify the type of data the array will hold and the number of
-                    elements it will
-                    contain. For example:
-                    int array[10];
 
-                    To access an element of the array, you can use the index operator ([]). For example:
+void func2(int a[], int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        a[i] = a[i] + 2;
+        a++;
+    }
+}
 
-                    array[0] = 10;</p>
-            </article>
-            <article>
-                <h3>What is the difference between the "for" loop and the "while" loop?</h3>
-                <p>The "for" loop is used to execute a block of code a specific number of times. The syntax for a "for"
-                    loop in C is as
-                    follows:
-                    for (initialization; condition; update) {<br>
-                    // code to be executed<br>
-                    }<br>
+void fun4(int x)
+{
+    x = x + 1;
+    printf("x = %d\n", x);
+}
 
-                    The "while" loop, on the other hand, is used to execute a block of code repeatedly as long as a
-                    specific condition is
-                    true. The syntax for a "while" loop in C is as follows:
-<br>
-                    while (condition) {<br>
-                    // code to be executed<br>
-                    }<br></p>
-            </article>
-            <article>
-               <pre>What is the difference between a struct and a union in C?
-                A struct in C is a composite data type that allows you to store a group of related variables under a single name. A
-                union, on the other hand, is a composite data type that allows you to store different variables in the same memory
-                location. This means that when you use a union, only one of the variables in the union can be stored in memory at any
-                given time.
+void func5(int a[])
+{
+    a[0] = a[1] + a[2];
+    a[1] = a[2] - a[0];
+    a[2] = a[0] * a[1];
+}
 
-            How do you use pointers in C?
-            Pointers in C are variables that store the memory address of another variable. You can use pointers to access and modify
-            the value of a variable indirectly, rather than directly accessing the variable itself. To declare a pointer in C, you
-            use the "*" operator. For example:
-            
-            int *pointer;
+int main()
+{
+    // int i = 3;
+    // printf("%d %d %d\n", i--, i--, i);
 
+    // int i = 3;
+    // printf("%d\n", i = i++);
 
-            What is the purpose of the "const" keyword in C?
-            The "const" keyword in C is used to declare a variable as constant, which means that the value of the variable cannot be
-            modified after it is initialized. This is useful for ensuring that the value of a variable is not accidentally changed
-            by other parts of the program.
+    // int i = 1;
+    // i = i + ++i;
+    // printf("%d\n", i);
 
+    // int i = 4;
+    // int *p = &i;
+    // func1(p);
+    // printf("%d\n", i);
 
-            How do you use the "switch" statement to control the flow of a program?
-            The "switch" statement in C is used to execute a block of code based on the value of a specific expression. The syntax
-            for a "switch" statement in C is as follows:
-            
-            switch (expression) {
-            case value1:
-            // code to be executed if expression == value1
-            break;
-            case value2:
-            // code to be executed if expression == value2
-            break;
-            ...
-            default:
-            // code to be executed if expression does not match any of the cases
-            }
+    //  int i = 5;
+    //  i = i + i++ * i++;
+    //  printf("%d\n", i);
 
+    //  int a[] = {1, 2, 3, 4};
+    //  int n = sizeof(a) / sizeof(int);
+    //  func2(a, n);
+    //  int i;
+    //  for (i = 0; i < n; i++)
+    //  {
+    //      printf("%d ", a[i]);
+    //  }
 
-            What is the difference between a static function and a non-static function in C?
-            A static function in C is a function that is only accessible within the file in which it is defined. This means that the
-            function cannot be called from other files in the program. A non-static function, on the other hand, is a function that
-            is accessible to all parts of the program.
-            </article>
-            <article>
-                <pre>
-                What is the difference between an "automatic" variable and a "static" variable in C?
-                
-                
-                
-                
+    //  int i = 5, j = 3;
+    //  i = i & j | i ^ j;
+    //  printf("%d\n", i);
 
-                An "automatic" variable in C is a variable that is created on the stack when a function is called and is automatically
-                destroyed when the function returns. A "static" variable, on the other hand, is a variable that is created in memory
-                when the program starts and remains in memory until the program ends. This means that a static variable retains its
-                value between function calls, whereas an automatic variable does not.
-                
-                How do you use recursion to solve a problem in C?
-                Recursion is a programming technique in which a function calls itself to solve a problem. In C, you can use recursion to
-                solve problems that can be divided into smaller subproblems that can be solved independently. To use recursion in C, you
-                need to define a base case that the function can use to stop calling itself, and you need to make sure that the function
-                calls itself with a modified version of the original problem each time it is called.
-                
-                What is the purpose of the "typedef" keyword in C?
-                The "typedef" keyword in C is used to create an alias for a data type. This allows you to use the alias as if it were a
-                new data type in your program. For example:
-                <pre><code>typedef unsigned int UINT;</code></pre>
-            
-                You can then use the "UINT" type in your program like this:
-                <pre><code>UINT x;</code></pre>
-            
-                How do you use the "goto" statement in C?
-                The "goto" statement in C is used to transfer control to a different part of a program. The syntax for a "goto"
-                statement in C is as follows:
-                <pre><code>goto label;
-                
-                ...
-                
-                label:
-                // code to be executed
-                </code></pre>
+    //  int i = 5, j = 3;
+    //  i += (j = 3);
+    //  printf("%d\n", i);
 
-                Using the "goto" statement is generally considered to be bad programming practice, as it can make code harder to read
-                and understand.
-                
-                How do you use the "sizeof" operator in C?
-                The "sizeof" operator in C is used to determine the size of a data type or a variable in bytes. For example:
-                int x;
-                printf("%d\n", sizeof(x)); // prints "4"
-                
-                You can also use the "sizeof" operator to determine the size of a data type like this:
-                
-                printf("%d\n", sizeof(int)); // prints "4"
-            </pre>
+    //  int a = 3, b = 4;
+    //  if (a = b)
+    //  {
+    //      printf("Equal\n");
+    //  }
+    //  else
+    //  {
+    //      printf("Not Equal\n");
+    //  }
 
-            </article>
+    //  int a = 0, b = 0;
+    //  a = (b = 5) + (b = 3);
+    //  printf("a = %d b = %d\n", a, b);
 
-            <article>
-                <pre>
-                    What is the difference between a "dynamic" and a "static" memory allocation in C?
-                    In C, you can use "dynamic" memory allocation to allocate memory for a variable at runtime, using functions such as
-                    "malloc" and "calloc". This means that the amount of memory allocated for the variable is not fixed at compile-time, but
-                    can be changed at runtime based on the needs of the program. "Static" memory allocation, on the other hand, is the
-                    process of allocating memory for a variable at compile-time, using the "static" keyword. This means that the amount of
-                    memory allocated for the variable is fixed at compile-time and cannot be changed at runtime.
-                    
-                    
-                    How do you use the "fopen" and "fclose" functions to read and write to a file in C?
-                    The "fopen" function in C is used to open a file for reading or writing. The syntax for "fopen" is as follows:
-                    
-                    FILE *fopen(const char *filename, const char *mode);
-                    
-                    The "filename" argument is the name of the file you want to open, and the "mode" argument specifies whether you want to
-                    read from the file ("r"), write to the file ("w"), or append to the file ("a"). To close a file that has been opened
-                    with "fopen", you can use the "fclose" function like this:
-                    
-                    int fclose(FILE *stream);
-                    
-                    The "stream" argument is a pointer to the file stream you want to close.
-                    
+    //  int i = 5, j = 3;
+    //  i += j += i += j;
+    //  printf("i = %d j = %d\n", i, j);
 
-                    What is the difference between a "deep copy" and a "shallow copy" in C?
-                    A "deep copy" in C is a copy of an object that includes not just the values of the object's attributes, but also any
-                    dynamically-allocated memory associated with the object. A "shallow copy", on the other hand, is a copy of an object
-                    that includes only the values of the object's attributes, and does not include any dynamically-allocated memory
-                    associated with the object.
-                    
-                    
-                    How do you use the "assert" function to test assumptions in a C program?
-                    The "assert" function in C is used to test assumptions in a program. If the assumption being tested is false, the
-                    "assert" function will print an error message and terminate the program. The syntax for "assert" is as follows:
-                    
-                    assert(expression);
-                    
-                    If "expression" is true, the "assert" function does nothing. If "expression" is false, the "assert" function prints an
-                    error message and terminates the program.
-                    
-                    
-                    What is the difference between a "blocking" and a "non-blocking" function in C?
-                    A "blocking" function in C is a function that stops the program from executing until it finishes running. A
-                    "non-blocking" function, on the other hand, is a function that allows the program to continue running while the function
-                    is executing. Non-blocking functions are useful for performing tasks that may take a long time to complete, as they
-                    allow the program to continue running and perform other tasks while the function is running.
+    //  int a = 0, b = 0, c = 0;
+    //  a = b = c = 5;
+    //  printf("a = %d b = %d c = %d\n", a, b, c);
 
+    //  int i = 0, j = 0;
+    //  i += ++j;
+    //  i += j++;
+    //  printf("i = %d j = %d\n", i, j);
 
-                    What is the difference between a "preprocessor" directive and a "compiler" directive in C?
-                    In C, a "preprocessor" directive is a line of code that begins with a "#" symbol and is processed by the preprocessor
-                    before the program is compiled. Preprocessor directives are used to include header files, define macros, and perform
-                    other tasks that are not possible using regular C code. A "compiler" directive, on the other hand, is a line of code
-                    that is recognized by the compiler and is used to specify compiler options or to include compiler-specific code.
-                </pre>
+    //  int i = 0, j = 0;
+    //  i = i + j++;
+    //  i = i + ++j;
+    //  printf("i = %d j = %d\n", i, j);
+
+    //  int i = 0, j = 0;
+    //  i = i++ + j++;
+    //  i = i + j;
+    //  printf("i = %d j = %d\n", i, j);
+
+    //  int y = 5;
+    //  fun4(y++);
+    //  printf("y = %d\n", y);
+    //  return 0;
+
+    //  int a = 5;
+    //  a = (a++) + (++a);
+    //  printf("a = %d\n", a);
+
+    //  int a = 5;
+    //  a = (a--) + (--a);
+    //  printf("a = %d\n", a);
+
+    //  int a = 5;
+    //  a = (++a) + (a++);
+    //  printf("a = %d\n", a);
+
+    //  int a = 5;
+    //  a = (--a) + (a--);
+    //  printf("a = %d\n", a);
+
+    //  int a[] = {2, 3, 4};
+    //  func5(a);
+    //  printf("%d %d %d\n", a[0], a[1], a[2]);
+    //  return 0;
+
+    //  char s1[] = "Hello";
+    //  char s2[] = "World";
+    //  int i = strcmp(s1, s2);
+    //  if (i == 0)
+    //  {
+    //      printf("Equal\n");
+    //  }
+    //  else
+    //  {
+    //      printf("Not Equal\n");
+    //  }
+
+    //  int a[] = {1, 2, 3, 4, 5};
+    //  int *p = (int *)malloc(5 * sizeof(int));
+    //  memcpy(p, a, 5 * sizeof(int));
+    //  int i;
+    //  for (i = 0; i < 5; i++)
+    //  {
+    //      printf("%d ", p[i]);
+    //  }
+    //  free(p);
+
+    //  time_t t;
+    //  srand((unsigned)time(&t));
+    //  int r = rand() % 100;
+    //  printf("%d\n", r);
+
+    //  int i = atoi("123");
+    //  printf("%d\n", i);
+
+    //  int x = 0;
+    //  for (int i = 0; i < 4; i++)
+    //  {
+    //      for (int j = 0; j < 4; j++)
+    //      {
+    //          if (i == j)
+    //          {
+    //              x++;
+    //              continue;
+    //          }
+    //          if (i < j)
+    //          {
+    //              x += 2;
+    //          }
+    //          if (i > j)
+    //          {
+    //              x -= 2;
+    //          }
+    //      }
+    //  }
+    //  printf("%d\n", x);
+
+    //  int x = 5;
+    //  int y = x++ + ++x + x--;
+    //  printf("%d\n", y);
+
+    //  int x = 5;
+    //  x = x << 2 + 1;
+    //  printf("%d\n", x);
+
+    //  int a[5] = {1, 2, 3, 4, 5};
+    //  int *p1 = &a[1];
+    //  int *p2 = &a[3];
+    //  int x = p2 - p1;
+    //  printf("%d\n", x);
+
+    //  int x = 10;
+    //  int y = 20;
+    //  int z = (x > y) ? x : y;
+    //  printf("%d\n", z);
+
+    //  int a[100];
+    //  srand(time(NULL));
+    //  for (int i = 0; i < 100; i++)
+    //  {
+    //      a[i] = rand() % 1000;
+    //  }
+
+    //  int max = a[0];
+    //  for (int i = 0; i < 100; i++)
+    //  {
+    //      if (a[i] > max)
+    //      {
+    //          max = a[i];
+    //      }
+    //  }
+    //  printf("%d\n", max);
+
+    //  int x = 5;
+    //  int y = 2;
+    //  int z = x / y * y + x % y;
+    //  printf("%d\n", z);
+
+    //  int x = 5;
+    //  int y = 2;
+    //  int z = x + y - (x = y);
+    //  printf("%d\n", z);
+
+    //  int x = 5;
+    //  int y = 2;
+    //  int z = x++ + y - (x = y);
+    //  printf("%d\n", z);
+
+    //  int x = 5;
+    //  int y = 2;
+    //  int *p1 = &x;
+    //  int *p2 = &y;
+    //  int z = *p1 + *p2 - (*p1 = *p2);
+    //  printf("%d\n", z);
+
+    // int a = 32;
+    // do
+    // {
+    //     printf("%d", a);
+    //     a++;
+    //     if (a > 35)
+    //         break;
+    // } while (1);
+
+    // int a = 5, b = 8;
+    // if ( a==5 || (b=9))
+    //         printf("Gols");
+    // printf("%d %d", a, b);
+
+    // int i = 0;
+    // while (i < 3)
+    //     i++;
+    // printf("%d", i);
+
+    // for (int j = 1; j <= 10; j = j - 1)
+    //     printf("Test");
+
+    // int i = 0;
+    // do
+    // {
+    //     i++;
+    //     if (i == 2)
+    //         continue;
+    //     printf("Test ");
+    // } while (i < 2);
+    // printf("%d \n", i);
+
+    // char grade = 'B';
+    // switch (grade)
+    // {
+    // case 'A':
+    //     printf("A");
+    // case 'B':
+    // case 'C':
+    //     printf("B");
+    // case 'D':
+    //     printf("B");
+    // case 'F':
+    //     printf("B");
+    //     break;
+    // default:
+    //     printf("DD");
+    // }
+
+    // int a = 9;
+    // if (a = 8)
+    //     printf("Kangaroo");
+    // printf("Eggs");
+
+    while(true) {
+        printf("RABBIT");
+        break;
+    }
+
+    return 0;
+}</code></pre>
             </article>
         </main>
 
