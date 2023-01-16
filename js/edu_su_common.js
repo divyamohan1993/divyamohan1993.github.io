@@ -403,16 +403,16 @@ function copyright(rights) {
         // Syntax highlighter - Enable is using highlight js.
         hljs.highlightAll();
 
-        // Notification - Privacy - I accept
-        $('.i-accept').on('click', function () {
-            if (localStorage.noshow !== '1') {
-                $('#cookie-notice').addClass('d-none');
-                localStorage.noshow = '1';
-            }
-        });
-        if (localStorage.noshow == '1') {
-            $('#cookie-notice').addClass('d-none');
-        };
+        // // Notification - Privacy - I accept
+        // $('.i-accept').on('click', function () {
+        //     if (localStorage.noshow !== '1') {
+        //         $('#cookie-notice').addClass('d-none');
+        //         localStorage.noshow = '1';
+        //     }
+        // });
+        // if (localStorage.noshow == '1') {
+        //     $('#cookie-notice').addClass('d-none');
+        // };
 
 
         renderMathInElement(document.body, {
