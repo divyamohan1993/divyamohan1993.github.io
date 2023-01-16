@@ -181,7 +181,7 @@ self.addEventListener('fetch', (event) => {
 
 // sw.js
 
-const CACHE_NAME = 'cache-v1';
+/* const CACHE_NAME = 'cache-v1';
 const RESOURCES_TO_CACHE = [
   self.location.hostname,
   'fonts.gstatic.com',
@@ -227,4 +227,51 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+});
+ */
+
+const RUNTIME = 'docsify'
+const HOSTNAME_WHITELIST = [
+  self.location.hostname,
+  'fonts.gstatic.com',
+  'fonts.googleapis.com',
+  'cdn.jsdelivr.net',
+  'cdnjs.cloudflare.com',
+  'dmj.one',
+  'fonts.googleapis.com',
+  'picsum.photos'
+]
+
+const getFixedUrl = (req) => {
+  var now = Date.now()
+  var url = new URL(req.url)
+  url.protocol = self.location.protocol
+
+  if (url.hostname === self.location.hostname) {
+    url.search += (url.search ? '&' : '?') + 'cache-bust=' + now
+  }
+  return url.href
+}
+
+self.addEventListener('activate', event => {
+  event.waitUntil(self.clients.claim())
+})
+
+self.addEventListener('fetch', event => {
+  if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
+    const fixedUrl = getFixedUrl(event.request)
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return fetch(fixedUrl).then((networkResponse) => {
+          caches.open(RUNTIME).then((cache) => cache.put(event.request, networkResponse.clone()));
+          return networkResponse;
+        });
+      }).catch(() => {
+        return caches.match('/offline.html');
+      })
+    );
+  }
 });
