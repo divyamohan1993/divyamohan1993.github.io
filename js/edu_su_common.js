@@ -118,8 +118,41 @@ function header_navbar() {
     var path = window.location.pathname;
     var folder = window.location.pathname.split("/")[4];
     var alreadyactive = 0;
-    var links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
-    links.sort();
+    var links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"].sort();
+
+    // dropdown_start = '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Year 1</a><ul class="dropdown-menu">';
+    // dropdown_end = '</ul></li>';
+    // for (let i = 0; i < links.length; i++) {
+    //     linkname = links[i].toUpperCase();
+    //     li_link += '<li><a class="dropdown-item" href="/edu/su/course/' + links[i] + '/">' + linkname + "</a></li>";
+    // }
+    // final_dropdown = dropdown_start + li_link + dropdown_end;
+
+
+    // Dropdown Menu Generator START
+    function createNavigation(links) {
+        let year = links.shift();
+        links.sort();
+        let li_link = "";
+        for (let i = 0; i < links.length; i++) {
+            li_link += `<li><a class="dropdown-item" href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+        }
+        return `<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" aria-expanded="false">${year}</a>
+                <ul class="dropdown-menu">
+                    ${li_link}
+                </ul>
+            </li>`;
+    }
+    // Dropdown Generator END
+
+
+    // <li><a class="dropdown-item" href="#">Action</a></li>
+    // <li><a class="dropdown-item" href="#">Another action</a></li>
+    // <li><hr class="dropdown-divider"></li>
+    // <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+
     for (let i = 0; i < links.length; i++) {
         // if (links[i] != folder) {
         var linkactive = '"';
@@ -130,7 +163,11 @@ function header_navbar() {
         li_link += '<li class="nav-item"><a class="nav-link' + linkactive + ' href="/edu/su/course/' + links[i] + '/">' + linkname + "</a></li>";
     }
 
-    nav = common_nav_start + li_link + common_nav_end;
+    // Send array of links to create link
+    var year1_links = ["Year 1", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
+    var navigation = createNavigation(year1_links);
+
+    nav = common_nav_start + li_link + navigation + common_nav_end;
     return nav;
 }
 
