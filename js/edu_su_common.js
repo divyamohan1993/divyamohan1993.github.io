@@ -85,15 +85,16 @@
 
 
     var vars = pathToVarJs;
+
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
     var cdnjs_highlightjs = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js";
     var cdnjs_katex = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js";
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
-    var google_ads = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
-    var google_tagmgr = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
-    // Create an array of script URLs
-    var scripts = [vars, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender, google_ads, google_tagmgr];
+    // var google_ads = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
+    // var google_tagmgr = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
+    // // Create an array of script URLs
+    var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
 
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
@@ -120,18 +121,6 @@
                     throwOnError: false
                 });
                 // KaTex Math js END
-
-                // Google tag manager + ads START
-                window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-D8EG8249SV'); (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');
-                // Google tag manager + ads END
-
-                // Bing Clarity tracking code START
-                (function () {
-                    var appendCode = function () { (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd"); }
-                    appendCode();
-                })();
-                //(function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
-                // Bing Clarity tracking code END
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -666,6 +655,25 @@ function copyright(rights) {
 
 
 
+// Include all the Google ad / analytics and Microsoft Clarity codes. 
+(function () {
+    var script1 = document.createElement('script');
+    script1.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
+    document.head.appendChild(script1);
+
+    var script2 = document.createElement('script');
+    script2.src = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
+    document.head.appendChild(script2);
+
+    script1.onload = function () { }
+
+    script2.onload = function () {
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-D8EG8249SV');
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');
+        (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
+    }
+})();
+
 
 
 
@@ -693,3 +701,4 @@ function gen_blockquote() {
         authors[0].innerHTML = author;
     } quote();
 } 
+
