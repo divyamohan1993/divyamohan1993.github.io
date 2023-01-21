@@ -63,6 +63,21 @@
 // })();
 
 (function () {
+    // dynamically load var.js
+    var currentUrl = window.location.pathname;
+    var pathToVarJs = "var.js";
+    var folders = currentUrl.split("/");
+
+    if (folders.length > 2) {
+        var numberOfParentFolders = folders.length - 2;
+        var pathToVarJs = "";
+        for (var i = 0; i < numberOfParentFolders; i++) {
+            pathToVarJs += "../";
+        }
+        pathToVarJs += "var.js";
+    }
+
+    var vars = pathToVarJs;
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
     var cdnjs_highlightjs = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js";
@@ -71,7 +86,7 @@
     var google_ads = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
     var google_tagmgr = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
     // Create an array of script URLs
-    var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender, google_ads, google_tagmgr];
+    var scripts = [vars, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender, google_ads, google_tagmgr];
 
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
