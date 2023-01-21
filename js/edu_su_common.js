@@ -163,47 +163,48 @@
 // if (!hljs) { document.write('<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>'); }
 
 /******** Header ***********/
-
-// Get current URL
-function header_nav() {
-    var url = new URL(window.location.href);
-    var base = "/edu/su/";
-    var courses = base + "course/";
-    if (url.pathname.split("/")[4]) { var nav_folder = courses + url.pathname.split("/")[4]; }
-    var nav_subfolder = url.pathname.split("/")[5];
-    var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
-
-    console.log(url.hostname);
-    console.log(nav_folder);
-    console.log(nav_subfolder);
-    console.log(nav_filename);
-
-    var nav_home = '<a href="https://' + url.hostname + '/edu/su/ " data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>';
-    var nav_path = '<a href="' + nav_folder + '/" data-toggle="tooltip" data-placement="top" title="' + nav_folder + '" data-original-title="' + nav_folder + '"><i class="bi bi-journals text-light"></i></a>';
-    var nav_subpath = '<a href="' + nav_folder + '/' + nav_subfolder + '/" data-toggle="tooltip" data-placement="top" title="' + nav_subfolder + '" data-original-title="' + nav_subfolder + '"><i class="bi bi-card-list text-light"></i></a>';
-    var nav_file = '<a href="' + nav_filename + '" data-toggle="tooltip" data-placement="top" title="' + nav_filename + '" data-original-title="' + nav_filename + '"><i class="bi bi-journal-code text-light"></i></a>';
-
-    var list_start = '<nav aria-label="breadcrumb" class="navbar-brand text-light"><ol class="breadcrumb" style="margin:auto">';
-    var list_home = '<li class="breadcrumb-item">' + nav_home + '</li>';
-    var list_path = '';
-    var list_close = '</ol></nav>';
-
-    if (nav_folder) {
-        var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
-    }
-    if (nav_subfolder) {
-        var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li>';
-    }
-    if (nav_filename) {
-        var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li><li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
-    }
-    return (list_start + list_home + list_path + list_close);
-}
-
 function header_navbar() {
 
+    // Get current URL
+    function header_nav() {
+        var url = new URL(window.location.href);
+        var base = "/edu/su/";
+        var courses = base + "course/";
+        if (url.pathname.split("/")[4]) { var nav_folder = courses + url.pathname.split("/")[4]; }
+        var nav_subfolder = url.pathname.split("/")[5];
+        var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
+
+        console.log(url.hostname);
+        console.log(nav_folder);
+        console.log(nav_subfolder);
+        console.log(nav_filename);
+
+        var nav_home = '<a href="https://' + url.hostname + '/edu/su/ " data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>';
+        var nav_path = '<a href="' + nav_folder + '/" data-toggle="tooltip" data-placement="top" title="' + nav_folder + '" data-original-title="' + nav_folder + '"><i class="bi bi-journals text-light"></i></a>';
+        var nav_subpath = '<a href="' + nav_folder + '/' + nav_subfolder + '/" data-toggle="tooltip" data-placement="top" title="' + nav_subfolder + '" data-original-title="' + nav_subfolder + '"><i class="bi bi-card-list text-light"></i></a>';
+        var nav_file = '<a href="' + nav_filename + '" data-toggle="tooltip" data-placement="top" title="' + nav_filename + '" data-original-title="' + nav_filename + '"><i class="bi bi-journal-code text-light"></i></a>';
+
+        var list_start = '<nav aria-label="breadcrumb" class="navbar-brand text-light"><ol class="breadcrumb" style="margin:auto">';
+        var list_home = '<li class="breadcrumb-item">' + nav_home + '</li>';
+        var list_path = '';
+        var list_close = '</ol></nav>';
+
+        if (nav_folder) {
+            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
+        }
+        if (nav_subfolder) {
+            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li>';
+        }
+        if (nav_filename) {
+            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li><li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
+        }
+        return (list_start + list_home + list_path + list_close);
+    }
+
+
+
     // Dropdown Menu Generator START
-    function createNavigation(links) {
+    function nav_createDropdown(links) {
         let year = links.shift();
         links.sort();
         let li_link = "";
@@ -214,34 +215,55 @@ function header_navbar() {
     }
     // Dropdown Generator END
 
+    //  Menu Generator START
+    function nav_createMainNav(links) {
+        links.sort();
+        let li_link = "";
+        var path = window.location.pathname;
+        var folder = window.location.pathname.split("/")[4];
+        for (let i = 0; i < links.length; i++) {
+            if (links[i] != folder) {
+                var linkactive = '"';
+            } else {
+                var linkactive = ' active" aria-current="page"';
+            }
+            li_link += `<li class="nav-item"><a class="nav-link${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+        }
+        return li_link;
+    }
+    //  Generator END
+
 
     // var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid"><script>document.write(header_nav())</script><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
-    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg" data-bs-theme="dark"><div class="container-fluid">' + header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
-    var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
+    function displayedlinks() {
+        var li_link = "";
+        var path = window.location.pathname;
+        var folder = window.location.pathname.split("/")[4];
+        var alreadyactive = 0;
 
-    var li_link = "";
-    var path = window.location.pathname;
-    var folder = window.location.pathname.split("/")[4];
-    var alreadyactive = 0;
-    var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"].sort();
-
-    
-
-    for (let i = 0; i < links.length; i++) {
-        if (links[i] != folder) {
-            var linkactive = '"';
-        } else {
-            var linkactive = ' active" aria-current="page"';
+        var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"].sort();
+        for (let i = 0; i < visible_links.length; i++) {
+            if (visible_links[i] != folder) {
+                var linkactive = '"';
+            } else {
+                var linkactive = ' active" aria-current="page"';
+            }
+            linkname = visible_links[i].toUpperCase();
+            li_link += '<li class="nav-item"><a class="nav-link' + linkactive + ' href="/edu/su/course/' + visible_links[i] + '/">' + linkname + "</a></li>";
         }
-        linkname = links[i].toUpperCase();
-        li_link += '<li class="nav-item"><a class="nav-link' + linkactive + ' href="/edu/su/course/' + links[i] + '/">' + linkname + "</a></li>";
+        return li_link;
     }
 
-    // Send array of links to create link
+    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg" data-bs-theme="dark"><div class="container-fluid">' + header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
+    var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
+    
+    // Send array of links to create link for dropdown
     var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
-    var dropdown_year1 = createNavigation(year1_links);
+    var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730"].sort();
 
-    nav = common_nav_start + navigation + li_link + common_nav_end;
+    var alllinks = nav_createDropdown(year1_links) + nav_createMainNav(visible_links);
+
+    nav = common_nav_start + alllinks + common_nav_end;
     return nav;
 }
 
