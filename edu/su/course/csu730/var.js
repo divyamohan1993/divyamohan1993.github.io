@@ -167,7 +167,7 @@ function get_menu_list() {
                     var norun = 1;
                     break;
             }
-            if (!norun) { body_blockcards(link, date, title, desc, codetype, readtime, author); }
+            if (!norun) { body_blockcards(link, date, title, desc, codetype, readtime, author); } else { console.log("else")}
         }
     }
     function get_seminar() {
