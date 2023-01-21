@@ -6,11 +6,11 @@ function get_menu_list() {
     console.log(window.location.pathname);
     var readtime = "";
     var author = "";
-    
+
     var cases = 100;
-//     var date = "Wed January 10, 2023";
+    //     var date = "Wed January 10, 2023";
     var lastModified = new Date(document.lastModified); var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; var lastModifiedFormat = lastModified.toLocaleDateString("en-US", options);
-    var date = "Last modified: " + lastModifiedFormat;
+    var date = " Modified " + lastModifiedFormat;
     codetype = "English";
 
     if (path) {
@@ -26,7 +26,7 @@ function get_menu_list() {
         get_main();
     }
 
-    function get_main() {        
+    function get_main() {
         for (let i = 0; i < cases; i++) {
             switch (i) {
                 case 1:
@@ -37,7 +37,7 @@ function get_menu_list() {
                     readtime = "";
                     author = "";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;                
+                    break;
                 default:
                     /* link = "#";
                     date = "Not Applicable";
@@ -51,8 +51,8 @@ function get_menu_list() {
         }
     }
     function get_lecture() {
+        codetype += "| Lecture";
         for (let i = 13; i < cases; i++) {
-            codetype += "| Lecture";
             var d = i + 1;
             var link = "lec" + d;
             var title = "Lecture " + d;
