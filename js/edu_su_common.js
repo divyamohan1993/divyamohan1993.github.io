@@ -91,9 +91,7 @@
     var cdnjs_highlightjs = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js";
     var cdnjs_katex = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js";
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
-    // var google_ads = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
-    // var google_tagmgr = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
-    // // Create an array of script URLs
+    // Create an array of script URLs
     var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
 
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
@@ -674,6 +672,17 @@ function copyright(rights) {
     }
 })();
 
+// get reading time required
+(function () {
+    var totalTime = 0;
+    var content = document.body.innerHTML;
+    var words = content.split(" ");
+
+    for (var i = 0; i < words.length; i++) {
+        totalTime += (words[i].length / 250);
+    }
+    console.log("Total time to read the webpage: " + totalTime + " minutes");
+})();
 
 
 
@@ -700,5 +709,5 @@ function gen_blockquote() {
         texts[0].innerHTML = quote;
         authors[0].innerHTML = author;
     } quote();
-} 
+}
 
