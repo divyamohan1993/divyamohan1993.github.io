@@ -107,9 +107,7 @@ function get_menu_list() {
     }
 
     function get_lecture() {
-        //var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13 ,14, 15,16, 17,18, 19,20,21,22, 23];
         for (let i = 13; i < cases; i++) {
-
             var codetype = "English";
             var d = i + 1;
             var link = "lec" + d;
@@ -157,12 +155,6 @@ function get_menu_list() {
                 case 23:
                     title += ": Vocabulary";
                     desc = "All the words of vocabulary with its meaning from comprehension.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 36:
-                    date = "Thu November 17, 2022";
-                    desc = "VIVA based on questions directed towards odd and even students.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
                     /* link = "#";
@@ -172,8 +164,10 @@ function get_menu_list() {
                     codetype = "#CourseNotDefined";
                     readtime = "0";
                     body_blockcards(link, date, title, desc, codetype, readtime, author); */
+                    var norun = 1;
                     break;
             }
+            if (!norun) { body_blockcards(link, date, title, desc, codetype, readtime, author); }
         }
     }
     function get_seminar() {
