@@ -8,29 +8,41 @@
 (function () {
     var script = document.createElement('script'); // Create script element for highlight.js
     script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"; // url to be loaded
+    script.defer = true;
     script.onload = function () { hljs.highlightAll(); }; // Add an onload event to the script element
     document.head.appendChild(script); // Append the script element to the head of the document
 })();
 
+// (function () {
+//     var script = document.createElement('script');
+//     script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js";
+//     script.defer = true;
+//     script.onload = hljs.highlightAll;
+//     document.head.appendChild(script);
+// })();
+
+
+
 // ****Math render - kaTex Js**** //
 (function () {
     var scriptsToLoad = 2; // Number of scripts to load
-    
-    script = document.createElement('script'); // Create script element for second script
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js"; // url to be loaded
-    script.onload = function () {
-        scriptsToLoad--;
-        checkIfAllScriptsLoaded();
-    };
-    document.head.appendChild(script);
-
     var script = document.createElement('script'); // Create script element for first script
     script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js"; // url to be loaded
+    script.defer = true;
     script.onload = function () {
         scriptsToLoad--;
         checkIfAllScriptsLoaded();
     }; // Add an onload event to the script element
     document.head.appendChild(script); // Append the script element to the head of the document
+
+    script = document.createElement('script'); // Create script element for second script
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js"; // url to be loaded
+    script.defer = true;
+    script.onload = function () {
+        scriptsToLoad--;
+        checkIfAllScriptsLoaded();
+    };
+    document.head.appendChild(script);
 
     function checkIfAllScriptsLoaded() {
         if (scriptsToLoad === 0) {
@@ -49,6 +61,7 @@
         }
     }
 })();
+
 
 
 
@@ -97,7 +110,8 @@ function header_nav() {
 }
 
 function header_navbar() {
-    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid"><script>document.write(header_nav())</script><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
+    // var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid"><script>document.write(header_nav())</script><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
+    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid">'+ header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
     var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
 
     var li_link = "";
