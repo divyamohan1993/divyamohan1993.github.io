@@ -53,21 +53,17 @@ function get_menu_list() {
     function get_lecture() {
         codetype += "| Lecture";
         for (let i = 13; i < cases; i++) {
-            var d = i + 1;
-            var link = "lec" + d;
-            var title = "Lecture " + d;
-            var desc = "Lecture " + d;
+            // var d = i + 1;
+            var link = "lec" + i;
+            var title = "Lecture " + i;
+            var desc = "Lecture " + i;
             var readtime = Math.floor(Math.random() * 5) + 2;
             var author = 1;
 
             switch (i) {
                 case 14:
-                    // link = "add_link like 'c2' ";
                     title += ": Paragraph";
                     desc = " Paragraph";
-                    // codetype = "replace here with custom var";
-                    // readtime = "2";
-                    // author = "vp";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 15:
@@ -107,8 +103,8 @@ function get_menu_list() {
                     desc = "Please define a hierchy for the classes of course " + course + ".";
                     codetype = "#CourseNotDefined";
                     readtime = "0";
+                    author = "vp";
                     body_blockcards(link, date, title, desc, codetype, readtime, author); */
-                    var norun = 1;
                     break;
             }
         }
