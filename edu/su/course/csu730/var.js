@@ -9,8 +9,8 @@ function get_menu_list() {
 
     var cases = 100;
     //     var date = "Wed January 10, 2023";
-    var lastModified = new Date(document.lastModified); var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; var lastModifiedFormat = lastModified.toLocaleDateString("en-US", options);
-    var date = " Modified on " + lastModifiedFormat;
+    var lastModified = new Date(document.lastModified); var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var date = lastModified.toLocaleDateString("en-US", options);
     codetype = "English ";
 
     if (path) {
@@ -31,7 +31,7 @@ function get_menu_list() {
             switch (i) {
                 case 1:
                     link = "lecture/";
-                    // date = "Last Updated: " + date;
+                    date = " Last Updated: " + date;
                     title = "Lectures";
                     desc = "All the important lectures";
                     readtime = "";
