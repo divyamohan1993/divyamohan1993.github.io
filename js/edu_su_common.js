@@ -1,15 +1,55 @@
 /* 
  * This file contains all the js combined.
  */
-// var hljs = "";
-// function highlightAll() { };
 
+
+// ****Highlight Js**** //
+// var hljs = ""; function highlightAll() { };
 (function () {
     var script = document.createElement('script'); // Create script element for highlight.js
     script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"; // url to be loaded
     script.onload = function () { hljs.highlightAll(); }; // Add an onload event to the script element
     document.head.appendChild(script); // Append the script element to the head of the document
 })();
+
+// ****Math render - kaTex Js**** //
+(function () {
+    var scriptsToLoad = 2; // Number of scripts to load
+    
+    script = document.createElement('script'); // Create script element for second script
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js"; // url to be loaded
+    script.onload = function () {
+        scriptsToLoad--;
+        checkIfAllScriptsLoaded();
+    };
+    document.head.appendChild(script);
+
+    var script = document.createElement('script'); // Create script element for first script
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js"; // url to be loaded
+    script.onload = function () {
+        scriptsToLoad--;
+        checkIfAllScriptsLoaded();
+    }; // Add an onload event to the script element
+    document.head.appendChild(script); // Append the script element to the head of the document
+
+    function checkIfAllScriptsLoaded() {
+        if (scriptsToLoad === 0) {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // • rendering keys, e.g.:
+                throwOnError: false
+            });
+        }
+    }
+})();
+
 
 
 
@@ -425,18 +465,18 @@ function copyright(rights) {
         // };
 
 
-        renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
-            delimiters: [
-                { left: '$$', right: '$$', display: true },
-                { left: '$', right: '$', display: false },
-                { left: '\\(', right: '\\)', display: false },
-                { left: '\\[', right: '\\]', display: true }
-            ],
-            // • rendering keys, e.g.:
-            throwOnError: false
-        });
+        // renderMathInElement(document.body, {
+        //     // customised options
+        //     // • auto-render specific keys, e.g.:
+        //     delimiters: [
+        //         { left: '$$', right: '$$', display: true },
+        //         { left: '$', right: '$', display: false },
+        //         { left: '\\(', right: '\\)', display: false },
+        //         { left: '\\[', right: '\\]', display: true }
+        //     ],
+        //     // • rendering keys, e.g.:
+        //     throwOnError: false
+        // });
     };
 }
 

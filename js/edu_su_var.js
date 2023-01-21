@@ -21,9 +21,9 @@ header_createscript("/js/edu_su_common.js?ver=0.1");
 header_createscript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js");
 //header_createscript("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js");
 header_createscript("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js");
-header_createscript("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js");
-header_createscript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js");
-header_createscript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js");
+// header_createscript("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js");
+// header_createscript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js");
+// header_createscript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js");
 header_createscript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774");
 header_createscript("https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV");
 
