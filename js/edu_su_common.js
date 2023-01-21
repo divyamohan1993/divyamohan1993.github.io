@@ -111,7 +111,7 @@ function header_nav() {
 
 function header_navbar() {
     // var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid"><script>document.write(header_nav())</script><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
-    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid">'+ header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
+    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid">' + header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
     var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
 
     var li_link = "";
@@ -121,11 +121,11 @@ function header_navbar() {
     var links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
     links.sort();
     for (let i = 0; i < links.length; i++) {
-        if (links[i] != folder) {
-            var linkactive = '"';
-        } else {
-            var linkactive = ' active" aria-current="page"';
-        }
+        // if (links[i] != folder) {
+        var linkactive = '"';
+        // } else {
+        //     var linkactive = ' active" aria-current="page"';
+        // }
         linkname = links[i].toUpperCase();
         li_link += '<li class="nav-item"><a class="nav-link' + linkactive + ' href="/edu/su/course/' + links[i] + '/">' + linkname + "</a></li>";
     }
@@ -133,6 +133,8 @@ function header_navbar() {
     nav = common_nav_start + li_link + common_nav_end;
     return nav;
 }
+
+
 
 function header_author(author_init) {
     /* USAGE - header_author(include_course_name, define_is_lab, teacher_FL, author_FL, biblography, button)
@@ -282,6 +284,26 @@ function header_author(author_init) {
 
     document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
 }
+
+// check and give active link
+if (window.hasOwnProperty('header_navbar') && typeof header_navbar === 'function') {
+    // Get all the navigation links
+    const navLinks = document.querySelectorAll('.navbar-nav a');
+
+    // Get the current URL
+    const currentUrl = window.location.pathname;
+
+    // Loop through each link
+    navLinks.forEach(link => {
+        // If the link's href matches the current URL, add the active class
+        if (link.getAttribute('href') === currentUrl) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
 
 /******** Body ***********/
 // Decode Encrypted Variable's - Call this function to decode variables.
