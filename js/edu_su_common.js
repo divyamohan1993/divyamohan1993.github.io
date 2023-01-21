@@ -201,24 +201,6 @@ function header_nav() {
 }
 
 function header_navbar() {
-    // var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid"><script>document.write(header_nav())</script><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
-    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg" data-bs-theme="dark><div class="container-fluid">' + header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
-    var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
-
-    var li_link = "";
-    var path = window.location.pathname;
-    var folder = window.location.pathname.split("/")[4];
-    var alreadyactive = 0;
-    var links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"].sort();
-
-    // dropdown_start = '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Year 1</a><ul class="dropdown-menu">';
-    // dropdown_end = '</ul></li>';
-    // for (let i = 0; i < links.length; i++) {
-    //     linkname = links[i].toUpperCase();
-    //     li_link += '<li><a class="dropdown-item" href="/edu/su/course/' + links[i] + '/">' + linkname + "</a></li>";
-    // }
-    // final_dropdown = dropdown_start + li_link + dropdown_end;
-
 
     // Dropdown Menu Generator START
     function createNavigation(links) {
@@ -232,21 +214,34 @@ function header_navbar() {
     }
     // Dropdown Generator END
 
+
+    // var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg"><div class="container-fluid"><script>document.write(header_nav())</script><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
+    var common_nav_start = '<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mw-100 px-3 py-3 shadow-lg" data-bs-theme="dark"><div class="container-fluid">' + header_nav() + '<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav ms-auto">';
+    var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
+
+    var li_link = "";
+    var path = window.location.pathname;
+    var folder = window.location.pathname.split("/")[4];
+    var alreadyactive = 0;
+    var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"].sort();
+
+    
+
     for (let i = 0; i < links.length; i++) {
-        // if (links[i] != folder) {
-        var linkactive = '"';
-        // } else {
-        //     var linkactive = ' active" aria-current="page"';
-        // }
+        if (links[i] != folder) {
+            var linkactive = '"';
+        } else {
+            var linkactive = ' active" aria-current="page"';
+        }
         linkname = links[i].toUpperCase();
         li_link += '<li class="nav-item"><a class="nav-link' + linkactive + ' href="/edu/su/course/' + links[i] + '/">' + linkname + "</a></li>";
     }
 
     // Send array of links to create link
-    var year1_links = ["Year 1", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
-    var navigation = createNavigation(year1_links);
+    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
+    var dropdown_year1 = createNavigation(year1_links);
 
-    nav = common_nav_start + li_link + navigation + common_nav_end;
+    nav = common_nav_start + navigation + li_link + common_nav_end;
     return nav;
 }
 
