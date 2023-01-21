@@ -10,7 +10,7 @@ function get_menu_list() {
     var cases = 100;
     //     var date = "Wed January 10, 2023";
     var lastModified = new Date(document.lastModified); var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; var lastModifiedFormat = lastModified.toLocaleDateString("en-US", options);
-    var date = " Modified " + lastModifiedFormat;
+    var date = " Modified on " + lastModifiedFormat;
     codetype = "English ";
 
     if (path) {
