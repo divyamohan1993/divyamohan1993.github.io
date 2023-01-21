@@ -126,47 +126,34 @@ function get_menu_list() {
                     // codetype = "replace here with custom var";
                     // readtime = "2";
                     // author = "vp";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 15:
                     title += ": Inductive Order";
                     desc += " Inductive Order";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 16:
                     title += ": Deductive Order";
-                    desc += " Deductive Order";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    desc += " Deductive Order";                     
                     break;
                 case 17:
                     title += ": Comparision and Contrast";
                     desc += " Comparision and Contrast";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 18:
                     title += ": Time and Space Order";
                     desc += " Time and Space Order";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 20:
                     title += ": Capitalization and Punctuation I";
                     desc += " Capitalization and Punctuation I.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 21:
-                    title += ": Capitalization and Punctuation II";
-                    desc += " Capitalization and Punctuation II";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 23:
-                    title += "Vocabulary";
+                    title += ": Vocabulary";
                     desc = "All the words of vocabulary with its meaning from comprehension.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 36:
                     date = "Thu November 17, 2022";
                     desc = "VIVA based on questions directed towards odd and even students.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
                     /* link = "#";
@@ -178,6 +165,7 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author); */
                     break;
             }
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
         }
     }
     function get_seminar() {
