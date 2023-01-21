@@ -81,10 +81,10 @@
         script.defer = true;
         script.onload = function () {
             loaded++; // Increment the counter
-            if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here
-                hljs.highlightAll(); // Highlight js
+            if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here                
+                hljs.highlightAll(); // Highlight js init - single line code. 
 
-                // KaTex Math js
+                // KaTex Math js START
                 renderMathInElement(document.body, {
                     // customised options
                     // • auto-render specific keys, e.g.:
@@ -97,11 +97,45 @@
                     // • rendering keys, e.g.:
                     throwOnError: false
                 });
+                // KaTex Math js END
+
+                // Google tag manager + ads START
+                window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-D8EG8249SV');
+                (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');
+                // Google tag manager + ads END
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
     }
 })();
+
+(function () {
+    const logo = "/logo.png?v=2.2";
+    const pr = "preconnect";
+    const links = [
+        { rel: pr, href: "https://fonts.googleapis.com" },
+        { rel: pr, href: "https://cdnjs.cloudflare.com" },
+        { rel: pr, href: "https://dmj.one" },
+        { rel: pr, href: "https://fonts.gstatic.com" },
+        { rel: pr, href: "https://picsum.photos" },
+        { rel: pr, href: "https://type.fit" },
+        { rel: "manifest", href: "/edu/su/manifest.webmanifest" },
+        { rel: "shortcut icon", href: logo },
+        { rel: "fluid-icon", href: logo },
+        { rel: "apple-touch-icon", href: logo },
+        { rel: "stylesheet", href: "/css/edu_su_common.css?v=0.1" }
+    ];
+
+    (function header_createlink(links) {
+        links.forEach(function (link) {
+            var newlink = document.createElement('link');
+            newlink.setAttribute('rel', link.rel);
+            newlink.setAttribute('href', link.href);
+            document.head.appendChild(newlink);
+        });
+    })(links);
+})();
+
 
 
 
