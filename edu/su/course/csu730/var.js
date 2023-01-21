@@ -106,8 +106,9 @@ function get_menu_list() {
     }
 
     function get_lecture() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13 ,14, 15,16, 17,18, 19,20,21,22, 23];
-        for (let i = 13; i < cases.length; i++) {
+       // var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13 ,14, 15,16, 17,18, 19,20,21,22, 23];
+        var cases = "43"; 
+        for (let i = 13; i < cases; i++) {
 
             var codetype = "English";
             var d = i + 1;
@@ -118,7 +119,7 @@ function get_menu_list() {
             var readtime = Math.floor(Math.random() * 5) + 2;
             var author = 1;
 
-            switch (cases[i]) {
+            switch (i) {
                 case 14:
                     // link = "add_link like 'c2' ";
                     title += ": Paragraph";
