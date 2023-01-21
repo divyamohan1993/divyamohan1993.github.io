@@ -675,7 +675,7 @@ function copyright(rights) {
 // get reading time required
 (function () {
     var totalTime = 0;
-    var content = document.body.innerHTML;
+    var content = document.getElementsByTagName("body")[0].innerHTML;
     var words = content.split(" ");
 
     for (var i = 0; i < words.length; i++) {
@@ -683,6 +683,7 @@ function copyright(rights) {
     }
     console.log("Total time to read the webpage: " + totalTime + " minutes");
 })();
+
 
 
 
