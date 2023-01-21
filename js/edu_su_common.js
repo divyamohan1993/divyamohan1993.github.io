@@ -5,13 +5,13 @@
 
 // ****Highlight Js**** //
 // var hljs = ""; function highlightAll() { };
-(function () {
-    var script = document.createElement('script'); // Create script element for highlight.js
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"; // url to be loaded
-    script.defer = true;
-    script.onload = function () { hljs.highlightAll(); }; // Add an onload event to the script element
-    document.head.appendChild(script); // Append the script element to the head of the document
-})();
+//ACTIVE (function () {
+//     var script = document.createElement('script'); // Create script element for highlight.js
+//     script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"; // url to be loaded
+//     script.defer = true;
+//     script.onload = function () { hljs.highlightAll(); }; // Add an onload event to the script element
+//     document.head.appendChild(script); // Append the script element to the head of the document
+// })();
 
 // (function () {
 //     var script = document.createElement('script');
@@ -24,43 +24,81 @@
 
 
 // ****Math render - kaTex Js**** //
+//ACTIVE (function () {
+//     var scriptsToLoad = 2; // Number of scripts to load
+//     var script = document.createElement('script'); // Create script element for first script
+//     script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js"; // url to be loaded
+//     script.defer = true;
+//     script.onload = function () {
+//         scriptsToLoad--;
+//         checkIfAllScriptsLoaded();
+//     }; // Add an onload event to the script element
+//     document.head.appendChild(script); // Append the script element to the head of the document
+
+//     script = document.createElement('script'); // Create script element for second script
+//     script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js"; // url to be loaded
+//     script.defer = true;
+//     script.onload = function () {
+//         scriptsToLoad--;
+//         checkIfAllScriptsLoaded();
+//     };
+//     document.head.appendChild(script);
+
+//     function checkIfAllScriptsLoaded() {
+//         if (scriptsToLoad === 0) {
+//             renderMathInElement(document.body, {
+//                 // customised options
+//                 // • auto-render specific keys, e.g.:
+//                 delimiters: [
+//                     { left: '$$', right: '$$', display: true },
+//                     { left: '$', right: '$', display: false },
+//                     { left: '\\(', right: '\\)', display: false },
+//                     { left: '\\[', right: '\\]', display: true }
+//                 ],
+//                 // • rendering keys, e.g.:
+//                 throwOnError: false
+//             });
+//         }
+//     }
+// })();
+
 (function () {
-    var scriptsToLoad = 2; // Number of scripts to load
-    var script = document.createElement('script'); // Create script element for first script
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js"; // url to be loaded
-    script.defer = true;
-    script.onload = function () {
-        scriptsToLoad--;
-        checkIfAllScriptsLoaded();
-    }; // Add an onload event to the script element
-    document.head.appendChild(script); // Append the script element to the head of the document
+    // Create an array of script URLs
+    var scripts = ["/js/edu_su_common.js?ver=0.1", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js", "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js", "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js", "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js", "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774", "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV"];
 
-    script = document.createElement('script'); // Create script element for second script
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js"; // url to be loaded
-    script.defer = true;
-    script.onload = function () {
-        scriptsToLoad--;
-        checkIfAllScriptsLoaded();
-    };
-    document.head.appendChild(script);
+    // Create a counter to keep track of the number of scripts that have finished loading
+    var loaded = 0;
 
-    function checkIfAllScriptsLoaded() {
-        if (scriptsToLoad === 0) {
-            renderMathInElement(document.body, {
-                // customised options
-                // • auto-render specific keys, e.g.:
-                delimiters: [
-                    { left: '$$', right: '$$', display: true },
-                    { left: '$', right: '$', display: false },
-                    { left: '\\(', right: '\\)', display: false },
-                    { left: '\\[', right: '\\]', display: true }
-                ],
-                // • rendering keys, e.g.:
-                throwOnError: false
-            });
-        }
+    // Iterate through the array of scripts
+    for (var i = 0; i < scripts.length; i++) {
+        var script = document.createElement('script'); // Create script element
+        script.src = scripts[i]; // Set the script's URL
+        script.defer = true;
+        script.onload = function () {
+            loaded++; // Increment the counter
+            if (loaded === scripts.length) { // Check if all scripts have finished loading
+                // Execute the onload code here
+                hljs.highlightAll(); // Highlight js
+
+                // KaTex Math js
+                renderMathInElement(document.body, {
+                    // customised options
+                    // • auto-render specific keys, e.g.:
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    // • rendering keys, e.g.:
+                    throwOnError: false
+                });
+            }
+        };
+        document.head.appendChild(script); // Append the script element to the head of the document
     }
 })();
+
 
 
 
