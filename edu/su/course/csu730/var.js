@@ -106,8 +106,9 @@ function get_menu_list() {
     }
 
     function get_lecture() {
-        var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
-        for (let i = 13; i < cases.length; i++) {
+        //var cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13 ,14, 15,16, 17,18, 19,20,21,22, 23];
+        var cases = 43;
+        for (let i = 13; i < cases; i++) {
 
             var codetype = "English";
             var d = i + 1;
@@ -118,7 +119,7 @@ function get_menu_list() {
             var readtime = Math.floor(Math.random() * 5) + 2;
             var author = 1;
 
-            switch (cases[i]) {
+            switch (i) {
                 case 14:
                     // link = "add_link like 'c2' ";
                     title += ": Paragraph";
@@ -126,34 +127,42 @@ function get_menu_list() {
                     // codetype = "replace here with custom var";
                     // readtime = "2";
                     // author = "vp";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 15:
                     title += ": Inductive Order";
                     desc += " Inductive Order";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 16:
                     title += ": Deductive Order";
                     desc += " Deductive Order";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 17:
                     title += ": Comparision and Contrast";
                     desc += " Comparision and Contrast";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 18:
                     title += ": Time and Space Order";
                     desc += " Time and Space Order";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 20:
                     title += ": Capitalization and Punctuation I";
                     desc += " Capitalization and Punctuation I.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 23:
                     title += ": Vocabulary";
                     desc = "All the words of vocabulary with its meaning from comprehension.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 36:
                     date = "Thu November 17, 2022";
                     desc = "VIVA based on questions directed towards odd and even students.";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
                     /* link = "#";
@@ -165,7 +174,6 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author); */
                     break;
             }
-            body_blockcards(link, date, title, desc, codetype, readtime, author);
         }
     }
     function get_seminar() {
