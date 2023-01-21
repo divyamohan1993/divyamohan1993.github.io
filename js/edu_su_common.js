@@ -215,8 +215,15 @@ function header_navbar() {
         let year = links.shift();
         links.sort();
         let li_link = "";
+        var path = window.location.pathname;
+        var folder = window.location.pathname.split("/")[4];
         for (let i = 0; i < links.length; i++) {
-            li_link += `<li><a class="dropdown-item" href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+            if (links[i] != folder) {
+                var linkactive = '"';
+            } else {
+                var linkactive = ' active" aria-current="page"';
+            }
+            li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
         }
         return `<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">${year}</a><ul class="dropdown-menu">${li_link}</ul></li>`;
     }
