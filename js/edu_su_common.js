@@ -66,18 +66,15 @@
     // Create an array of script URLs
     var scripts = ["https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js", "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js", "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js", "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js", "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774", "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV"];
 
-    // Create a counter to keep track of the number of scripts that have finished loading
-    var loaded = 0;
+    var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
-    // Iterate through the array of scripts
-    for (var i = 0; i < scripts.length; i++) {
+    for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts
         var script = document.createElement('script'); // Create script element
         script.src = scripts[i]; // Set the script's URL
         script.defer = true;
         script.onload = function () {
             loaded++; // Increment the counter
-            if (loaded === scripts.length) { // Check if all scripts have finished loading
-                // Execute the onload code here
+            if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here
                 hljs.highlightAll(); // Highlight js
 
                 // KaTex Math js
