@@ -119,7 +119,7 @@
         varJsUrl = 'https://dmj.one/var.js';
 
     // find the last complete folder in the url
-    var lastFolderIndex = 3;
+    var lastFolderIndex = urlParts.length - 1;
     for (var i = urlParts.length - 1; i >= 3; i--) {
         if (urlParts[i].indexOf(".") === -1) {
             lastFolderIndex = i;
@@ -127,7 +127,11 @@
         }
     }
 
-    varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + '/var.js';
+    if (lastFolderIndex === 3 && urlParts.length > 3) {
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+    } else {
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + '/var.js';
+    }
 
 
 
