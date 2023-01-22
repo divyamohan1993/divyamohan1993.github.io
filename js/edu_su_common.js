@@ -115,7 +115,7 @@
             } else if (i === 6) {
                 lastFolderIndex = 6;
                 break;
-            } else if (i === 7) {
+            } else if (i >= 7) {
                 lastFolderIndex = 7;
                 break;
             }
