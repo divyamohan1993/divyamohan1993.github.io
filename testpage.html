@@ -34,6 +34,7 @@
                         // Add the minified code as the script's text content
                         // script.textContent = minifiedCode;
                         console.log(minifiedCode);
+                        navigator.clipboard.writeText(minifiedCode);
 
                         // Append the script to the document's head
                         // document.head.appendChild(script);
