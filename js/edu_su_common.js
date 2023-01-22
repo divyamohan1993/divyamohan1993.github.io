@@ -99,6 +99,7 @@
             lastFolderIndex = urlParts.length - 1;
         for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
             lastFolderIndex = i;
+            break;
         }
         if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
             varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
