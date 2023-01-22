@@ -59,7 +59,7 @@
                 var block = document.createElement("div");
                 block.classList.add("m-4", "my-5", "postcard", "light", "shadow", getcolor);
 
-                var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
+                //var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
                 var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
                 var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
                 var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
@@ -70,7 +70,7 @@
                 if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
                 var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
 
-                block.innerHTML = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
+                block.innerHTML = gen_start  + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
 
                 var main = document.querySelector("dmj_autogenmenu");
                 main.appendChild(block);
