@@ -26,45 +26,38 @@
     script.src = varJsUrl; // url to be loaded
     script.defer = true; // This will prevent browser to continue reading the other scripts present in that js file
     script.onload = function () {
-        (function () {
-            var menuElement = document.getElementById("dmj_autogenmenu");
+        function body_genmenu(course) {
+            //  var gen_start = '<section class="light"><div class="container py-2">';
+            //  var gen_end = '</div></section>';
+            //  document.write(gen_start);
+            if (!course) { var course = window.location.pathname.split("/")[4]; }
+            var gen_start = '<article class="genmenu py-3">';
+            var gen_end = '</article>';
+            document.write(gen_start);
 
-            function body_genmenu(course) {
-                //  var gen_start = '<section class="light"><div class="container py-2">';
-                //  var gen_end = '</div></section>';
-                //  document.write(gen_start);
-                if (!course) { var course = window.location.pathname.split("/")[4]; }
-                var gen_start = '<article class="genmenu py-3">';
-                var gen_end = '</article>';
-                var menuContent = gen_start;
-
-                if (course) {
-                    switch (course) {
-                        case "csu953":
-                        case "csu1128":
-                        case "csu1128p":
-                        case "csu730":
-                        case "csu951":
-                        case "fsu030":
-                            get_menu_list();
-                            break;
-                        default:
-                            link = "#";
-                            date = "Not Applicable";
-                            title = "The current " + course + " has not been defined.";
-                            desc = "Please define an hierchy in js for the course " + course + ".";
-                            codetype = "#CourseNotDefined";
-                            readtime = "0";
-                            body_blockcards(link, date, title, desc, codetype, readtime, 1);
-                            break;
-                    }
-                } else { get_menu_list() };
-                menuContent += gen_end;
-                menuElement.innerHTML = menuContent;
-            }
-
-            body_genmenu();
-        })();
+            if (course) {
+                switch (course) {
+                    case "csu953":
+                    case "csu1128":
+                    case "csu1128p":
+                    case "csu730":
+                    case "csu951":
+                    case "fsu030":
+                        get_menu_list();
+                        break;
+                    default:
+                        link = "#";
+                        date = "Not Applicable";
+                        title = "The current " + course + " has not been defined.";
+                        desc = "Please define an hierchy in js for the course " + course + ".";
+                        codetype = "#CourseNotDefined";
+                        readtime = "0";
+                        body_blockcards(link, date, title, desc, codetype, readtime, 1);
+                        break;
+                }
+            } else { get_menu_list() };
+            document.write(gen_end);
+        }
     }; // Add an onload event to the script element
     document.head.appendChild(script); // Append the script element to the head of the document
 })();
