@@ -112,17 +112,20 @@
             } else if (i === 5) {
                 lastFolderIndex = 5;
                 break;
+            } else if (i === 6) {
+                lastFolderIndex = 6;
+                break;
             }
         } else {
             break; // if i is greater than 7, break out of the loop
         }
     }
 
-    if (lastFolderIndex === 3 || lastFolderIndex === 4 || lastFolderIndex === 5) {
-        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + 'var.js';
-    } else {
-        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + 'var.js';
-    }
+    if (lastFolderIndex === 3 || lastFolderIndex === 4 || lastFolderIndex === 5 || lastFolderIndex === 6) {
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+    } // else {
+    //     varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + 'var.js';
+    // }
 
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
