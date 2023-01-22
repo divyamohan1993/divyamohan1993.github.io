@@ -97,48 +97,37 @@
         varJsUrl = 'https://dmj.one/var.js';
 
     // find the last complete folder in the url
-    // var lastFolderIndex = urlParts.length - 1;
-    // for (var i = urlParts.length - 1; i >= 3; i--) {
-    //     if (urlParts[i].indexOf(".") === -1) {
-    //         lastFolderIndex = i;
-    //         break;
-    //     } else if (i === 3) {
-    //         lastFolderIndex = 3;
-    //         break;
-    //     } else if (i === 4) {
-    //         lastFolderIndex = 4;
-    //         break;
-    //     } else if (i === 5) {
-    //         lastFolderIndex = 5;
-    //         break;
-    //     } else if (i === 6) {
-    //         lastFolderIndex = 6;
-    //         break;
-    //     } else if (i > 6) {
-    //         lastFolderIndex = 7;
-    //         break;
-    //     }
-    // }
-
-    // if (lastFolderIndex === 4 || lastFolderIndex === 5 || lastFolderIndex === 6 || lastFolderIndex == 7) {
-    //     varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
-    // } // else {
-    // //     varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + 'var.js';
-    // // }
-
-    var currentUrl = window.location.href,
-        urlParts = currentUrl.split('/'),
-        varJsUrl = 'https://dmj.one/var.js';
-
-    // find the last complete folder in the url
     var lastFolderIndex = urlParts.length - 1;
-    for (var i = urlParts.length - 1; i >= 3; i--) {
+    for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
         if (urlParts[i].indexOf(".") === -1) {
             lastFolderIndex = i;
             break;
+
+        } else {
+            lastFolderIndex = i - 1;
+            break;
         }
     }
-    varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+
+    if (lastFolderIndex === 4 || lastFolderIndex === 5 || lastFolderIndex === 6 || lastFolderIndex == 7) {
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+    } // else {
+    //     varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + 'var.js';
+    // }
+
+    // var currentUrl = window.location.href,
+    //     urlParts = currentUrl.split('/'),
+    //     varJsUrl = 'https://dmj.one/var.js';
+
+    // // find the last complete folder in the url
+    // var lastFolderIndex = urlParts.length - 1;
+    // for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
+    //     if (urlParts[i].indexOf(".") === -1) {
+    //         lastFolderIndex = i;
+    //         break;
+    //     }
+    // }
+    // varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
 
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
