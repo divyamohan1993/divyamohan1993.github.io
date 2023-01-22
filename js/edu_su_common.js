@@ -10,120 +10,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
 
 // ****Highlight Js**** //
 // var hljs = ""; function highlightAll() { };
-(function () {
-    var varJsUrl = (function () {
-        var currentUrl = window.location.href,
-            urlParts = currentUrl.split('/'),
-            varJsUrl = 'https://dmj.one/var.js',
-            lastFolderIndex = urlParts.length - 1;
-        for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
-            lastFolderIndex = i;
-            break;
-        }
-        if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
-        else if (lastFolderIndex > 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
-        return varJsUrl;
-    })();
 
-    var script = document.createElement('script'); // Create script element for highlight.js
-    script.src = varJsUrl; // url to be loaded
-    script.defer = true; // This will prevent browser to continue reading the other scripts present in that js file
-    script.onload = function () {
-
-        (function () {
-
-            function body_genmenu(course) {
-                //  var gen_start = '<section class="light"><div class="container py-2">';
-                //  var gen_end = '</div></section>';
-                //  document.write(gen_start);
-                if (!course) { var course = window.location.pathname.split("/")[4]; }
-                var gen_start = '<article class="genmenu py-3">';
-                var gen_end = '</article>';
-                var mainTag = document.getElementById("dmj_autogenmenu");
-                mainTag.innerHTML += gen_start;
-                // document.write(gen_start);
-
-                if (course) {
-                    switch (course) {
-                        case "csu953":
-                        case "csu1128":
-                        case "csu1128p":
-                        case "csu730":
-                        case "csu951":
-                        case "fsu030":
-                            get_menu_list();
-                            break;
-                        default:
-                            link = "#";
-                            date = "Not Applicable";
-                            title = "The current " + course + " has not been defined.";
-                            desc = "Please define an hierchy in js for the course " + course + ".";
-                            codetype = "#CourseNotDefined";
-                            readtime = "0";
-                            body_blockcards(link, date, title, desc, codetype, readtime, 1);
-                            break;
-                    }
-                } else { get_menu_list() };
-                mainTag.innerHTML += gen_end;
-                // document.write(gen_end);
-            }
-
-
-            // Modified Code
-            var sitemap_links = [];
-            function body_blockcards(link, date, title, desc, codetype, readtime, author) {
-
-                // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
-
-                function randomNum(min, max) {
-                    return Math.floor(Math.random() * (max - min)) + min;
-                }
-
-                if (link) { } else link = "#";
-                if (date) { } else var date = new Date().toDateString();
-                if (title) { } else title = "Unknown Title";
-                if (desc) { } else desc = "No desc provided";
-                var include_generator = 2;
-                if (include_generator == 1) { var gen_start = '<article>'; var gen_end = '</article>'; } else { gen_start = ""; gen_end = ""; }
-                if (author) {
-                    if (author == "vp") { author = "Vanshika Painuly"; }
-                    else if (author == 1) { author = "Divya Mohan"; }
-                    else { author = author; }
-                }
-
-                // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
-                var resolvedLink = new URL(link, location.href).toString();
-                sitemap_links.push(resolvedLink);
-
-                // Get color and start generating the block.
-                var color = ["yellow", "blue", "red", "green"];
-                var getcolor = color[randomNum(0, 3)];
-                // https://picsum.photos/
-                var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
-                var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
-                var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
-                var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
-                var m4 = '<div class="postcard__bar"></div><div class="postcard__preview-txt">' + desc + '</div>';
-                var m5 = '<ul class="postcard__tagbox">';
-                if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
-                if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
-                if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
-                var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
-
-                var mainTag = document.getElementById("dmj_autogenmenu");
-                mainTag.innerHTML += gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
-
-                //     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
-            }
-
-
-        })();
-
-    }; // Add an onload event to the script element
-    document.head.appendChild(script); // Append the script element to the head of the document
-})();
 
 // (function () {
 //     var script = document.createElement('script');
@@ -218,7 +105,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
     //     return varJsUrl;
     // })();
 
-    var edu_var = "https://dmj.one/js/edu_su_var.js";
+    //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
@@ -227,7 +114,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
 
     // Create an array of script URLs
-    var scripts = [edu_var, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
+    var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
 
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 

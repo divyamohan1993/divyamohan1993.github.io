@@ -58,3 +58,117 @@ var notify_cookie = "%2B9Ijo%7C%2B86oj%2B9J%2B88iuuqok3tuzoik%2B88%2B86irgyy%2B9
 var header_dmj_desc = ".%3CLy.%3CN.9J.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9.%3B9Mr%7F%C2%82j.%3B9Vxqjw.%3B9r%7C.%3B9j.%3B9%7C%7D~mnw%7D.%3B9o%7Bxv.%3B9Rwmrj.%3B9l~%7B%7Bnw%7Du%C2%82.%3B9y~%7B%7C~rwp.%3B9qr%7C.%3B9K7.%3B9%5Dnlq.%3B9rw.%3B9Lxvy~%7Dn%7B.%3B9%5Clrnwln.%3B9jwm.%3B9Nwprwnn%7Brwp7.%3B9%5Dqr%7C.%3B9%7C~vvj%7B%C2%82.%3B9r%7C.%3B9mn%7Crpwnm.%3B9%7Dx.%3B9pr%7Fn.%3B9%7Dqn.%3B9unj%7Bwn%7B%7C.%3B9nj%7C%C2%82.%3B9jlln%7C%7C.%3B9%7Dx.%3B9%7Dqn.%3B9unj%7Bwrwp.%3B9%7Dnlqwrz~n%7C.%3B9xo.%3B9%7Dqn.%3B9lxwlny%7D%7C.%3B9rw.%3B9%7Dqn.%3B9%7Crvyun%7C%7D.%3B9ox%7Bv%7C.%3B9xo.%3B9lq~wt%7C7.9J.%3CL.%3BOy.%3CN9";
 var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75Iw3*75Ufspfo*75%5Bfni~f*75nx*75ymj*75Mjfi*75tk*75ymj*75%5Etlfsfsif*75Xhmttq*75tk*75FN*7H*75Htruzyjwx*75fsi*75Ifyf*75Xhnjshjx3*75Mj*75mtqix*7577*75~jfwx*75tk*75yjfhmnsl*75j%7Dujwnjshj*75fsi*75nx*75htsizhynsl*75wjxjfwhm*75ns*75Rfhmnsj*75Qjfwsnsl*75fsi*75Iwzl*75Inxht%7Bjw~*75zxnsl*75Rfhmnsj*75Qjfwsnsl3*75Mj*75htruqjyji*75mnx*75R*75Yjhm*75-755%3A.*75fsi*75wjhjn%7Bji*75UmI*75-7575.*75ns*75Htruzyjw*75Xhnjshj*75Jslnsjjwnsl*75kwtr*75Xmttqnsn*75Zsn%7Bjwxny~3*5F*8H*7Ku*8J*5F*75*75*75*75*75*75*75*75*75*75*75*755";
 
+(function () {
+    var varJsUrl = (function () {
+        var currentUrl = window.location.href,
+            urlParts = currentUrl.split('/'),
+            varJsUrl = 'https://dmj.one/var.js',
+            lastFolderIndex = urlParts.length - 1;
+        for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
+            lastFolderIndex = i;
+            break;
+        }
+        if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+        else if (lastFolderIndex > 6)
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
+        return varJsUrl;
+    })();
+
+    var script = document.createElement('script'); // Create script element for highlight.js
+    script.src = varJsUrl; // url to be loaded
+    script.defer = true; // This will prevent browser to continue reading the other scripts present in that js file
+    script.onload = function () {
+
+        /* (function () {
+
+            function body_genmenu(course) {
+                //  var gen_start = '<section class="light"><div class="container py-2">';
+                //  var gen_end = '</div></section>';
+                //  document.write(gen_start);
+                if (!course) { var course = window.location.pathname.split("/")[4]; }
+                var gen_start = '<article class="genmenu py-3">';
+                var gen_end = '</article>';
+                var mainTag = document.getElementById("dmj_autogenmenu");
+                mainTag.innerHTML += gen_start;
+                // document.write(gen_start);
+
+                if (course) {
+                    switch (course) {
+                        case "csu953":
+                        case "csu1128":
+                        case "csu1128p":
+                        case "csu730":
+                        case "csu951":
+                        case "fsu030":
+                            get_menu_list();
+                            break;
+                        default:
+                            link = "#";
+                            date = "Not Applicable";
+                            title = "The current " + course + " has not been defined.";
+                            desc = "Please define an hierchy in js for the course " + course + ".";
+                            codetype = "#CourseNotDefined";
+                            readtime = "0";
+                            body_blockcards(link, date, title, desc, codetype, readtime, 1);
+                            break;
+                    }
+                } else { get_menu_list() };
+                mainTag.innerHTML += gen_end;
+                // document.write(gen_end);
+            }
+
+
+            // Modified Code
+            var sitemap_links = [];
+            function body_blockcards(link, date, title, desc, codetype, readtime, author) {
+
+                // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
+
+                function randomNum(min, max) {
+                    return Math.floor(Math.random() * (max - min)) + min;
+                }
+
+                if (link) { } else link = "#";
+                if (date) { } else var date = new Date().toDateString();
+                if (title) { } else title = "Unknown Title";
+                if (desc) { } else desc = "No desc provided";
+                var include_generator = 2;
+                if (include_generator == 1) { var gen_start = '<article>'; var gen_end = '</article>'; } else { gen_start = ""; gen_end = ""; }
+                if (author) {
+                    if (author == "vp") { author = "Vanshika Painuly"; }
+                    else if (author == 1) { author = "Divya Mohan"; }
+                    else { author = author; }
+                }
+
+                // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
+                var resolvedLink = new URL(link, location.href).toString();
+                sitemap_links.push(resolvedLink);
+
+                // Get color and start generating the block.
+                var color = ["yellow", "blue", "red", "green"];
+                var getcolor = color[randomNum(0, 3)];
+                // https://picsum.photos/
+                var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
+                var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
+                var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
+                var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
+                var m4 = '<div class="postcard__bar"></div><div class="postcard__preview-txt">' + desc + '</div>';
+                var m5 = '<ul class="postcard__tagbox">';
+                if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
+                if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
+                if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
+                var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
+
+                var mainTag = document.getElementById("dmj_autogenmenu");
+                mainTag.innerHTML += gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
+
+                //     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
+            }
+
+
+        })();
+ */
+    }; // Add an onload event to the script element
+    document.head.appendChild(script); // Append the script element to the head of the document
+})();
