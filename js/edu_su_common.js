@@ -123,7 +123,7 @@
     // })();
 
     var edu_var = "https://dmj.one/js/edu_su_var.js";
-    var edu_js = "https://dmj.one/js/edu_su_common.js";
+    //var edu_js = "https://dmj.one/js/edu_su_common.js";
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
     var cdnjs_highlightjs = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js";
@@ -131,7 +131,7 @@
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
 
     // Create an array of script URLs
-    var scripts = [edu_var, edu_js, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
+    var scripts = [edu_var, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
 
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
