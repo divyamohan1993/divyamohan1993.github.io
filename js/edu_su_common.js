@@ -141,12 +141,6 @@
                 });
                 // KaTex Math js END
 
-                this.remove();
-
-                // Script 2 removal of all scripts
-                // $(document).ready(function () {
-                //     $("script").remove();
-                // });
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -712,27 +706,34 @@ window.onload = function () {
     console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
 
-// remove all the scripts from the page. 
-var scripts = document.getElementsByTagName("script");
-var loaded = 0;
-for (var i = 0; i < scripts.length; i++) {
-    scripts[i].onload = function () {
-        loaded++;
-        if (loaded === scripts.length) {
-            for (var j = 0; j < scripts.length; j++) {
-                scripts[j].remove();
+(function () {
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        var scripts = document.getElementsByTagName("script");
+        var loaded = 0;
+        for (var i = 0; i < scripts.length; i++) {
+            scripts[i].onload = function () {
+                loaded++;
+                if (loaded === scripts.length) {
+                    for (var j = 0; j < scripts.length; j++) {
+                        scripts[j].remove();
+                    }
+                }
+            };
+        }
+        $(document).ready(function () {
+            $("script").remove();
+        });
+
+        var head = document.head;
+        for (var i = 0; i < head.children.length; i++) {
+            if (head.children[i].tagName.toLowerCase() === "script") {
+                head.removeChild(head.children[i]);
             }
         }
-    };
-}
-
-// Script 3 removal of all scripts
-var head = document.head;
-for (var i = 0; i < head.children.length; i++) {
-    if (head.children[i].tagName.toLowerCase() === "script") {
-        head.removeChild(head.children[i]);
-    }
-}
+    }, 2000);
+});
+}) ();
 
 
 
