@@ -29,13 +29,14 @@
                         const minifiedCode = minify(code);
 
                         // Create a new script element
-                        const script = document.createElement('script');
+                        // const script = document.createElement('script');
 
                         // Add the minified code as the script's text content
-                        script.textContent = minifiedCode;
+                        // script.textContent = minifiedCode;
+                        console.log(minifiedCode);
 
                         // Append the script to the document's head
-                        document.head.appendChild(script);
+                        // document.head.appendChild(script);
                     });
             }
 
