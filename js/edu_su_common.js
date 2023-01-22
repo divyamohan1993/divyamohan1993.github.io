@@ -28,6 +28,54 @@
     script.onload = function () {
 
         (function () {
+            // Modified Code 
+            var sitemap_links = [];
+            function body_blockcards(link, date, title, desc, codetype, readtime, author) {
+
+                function randomNum(min, max) {
+                    return Math.floor(Math.random() * (max - min)) + min;
+                }
+
+                if (link) { } else link = "#";
+                if (date) { } else var date = new Date().toDateString();
+                if (title) { } else title = "Unknown Title";
+                if (desc) { } else desc = "No desc provided";
+                var include_generator = 2;
+                if (include_generator == 1) { var gen_start = '<article>'; var gen_end = '</article>'; } else { gen_start = ""; gen_end = ""; }
+                if (author) {
+                    if (author == "vp") { author = "Vanshika Painuly"; }
+                    else if (author == 1) { author = "Divya Mohan"; }
+                    else { author = author; }
+                }
+
+                // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
+                var resolvedLink = new URL(link, location.href).toString();
+                sitemap_links.push(resolvedLink);
+
+                // Get color and start generating the block.
+                var color = ["yellow", "blue", "red", "green"];
+                var getcolor = color[randomNum(0, 3)];
+
+                var block = document.createElement("div");
+                block.classList.add("m-4", "my-5", "postcard", "light", "shadow", getcolor);
+
+                var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
+                var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
+                var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
+                var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
+                var m4 = '<div class="postcard__bar"></div><div class="postcard__preview-txt">' + desc + '</div>';
+                var m5 = '<ul class="postcard__tagbox">';
+                if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
+                if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
+                if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
+                var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
+
+                block.innerHTML = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
+
+                var main = document.querySelector("dmj_autogenmenu");
+                main.appendChild(block);
+            }
+
             function body_genmenu(course) {
                 if (!course) { var course = window.location.pathname.split("/")[4]; }
                 var gen_start = '<article class="genmenu py-3">';
@@ -570,58 +618,9 @@ function body_genmenu(course) {
     document.write(gen_end);
 }
 
-// Modified Code 
-var sitemap_links = [];
-function body_blockcards(link, date, title, desc, codetype, readtime, author) {
-
-    function randomNum(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-
-    if (link) { } else link = "#";
-    if (date) { } else var date = new Date().toDateString();
-    if (title) { } else title = "Unknown Title";
-    if (desc) { } else desc = "No desc provided";
-    var include_generator = 2;
-    if (include_generator == 1) { var gen_start = '<article>'; var gen_end = '</article>'; } else { gen_start = ""; gen_end = ""; }
-    if (author) {
-        if (author == "vp") { author = "Vanshika Painuly"; }
-        else if (author == 1) { author = "Divya Mohan"; }
-        else { author = author; }
-    }
-
-    // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
-    var resolvedLink = new URL(link, location.href).toString();
-    sitemap_links.push(resolvedLink);
-
-    // Get color and start generating the block.
-    var color = ["yellow", "blue", "red", "green"];
-    var getcolor = color[randomNum(0, 3)];
-
-    var block = document.createElement("div");
-    block.classList.add("m-4", "my-5", "postcard", "light", "shadow", getcolor);
-
-    var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
-    var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
-    var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
-    var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
-    var m4 = '<div class="postcard__bar"></div><div class="postcard__preview-txt">' + desc + '</div>';
-    var m5 = '<ul class="postcard__tagbox">';
-    if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
-    if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
-    if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
-    var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
-
-    block.innerHTML = m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9;
-
-    var main = document.querySelector("dmj_autogenmenu");
-    main.appendChild(block);
-}
-
-
 
 // Original Code
-/* var sitemap_links = [];
+var sitemap_links = [];
 function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
     // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
@@ -662,7 +661,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
 
     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
-} */
+}
 
 function sitemap_var_gen_clipboard() {
     // maintenance_mode();
