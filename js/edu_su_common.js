@@ -107,10 +107,11 @@
             break;
         }
     }
-    if (lastFolderIndex === 4 || lastFolderIndex === 5 || lastFolderIndex === 6 || lastFolderIndex == 7) {
+    // if (lastFolderIndex === 4 || lastFolderIndex === 5 || lastFolderIndex === 6 || lastFolderIndex == 7) {
+    if (lastFolderIndex >= 4 && lastFolderIndex <= 6) {
         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
     } else if (lastFolderIndex > 6) {
-        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + 'var.js';
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
     }
 
     // var currentUrl = window.location.href,
