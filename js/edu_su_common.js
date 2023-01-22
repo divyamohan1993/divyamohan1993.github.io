@@ -721,6 +721,11 @@ for (var i = 0; i < scripts.length; i++) {
     };
 }
 
+// Script 2 removal of all scripts
+$(document).ready(function () {
+  $("script").remove();
+});
+
 
 
 
