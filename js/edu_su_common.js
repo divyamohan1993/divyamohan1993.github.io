@@ -84,7 +84,10 @@
 
     var currentUrl = window.location.href,
         urlParts = currentUrl.split('/'),
-        varJsUrl = 'https://dmj.one/' + urlParts.slice(3).join('/') + '/var.js';
+        varJsUrl = 'https://dmj.one/var.js';
+    for (var i = 3; i < urlParts.length && i < 7; i++) {
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + 'var.js';
+    }
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
