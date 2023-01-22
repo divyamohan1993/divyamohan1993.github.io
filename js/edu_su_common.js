@@ -87,9 +87,9 @@
         varJsUrl = 'https://dmj.one/var.js';
     for (var i = 3; i < urlParts.length && i < 7; i++) {
         if (i === urlParts.length - 1)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + '/var.js';
-        else
             varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + 'var.js';
+        else
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + '/var.js';
     }
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
