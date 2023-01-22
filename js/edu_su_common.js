@@ -673,73 +673,7 @@ function copyright(rights) {
 }
 
 
-
-
-// Include all the Google ad / analytics and Microsoft Clarity codes. 
-(function () {
-    var script1 = document.createElement('script');
-    script1.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
-    document.head.appendChild(script1);
-
-    var script2 = document.createElement('script');
-    script2.src = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
-    document.head.appendChild(script2);
-
-    script1.onload = function () { }
-
-    script2.onload = function () {
-        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-D8EG8249SV');
-        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');
-        (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
-    }
-})();
-
-// get reading time required
-window.onload = function () {
-    var totalTime = 0;
-    var content = document.body.innerHTML;
-    var words = content.split(" ");
-
-    for (var i = 0; i < words.length; i++) {
-        totalTime += (words[i].length / 250);
-    }
-    console.log("Total time to read the webpage: " + totalTime + " minutes");
-};
-
-(function () {
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        var scripts = document.getElementsByTagName("script");
-        var loaded = 0;
-        for (var i = 0; i < scripts.length; i++) {
-            scripts[i].onload = function () {
-                loaded++;
-                if (loaded === scripts.length) {
-                    for (var j = 0; j < scripts.length; j++) {
-                        scripts[j].remove();
-                    }
-                }
-            };
-        }
-        $(document).ready(function () {
-            $("script").remove();
-        });
-
-        var head = document.head;
-        for (var i = 0; i < head.children.length; i++) {
-            if (head.children[i].tagName.toLowerCase() === "script") {
-                head.removeChild(head.children[i]);
-            }
-        }
-    }, 2000);
-});
-}) ();
-
-
-
-
-
-/********************* Custom Plugins *********************/
+/********************* Custom made dmj.one Plugins *********************/
 /*******Generate Blockquote **********/
 function gen_blockquote() {
     var quoteblock = '<figure class="text-center shadow p-4 rounded bg-warning bg-gradient bg-opacity-25 p-5"><blockquote class="blockquote showquote"></blockquote><figcaption class="blockquote-footer showauthor"></figcaption>';
@@ -762,3 +696,66 @@ function gen_blockquote() {
     } quote();
 }
 
+
+/******** Include all the Google ad / analytics and Microsoft Clarity codes. *******/
+(function () {
+    var script1 = document.createElement('script');
+    script1.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9436488945721774";
+    document.head.appendChild(script1);
+
+    var script2 = document.createElement('script');
+    script2.src = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
+    document.head.appendChild(script2);
+
+    script1.onload = function () { }
+
+    script2.onload = function () {
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-D8EG8249SV');
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');
+        (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
+    }
+})();
+
+/******* get reading time required *******/
+window.onload = function () {
+    var totalTime = 0;
+    var content = document.body.innerHTML;
+    var words = content.split(" ");
+
+    for (var i = 0; i < words.length; i++) {
+        totalTime += (words[i].length / 250);
+    }
+    console.log("Total time to read the webpage: " + totalTime + " minutes");
+};
+
+/******* FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view. *******/
+(function () {
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            // Method 1
+            var scripts = document.getElementsByTagName("script");
+            var loaded = 0;
+            for (var i = 0; i < scripts.length; i++) {
+                scripts[i].onload = function () {
+                    loaded++;
+                    if (loaded === scripts.length) {
+                        for (var j = 0; j < scripts.length; j++) {
+                            scripts[j].remove();
+                        }
+                    }
+                };
+            }
+            // Method 2
+            $(document).ready(function () {
+                $("script").remove();
+            });
+            // Method 3 
+            var head = document.head;
+            for (var i = 0; i < head.children.length; i++) {
+                if (head.children[i].tagName.toLowerCase() === "script") {
+                    head.removeChild(head.children[i]);
+                }
+            }
+        }, 1000);
+    });
+})();
