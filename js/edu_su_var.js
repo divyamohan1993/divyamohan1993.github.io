@@ -44,10 +44,12 @@ function header_createscript(src) {
 // Google tag manager + ads END
 
 // Bing Clarity tracking code START
-(function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
+// (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt"; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
                 // Bing Clarity tracking code END// document.write("<script>(function (w, d, s, l, i) {w[l] = w[l] || []; w[l].push({'gtm.start':new Date().getTime(), event: 'gtm.js'}); var f = d.getElementsByTagName(s)[0],j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src ='https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);}) (window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');</script> ");
 
 // execute the vars by calling <script>_decode-encryptedvar-fuction_(_varname_);</script> in html where it is required.
+
+
 
 // var notify_cookie = "(6Fgly(53lg(6G(55frrnlh0qrwlfh(55(53fodvv(6G(55z0433(53ej0gdun(53wh%7Bw0zklwh(53sw06(53s%7B07(53se04(53srvlwlrq0il%7Bhg(55(3D(53(53(53(53(53(53(53(53(53(53(53(53vw%7Coh(6G(55%7D0lqgh%7B(6D(534333(6E(53erwwrp(6D(533(6E(55(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(6Fgly(53fodvv(6G(55frqwdlqhu(53s05(55(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6Fgly(53fodvv(6G(55urz(55(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6Fgly(53fodvv(6G(55fro0vp0%3B(53fro0pg0%3C(55(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6Fs(53fodvv(6G(55s05(55(6HWklv(53zhevlwh(53xvhv(53frrnlhv(53vr(53wkdw(53zh(53fdq(53surylgh(53%7Crx(53zlwk(53wkh(53ehvw(53zhevlwh(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53h%7Bshulhqfh1(53E%7C(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53folfnlqj(53(H5(%3B3(%3CFL(53Dffhsw(H5(%3B3(%3CG(53%7Crx(53dfnqrzohgjh(53wkh(53xvh(53ri(53frrnlhv(53dqg(53wr(53rxu(53(6Fd(53kuhi(6G(55(5Iwrv(55(6H(6Fx(6HWhupv(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53dqg(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53Frqglwlrqv(6F(5Ix(6H(6F(5Id(6H(53dqg(53(6Fx(6H(6Fd(53kuhi(6G(55(5Isulydf%7C(55(6HSulydf%7C(53Srolf%7C(6F(5Ix(6H(6F(5Id(6H1(6F(5Is(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6F(5Igly(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6Fgly(53fodvv(6G(55fro0vp07(53fro0pg06(55(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6Fd(53fodvv(6G(55l0dffhsw(53ewq(53ewq0sulpdu%7C(53p05(55(6HL(53Dffhsw(6F(5Id(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6F(5Igly(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(53(6F(5Igly(6H(3D(53(53(53(53(53(53(53(53(53(53(53(53(6F(5Igly(6H(3D(53(53(53(53(53(53(53(53(6F(5Igly(6H3";
 var notify_cookie = "%2B9Ijo%7C%2B86oj%2B9J%2B88iuuqok3tuzoik%2B88%2B86irgyy%2B9J%2B88%7D3766%2B86hm3jgxq%2B86zk~z3%7Dnozk%2B86vz39%2B86v~3%3A%2B86vh37%2B86vuyozout3lo~kj%2B88%2B86yz%7Frk%2B9J%2B88%C2%803otjk~%2B9G%2B867666%2B9H%2B86huzzus%2B9G%2B866%2B9H%2B88%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9Ijo%7C%2B86irgyy%2B9J%2B88iutzgotkx%2B86v38%2B88%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9Ijo%7C%2B86irgyy%2B9J%2B88xu%7D%2B88%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9Ijo%7C%2B86irgyy%2B9J%2B88iur3ys3%3E%2B86iur3sj3%3F%2B88%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9Iv%2B86irgyy%2B9J%2B88v38%2B88%2B9KZnoy%2B86%7Dkhyozk%2B86%7Byky%2B86iuuqoky%2B86yu%2B86zngz%2B86%7Dk%2B86igt%2B86vxu%7Cojk%2B86%7Fu%7B%2B86%7Dozn%2B86znk%2B86hkyz%2B86%7Dkhyozk%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86k~vkxoktik4%2B86H%7F%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86iroiqotm%2B86%2BK8%2B%3E6%2B%3FIO%2B86Giikvz%2BK8%2B%3E6%2B%3FJ%2B86ux%2B86h%7F%2B86yixurrotm%2B86zu%2B86%7Cok%7D%2B86znk%2B86iutzktzy%2B86ul%2B86znoy%2B86%7Dkhyozk%2B86%7Fu%7B%2B86giqtu%7Drkjmk%2B86znk%2B86%7Byk%2B86ul%2B86iuuqoky%2B86gtj%2B86zu%2B86u%7Bx%2B86%2B9Ig%2B86nxkl%2B9J%2B88%2B8Lzuy%2B88%2B9K%2B9I%7B%2B9KZkxsy%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86gtj%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86Iutjozouty%2B9I%2B8L%7B%2B9K%2B9I%2B8Lg%2B9K%2B86gtj%2B86%2B9I%7B%2B9K%2B9Ig%2B86nxkl%2B9J%2B88%2B8Lvxo%7Cgi%7F%2B88%2B9KVxo%7Cgi%7F%2B86Vuroi%7F%2B9I%2B8Lg%2B9K%2B9I%2B8L%7B%2B9K4%2B9I%2B8Lv%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9I%2B8Ljo%7C%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9Ijo%7C%2B86irgyy%2B9J%2B88iur3ys3%3A%2B86iur3sj39%2B88%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9Ig%2B86irgyy%2B9J%2B88o3giikvz%2B86hzt%2B86hzt3vxosgx%7F%2B86s38%2B88%2B9KO%2B86Giikvz%2B9I%2B8Lg%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9I%2B8Ljo%7C%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9I%2B8Ljo%7C%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9I%2B8Ljo%7C%2B9K%2B6G%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B86%2B9I%2B8Ljo%7C%2B9K%2B6G%2B6G%2B9Iyixovz%2B9K%2B6Giutyz%2B86iuuqokTuzoik%2B86%2B9J%2B86jui%7Bsktz4mkzKrksktzH%7FOj.-iuuqok3tuzoik-%2F%2B9H%2B6Giutyz%2B86oGiikvzHzt%2B86%2B9J%2B86jui%7Bsktz4w%7Bkx%7FYkrkizux.-4o3giikvz-%2F%2B9H%2B6G%2B6GoGiikvzHzt4gjjK%7CktzRoyzktkx.-iroiq-%2B8I%2B86nojkIuuqokTuzoik%2F%2B9H%2B6Gjui%7Bsktz4gjjK%7CktzRoyzktkx.-yixurr-%2B8I%2B86nojkIuuqokTuzoik%2F%2B9H%2B6G%2B6Gl%7Btizout%2B86nojkIuuqokTuzoik.%2F%2B86%2B%3DH%2B6G%2B86%2B86iuuqokTuzoik4yz%7Frk4joyvrg%7F%2B86%2B9J%2B86-tutk-%2B9H%2B6G%2B86%2B86ruigrYzuxgmk4ykzOzks.-tuynu%7D-%2B8I%2B867%2F%2B9H%2B6G%2B%3DJ%2B6G%2B9I%2B8Lyixovz%2B9K6";
@@ -58,3 +60,125 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
 
 
 
+
+
+
+
+
+
+
+
+(function () {
+    // Dynamically include var.js - it includes var.js for every folder hiearchy 
+    // currently capped till course code (7) - scalable to any number of folders.
+
+    /* -- CRUDE -- 
+    var currentUrl = window.location.href,
+        urlParts = currentUrl.split('/'),
+        varJsUrl = 'https://dmj.one/var.js';
+    if (urlParts[3])
+        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
+    if (urlParts[4]) 
+        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
+    if (urlParts[5]) 
+        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
+    if (urlParts[6]) 
+        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
+    */
+
+    /* -- Advanced --
+    var currentUrl = window.location.href, urlParts = currentUrl.split('/'), varJsUrl = 'https://dmj.one/var.js', lastFolderIndex = urlParts.length - 1; // initialize the last complete folder index
+    for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) { // iterate through the parts in reverse order, starting from the last index
+        lastFolderIndex = i;
+        break;
+    }
+    if (lastFolderIndex >= 4 && lastFolderIndex <= 6) // check if the last folder index is between 4 and 6 (inclusive)
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js'; // create the varJsUrl using the parts from index 3 to lastFolderIndex
+    else if (lastFolderIndex > 6) // check if the last folder index is greater than 6
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js'; // create the varJsUrl using the parts from index 3 to 7
+ */
+    // -- Professional --
+    var varJsUrl = (function () {
+        var currentUrl = window.location.href,
+            urlParts = currentUrl.split('/'),
+            varJsUrl = 'https://dmj.one/var.js',
+            lastFolderIndex = urlParts.length - 1;
+        for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
+            lastFolderIndex = i;
+            break;
+        }
+        if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+        else if (lastFolderIndex > 6)
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
+        return varJsUrl;
+    })();
+
+    var edu_js = "https://dmj.one/js/edu_su_common.js";
+    var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
+    var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
+    var cdnjs_highlightjs = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js";
+    var cdnjs_katex = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js";
+    var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
+
+    // Create an array of script URLs
+    var scripts = [varJsUrl, edu_js, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
+
+    var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
+
+    for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts
+        var script = document.createElement('script'); // Create script element
+        script.src = scripts[i]; // Set the script's URL
+        script.defer = true;
+        script.onload = function () {
+            loaded++; // Increment the counter
+            if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here                
+                hljs.highlightAll(); // Highlight js init - single line code. 
+
+                // KaTex Math js START
+                renderMathInElement(document.body, {
+                    // customised options
+                    // • auto-render specific keys, e.g.:
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    // • rendering keys, e.g.:
+                    throwOnError: false
+                });
+                // KaTex Math js END
+
+            }
+        };
+        document.head.appendChild(script); // Append the script element to the head of the document
+    }
+})();
+
+(function () {
+    const logo = "/logo.png?v=2.2";
+    const pr = "preconnect";
+    const links = [
+        { rel: pr, href: "https://fonts.googleapis.com" },
+        { rel: pr, href: "https://cdnjs.cloudflare.com" },
+        { rel: pr, href: "https://dmj.one" },
+        { rel: pr, href: "https://fonts.gstatic.com" },
+        { rel: pr, href: "https://picsum.photos" },
+        { rel: pr, href: "https://type.fit" },
+        { rel: "manifest", href: "/edu/su/manifest.webmanifest" },
+        { rel: "shortcut icon", href: logo },
+        { rel: "fluid-icon", href: logo },
+        { rel: "apple-touch-icon", href: logo },
+        { rel: "stylesheet", href: "/css/edu_su_common.css?v=0.1" }
+    ];
+
+    (function header_createlink(links) {
+        links.forEach(function (link) {
+            var newlink = document.createElement('link');
+            newlink.setAttribute('rel', link.rel);
+            newlink.setAttribute('href', link.href);
+            document.head.appendChild(newlink);
+        });
+    })(links);
+})();
