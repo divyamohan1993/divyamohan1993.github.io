@@ -518,7 +518,15 @@ function copyright(rights) {
         var rights = footer_some_rights;
     } else { rights = ""; }
 
-    document.write('<footer><span><strong>&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan' + rights + footer_link_privacy + footer_link_tos + '</span></strong></footer>');
+    var footer = document.createElement("footer");
+    var span = document.createElement("span");
+    var strong = document.createElement("strong");
+
+    strong.innerHTML = '&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan' + rights + footer_link_privacy + footer_link_tos;
+    span.appendChild(strong);
+    footer.appendChild(span);
+
+    document.body.appendChild(footer);
 
     //define service worker
     if (typeof navigator.serviceWorker !== 'undefined') {
@@ -558,6 +566,62 @@ function copyright(rights) {
         // });
     };
 }
+
+
+/* function copyright(rights) {
+    // sitemap_var_gen_clipboard();
+
+    var footer_all_rights = ' &#8226; All rights reserved';
+    var footer_some_rights = ' &#8226; Some rights reserved';
+    var footer_link_privacy = ' &#8226; <a href="/privacy">Privacy</a>';
+    var footer_link_tos = ' &#8226; <a href="/tos">Terms and Conditions</a>';
+
+    if (rights == "all") {
+        var rights = footer_all_rights;
+    } else if (rights == "some") {
+        var rights = footer_some_rights;
+    } else { rights = ""; }
+
+    document.write('<footer><span><strong>&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan' + rights + footer_link_privacy + footer_link_tos + '</span></strong></footer>');
+
+    //define service worker
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('/sw.js')
+    }
+
+    // Notification cookie
+    if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
+
+    window.onload = function () {
+        // Syntax highlighter - Enable is using highlight js.
+        // hljs.highlightAll();
+
+        // // Notification - Privacy - I accept
+        // $('.i-accept').on('click', function () {
+        //     if (localStorage.noshow !== '1') {
+        //         $('#cookie-notice').addClass('d-none');
+        //         localStorage.noshow = '1';
+        //     }
+        // });
+        // if (localStorage.noshow == '1') {
+        //     $('#cookie-notice').addClass('d-none');
+        // };
+
+
+        // renderMathInElement(document.body, {
+        //     // customised options
+        //     // • auto-render specific keys, e.g.:
+        //     delimiters: [
+        //         { left: '$$', right: '$$', display: true },
+        //         { left: '$', right: '$', display: false },
+        //         { left: '\\(', right: '\\)', display: false },
+        //         { left: '\\[', right: '\\]', display: true }
+        //     ],
+        //     // • rendering keys, e.g.:
+        //     throwOnError: false
+        // });
+    };
+} */
 
 
 /********************* Custom made dmj.one Plugins *********************/
