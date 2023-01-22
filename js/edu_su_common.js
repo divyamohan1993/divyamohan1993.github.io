@@ -103,7 +103,7 @@
             lastFolderIndex = i;
             break;
         } else {
-            lastFolderIndex = i - 1;
+            lastFolderIndex = i;
             break;
         }
     }
