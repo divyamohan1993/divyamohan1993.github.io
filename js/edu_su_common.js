@@ -534,7 +534,7 @@ function dcevars(s) {
     document.write(decoded);
 }
 
-/* function body_genmenu(course) {
+function body_genmenu(course) {
     //  var gen_start = '<section class="light"><div class="container py-2">';
     //  var gen_end = '</div></section>';
     //  document.write(gen_start);
@@ -565,7 +565,7 @@ function dcevars(s) {
         }
     } else { get_menu_list() };
     document.write(gen_end);
-} */
+}
 
 var sitemap_links = [];
 function body_blockcards(link, date, title, desc, codetype, readtime, author) {
