@@ -707,7 +707,19 @@ window.onload = function () {
     console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
 
-
+// remove all the scripts from the page. 
+var scripts = document.getElementsByTagName("script");
+var loaded = 0;
+for (var i = 0; i < scripts.length; i++) {
+    scripts[i].onload = function() {
+        loaded++;
+        if (loaded === scripts.length) {
+            for (var j = 0; j < scripts.length; j++) {
+                scripts[j].remove();
+            }
+        }
+    };
+}
 
 
 
