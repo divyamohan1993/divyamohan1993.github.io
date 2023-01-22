@@ -63,70 +63,33 @@
 // })();
 
 (function () {
-    // Dynamically include var.js - Works ONLY FOR INDEX.HTML
-    // if you use it on other files then it creates the name of file as folder before var.js
-    // Manually include in such files. 
-    /* var currentUrl = window.location.href,
+    // Dynamically include var.js - it includes var.js for every folder hiearchy 
+    // currently capped till course code (7) - scalable to any number of folders.
+
+    /* -- CRUDE -- var currentUrl = window.location.href,
         urlParts = currentUrl.split('/'),
         varJsUrl = 'https://dmj.one/var.js';
-    if (urlParts[3]) {
+    if (urlParts[3])
         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
-    }
-    if (urlParts[4]) {
+    if (urlParts[4]) 
         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
-    }
-    if (urlParts[5]) {
+    if (urlParts[5]) 
         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
-    }
-    if (urlParts[6]) {
+    if (urlParts[6]) 
         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
-    } */
+    */
 
-    // var currentUrl = window.location.href,
-    //     urlParts = currentUrl.split('/'),
-    //     varJsUrl = 'https://dmj.one/var.js';
-    // for (var i = 3; i < urlParts.length && i < 7; i++) {
-    //     if (i === urlParts.length - 1)
-    //         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + 'var.js';
-    //     else
-    //         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + '/var.js';
-    // }
-
-    var currentUrl = window.location.href,
-        urlParts = currentUrl.split('/'),
-        varJsUrl = 'https://dmj.one/var.js';
-
-    // find the last complete folder in the url
-    var lastFolderIndex = urlParts.length - 1;
-    for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
-        // if (urlParts[i].indexOf(".") === -1) {
-        //     lastFolderIndex = i;
-        //     break;
-        // } else {
+    /* var currentUrl = window.location.href, urlParts = currentUrl.split('/'), varJsUrl = 'https://dmj.one/var.js', lastFolderIndex = urlParts.length - 1; // initialize the last complete folder index
+    for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) { // iterate through the parts in reverse order, starting from the last index
         lastFolderIndex = i;
         break;
-        // }
     }
-    // if (lastFolderIndex === 4 || lastFolderIndex === 5 || lastFolderIndex === 6 || lastFolderIndex == 7) {
-    if (lastFolderIndex >= 4 && lastFolderIndex <= 6) {
-        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
-    } else if (lastFolderIndex > 6) {
-        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
-    }
-
-    // var currentUrl = window.location.href,
-    //     urlParts = currentUrl.split('/'),
-    //     varJsUrl = 'https://dmj.one/var.js';
-
-    // // find the last complete folder in the url
-    // var lastFolderIndex = urlParts.length - 1;
-    // for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
-    //     if (urlParts[i].indexOf(".") === -1) {
-    //         lastFolderIndex = i;
-    //         break;
-    //     }
-    // }
-    // varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+    if (lastFolderIndex >= 4 && lastFolderIndex <= 6) // check if the last folder index is between 4 and 6 (inclusive)
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js'; // create the varJsUrl using the parts from index 3 to lastFolderIndex
+    else if (lastFolderIndex > 6) // check if the last folder index is greater than 6
+        varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js'; // create the varJsUrl using the parts from index 3 to 7
+ */
+    var varJsUrl = (function () { var currentUrl = window.location.href, urlParts = currentUrl.split('/'), varJsUrl = 'https://dmj.one/var.js', lastFolderIndex = urlParts.length - 1; for (var i = urlParts.length - 1; i >= 3 && i < 7; i--)lastFolderIndex = i,break; lastFolderIndex >= 4 && lastFolderIndex <= 6 ? varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js' : lastFolderIndex > 6 && (varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js'); return varJsUrl; })();
 
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
