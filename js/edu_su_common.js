@@ -27,7 +27,7 @@
     script.defer = true; // This will prevent browser to continue reading the other scripts present in that js file
     script.onload = function () {
         (function () {
-            var menuElement = document.getElementById("dmj_autogen_menu");
+            var menuElement = document.getElementById("dmj_autogenmenu");
 
             function body_genmenu(course) {
                 //  var gen_start = '<section class="light"><div class="container py-2">';
