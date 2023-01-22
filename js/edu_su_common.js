@@ -79,25 +79,41 @@
     //     varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
     // }
 
+    // var currentUrl = window.location.href,
+    //     urlParts = currentUrl.split('/'),
+    //     varJsUrl = 'https://dmj.one/var.js',
+    //     lastPart = urlParts[urlParts.length - 1],
+    //     fileRegex = /\.[0-9a-z]+$/i;
+    // if (!fileRegex.test(lastPart)) {
+    //     if (urlParts[3]) {
+    //         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
+    //     }
+    //     if (urlParts[4]) {
+    //         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
+    //     }
+    //     if (urlParts[5]) {
+    //         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
+    //     }
+    //     if (urlParts[6]) {
+    //         varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
+    //     }
+    // }
+
     var currentUrl = window.location.href,
         urlParts = currentUrl.split('/'),
         varJsUrl = 'https://dmj.one/var.js',
-        lastPart = urlParts[urlParts.length - 1],
-        fileRegex = /\.[0-9a-z]+$/i;
-    if (!fileRegex.test(lastPart)) {
-        if (urlParts[3]) {
-            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
-        }
-        if (urlParts[4]) {
-            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
-        }
-        if (urlParts[5]) {
-            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
-        }
-        if (urlParts[6]) {
-            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
-        }
+        lastSegment = urlParts[urlParts.length - 1],
+        lastSegmentParts = lastSegment.split('.');
+
+    // Check if the last segment is a file or a folder
+    if (lastSegmentParts.length > 1) {
+        // If it's a file, remove the last segment
+        urlParts.pop();
     }
+    for (var i = 3; i < urlParts.length; i++) {
+        varJsUrl = varJsUrl + '/' + urlParts[i];
+    }
+    varJsUrl = varJsUrl + '/var.js';
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
     var cdnjs_bootstrap = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js";
