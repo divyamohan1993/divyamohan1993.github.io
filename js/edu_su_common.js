@@ -85,7 +85,7 @@
     var currentUrl = window.location.href,
         urlParts = currentUrl.split('/'),
         varJsUrl = 'https://dmj.one/var.js';
-    for (var i = 3; i < urlParts.length && i <= 7; i++) {
+    for (var i = 3; i < urlParts.length && i <= 6; i++) {
         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, i + 1).join('/') + '/var.js';
     }
 
