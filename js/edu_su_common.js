@@ -63,20 +63,40 @@
 // })();
 
 (function () {
+    // var currentUrl = window.location.href,
+    //     urlParts = currentUrl.split('/'),
+    //     varJsUrl = 'https://dmj.one/var.js';
+    // if (urlParts[3]) {
+    //     varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
+    // }
+    // if (urlParts[4]) {
+    //     varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
+    // }
+    // if (urlParts[5]) {
+    //     varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
+    // }
+    // if (urlParts[6]) {
+    //     varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
+    // }
+
     var currentUrl = window.location.href,
         urlParts = currentUrl.split('/'),
-        varJsUrl = 'https://dmj.one/var.js';
-    if (urlParts[3]) {
-        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
-    }
-    if (urlParts[4]) {
-        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
-    }
-    if (urlParts[5]) {
-        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
-    }
-    if (urlParts[6]) {
-        varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
+        varJsUrl = 'https://dmj.one/var.js',
+        lastPart = urlParts[urlParts.length - 1],
+        fileRegex = /\.[0-9a-z]+$/i;
+    if (!fileRegex.test(lastPart)) {
+        if (urlParts[3]) {
+            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/var.js';
+        }
+        if (urlParts[4]) {
+            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/var.js';
+        }
+        if (urlParts[5]) {
+            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/var.js';
+        }
+        if (urlParts[6]) {
+            varJsUrl = 'https://dmj.one/' + urlParts[3] + '/' + urlParts[4] + '/' + urlParts[5] + '/' + urlParts[6] + '/var.js';
+        }
     }
 
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
