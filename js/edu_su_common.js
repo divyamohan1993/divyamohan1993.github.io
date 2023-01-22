@@ -567,11 +567,6 @@ function copyright(rights) {
     };
 }
 
-window.addEventListener("load", function () {
-    copyright('all');
-});
-
-
 
 /* function copyright(rights) {
     // sitemap_var_gen_clipboard();
