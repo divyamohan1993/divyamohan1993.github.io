@@ -99,12 +99,16 @@
     // find the last complete folder in the url
     var lastFolderIndex = urlParts.length - 1;
     for (var i = urlParts.length - 1; i >= 3; i--) {
-        if (urlParts[i].indexOf(".") === -1) {
-            lastFolderIndex = i;
-            break;
-        } else if (i === 3) {
-            lastFolderIndex = 3;
-            break;
+        if (i < 7) { // added condition here to check if i is less than 7
+            if (urlParts[i].indexOf(".") === -1) {
+                lastFolderIndex = i;
+                break;
+            } else if (i === 3) {
+                lastFolderIndex = 3;
+                break;
+            }
+        } else {
+            break; // if i is greater than 7, break out of the loop
         }
     }
 
