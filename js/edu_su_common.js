@@ -729,7 +729,7 @@ window.onload = function () {
 };
 
 /******* FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view. *******/
-(function () {
+/* (function () {
     window.addEventListener("load", function () {
         setTimeout(function () {
             // Method 1
@@ -758,4 +758,4 @@ window.onload = function () {
             }
         }, 1000);
     });
-})();
+})(); */
