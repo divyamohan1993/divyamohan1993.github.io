@@ -41,7 +41,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
                 if (!course) { var course = window.location.pathname.split("/")[4]; }
                 var gen_start = '<article class="genmenu py-3">';
                 var gen_end = '</article>';
-                var mainTag = document.getElementById("main dmj_autogenmenu");
+                var mainTag = document.getElementById("dmj_autogenmenu");
                 mainTag.innerHTML += gen_start;
                 // document.write(gen_start);
 
@@ -112,7 +112,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
                 if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
                 var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
 
-                var mainTag = document.getElementById("main dmj_autogenmenu");
+                var mainTag = document.getElementById("dmj_autogenmenu");
                 mainTag.innerHTML += gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
 
                 //     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
