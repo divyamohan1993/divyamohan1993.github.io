@@ -102,7 +102,6 @@
         if (urlParts[i].indexOf(".") === -1) {
             lastFolderIndex = i;
             break;
-
         } else {
             lastFolderIndex = i - 1;
             break;
