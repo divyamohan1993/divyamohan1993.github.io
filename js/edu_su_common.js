@@ -484,7 +484,7 @@ function dcevars(s) {
     document.write(decoded);
 }
 
-/* function body_genmenu(course) {
+function body_genmenu(course) {
     //  var gen_start = '<section class="light"><div class="container py-2">';
     //  var gen_end = '</div></section>';
     //  document.write(gen_start);
@@ -560,7 +560,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
 
     document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
-} */
+}
 
 function sitemap_var_gen_clipboard() {
     // maintenance_mode();
