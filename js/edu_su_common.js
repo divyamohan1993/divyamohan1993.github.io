@@ -118,7 +118,7 @@
         }
     }
 
-    if (lastFolderIndex === 3) {
+    if (lastFolderIndex === 3 || lastFolderIndex === 4 || lastFolderIndex === 5) {
         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + 'var.js';
     } else {
         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex + 1).join('/') + 'var.js';
