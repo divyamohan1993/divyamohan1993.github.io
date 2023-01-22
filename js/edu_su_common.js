@@ -115,6 +115,9 @@
             } else if (i === 6) {
                 lastFolderIndex = 6;
                 break;
+            } else if (i === 7) {
+                lastFolderIndex = 7;
+                break;
             }
         } else {
             break; // if i is greater than 7, break out of the loop
