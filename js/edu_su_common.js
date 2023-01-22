@@ -21,8 +21,6 @@
 //     document.head.appendChild(script);
 // })();
 
-
-
 // ****Math render - kaTex Js**** //
 //ACTIVE (function () {
 //     var scriptsToLoad = 2; // Number of scripts to load
@@ -142,6 +140,8 @@
                     throwOnError: false
                 });
                 // KaTex Math js END
+
+                this.remove();
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
