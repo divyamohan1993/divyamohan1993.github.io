@@ -446,7 +446,7 @@ function header_author(author_init) {
 
     var prof_bio = file && file.length ? "" : "";
     // var author_bio = file && file.length ? "" : "";
-    
+
     course_detail = secondary ? " (" + course_detail + ")" : "";
     course = `<h1>${course} ${course_detail}</h1>`;
     under_guidance = prof ? " under the guidance of " : "";
@@ -486,7 +486,8 @@ function dcevar(s) {
     var t = '';
     for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     var decoded = decodeURIComponent(t);
-    document.write(decoded);
+    // document.write(decoded);
+    document.body.appendChild(decoded);
 }
 // For better compatiblity of vars and var usage spelling mistake
 function dcevars(s) {
@@ -494,7 +495,7 @@ function dcevars(s) {
     var t = '';
     for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     var decoded = decodeURIComponent(t);
-    document.write(decoded);
+    document.body.appendChild(decoded);
 }
 
 function body_genmenu(course) {
