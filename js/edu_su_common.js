@@ -487,7 +487,7 @@ function dcevar(s) {
     for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     var decoded = decodeURIComponent(t);
     // document.write(decoded);
-    document.body.insertBefore(decoded, document.body.lastChild);
+    document.body.innerHTML += decoded;
 }
 // For better compatiblity of vars and var usage spelling mistake
 function dcevars(s) {
@@ -495,7 +495,7 @@ function dcevars(s) {
     var t = '';
     for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     var decoded = decodeURIComponent(t);
-    document.body.insertBefore(decoded, document.body.lastChild);
+    document.body.innerHTML += decoded;
 }
 
 function body_genmenu(course) {
@@ -723,7 +723,7 @@ window.addEventListener("load", function () {
 
     var vp_headerurls = ["/edu/su/course/csu1128/program/p31", "/edu/su/course/csu1128/program/p32"];
     var harshal_headerurls = ["/edu/su/course/csu1128p/labfile/p7_m2"];
-    
+
     if (vp_headerurls.includes(currentUrl)) {
         header_author("vp");
     } else if (harshal_headerurls.includes(currentUrl)) {
