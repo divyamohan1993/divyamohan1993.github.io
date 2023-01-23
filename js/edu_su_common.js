@@ -490,7 +490,7 @@ function body_genmenu(course) {
     //  var gen_end = '</div></section>';
     //  document.write(gen_start);
     if (!course) { var course = window.location.pathname.split("/")[4]; }
-    var gen_start = '<article class="genmenu py-3">';
+    var gen_start = '<div></div><article class="genmenu py-3">';
     var gen_end = '</article>';
     var agenmenu = document.querySelector("#agenmenu");
     document.addEventListener("DOMContentLoaded", function () {
@@ -839,6 +839,6 @@ window.onload = function () {
                     head.removeChild(head.children[i]);
                 }
             }
-        }, 1000);
+        }, 10);
     });
 })();
