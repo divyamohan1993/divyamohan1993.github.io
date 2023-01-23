@@ -316,6 +316,7 @@ function header_navbar() {
 
 
 function header_author(author_init) {
+    window["loaded_header_author"] = 1;
     /* USAGE - header_author(include_course_name, define_is_lab, teacher_FL, author_FL, biblography, button)
      * FL - First and Last Name initials 
      * Example: header_author(1, 0, "pv", "dm", 0, 1) / header_author(1, 0, "bt", "vn", 1, 1) :: 1 - display | 0 - Not Display 
@@ -499,6 +500,7 @@ function dcevars(s) {
 }
 
 function body_genmenu(course) {
+    window["loaded_body_genmenu"] = 1;
     //  var gen_start = '<section class="light"><div class="container py-2">';
     //  var gen_end = '</div></section>';
     //  document.write(gen_start);
@@ -650,6 +652,7 @@ function maintenance_mode() {
 
 /******** Footer ***********/
 function copyright(rights) {
+    window["loaded_copyright"] = 1;
     // sitemap_var_gen_clipboard();
 
     var footer_all_rights = ' &#8226; All rights reserved';
@@ -712,24 +715,31 @@ function copyright(rights) {
         // });
     };
 }
+// Automation Control Panel
 window.addEventListener("load", function () {
     var currentUrl = document.location.pathname;
-    var footerurls = ["/se.html", "/fr.html", "/de.html"];
-    if (footerurls.includes(currentUrl)) {
-        copyright("some");
-    } else {
-        copyright("all");
+    // Header Automation
+    if (!window["loaded_header_author"] == 1) {
+        var vp_headerurls = ["/edu/su/course/csu1128/program/p31", "/edu/su/course/csu1128/program/p32"];
+        var harshal_headerurls = ["/edu/su/course/csu1128p/labfile/p7_m2"];
+
+        if (vp_headerurls.includes(currentUrl)) {
+            header_author("vp");
+        } else if (harshal_headerurls.includes(currentUrl)) {
+            header_author("harshal");
+        } else {
+            header_author();
+        }
     }
 
-    var vp_headerurls = ["/edu/su/course/csu1128/program/p31", "/edu/su/course/csu1128/program/p32"];
-    var harshal_headerurls = ["/edu/su/course/csu1128p/labfile/p7_m2"];
-
-    if (vp_headerurls.includes(currentUrl)) {
-        header_author("vp");
-    } else if (harshal_headerurls.includes(currentUrl)) {
-        header_author("harshal");
-    } else {
-        header_author();
+    // Footer Automation    
+    if (!window["loaded_copyright"] == 1) {
+        var footerurls = ["/se.html", "/fr.html", "/de.html"];
+        if (footerurls.includes(currentUrl)) {
+            copyright("some");
+        } else {
+            copyright("all");
+        }
     }
 });
 
