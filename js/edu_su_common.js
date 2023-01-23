@@ -214,14 +214,14 @@ function header_navbar() {
         const nav_subfolder = pathname[5] || '';
         const nav_filename = pathname.pop() || '';
 
-        
-/*         var url = new URL(window.location.href);
-        var base = "/edu/su/";
-        var courses = base + "course/";
-        if (url.pathname.split("/")[4]) { var nav_folder = courses + url.pathname.split("/")[4]; }
-        var nav_subfolder = url.pathname.split("/")[5];
-        var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
- */
+
+        /*         var url = new URL(window.location.href);
+                var base = "/edu/su/";
+                var courses = base + "course/";
+                if (url.pathname.split("/")[4]) { var nav_folder = courses + url.pathname.split("/")[4]; }
+                var nav_subfolder = url.pathname.split("/")[5];
+                var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
+         */
 
         var nav_home = `<a href="https://${url.hostname}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
         var nav_path = `<a href="${nav_folder}/" data-toggle="tooltip" data-placement="top" title="${nav_folder}" data-original-title="${nav_folder}"><i class="bi bi-journals text-light"></i></a>`;
@@ -230,18 +230,19 @@ function header_navbar() {
 
         var list_start = '<nav aria-label="breadcrumb" class="navbar-brand text-light"><ol class="breadcrumb" style="margin:auto">';
         var list_home = `<li class="breadcrumb-item">${nav_home}</li>`;
-        var list_path = '';
         var list_close = '</ol></nav>';
-        if (!window["page"] == 404) {
-            if (nav_folder) {
-                var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
-                if (nav_subfolder) {
-                    list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
-                    if (nav_filename) {
-                        list_path += '<li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
-                    }
+
+        if (nav_folder) {
+            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
+            if (nav_subfolder) {
+                list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
+                if (nav_filename) {
+                    list_path += '<li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
                 }
             }
+        }
+        if (!window["page"] == 404) {
+            list_path = '';
         }
         return (list_start + list_home + list_path + list_close);
     }
