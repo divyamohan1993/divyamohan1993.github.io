@@ -425,22 +425,17 @@ function header_author(author_init) {
     var csu953_button = "";
 
 
-    switch (course) {
-        case "CSU1128":
-            var button = row_button_start + csu1128_button + csu1128p_button + row_button_end;
-            break;
-        case "CSU1128(P)":
-            var button = row_button_start + csu1128_button + csu1128p_button + row_button_end;
-            break;
-        case "FSU030":
-            var button = row_button_start + fsu030_button + row_button_end;
-            break;
-        case "CSU953":
-            var button = row_button_start + csu953_button + row_button_end;
-        default:
-            var button = "";
-            break;
-    }
+    // switch the course and store the value in bottons which is then returned to button through arrow function. usage:-  course_code: things to load if that course code matches. 
+    const button = (() => {
+        const buttons = {
+            "": row_button_start + csu1128_button + csu1128p_button + row_button_end,
+            "CSU1128": row_button_start + csu1128_button + csu1128p_button + row_button_end,
+            "CSU1128(P)": row_button_start + csu1128_button + csu1128p_button + row_button_end,
+            "FSU030": row_button_start + fsu030_button + row_button_end,
+            "CSU953": row_button_start + csu953_button + row_button_end
+        }
+        return buttons[course] || ""
+    })();
 
     var profname = "<strong>" + prof + "</strong> ";
     var prof_link = '<a href="' + prof_href + '" data-toggle="tooltip" data-placement="top" title="Get in touch with ' + prof + '" data-original-title="Get in touch with ' + prof + '"><i class="bi bi-envelope-plus text-light"></i></a>';
