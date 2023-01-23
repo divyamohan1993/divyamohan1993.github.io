@@ -104,6 +104,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
             varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
         return varJsUrl;
     })();
+    document.write(`<script src='${varJsUrl}'></script>`);
     
     //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
