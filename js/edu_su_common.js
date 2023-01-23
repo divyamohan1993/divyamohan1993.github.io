@@ -233,7 +233,7 @@ function header_navbar() {
         var list_close = '</ol></nav>';
 
         if (nav_folder) {
-            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
+            var list_path = `<li class="breadcrumb-item">${nav_path}</li>`;
             if (nav_subfolder) {
                 list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
                 if (nav_filename) {
