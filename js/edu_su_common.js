@@ -828,8 +828,9 @@ window.onload = function () {
     console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
 
-/******* FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view. *******/
+/******* SECURITY SUITE START *******/
 (function () {
+    /* FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view. */
     window.addEventListener("load", function () {
         setTimeout(function () {
             // Method 1
@@ -858,7 +859,26 @@ window.onload = function () {
             }
         }, 10);
     });
+
+    // Disable F12 and CTRL + U silently!
+    (function () {
+        document.onkeydown = function (e) {
+            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
+                e.preventDefault();
+                //alert("F12 and Ctrl+U are disabled for security reasons.");
+            }
+        };
+        document.oncontextmenu = function () {
+            return false;
+        }
+        document.onmousedown = function (e) {
+            if (e.button === 2) {
+                return false;
+            }
+        }
+    })();
 })();
+/******* SECURITY SUITE END *******/
 
 
 
@@ -881,6 +901,12 @@ window.addEventListener("load", function () {
             header_author();
         }
     }
+
+    // Body Automation - TO DO
+    if (!window["loaded_body_genmenu"] == 1) {
+        body_genmenu();
+    }
+            
 
     // Footer Automation    
     if (!window["loaded_copyright"] == 1) {
