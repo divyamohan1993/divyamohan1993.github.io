@@ -149,7 +149,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
 })();
 
 (function () {
-    const logo = "/logo.png?v=2.2";
+    const logo = "https://dmj.one/logo.png?v=2.2";
     const pr = "preconnect";
     const links = [
         { rel: pr, href: "https://fonts.googleapis.com" },
@@ -158,11 +158,11 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
         { rel: pr, href: "https://fonts.gstatic.com" },
         { rel: pr, href: "https://picsum.photos" },
         { rel: pr, href: "https://type.fit" },
-        { rel: "manifest", href: "/edu/su/manifest.webmanifest" },
+        { rel: "manifest", href: "https://dmj.one/edu/su/manifest.webmanifest" },
         { rel: "shortcut icon", href: logo },
         { rel: "fluid-icon", href: logo },
         { rel: "apple-touch-icon", href: logo },
-        { rel: "stylesheet", href: "/css/edu_su_common.css?v=0.1" }
+        { rel: "stylesheet", href: "https://dmj.one/css/edu_su_common.css" }
     ];
 
     (function header_createlink(links) {
