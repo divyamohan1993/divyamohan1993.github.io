@@ -715,33 +715,6 @@ function copyright(rights) {
         // });
     };
 }
-// Automation Control Panel
-window.addEventListener("load", function () {
-    var currentUrl = document.location.pathname;
-    // Header Automation
-    if (!window["loaded_header_author"] == 1) {
-        var vp_headerurls = ["/edu/su/course/csu1128/program/p31", "/edu/su/course/csu1128/program/p32"];
-        var harshal_headerurls = ["/edu/su/course/csu1128p/labfile/p7_m2"];
-
-        if (vp_headerurls.includes(currentUrl)) {
-            header_author("vp");
-        } else if (harshal_headerurls.includes(currentUrl)) {
-            header_author("harshal");
-        } else {
-            header_author();
-        }
-    }
-
-    // Footer Automation    
-    if (!window["loaded_copyright"] == 1) {
-        var footerurls = ["/se.html", "/fr.html", "/de.html"];
-        if (footerurls.includes(currentUrl)) {
-            copyright("some");
-        } else {
-            copyright("all");
-        }
-    }
-});
 
 
 /* function copyright(rights) {
@@ -886,3 +859,36 @@ window.onload = function () {
         }, 10);
     });
 })();
+
+
+
+
+/************* AUTOMATION CONTROL PANEL ******************/
+window.addEventListener("load", function () {
+    var currentUrl = document.location.pathname;
+    // Header Automation
+    if (!window["loaded_header_author"] == 1 || window["page"] == 404) {
+        var vp_headerurls = ["/edu/su/course/csu1128/program/p31", "/edu/su/course/csu1128/program/p32"];
+        var harshal_headerurls = ["/edu/su/course/csu1128p/labfile/p7_m2"];
+
+        if (vp_headerurls.includes(currentUrl)) {
+            header_author("vp");
+        } else if (harshal_headerurls.includes(currentUrl)) {
+            header_author("harshal");
+        } else if (window["page"] == 404) {
+            document.body.insertAdjacentHTML('afterbegin', header_navbar());  // special case of 404 page
+        } else {
+            header_author();
+        }
+    }
+
+    // Footer Automation    
+    if (!window["loaded_copyright"] == 1) {
+        var footerurls = ["/se.html", "/fr.html", "/de.html"];
+        if (footerurls.includes(currentUrl)) {
+            copyright("some");
+        } else {
+            copyright("all");
+        }
+    }
+});
