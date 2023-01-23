@@ -222,20 +222,6 @@ function header_navbar() {
         var nav_subfolder = url.pathname.split("/")[5];
         var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
  */
-        // console.log(url.hostname);
-        // console.log(nav_folder);
-        // console.log(nav_subfolder);
-        // console.log(nav_filename);
-
-       /*  var nav_home = '<a href="https://' + url.hostname + '/edu/su/ " data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>';
-        var nav_path = '<a href="' + nav_folder + '/" data-toggle="tooltip" data-placement="top" title="' + nav_folder + '" data-original-title="' + nav_folder + '"><i class="bi bi-journals text-light"></i></a>';
-        var nav_subpath = '<a href="' + nav_folder + '/' + nav_subfolder + '/" data-toggle="tooltip" data-placement="top" title="' + nav_subfolder + '" data-original-title="' + nav_subfolder + '"><i class="bi bi-card-list text-light"></i></a>';
-        var nav_file = '<a href="' + nav_filename + '" data-toggle="tooltip" data-placement="top" title="' + nav_filename + '" data-original-title="' + nav_filename + '"><i class="bi bi-journal-code text-light"></i></a>';
-
-        var list_start = '<nav aria-label="breadcrumb" class="navbar-brand text-light"><ol class="breadcrumb" style="margin:auto">';
-        var list_home = '<li class="breadcrumb-item">' + nav_home + '</li>';
-        var list_path = '';
-        var list_close = '</ol></nav>'; */
 
         var nav_home = `<a href="https://${url.hostname}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
         var nav_path = `<a href="${nav_folder}/" data-toggle="tooltip" data-placement="top" title="${nav_folder}" data-original-title="${nav_folder}"><i class="bi bi-journals text-light"></i></a>`;
@@ -246,17 +232,17 @@ function header_navbar() {
         var list_home = `<li class="breadcrumb-item">${nav_home}</li>`;
         var list_path = '';
         var list_close = '</ol></nav>';
-
-        if (nav_folder) {
-            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
-            if (nav_subfolder) {
-                list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
-                if (nav_filename) {
-                    list_path += '<li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
+        if (!window["page"] == 404) {
+            if (nav_folder) {
+                var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
+                if (nav_subfolder) {
+                    list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
+                    if (nav_filename) {
+                        list_path += '<li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
+                    }
                 }
             }
         }
-
         return (list_start + list_home + list_path + list_close);
     }
 
