@@ -438,25 +438,23 @@ function header_author(author_init) {
         return buttons[course] || ""
     })();
 
-    var profname = "<strong>" + prof + "</strong> ";
-    var prof_link = '<a href="' + prof_href + '" data-toggle="tooltip" data-placement="top" title="Get in touch with ' + prof + '" data-original-title="Get in touch with ' + prof + '"><i class="bi bi-envelope-plus text-light"></i></a>';
+    profname = `<strong>${prof}</strong>`;
+    prof_link = `<a href="${prof_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${prof}" data-original-title="Get in touch with ${prof}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    const authorname = `<strong>${author}</strong>`;
+    const author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
 
-    var authorname = "<strong>" + author + "</strong> ";
-    var author_link = '<a href="' + author_href + '" data-toggle="tooltip" data-placement="top" title="Get in touch with ' + author + '" data-original-title="Get in touch with ' + author + '"><i class="bi bi-envelope-plus text-light"></i></a>';
 
-    if (file) {
-        if (file.length != 0) {
-            var prof_bio = "";
-            // var author_bio = "";
-        }
-    }
+    var prof_bio = file && file.length ? "" : "";
+    // var author_bio = file && file.length ? "" : "";
+    
+    course_detail = secondary ? " (" + course_detail + ")" : "";
+    course = `<h1>${course} ${course_detail}</h1>`;
+    under_guidance = prof ? " under the guidance of " : "";
+    prof_link = prof ? prof_link : "";
 
-    if (secondary) { course_detail = " (" + course_detail + ")"; } else { course_detail = "" };
-
-    course = "<h1>" + course + course_detail + "</h3></h1>";
-    if (prof) { var under_guidance = " under the guidance of "; } else { var under_guidance = ""; var prof_link = ""; };
-
-    document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
+    // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
+    finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    document.body.insertAdjacentHTML('afterbegin', finalheaders);
 }
 
 // check and give active link
@@ -672,14 +670,13 @@ function copyright(rights) {
     span.appendChild(strong);
     footer.appendChild(span);
 
-    // document.body.appendChild(footer);
+    //document.body.appendChild(footer);
     document.body.insertBefore(footer, document.body.lastChild);
 
-
     //define service worker
-    if (typeof navigator.serviceWorker !== 'undefined') {
+    /* if (typeof navigator.serviceWorker !== 'undefined') {
         navigator.serviceWorker.register('/sw.js')
-    }
+    } */
 
     // Notification cookie
     if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
@@ -714,6 +711,24 @@ function copyright(rights) {
         // });
     };
 }
+window.addEventListener("load", function () {
+    var currentUrl = document.location.pathname;
+    var footerurls = ["/se.html", "/fr.html", "/de.html"];
+    if (footerurls.includes(currentUrl)) {
+        copyright("some");
+    } else {
+        copyright("all");
+    }
+    var vp_headerurls = ["/edu/su/course/csu1128/program/p31", "/edu/su/course/csu1128/program/p32"];
+    var harshal_headerurls = ["/edu/su/course/csu1128p/labfile/p7_m2"];
+    if (vp_headerurls.includes(currentUrl)) {
+        header_author("vp");
+    } else if (harshal_headerurls.includes(currentUrl)) {
+        header_author("harshal");
+    } else {
+        header_author();
+    }
+});
 
 
 /* function copyright(rights) {
