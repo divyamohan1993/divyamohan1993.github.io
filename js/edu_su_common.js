@@ -105,7 +105,7 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
         return varJsUrl;
     })();
     document.write(`<script src='${varJsUrl}'></script>`);
-    
+
     //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
@@ -497,7 +497,7 @@ function body_genmenu(course) {
         agenmenu.innerHTML += gen_start;
     });
     // Substituted document.write(gen_start); by DOMContentLoaded for automation
-    
+
 
     if (course) {
         switch (course) {
@@ -812,7 +812,7 @@ window.onload = function () {
 };
 
 /******* FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view. *******/
-/* (function () {
+(function () {
     window.addEventListener("load", function () {
         setTimeout(function () {
             // Method 1
@@ -841,4 +841,4 @@ window.onload = function () {
             }
         }, 1000);
     });
-})(); */
+})();
