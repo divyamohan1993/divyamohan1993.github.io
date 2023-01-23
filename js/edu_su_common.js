@@ -228,15 +228,29 @@ function header_navbar() {
         var list_path = '';
         var list_close = '</ol></nav>';
 
+        /*  if (nav_folder) {
+             var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
+ 
+             if (nav_subfolder) {
+                 var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li>';
+ 
+                 if (nav_filename) {
+                     var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li><li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
+                 }
+             }
+         } */
+
+
         if (nav_folder) {
             var list_path = '<li class="breadcrumb-item">' + nav_path + '</li>';
+            if (nav_subfolder) {
+                list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
+                if (nav_filename) {
+                    list_path += '<li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
+                }
+            }
         }
-        if (nav_subfolder) {
-            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li>';
-        }
-        if (nav_filename) {
-            var list_path = '<li class="breadcrumb-item">' + nav_path + '</li><li class="breadcrumb-item">' + nav_subpath + '</li><li class="breadcrumb-item active" aria-current="page">' + nav_file + '</li>';
-        }
+
         return (list_start + list_home + list_path + list_close);
     }
 
@@ -906,7 +920,7 @@ window.addEventListener("load", function () {
     if (!window["loaded_body_genmenu"] == 1) {
         body_genmenu();
     }
-            
+
 
     // Footer Automation    
     if (!window["loaded_copyright"] == 1) {
