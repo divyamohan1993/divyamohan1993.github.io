@@ -445,7 +445,7 @@ function header_author(author_init) {
     const author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
 
 
-    var prof_bio = file && (file.length != 0) ? "" : "";
+    var prof_bio = file && file.length ? "" : prof_bio;
     // var author_bio = file && file.length ? "" : "";
 
     course_detail = secondary ? " (" + course_detail + ")" : "";
