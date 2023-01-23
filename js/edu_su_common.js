@@ -89,22 +89,22 @@ var header_pv_desc = "*8Hu*8J*5F*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75*75
         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js'; // create the varJsUrl using the parts from index 3 to 7
  */
     // -- Professional --
-    // var varJsUrl = (function () {
-    //     var currentUrl = window.location.href,
-    //         urlParts = currentUrl.split('/'),
-    //         varJsUrl = 'https://dmj.one/var.js',
-    //         lastFolderIndex = urlParts.length - 1;
-    //     for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
-    //         lastFolderIndex = i;
-    //         break;
-    //     }
-    //     if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
-    //         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
-    //     else if (lastFolderIndex > 6)
-    //         varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
-    //     return varJsUrl;
-    // })();
-
+    var varJsUrl = (function () {
+        var currentUrl = window.location.href,
+            urlParts = currentUrl.split('/'),
+            varJsUrl = 'https://dmj.one/var.js',
+            lastFolderIndex = urlParts.length - 1;
+        for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
+            lastFolderIndex = i;
+            break;
+        }
+        if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+        else if (lastFolderIndex > 6)
+            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
+        return varJsUrl;
+    })();
+    
     //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
@@ -491,7 +491,12 @@ function body_genmenu(course) {
     if (!course) { var course = window.location.pathname.split("/")[4]; }
     var gen_start = '<article class="genmenu py-3">';
     var gen_end = '</article>';
-    document.write(gen_start);
+    var agenmenu = document.querySelector("#agenmenu");
+    document.addEventListener("DOMContentLoaded", function () {
+        agenmenu.innerHTML += gen_start;
+    });
+    // Substituted document.write(gen_start); by DOMContentLoaded for automation
+    
 
     if (course) {
         switch (course) {
@@ -514,7 +519,10 @@ function body_genmenu(course) {
                 break;
         }
     } else { get_menu_list() };
-    document.write(gen_end);
+    // Substitution for document.write(gen_end); due to automation
+    document.addEventListener("DOMContentLoaded", function () {
+        agenmenu.innerHTML += gen_end;
+    });
 }
 
 
@@ -559,7 +567,12 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
     var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
 
-    document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
+    let finaltowrite = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
+    // document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
+    document.addEventListener("DOMContentLoaded", function () {
+        var genclass = document.querySelector(".genmenu");
+        genclass.innerHTML += finaltowrite;
+    });
 }
 
 function sitemap_var_gen_clipboard() {
