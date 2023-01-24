@@ -868,22 +868,22 @@ window.onload = function () {
     });
 
     // Disable F12 and CTRL + U silently!
-    (function () {
-        document.onkeydown = function (e) {
-            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
-                e.preventDefault();
-                //alert("F12 and Ctrl+U are disabled for security reasons.");
-            }
-        };
-        document.oncontextmenu = function () {
-            return false;
-        }
-        document.onmousedown = function (e) {
-            if (e.button === 2) {
-                return false;
-            }
-        }
-    })();
+    // (function () {
+    //     document.onkeydown = function (e) {
+    //         if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
+    //             e.preventDefault();
+    //             //alert("F12 and Ctrl+U are disabled for security reasons.");
+    //         }
+    //     };
+    //     document.oncontextmenu = function () {
+    //         return false;
+    //     }
+    //     document.onmousedown = function (e) {
+    //         if (e.button === 2) {
+    //             return false;
+    //         }
+    //     }
+    // })();
 })();
 /******* SECURITY SUITE END *******/
 
