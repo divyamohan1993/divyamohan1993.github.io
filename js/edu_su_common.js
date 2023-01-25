@@ -1,5 +1,6 @@
 /* A Messy Playground! - This file contains all the js combined for experiments. NOT FOR PRODUCTION USE. */
 /*************** Fixed Functions and Variables START **************/
+
 // Generate URL in parts and store in the automated variable inside the window os the user. 
 (function () {
     let parts = window.location.pathname.split("/").slice(1);
@@ -231,9 +232,10 @@ function header_navbar() {
         var list_start = '<nav aria-label="breadcrumb" class="navbar-brand text-light"><ol class="breadcrumb" style="margin:auto">';
         var list_home = `<li class="breadcrumb-item">${nav_home}</li>`;
         var list_close = '</ol></nav>';
+        var list_path = '';
 
         if (nav_folder) {
-            var list_path = `<li class="breadcrumb-item">${nav_path}</li>`;
+            list_path = `<li class="breadcrumb-item">${nav_path}</li>`;
             if (nav_subfolder) {
                 list_path += '<li class="breadcrumb-item">' + nav_subpath + '</li>';
                 if (nav_filename) {
@@ -836,8 +838,8 @@ window.onload = function () {
 };
 
 /******* SECURITY SUITE START *******/
-(function () {
-    /* FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view. */
+/* (function () {
+    // FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view.
     window.addEventListener("load", function () {
         setTimeout(function () {
             // Method 1
@@ -868,23 +870,23 @@ window.onload = function () {
     });
 
     // Disable F12 and CTRL + U silently!
-    // (function () {
-    //     document.onkeydown = function (e) {
-    //         if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
-    //             e.preventDefault();
-    //             //alert("F12 and Ctrl+U are disabled for security reasons.");
-    //         }
-    //     };
-    //     document.oncontextmenu = function () {
-    //         return false;
-    //     }
-    //     document.onmousedown = function (e) {
-    //         if (e.button === 2) {
-    //             return false;
-    //         }
-    //     }
-    // })();
-})();
+    (function () {
+        document.onkeydown = function (e) {
+            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
+                e.preventDefault();
+                alert("You want to view te code? \n View to learn or to copy? \n No, Dont copy! F12 and Ctrl+U are disabled for security reasons.");
+            }
+        };
+        document.oncontextmenu = function () {
+            return false;
+        }
+        document.onmousedown = function (e) {
+            if (e.button === 2) {
+                return false;
+            }
+        }
+    })();
+})(); */
 /******* SECURITY SUITE END *******/
 
 
