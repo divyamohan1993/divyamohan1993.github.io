@@ -818,7 +818,7 @@ function gen_blockquote() {
             location.reload(true);
         }
     }
-    fetch(`/edu_su_common.js?v=${Date.now()}`)
+    fetch(`/js/edu_su_common.js?v=${Date.now()}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
