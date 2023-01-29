@@ -806,30 +806,36 @@ function gen_blockquote() {
 }
 
 /******** Fetch updated content from the server automatically ********/
-function updateContent() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", window.location.href, true);
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-    //         if (xhr.responseText !== document.documentElement.outerHTML) {
-    //             document.open();
-    //             document.write(xhr.responseText);
-    //             document.close();
-    //         }
-    //     }
-    // };
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            if (xhr.responseText !== document.documentElement.outerHTML) {
-                // Set the Cache-Control header to "no-cache" to force the browser to re-fetch the updated content
-                xhr.getAllResponseHeaders().replace("Cache-Control", "no-cache");
-                location.reload();
-            }
+(function () {
+    const currentTime = new Date().getTime(); // Get current time in milliseconds    
+    const storedTime = localStorage.getItem(`pageLoadTime-${location.pathname}`); // Get time from local storage for this page
+    // If there's no stored time, set it to the current time
+    if (!storedTime) {
+        localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
+    } else {
+        // If the stored time is more than 24 hours ago, hard reload the page
+        if (currentTime - storedTime >= 24 * 60 * 60 * 1000) {
+            location.reload(true);
         }
-    };
-    xhr.send();
-}
-setInterval(updateContent, 5000); // updates every 5 seconds
+    }
+    fetch(`/edu_su_common.js?v=${Date.now()}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            if (data !== currentCachedVersion) {
+                // location.reload(true);
+                console.log("reload");
+            } else
+                console.log("no reload");
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+})();
 
 
 /******** Include all the Google ad / analytics and Microsoft Clarity codes. *******/
