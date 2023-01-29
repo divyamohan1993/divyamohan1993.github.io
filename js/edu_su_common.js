@@ -823,7 +823,7 @@ function gen_blockquote() {
 
         try {
             // retrieve the current cached version of fs.js
-            const response = await fetch('/fs.js');
+            const response = await fetch('/js/edu_su_common.js');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -834,7 +834,7 @@ function gen_blockquote() {
 
         try {
             // make the request with cache-busting to retrieve the latest version
-            const response = await fetch(`/fs.js?v=${Date.now()}`);
+            const response = await fetch(`/js/edu_su_common.js?v=${Date.now()}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
