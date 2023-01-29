@@ -818,8 +818,39 @@ function gen_blockquote() {
             location.reload(true);
         }
     }
+    (async function () {
+        let currentCachedVersion;
 
-    (function () {
+        try {
+            // retrieve the current cached version of fs.js
+            const response = await fetch('/fs.js');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            currentCachedVersion = await response.text();
+        } catch (error) {
+            console.error('Error while retrieving cached version:', error);
+        }
+
+        try {
+            // make the request with cache-busting to retrieve the latest version
+            const response = await fetch(`/fs.js?v=${Date.now()}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const latestVersion = await response.text();
+
+            if (latestVersion !== currentCachedVersion) {
+                // reload the page if the latest version is different from the cached version
+                location.reload(true);
+            }
+        } catch (error) {
+            console.error('Error while fetching latest version:', error);
+        }
+    })();
+
+
+    /* (function () {
         // verify if loaded edu_su_common.js file is loaded correctly from server and not the stale version.
         let currentCachedVersion;
         // retrieve the current cached version of fs.js
@@ -853,7 +884,7 @@ function gen_blockquote() {
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
-    })();
+    })(); */
 })();
 
 
