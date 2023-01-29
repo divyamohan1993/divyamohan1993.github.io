@@ -809,12 +809,21 @@ function gen_blockquote() {
 function updateContent() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", window.location.href, true);
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    //         if (xhr.responseText !== document.documentElement.outerHTML) {
+    //             document.open();
+    //             document.write(xhr.responseText);
+    //             document.close();
+    //         }
+    //     }
+    // };
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             if (xhr.responseText !== document.documentElement.outerHTML) {
-                document.open();
-                document.write(xhr.responseText);
-                document.close();
+                // Set the Cache-Control header to "no-cache" to force the browser to re-fetch the updated content
+                xhr.getAllResponseHeaders().replace("Cache-Control", "no-cache");
+                location.reload();
             }
         }
     };
