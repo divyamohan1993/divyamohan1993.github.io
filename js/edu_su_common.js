@@ -877,16 +877,16 @@ function gen_blockquote() {
 })();
 
 /******* get reading time required *******/
-// window.onload = function () {
-//     var totalTime = 0;
-//     var content = document.body.innerHTML;
-//     var words = content.split(" ");
+window.onload = function () {
+    var totalTime = 0;
+    var content = document.body.innerHTML;
+    var words = content.split(" ");
 
-//     for (var i = 0; i < words.length; i++) {
-//         totalTime += (words[i].length / 250);
-//     }
-//     console.log("Total time to read the webpage: " + totalTime + " minutes");
-// };
+    for (var i = 0; i < words.length; i++) {
+        totalTime += (words[i].length / 250);
+    }
+    console.log("Total time to read the webpage: " + totalTime + " minutes");
+};
 
 /******* SECURITY SUITE START *******/
 /* (function () {
