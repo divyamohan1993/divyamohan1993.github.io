@@ -48,6 +48,15 @@ function get_menu_list() {
                     author = "";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
+                case 3:
+                    link = "lecture/";
+                    date = " Last Updated: " + date;
+                    title = "Lectures demo 2";
+                    desc = "All the important lectures";
+                    readtime = "";
+                    author = "";
+                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    break;
                 default:
                     /* link = "#";
                     date = "Not Applicable";
