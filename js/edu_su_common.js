@@ -818,23 +818,42 @@ function gen_blockquote() {
             location.reload(true);
         }
     }
-    fetch(`/js/edu_su_common.js?v=${Date.now()}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(data => {
-            if (data !== currentCachedVersion) {
-                // location.reload(true);
-                console.log("reload");
-            } else
-                console.log("no reload");
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
+    
+    (function () {
+        // verify if loaded edu_su_common.js file is loaded correctly from server and not the stale version.
+        let currentCachedVersion;
+        // retrieve the current cached version of fs.js
+        fetch('/js/edu_su_common.js')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                currentCachedVersion = data;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+
+        // later, make the request with cache-busting to retrieve the latest version
+        fetch(`/js/edu_su_common.js?v=${Date.now()}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                if (data !== currentCachedVersion) {
+                    location.reload(true);
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    })();
 })();
 
 
