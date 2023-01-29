@@ -51,7 +51,7 @@ function get_menu_list() {
                 case 3:
                     link = "lecture/";
                     date = " Last Updated: " + date;
-                    title = "Lectures demo 2";
+                    title = "Lectures demo 3";
                     desc = "All the important lectures";
                     readtime = "";
                     author = "";
