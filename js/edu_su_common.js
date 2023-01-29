@@ -805,6 +805,23 @@ function gen_blockquote() {
     } quote();
 }
 
+/******** Fetch updated content from the server automatically ********/
+function updateContent() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", window.location.href, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            if (xhr.responseText !== document.documentElement.outerHTML) {
+                document.open();
+                document.write(xhr.responseText);
+                document.close();
+            }
+        }
+    };
+    xhr.send();
+}
+setInterval(updateContent, 5000); // updates every 5 seconds
+
 
 /******** Include all the Google ad / analytics and Microsoft Clarity codes. *******/
 (function () {
