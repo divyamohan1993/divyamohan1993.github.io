@@ -893,7 +893,7 @@ window.onload = function () {
     for (var i = 0; i < words.length; i++) {
         totalTime += (words[i].length / 250);
     }
-    // console.log("Total time to read the webpage: " + totalTime + " minutes");
+    console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
 
 /******* SECURITY SUITE START *******/
