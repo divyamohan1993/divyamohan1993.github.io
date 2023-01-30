@@ -867,25 +867,23 @@ function gen_blockquote() {
 
 /******** Fetch updated content from the server automatically ********/
 (function () {
-    let refreshCounter = 0; // Counter for refresh attempts
-    const maxRefreshAttempts = 5; // Maximum number of refresh attempts
-    // let rtime = 24 * 60 * 60 * 1000; // 24 hours
-    let rtime = 6 * 1000; // 24 hours
+    let refreshCounter = 0;
+    const maxRefreshAttempts = 5;
+    let rtime = 10 * 1000; // 10 seconds 24 * 60 * 60 * 1000 for 24 hours. hour * minute * second * microsecond
 
-    const currentTime = new Date().getTime(); // Get current time in milliseconds    
-    const storedTime = localStorage.getItem(`pageLoadTime-${location.pathname}`); // Get time from local storage for this page
-    // If there's no stored time, set it to the current time
+    const currentTime = new Date().getTime();
+    const storedTime = localStorage.getItem(pageLoadTime - location.pathname);
+
     if (!storedTime) {
-        localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
+        localStorage.setItem(pageLoadTime - location.pathname, currentTime);
     } else {
-        // If the stored time is more than 24 hours ago, hard reload the page
         if (currentTime - storedTime >= rtime) {
             if (refreshCounter >= maxRefreshAttempts) {
                 console.error('Too many refresh attempts. Stopping refresh.');
                 return;
             }
             refreshCounter++;
-            localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
+            localStorage.setItem(pageLoadTime - location.pathname, currentTime);
             location.reload(true);
         }
     }
