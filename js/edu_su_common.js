@@ -496,7 +496,7 @@ function dcevar(s) {
     var t = '';
     for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     var decoded = decodeURIComponent(t);
-    // document.write(decoded);
+    
     document.body.innerHTML += decoded;
 }
 // For better compatiblity of vars and var usage spelling mistake
@@ -507,7 +507,8 @@ function dcevars(s) {
         t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     }
     var decoded = decodeURIComponent(t);
-    var div = document.createElement("div");
+    // document.write(decoded);
+    var div = document.createElement("div"); // if the code has its own script, it wont work. command it from this js file or use document.write for script and if necessary BUT it will erase all the contents. 
     div.innerHTML = decoded;
     document.body.appendChild(div);
 }
