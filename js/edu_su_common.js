@@ -807,6 +807,9 @@ function gen_blockquote() {
 
 /******** Fetch updated content from the server automatically ********/
 (function () {
+    let refreshCounter = 0; // Counter for refresh attempts
+    const maxRefreshAttempts = 5; // Maximum number of refresh attempts
+
     const currentTime = new Date().getTime(); // Get current time in milliseconds    
     const storedTime = localStorage.getItem(`pageLoadTime-${location.pathname}`); // Get time from local storage for this page
     // If there's no stored time, set it to the current time
@@ -815,6 +818,12 @@ function gen_blockquote() {
     } else {
         // If the stored time is more than 24 hours ago, hard reload the page
         if (currentTime - storedTime >= 24 * 60 * 60 * 1000) {
+            if (refreshCounter >= maxRefreshAttempts) {
+                console.error('Too many refresh attempts. Stopping refresh.');
+                return;
+            }
+            refreshCounter++;
+            localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
             location.reload(true);
         }
     }
@@ -842,49 +851,17 @@ function gen_blockquote() {
 
             if (latestVersion !== currentCachedVersion) {
                 // reload the page if the latest version is different from the cached version
+                if (refreshCounter >= maxRefreshAttempts) {
+                    console.error('Too many refresh attempts. Stopping refresh.');
+                    return;
+                }
+                refreshCounter++;
                 location.reload(true);
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
         }
     })();
-
-
-    /* (function () {
-        // verify if loaded edu_su_common.js file is loaded correctly from server and not the stale version.
-        let currentCachedVersion;
-        // retrieve the current cached version of fs.js
-        fetch('/js/edu_su_common.js')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                currentCachedVersion = data;
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-
-        // later, make the request with cache-busting to retrieve the latest version
-        fetch(`/js/edu_su_common.js?v=${Date.now()}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                if (data !== currentCachedVersion) {
-                    location.reload(true);
-                }
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    })(); */
 })();
 
 
