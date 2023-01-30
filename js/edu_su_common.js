@@ -687,12 +687,12 @@ function copyright(rights) {
     document.body.insertBefore(footer, document.body.lastChild);
 
     //define service worker
-    /* if (typeof navigator.serviceWorker !== 'undefined') {
+    if (typeof navigator.serviceWorker !== 'undefined') {
         navigator.serviceWorker.register('/sw.js')
-    } */
+    }
 
     // Notification cookie
-    //   if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
+       if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
