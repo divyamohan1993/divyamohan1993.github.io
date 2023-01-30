@@ -863,6 +863,7 @@ function gen_blockquote() {
             const cookieNotice = document.createElement("div");
             cookieNotice.id = "cookie-notice";
             cookieNotice.classList.add("w-100", "bg-dark", "text-white", "pt-3", "px-4", "pb-1", "position-fixed");
+            cookieNotice.style = "z-index: 1000; bottom: 0;";
 
             const container = document.createElement("div");
             container.classList.add("container", "p-2");
