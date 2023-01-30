@@ -825,7 +825,7 @@ function gen_blockquote() {
 
             const p = document.createElement("p");
             p.classList.add("p-2");
-            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. By clicking “I Accept” or by scrolling to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.`;
+            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. <strong>By clicking</strong> “I Accept” <strong><i>OR</i> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.`;
 
             col1.appendChild(p);
 
