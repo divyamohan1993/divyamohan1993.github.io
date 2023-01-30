@@ -806,57 +806,6 @@ function gen_blockquote() {
 }
 
 /******** Display Cookie Notice ********/
-/* (function () {
-    if (!(localStorage.getItem("noshow"))) {
-        document.addEventListener('DOMContentLoaded', function () {
-            var cookieNotice = document.createElement("div");
-            cookieNotice.id = "cookie-notice";
-            cookieNotice.className = "w-100 bg-dark text-white pt-3 px-4 pb-1 position-fixed";
-            cookieNotice.style = "z-index: 1000; bottom: 0;";
-
-            var container = document.createElement("div");
-            container.className = "container p-2";
-
-            var row = document.createElement("div");
-            row.className = "row";
-
-            var col1 = document.createElement("div");
-            col1.className = "col-sm-8 col-md-9";
-
-            var p = document.createElement("p");
-            p.className = "p-2";
-            p.innerHTML = "This website uses cookies so that we can provide you with the best website experience. By clicking “I Accept” or by scrolling to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.";
-
-            col1.appendChild(p);
-
-            var col2 = document.createElement("div");
-            col2.className = "col-sm-4 col-md-3";
-
-            var a = document.createElement("a");
-            a.className = "i-accept btn btn-primary m-2";
-            a.innerHTML = "I Accept";
-
-            col2.appendChild(a);
-
-            row.appendChild(col1);
-            row.appendChild(col2);
-            container.appendChild(row);
-            cookieNotice.appendChild(container);
-
-            document.body.appendChild(cookieNotice);
-
-            var iAcceptBtn = document.querySelector('.i-accept');
-
-            iAcceptBtn.addEventListener('click', hideCookieNotice);
-            document.addEventListener('scroll', hideCookieNotice);
-
-            function hideCookieNotice() {
-                cookieNotice.style.display = 'none';
-                localStorage.setItem('noshow', 1);
-            }
-        })();
-    }
-})(); */
 (function () {
     if (!localStorage.getItem("noshow")) {
         document.addEventListener('DOMContentLoaded', function () {
