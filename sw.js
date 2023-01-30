@@ -6,7 +6,7 @@
  * Register service worker.
  * ========================================================== */
 
-const RUNTIME = 'dmjone'
+const RUNTIME = 'dmj.one'
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   'fonts.gstatic.com',

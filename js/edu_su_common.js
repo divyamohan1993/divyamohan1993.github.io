@@ -872,18 +872,18 @@ function gen_blockquote() {
     let rtime = 10 * 1000; // 10 seconds 24 * 60 * 60 * 1000 for 24 hours. hour * minute * second * microsecond
 
     const currentTime = new Date().getTime();
-    const storedTime = localStorage.getItem(pageLoadTime - location.pathname);
+    const storedTime = localStorage.getItem(`pageLoadTime-${location.pathname}`);
 
     if (!storedTime) {
-        localStorage.setItem(pageLoadTime - location.pathname, currentTime);
+        localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
     } else {
-        if (currentTime - storedTime >= rtime) {
+        if (currentTime - Number(storedTime) >= rtime) {
             if (refreshCounter >= maxRefreshAttempts) {
                 console.error('Too many refresh attempts. Stopping refresh.');
                 return;
             }
             refreshCounter++;
-            localStorage.setItem(pageLoadTime - location.pathname, currentTime);
+            localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
             location.reload(true);
         }
     }
