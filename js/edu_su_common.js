@@ -503,10 +503,15 @@ function dcevar(s) {
 function dcevars(s) {
     var s1 = decodeURIComponent(s.substr(0, s.length - 1));
     var t = '';
-    for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
+    for (var i = 0; i < s1.length; i++) {
+        t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
+    }
     var decoded = decodeURIComponent(t);
-    document.body.innerHTML += decoded;
+    var div = document.createElement("div");
+    div.innerHTML = decoded;
+    document.body.appendChild(div);
 }
+
 
 function body_genmenu(course) {
     window["loaded_body_genmenu"] = 1;
@@ -692,7 +697,7 @@ function copyright(rights) {
     }
 
     // Notification cookie
-    // if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
+     if (!(localStorage.getItem("noshow"))) { dcevars(notify_cookie); }
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
@@ -806,7 +811,7 @@ function gen_blockquote() {
 }
 
 /******** Display Cookie Notice ********/
-(function () {
+/* (function () {
     if (!localStorage.getItem("noshow")) {
         document.addEventListener('DOMContentLoaded', function () {
             const cookieNotice = document.createElement("div");
@@ -857,7 +862,7 @@ function gen_blockquote() {
         cookieNotice.style.display = 'none';
         localStorage.setItem('noshow', 1);
     }
-})();
+})(); */
 
 
 /******** Fetch updated content from the server automatically ********/
