@@ -945,6 +945,9 @@ window.onload = function () {
             }
         }
     })();
+    
+    // Clear Console
+    console.clear();
 })(); */
 /******* SECURITY SUITE END *******/
 
