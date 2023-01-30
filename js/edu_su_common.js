@@ -869,7 +869,7 @@ function gen_blockquote() {
             container.classList.add("container", "p-2");
 
             const row = document.createElement("div");
-            row.classList.add("row");
+            row.classList.add("row", "d-flex", "align-items-center");
 
             const col1 = document.createElement("div");
             col1.classList.add("col-sm-8", "col-md-9");
