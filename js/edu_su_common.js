@@ -916,7 +916,7 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-                window.alert("Files changed at server. \n If on PC: CTRL + R to reload the page. \n If on phone: Pull Down to refresh.");
+                window.alert("Files have changed. \n\n On PC? Press CTRL + R to reload the page. \n On phone? Pull Down to refresh.");
                 // location.reload(true); // hard reload stuck in redirection loop
             }
         } catch (error) {
