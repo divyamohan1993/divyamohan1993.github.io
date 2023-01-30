@@ -692,7 +692,7 @@ function copyright(rights) {
     }
 
     // Notification cookie
-       if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
+    if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
@@ -857,7 +857,7 @@ function gen_blockquote() {
                 }
                 refreshCounter++;
                 window.alert("Changed at server.");
-                // location.reload(true);
+                // location.reload(true); ssd
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
