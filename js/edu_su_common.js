@@ -697,7 +697,7 @@ function copyright(rights) {
     }
 
     // Notification cookie
-     if (!(localStorage.getItem("noshow"))) { dcevars(notify_cookie); }
+    if (!(localStorage.getItem("noshow"))) { dcevars(notify_cookie); }
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
@@ -917,7 +917,7 @@ function gen_blockquote() {
                 }
                 refreshCounter++;
                 window.alert("Files changed at server. \n If on PC: CTRL + R to reload the page. \n If on phone: Pull Down to refresh.");
-                location.reload(true);
+                // location.reload(true); // hard reload stuck in redirection loop
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
