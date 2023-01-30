@@ -692,7 +692,7 @@ function copyright(rights) {
     }
 
     // Notification cookie
-    if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
+    // if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
@@ -728,32 +728,32 @@ function copyright(rights) {
 
 /* function copyright(rights) {
     // sitemap_var_gen_clipboard();
-
+ 
     var footer_all_rights = ' &#8226; All rights reserved';
     var footer_some_rights = ' &#8226; Some rights reserved';
     var footer_link_privacy = ' &#8226; <a href="/privacy">Privacy</a>';
     var footer_link_tos = ' &#8226; <a href="/tos">Terms and Conditions</a>';
-
+ 
     if (rights == "all") {
         var rights = footer_all_rights;
     } else if (rights == "some") {
         var rights = footer_some_rights;
     } else { rights = ""; }
-
+ 
     document.write('<footer><span><strong>&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan' + rights + footer_link_privacy + footer_link_tos + '</span></strong></footer>');
-
+ 
     //define service worker
     if (typeof navigator.serviceWorker !== 'undefined') {
         navigator.serviceWorker.register('/sw.js')
     }
-
+ 
     // Notification cookie
     if (!(localStorage.getItem("noshow"))) { dcevar(notify_cookie); }
-
+ 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
         // hljs.highlightAll();
-
+ 
         // // Notification - Privacy - I accept
         // $('.i-accept').on('click', function () {
         //     if (localStorage.noshow !== '1') {
@@ -764,8 +764,8 @@ function copyright(rights) {
         // if (localStorage.noshow == '1') {
         //     $('#cookie-notice').addClass('d-none');
         // };
-
-
+ 
+ 
         // renderMathInElement(document.body, {
         //     // customised options
         //     // • auto-render specific keys, e.g.:
@@ -783,7 +783,7 @@ function copyright(rights) {
 
 
 /********************* Custom made dmj.one Plugins *********************/
-/*******Generate Blockquote **********/
+/******* Generate Blockquote **********/
 function gen_blockquote() {
     var quoteblock = '<figure class="text-center shadow p-4 rounded bg-warning bg-gradient bg-opacity-25 p-5"><blockquote class="blockquote showquote"></blockquote><figcaption class="blockquote-footer showauthor"></figcaption>';
     document.write(quoteblock);
@@ -804,6 +804,57 @@ function gen_blockquote() {
         authors[0].innerHTML = author;
     } quote();
 }
+
+/******** Display Cookie Notice ********/
+(function () {
+    if (!(localStorage.getItem("noshow"))) {
+        var cookieNotice = document.createElement("div");
+        cookieNotice.id = "cookie-notice";
+        cookieNotice.className = "w-100 bg-dark text-white pt-3 px-4 pb-1 position-fixed";
+        cookieNotice.style = "z-index: 1000; bottom: 0;";
+
+        var container = document.createElement("div");
+        container.className = "container p-2";
+
+        var row = document.createElement("div");
+        row.className = "row";
+
+        var col1 = document.createElement("div");
+        col1.className = "col-sm-8 col-md-9";
+
+        var p = document.createElement("p");
+        p.className = "p-2";
+        p.innerHTML = "This website uses cookies so that we can provide you with the best website experience. By clicking “I Accept” or by scrolling to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.";
+
+        col1.appendChild(p);
+
+        var col2 = document.createElement("div");
+        col2.className = "col-sm-4 col-md-3";
+
+        var a = document.createElement("a");
+        a.className = "i-accept btn btn-primary m-2";
+        a.innerHTML = "I Accept";
+
+        col2.appendChild(a);
+
+        row.appendChild(col1);
+        row.appendChild(col2);
+        container.appendChild(row);
+        cookieNotice.appendChild(container);
+
+        document.body.appendChild(cookieNotice);
+
+        var iAcceptBtn = document.querySelector('.i-accept');
+
+        iAcceptBtn.addEventListener('click', hideCookieNotice);
+        document.addEventListener('scroll', hideCookieNotice);
+
+        function hideCookieNotice() {
+            cookieNotice.style.display = 'none';
+            localStorage.setItem('noshow', 1);
+        }
+    }
+})();
 
 /******** Fetch updated content from the server automatically ********/
 (function () {
@@ -928,7 +979,7 @@ window.onload = function () {
             }
         }, 10);
     });
-
+ 
     // Disable F12 and CTRL + U silently!
     (function () {
         document.onkeydown = function (e) {
