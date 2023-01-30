@@ -496,7 +496,6 @@ function dcevar(s) {
     var t = '';
     for (i = 0; i < s1.length; i++) t += String.fromCharCode(s1.charCodeAt(i) - s.substr(s.length - 1, 1));
     var decoded = decodeURIComponent(t);
-    
     document.body.innerHTML += decoded;
 }
 // For better compatiblity of vars and var usage spelling mistake
@@ -698,7 +697,7 @@ function copyright(rights) {
     }
 
     // Notification cookie
-    if (!(localStorage.getItem("noshow"))) { dcevars(notify_cookie); }
+    //if (!(localStorage.getItem("noshow"))) { dcevars(notify_cookie); }
 
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
@@ -812,7 +811,7 @@ function gen_blockquote() {
 }
 
 /******** Display Cookie Notice ********/
-/* (function () {
+(function () {
     if (!localStorage.getItem("noshow")) {
         document.addEventListener('DOMContentLoaded', function () {
             const cookieNotice = document.createElement("div");
@@ -863,13 +862,15 @@ function gen_blockquote() {
         cookieNotice.style.display = 'none';
         localStorage.setItem('noshow', 1);
     }
-})(); */
+})();
 
 
 /******** Fetch updated content from the server automatically ********/
 (function () {
     let refreshCounter = 0; // Counter for refresh attempts
     const maxRefreshAttempts = 5; // Maximum number of refresh attempts
+    // let rtime = 24 * 60 * 60 * 1000; // 24 hours
+    let rtime = 6 * 1000; // 24 hours
 
     const currentTime = new Date().getTime(); // Get current time in milliseconds    
     const storedTime = localStorage.getItem(`pageLoadTime-${location.pathname}`); // Get time from local storage for this page
@@ -878,7 +879,7 @@ function gen_blockquote() {
         localStorage.setItem(`pageLoadTime-${location.pathname}`, currentTime);
     } else {
         // If the stored time is more than 24 hours ago, hard reload the page
-        if (currentTime - storedTime >= 24 * 60 * 60 * 1000) {
+        if (currentTime - storedTime >= rtime) {
             if (refreshCounter >= maxRefreshAttempts) {
                 console.error('Too many refresh attempts. Stopping refresh.');
                 return;
