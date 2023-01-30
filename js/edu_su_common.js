@@ -856,7 +856,7 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-                window.alert("Changed at server.");
+                window.alert("Files changed at server. \n If on PC: CTRL + R to reload the page. \n If on phone: Pull Down to refresh.");
                 // location.reload(true); ssd
             }
         } catch (error) {
