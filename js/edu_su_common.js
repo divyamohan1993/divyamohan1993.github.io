@@ -856,7 +856,8 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-                location.reload(true);
+                window.alert("Changed at server.");
+                // location.reload(true);
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
