@@ -869,7 +869,7 @@ function gen_blockquote() {
 (function () {
     let refreshCounter = 0; // Counter for refresh attempts
     const maxRefreshAttempts = 5; // Maximum number of refresh attempts
-    let rtime = 24 * 60 * 60 * 1000; // 24 hours
+    let rtime = 12 * 60 * 60 * 1000; // 24 hours
 
     const currentTime = new Date().getTime(); // Get current time in milliseconds    
     const storedTime = localStorage.getItem(`pageLoadTime-${location.pathname}`); // Get time from local storage for this page
