@@ -587,6 +587,7 @@ function body_genmenu(course) {
 }
 
 
+
 // Original Code
 var sitemap_links = [];
 function body_blockcards(link, date, title, desc, codetype, readtime, author) {
