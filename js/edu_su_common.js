@@ -585,6 +585,11 @@ function body_genmenu(course) {
         agenmenu.innerHTML += gen_end;
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("agenmenu")) {
+        body_genmenu();
+    }
+});
 
 
 
@@ -951,9 +956,10 @@ function gen_blockquote() {
                 refreshCounter++;
 
                 window.reload_req = 1;
-                // window.alert("Files have changed. \n\n On PC? Press CTRL + R to reload the page. \n On phone? Pull Down to refresh.");
-                if (window["reload_req"] == 1)
-                    location.reload(true); // hard reload stuck in redirection loop
+                window.alert("Files have changed. \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
+                if (window["reload_req"] == 1) {
+                    // location.reload(true); // hard reload stuck in redirection loop
+                }
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
@@ -1074,9 +1080,7 @@ window.addEventListener("load", function () {
     if (!window["loaded_body_genmenu"] == 1) {
         // body_genmenu();
     }
-    if (document.getElementById("agenmenu")) {
-        body_genmenu();
-    }
+
 
 
     // Footer Automation    
