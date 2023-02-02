@@ -585,11 +585,9 @@ function body_genmenu(course) {
         agenmenu.innerHTML += gen_end;
     });
 }
-document.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("agenmenu")) {
-        body_genmenu();
-    }
-});
+
+
+body_genmenu();
 
 
 
