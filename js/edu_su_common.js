@@ -585,10 +585,12 @@ function body_genmenu(course) {
         agenmenu.innerHTML += gen_end;
     });
 }
-
-
-body_genmenu();
-
+/* document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("agenmenu")) {
+        body_genmenu();
+    }
+});
+ */
 
 
 // Original Code
