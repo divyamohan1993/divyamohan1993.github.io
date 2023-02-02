@@ -323,7 +323,7 @@ function header_navbar() {
 }
 
 
-function header_author(author_init) {
+/* function header_author(author_init) {
     window.loaded_header_author = 1;
 
     var authorData = {
@@ -352,7 +352,7 @@ function header_author(author_init) {
     var course_detail = author.course_detail || "";
 
   ...
-}
+} */
 
 function header_author(author_init) {
     window["loaded_header_author"] = 1;
