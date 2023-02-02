@@ -1072,10 +1072,10 @@ window.addEventListener("load", function () {
 
     // Body Automation - TO DO
     if (!window["loaded_body_genmenu"] == 1) {
-        if (document.getElementById("agenmenu")) {
-            body_genmenu();
-        }
         // body_genmenu();
+    }
+    if (document.getElementById("agenmenu")) {
+        body_genmenu();
     }
 
 
