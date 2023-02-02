@@ -545,7 +545,7 @@ function dcevars(s) {
 
 
 function body_genmenu(course) {
-    // window["loaded_body_genmenu"] = 1;
+    window["loaded_body_genmenu"] = 1;
     //  var gen_start = '<section class="light"><div class="container py-2">';
     //  var gen_end = '</div></section>';
     //  document.write(gen_start);
