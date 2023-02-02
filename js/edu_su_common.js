@@ -323,6 +323,36 @@ function header_navbar() {
 }
 
 
+function header_author(author_init) {
+    window.loaded_header_author = 1;
+
+    var authorData = {
+        "csu1128": {
+            prof: "Dr. Pankaj Vaidya",
+            prof_bio: "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>",
+            prof_href: "mailto:pankaj.vaidya@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one",
+            course: "CSU1128",
+            course_detail: "Logic Building with Computer Programming"
+        },
+        "csu1128p": {
+            prof: "Dr. Pankaj Vaidya",
+            prof_bio: "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>",
+            prof_href: "mailto:pankaj.vaidya@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one",
+            course: "CSU1128(P)",
+            course_detail: "Logic Building with Computer Programming Lab"
+        },
+        ...
+  };
+
+    var author = authorData[folder] || {};
+    var prof = author.prof || "";
+    var prof_bio = author.prof_bio || "";
+    var prof_href = author.prof_href || "";
+    var course = author.course || "";
+    var course_detail = author.course_detail || "";
+
+  ...
+}
 
 function header_author(author_init) {
     window["loaded_header_author"] = 1;
@@ -332,10 +362,11 @@ function header_author(author_init) {
     */
     //  get the actual author and professor name
 
-    var mainspace = window.location.pathname.split("/")[2];
-    var secondary = window.location.pathname.split("/")[3];
-    var folder = window.location.pathname.split("/")[4];
-    var file = window.location.pathname.split("/")[5];
+    var pathParts = window.location.pathname.split("/");
+    var mainspace = pathParts[2];
+    var secondary = pathParts[3];
+    var folder = pathParts[4];
+    var file = pathParts[5];
     // console.log(folder.length + folder);
     // console.log(file.length + file);
 
@@ -917,8 +948,11 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-                window.alert("Files have changed. \n\n On PC? Press CTRL + R to reload the page. \n On phone? Pull Down to refresh.");
-                // location.reload(true); // hard reload stuck in redirection loop
+
+                window.reload_req = 1;
+                // window.alert("Files have changed. \n\n On PC? Press CTRL + R to reload the page. \n On phone? Pull Down to refresh.");
+                if (window["reload_req"] == 1)
+                    location.reload(true); // hard reload stuck in redirection loop
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
