@@ -350,6 +350,10 @@ main article:nth-child(odd) {
   text-align: justify;
   padding: 2rem;
 }
+/* Exception for auto generated menu id #agenmenu */
+#agenmenu article {
+  background-color: #f2f2f2;
+}
 
 main article:nth-child(even) {
   background: #f2f2f2;

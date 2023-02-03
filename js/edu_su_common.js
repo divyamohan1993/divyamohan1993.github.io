@@ -183,7 +183,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu*8J*5F*75*75*75*75*7
         { rel: "shortcut icon", href: logo },
         { rel: "fluid-icon", href: logo },
         { rel: "apple-touch-icon", href: logo },
-        { rel: "stylesheet", href: "https://dmj.one/css/edu_su_common.css" }
+        { rel: "stylesheet", href: "/css/edu_su_common.css" }
     ];
 
     (function header_createlink(links) {
@@ -224,7 +224,7 @@ function header_navbar() {
                 var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
          */
 
-        var nav_home = `<a href="https://${url.hostname}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
+        var nav_home = `<a href="//${url.hostname}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
         var nav_path = `<a href="${nav_folder}/" data-toggle="tooltip" data-placement="top" title="${nav_folder}" data-original-title="${nav_folder}"><i class="bi bi-journals text-light"></i></a>`;
         var nav_subpath = `<a href="${nav_folder}/${nav_subfolder}/" data-toggle="tooltip" data-placement="top" title="${nav_subfolder}" data-original-title="${nav_subfolder}"><i class="bi bi-card-list text-light"></i></a>`;
         var nav_file = `<a href="${nav_filename}" data-toggle="tooltip" data-placement="top" title="${nav_filename}" data-original-title="${nav_filename}"><i class="bi bi-journal-code text-light"></i></a>`;
