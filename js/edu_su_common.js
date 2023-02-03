@@ -550,12 +550,13 @@ function body_genmenu(course) {
     //  var gen_end = '</div></section>';
     //  document.write(gen_start);
     if (!course) { var course = window.location.pathname.split("/")[4]; }
-    var gen_start = '<div></div><article class="genmenu py-3">';
+    var gen_start = window.scriptsremoved == 1 ? '<div></div><article class="genmenu py-3">' : '<article class="genmenu py-3">';
+    
     var gen_end = '</article>';
     var agenmenu = document.querySelector("#agenmenu");
-    document.addEventListener("DOMContentLoaded", function () {
+    // document.addEventListener("DOMContentLoaded", function () {
         agenmenu.innerHTML += gen_start;
-    });
+    // });
     // Substituted document.write(gen_start); by DOMContentLoaded for automation
 
 
@@ -581,9 +582,9 @@ function body_genmenu(course) {
         }
     } else { get_menu_list() };
     // Substitution for document.write(gen_end); due to automation
-    document.addEventListener("DOMContentLoaded", function () {
+    // document.addEventListener("DOMContentLoaded", function () {
         agenmenu.innerHTML += gen_end;
-    });
+    // });
 }
 /* document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("agenmenu")) {
@@ -591,14 +592,7 @@ function body_genmenu(course) {
     }
 });
  */
-document.addEventListener("DOMContentLoaded", function () {
-    var agenmenu = document.querySelector("#agenmenu");
-    if (agenmenu) { console.log("present") } else { console.log("absent") };
-    if (agenmenu) {
-        console.log("exec from domcontent line 597");
-        body_genmenu();
-    }
-});
+
 
 
 // Original Code
@@ -644,11 +638,12 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
 
     let finaltowrite = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
     // document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
-    document.addEventListener("DOMContentLoaded", function () {
+    // document.addEventListener("DOMContentLoaded", function () {
         var genclass = document.querySelector(".genmenu");
         genclass.innerHTML += finaltowrite;
-    });
+    // });
 }
+
 
 function sitemap_var_gen_clipboard() {
     // maintenance_mode();
@@ -875,7 +870,7 @@ function gen_blockquote() {
 
             const p = document.createElement("p");
             p.classList.add("p-2");
-            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. <strong>By clicking</strong> “I Accept” <strong><i>OR</i> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.`;
+            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. By <strong>clicking</strong> <em>“I Accept”</em> or<strong> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.`;
 
             col1.appendChild(p);
 
@@ -1010,6 +1005,7 @@ window.onload = function () {
 /******* SECURITY SUITE START *******/
 /* (function () {
     // FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view.
+    window.scriptsremoved = 1;
     window.addEventListener("load", function () {
         setTimeout(function () {
             // Method 1
@@ -1085,8 +1081,11 @@ window.addEventListener("load", function () {
     }
 
     // Body Automation - TO DO
-    if (!window["loaded_body_genmenu"] == 1) {
-        // body_genmenu();
+    var agenmenu = document.querySelector("#agenmenu");
+    if (agenmenu) {
+        if (!window["loaded_body_genmenu"] == 1) {
+            body_genmenu();
+        }
     }
 
 
