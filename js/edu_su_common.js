@@ -961,7 +961,8 @@ function gen_blockquote() {
                         // Update the service worker
                         navigator.serviceWorker.getRegistrations().then(function (registrations) {
                             registrations.forEach(function (registration) {
-                                registration.update();
+                                registration.update(); // soft updation
+                                // registration.unregister(); // hard updation - use occasionally
                             });
                         });
 
