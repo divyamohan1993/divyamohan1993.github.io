@@ -960,7 +960,13 @@ function gen_blockquote() {
                 refreshCounter++;
 
                 window.reload_req = 1;
-                window.alert("Files have changed. \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
+                var result = confirm("You are navigating the cached version of this website. Files have been updated at server. Do you want to refresh them? \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
+                if (result) {
+                    location.reload(true); // user clicked "Yes" - hard reload. 
+                } else {
+                    window.alert(""); // user clicked "No"                    
+                }
+
                 if (window["reload_req"] == 1) {
                     // location.reload(true); // hard reload stuck in redirection loop
                 }
