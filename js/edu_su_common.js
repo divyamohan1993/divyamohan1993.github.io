@@ -146,23 +146,24 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu*8J*5F*75*75*75*75*7
         script.onload = function () {
             loaded++; // Increment the counter
             if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here                
-                hljs.highlightAll(); // Highlight js init - single line code. 
+                document.addEventListener("DOMContentLoaded", function () {
+                    hljs.highlightAll(); // Highlight js init - single line code. 
 
-                // KaTex Math js START
-                renderMathInElement(document.body, {
-                    // customised options
-                    // • auto-render specific keys, e.g.:
-                    delimiters: [
-                        { left: '$$', right: '$$', display: true },
-                        { left: '$', right: '$', display: false },
-                        { left: '\\(', right: '\\)', display: false },
-                        { left: '\\[', right: '\\]', display: true }
-                    ],
-                    // • rendering keys, e.g.:
-                    throwOnError: false
+                    // KaTex Math js START
+                    renderMathInElement(document.body, {
+                        // customised options
+                        // • auto-render specific keys, e.g.:
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '\\[', right: '\\]', display: true }
+                        ],
+                        // • rendering keys, e.g.:
+                        throwOnError: false
+                    });
+                    // KaTex Math js END
                 });
-                // KaTex Math js END
-
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -313,7 +314,7 @@ function header_navbar() {
     var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
 
     // Send array of links to create link for dropdown
-    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
+    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951<code>[WIP]</code>"];
     var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730"].sort();
 
     var alllinks = nav_createDropdown(year1_links) + nav_createMainNav(visible_links);
@@ -551,11 +552,11 @@ function body_genmenu(course) {
     //  document.write(gen_start);
     if (!course) { var course = window.location.pathname.split("/")[4]; }
     var gen_start = window.scriptsremoved == 1 ? '<div></div><article class="genmenu py-3">' : '<article class="genmenu py-3">';
-    
+
     var gen_end = '</article>';
     var agenmenu = document.querySelector("#agenmenu");
     // document.addEventListener("DOMContentLoaded", function () {
-        agenmenu.innerHTML += gen_start;
+    agenmenu.innerHTML += gen_start;
     // });
     // Substituted document.write(gen_start); by DOMContentLoaded for automation
 
@@ -583,7 +584,7 @@ function body_genmenu(course) {
     } else { get_menu_list() };
     // Substitution for document.write(gen_end); due to automation
     // document.addEventListener("DOMContentLoaded", function () {
-        agenmenu.innerHTML += gen_end;
+    agenmenu.innerHTML += gen_end;
     // });
 }
 /* document.addEventListener("DOMContentLoaded", function () {
@@ -639,8 +640,8 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
     let finaltowrite = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
     // document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
     // document.addEventListener("DOMContentLoaded", function () {
-        var genclass = document.querySelector(".genmenu");
-        genclass.innerHTML += finaltowrite;
+    var genclass = document.querySelector(".genmenu");
+    genclass.innerHTML += finaltowrite;
     // });
 }
 
