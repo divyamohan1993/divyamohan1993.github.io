@@ -585,12 +585,7 @@ function body_genmenu(course) {
     agenmenu.innerHTML += gen_end;
     // });
 }
-/* document.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("agenmenu")) {
-        body_genmenu();
-    }
-});
- */
+
 
 
 
@@ -958,9 +953,16 @@ function gen_blockquote() {
                 refreshCounter++;
                 caches.keys().then(function (cacheNames) {
                     if (cacheNames.length > 0) {
-                        if (confirm("Do you want to empty the cache and perform a hard refresh?")) {
+                        if (confirm("Do you want to empty the cache, unregister the service worker, and perform a hard refresh?")) {
                             cacheNames.forEach(function (cacheName) {
                                 caches.delete(cacheName);
+                            });
+
+                            // Unregister the service worker
+                            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                                registrations.forEach(function (registration) {
+                                    registration.unregister();
+                                });
                             });
 
                             // Perform a hard refresh
@@ -970,7 +972,6 @@ function gen_blockquote() {
                         console.log("No cache available to delete.");
                     }
                 });
-
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
