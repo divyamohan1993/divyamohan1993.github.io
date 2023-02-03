@@ -592,8 +592,10 @@ function body_genmenu(course) {
 });
  */
 document.addEventListener("DOMContentLoaded", function () {
-    var agenmenu = document.getElementById("agenmenu");
+    var agenmenu = document.querySelector("#agenmenu");
+    if (agenmenu) { console.log("present") } else { console.log("absent") };
     if (agenmenu) {
+        console.log("exec from domcontent line 597");
         body_genmenu();
     }
 });
