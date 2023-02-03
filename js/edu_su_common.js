@@ -591,6 +591,12 @@ function body_genmenu(course) {
     }
 });
  */
+document.addEventListener("DOMContentLoaded", function () {
+    var agenmenu = document.getElementById("agenmenu");
+    if (agenmenu) {
+        body_genmenu();
+    }
+});
 
 
 // Original Code
