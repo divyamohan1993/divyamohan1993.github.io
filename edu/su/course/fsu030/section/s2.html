@@ -6,7 +6,6 @@
 
     <head>
         <script src="../var.js"></script>
-        <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
         <title>Electromagnetic Waves - Engineering Physics - CSE 2026 - Shoolini University</title>
@@ -22,9 +21,10 @@
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/katex.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js"></script>
         <script>
-            /* document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () {
                 renderMathInElement(document.body, {
                     // customised options
                     // • auto-render specific keys, e.g.:
@@ -37,7 +37,7 @@
                     // • rendering keys, e.g.:
                     throwOnError: false
                 });
-            });*/
+            });
         </script>
 
     </head>
@@ -50,9 +50,9 @@
 
         <main>
             <article>
-                <h2 class="text-center">
+                <h1 class="text-center">
                     Section B: Electricity and Magnetism
-                </h2>
+                </h1>
             </article>
             <section>
                 <article>
@@ -247,8 +247,8 @@
                             The total polarization of a dielectric material is given by $$P = P_e + P_i + P_o$$.
                         </li>
                         <li>
-                            The electronic contribution to the polarization of a dielectric material is given by <p
-                                class="parsed"> P_e = -N_Ae^2/4πε_oK_BT </p>
+                            The electronic contribution to the polarization of a dielectric material is given by $$ P_e
+                            = -N_Ae^2/4πε_oK_BT $$
                             where $ N_A $ is Avogadro's number, e is the electron charge, $ε_o$ is the permittivity of
                             free space,
                             $ K_B$ is the Boltzmann's
@@ -256,19 +256,20 @@
                         </li>
                         <li>
                             The ionic contribution to the polarization of a dielectric material is given by
-                            $ P_i = -N_iZ_i^2/4πε_oK_BT $, where $N_i$
+                            $$ P_i = -N_iZ_i^2/4πε_oK_BT $$, where $N_i$
                             is the number of ions per unit volume, $Z_i$ is the ionic charge, ε_o is the permittivity of
                             free space, $K_B$ is the
                             Boltzmann's constant, and $T$ is the temperature.
                         </li>
                         <li>
-                            The orientational contribution to the polarization of a dielectric material is given by $
+                            The orientational contribution to the polarization of a dielectric material is given by $$
                             P_o
-                            = N_mQ_o/4πε_oK_BT $, where
-                            $ N_m is the number of molecules per unit volume, Q_o is the orientational dipole moment,
-                            ε_o
+                            = N_mQ_o/4πε_oK_BT $$, where
+                            $ N_m $ is the number of molecules per unit volume, $ Q_o $ is the orientational dipole
+                            moment,
+                            $ ε_o $
                             is the permittivity of free
-                            space, K_B is the Boltzmann's constant, and T is the temperature.
+                            space, $ K_B $ is the Boltzmann's constant, and $ T $ is the temperature.
                         </li>
                     </ol>
                 </article>
@@ -289,7 +290,7 @@
                             occurs when the charges in the material, whether electrons or ions, are displaced from their
                             equilibrium positions. The
                             electric dipole moment produced as a result of this displacement is given by the equation
-                            P=Qd, where Q is the charge
+                            $$ P=Qd $$, where $ Q $ is the charge
                             and d is the distance between the charges.
                         </li>
                         <li>
@@ -297,24 +298,26 @@
                             molecules that are linked by
                             dipole bonds. It is this chain of dipoles that allows for the induced electric field to flow
                             through the material. The
-                            electric dipole moment produced by this type of polarization is given by the equation P=Ql,
-                            where Q is the charge, and l
-                            is the length of the chain.
+                            electric dipole moment produced by this type of polarization is given by the equation $$
+                            P=Ql $$,
+                            where $ Q $ is the charge, and $ l $ is the length of the chain.
                         </li>
                         <li>Space Charge Polarization: Space charge polarization occurs when an electric field is
                             applied to a dielectric
                             material and the applied field creates an imbalance of positive and negative charges. This
                             results in a net charge
-                            density throughout the material, which is given by the equation ρ=Q/V, where Q is the total
-                            charge and V is the volume
+                            density throughout the material, which is given by the equation $$ ρ=Q/V,$$ where $ Q $ is
+                            the total
+                            charge and $V$ is the volume
                             of the material.
                         </li>
                         <li>Orientation Polarization: Orientation polarization occurs when the dipoles in a dielectric
                             material are aligned by an
                             external electric field. This type of polarization is responsible for the dielectric
                             constant of a material. The
-                            electric dipole moment produced by orientation polarization is given by the equation P=αE,
-                            where α is the polarizability
+                            electric dipole moment produced by orientation polarization is given by the equation $$ P=αE
+                            $$,
+                            where $ α $ is the polarizability
                             of the material, and E is the applied electric field.
                         </li>
                     </ol>
@@ -347,7 +350,7 @@
                                 </li>
                                 <li>
                                     Faraday's Law:
-                                    $$\nabla \times \mathbf{E} = - \frac{\partial \mathbf{B}}{\partial t}
+                                    $$\nabla \times \mathbf{E} = - \frac{\partial \mathbf{B}}{\partial t} $$
                                 </li>
                                 <li>
                                     Ampere's Law:
@@ -383,7 +386,7 @@
                         </li>
                         <li>
                             The Lorentz force law is written as:
-                            \mathbf{F} = q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
+                            $$ \mathbf{F} = q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right) $$
                         </li>
                         <li>
                             Maxwell's equations can also be used to calculate the energy stored in an electric field
@@ -392,8 +395,8 @@
                         </li>
                         <li>
                             The electromagnetic energy density is written as:
-                            u = ½ ε0E² + <sup>B²</sup>/<sub>2μ0</sub>
-                            u = \frac{1}{2} \epsilon_0 \mathbf{E}^2 + \frac{1}{2 \mu_0} \mathbf{B}^2
+                            $$ u = \frac{1}{2} \epsilon_0 \mathbf{E}^2 + \frac{1}{2 \mu_0} \mathbf{B}^2 $$
+
                         </li>
                     </ol>
                 </article>
@@ -411,6 +414,24 @@
                         electronic and ionic, and
                         Maxwell's equations can be used to calculate the electric field, magnetic field, electric
                         potential and electric displacement field.
+                    </p>
+                    <p>
+                        Some of the notable equations are:
+                    <ul>
+                        <li> The electric displacement field (D) in a dielectric is given by: $$ \mathbf{D} = \epsilon_0
+                            \mathbf{E} + \mathbf{P}
+                            $$ where $ \epsilon_0 $ is the vacuum permittivity, $\mathbf{E} $ is the electric field and
+                            $\mathbf{P}$ is the polarization of the
+                            material.</li>
+                        <li> The relationship between the electric field (E), the electric potential (V) and the
+                            electric displacement field (D) can
+                            be described by: $$ \mathbf{E} = -\nabla V, \quad \mathbf{D} = \epsilon_0 \mathbf{E} +
+                            \mathbf{P}
+                            $$ </li>
+                        <li> The equation for the energy stored in an electric field in a dielectric is given by: $$ U =
+                            \frac{1}{2} \int \mathbf{D} \cdot \mathbf{E} \, dV
+                            $$ where $U$ is the energy stored and $dV$ is an infinitesimal volume element.</li>
+                    </ul>
                     </p>
                 </article>
             </section>
@@ -445,7 +466,9 @@
                         move,
                         and
                         these fields transport
-                        the type of energy which we call an electromagnetic radiation, or light. Electromagnetic
+                        the type of energy which we call an electromagnetic radiation, or light. The equation for
+                        electromagnetic energy density $u$ is $$ u = \frac{1}{2} \epsilon_0
+                        \mathbf{E}^2 + \frac{1}{2 \mu_0} \mathbf{B}^2 $$ Electromagnetic
                         radiations
                         are composed of electromagnetic waves that are produced when an
                         electric field comes in
@@ -454,7 +477,8 @@
                         and
                         vice-versa—the two are linked.
                         These changing fields
-                        form electromagnetic waves. Electromagnetic waves differ from mechanical waves in that they
+                        form electromagnetic waves. The equation for electromagnetic wave is: $$\mathbf{E} \perp
+                        \mathbf{B}$$ Electromagnetic waves differ from mechanical waves in that they
                         do
                         not
                         require a medium to
@@ -477,7 +501,16 @@
                         which
                         are
                         the fundamental
-                        equations of electrodynamics.
+                        equations of electrodynamics. Maxwell's equations, which describe the relationship between the
+                        electric and magnetic fields is given as: $$\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0},
+                        \quad \nabla \cdot \mathbf{B} = 0 $$
+                        $$
+                        \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \quad \nabla \times
+                        \mathbf{B} = \mu_0 \mathbf{J} +
+                        \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}
+                        $$ where $\rho$ is the charge density, $\mathbf{J}$ is the current density and $\epsilon_0$ and
+                        $\mu_0$ are the vacuum permittivity
+                        and vacuum permeability, respectively.
 
 
                     </p>
@@ -496,6 +529,12 @@
                         are
                         perpendicular (at right
                         angles) to each other.
+                        The equation for the electromagnetic wave can be expressed as: $$\mathbf{E} \perp \mathbf{B}
+                        $$ where $\mathbf{E}$ represents the electric field and $\mathbf{B}$ represents the magnetic
+                        field. The symbol $\perp$ represents
+                        "perpendicular to." This equation expresses that the electric field and magnetic field of an
+                        electromagnetic wave are
+                        perpendicular to each other.
                     </p>
                 </article>
 
@@ -532,18 +571,34 @@
                             Radio Waves
                         </h4>
                         <p>
-                            First, we'll examine the most common application of EM waves—radio waves. A radio wave
-                            can
-                            broadcast
-                            FM and AM radio
-                            signals, but it can also do more. Your television uses radio waves to broadcast the
-                            signal
-                            from
-                            various TV stations
+                            First, we'll examine the most common application of EM waves—radio waves. A radio wave can
+                            broadcast FM and AM radio
+                            signals, but it can also do more. Your television uses radio waves to broadcast the signal
+                            from various TV stations
                             (assuming you're watching analog TV instead of streaming). Finally, radio waves have
-                            applications in
-                            the military
+                            applications in the military
                             through radar. That's why radar and radio begin with the same three letters.
+
+                            The equation for a radio wave can be given as:
+
+                            $$\vec{E}(z,t) = \vec{E_0} \cos(\omega t - kz)$$
+
+                            where $\vec{E_0}$ is the amplitude of the electric field, $\omega$ is the angular frequency,
+                            $t$ is time, $k$ is the
+                            wave number and $z$ is the propagation direction of the wave.
+
+                            The relationship between the electric field and magnetic field of a radio wave is described
+                            by:
+
+                            $$\vec{B}(z,t) = \frac{\mu_0}{\epsilon_0} \vec{E}(z,t)$$
+
+                            where $\mu_0$ is the magnetic constant and $\epsilon_0$ is the electric constant.
+
+                            Finally, the velocity of a radio wave is given by:
+
+                            $$v = \frac{\omega}{k}$$
+
+                            where $v$ is the velocity of the wave.
                         </p>
                     </article>
 
@@ -560,6 +615,46 @@
                             waves as
                             they're also used for
                             communication. TV stations use microwaves to send their signals out to longer distances.
+
+                            The frequency of microwaves lies between radio waves and infrared radiation. The equation
+                            for the wavelength of a
+                            microwave is given by:
+
+                            $$\lambda = \frac{c}{f}$$
+
+                            where,
+
+                            $\lambda$ is the wavelength,
+                            $c$ is the speed of light (approx. 3 x 10^8 m/s), and
+                            $f$ is the frequency of the microwave.
+
+                            Microwaves can also be generated and transmitted through a waveguide. The equation for the
+                            cutoff frequency of a
+                            rectangular waveguide is given by:
+
+                            $$f_c = \frac{c}{2a} \sqrt{\frac{m^2}{n^2}-1}$$
+
+                            where,
+
+                            $f_c$ is the cutoff frequency,
+                            $a$ is the width of the waveguide,
+                            $m$ and $n$ are the mode numbers.
+
+                            In microwave communication systems, the power received at the receiver is proportional to
+                            the product of the transmitted
+                            power and the inverse square of the distance between the transmitter and receiver. This can
+                            be represented
+                            mathematically as:
+
+                            $$P_{r} = \frac{P_{t} G_{t} G_{r} \lambda^2}{(4\pi)^2 d^2}$$
+
+                            where,
+
+                            $P_r$ is the power received,
+                            $P_t$ is the power transmitted,
+                            $G_t$ and $G_r$ are the gains of the transmitter and receiver antennas, respectively,
+                            $\lambda$ is the wavelength of the microwave,
+                            $d$ is the distance between the transmitter and receiver.
                         </p>
                     </article>
                     <article>
@@ -582,7 +677,36 @@
                             hot
                             is
                             producing a lot
-                            of infrared waves.
+                            of infrared waves. An equation for the wavelength of an infrared wave can be represented by
+                            the following:
+
+                            $$ \lambda = \frac{c}{f} $$
+
+                            where,
+
+                            $ \lambda $: Wavelength of the infrared wave
+
+                            $ c $: Speed of light in a vacuum, approximately equal to 3 x 10^8 m/s
+
+                            $ f $: Frequency of the infrared wave
+
+                            Another equation that describes the relationship between the frequency and energy of an
+                            electromagnetic wave, including
+                            infrared, is given by Planck's law:
+
+                            $$ E = hf $$
+
+                            where,
+
+                            $ E $: Energy of the electromagnetic wave
+
+                            $ h $: Planck's constant, approximately equal to 6.63 x 10^-34 Js
+
+                            $ f $: Frequency of the electromagnetic wave
+
+                            By using these equations, we can determine various properties of infrared waves, such as
+                            their wavelength, frequency,
+                            and energy.
                         </p>
                     </article>
                     <article>
@@ -600,7 +724,30 @@
                             treatment.
                             The
                             radiation is
-                            concentrated in a high-energy form to eliminate cancer cells.
+                            concentrated in a high-energy form to eliminate cancer cells. The equation for the
+                            propagation of x-rays in a vacuum can be represented as follows:
+
+                            $$\frac{1}{c^2} \frac{\partial^2 E}{\partial t^2} = \nabla^2 E$$
+
+                            where $E$ is the electric field, $c$ is the speed of light, and $\nabla^2$ is the Laplacian
+                            operator.
+
+                            The intensity of an x-ray wave can be represented as:
+
+                            $$I = \frac{c}{2} \epsilon_0 E^2$$
+
+                            where $I$ is the intensity, $\epsilon_0$ is the electric constant, and $E$ is the electric
+                            field.
+
+                            The frequency of x-rays can be represented as:
+
+                            $$f = \frac{E}{h}$$
+
+                            where $f$ is the frequency and $h$ is the Planck constant.
+
+                            Note that these equations are only valid for the propagation of x-rays in a vacuum and do
+                            not account for interactions
+                            with matter.
                         </p>
                     </article>
                 </article>
@@ -800,7 +947,29 @@
                         another it will be rejected. This is similar to how sunglasses are able to eliminate glare
                         by
                         absorbing the polarized
-                        portion of the light.
+                        portion of the light. Polarization of electromagnetic waves can be described mathematically
+                        using the Jones vector formalism. The Jones vector
+                        represents the electric field of an EM wave and is given by:
+
+                        $$ \mathbf{E} = E_0 \begin{bmatrix} \cos(\omega t - kz) \ \sin(\omega t - kz) \end{bmatrix} $$
+
+                        where $E_0$ is the magnitude of the electric field, $\omega$ is the angular frequency, $t$ is
+                        time, and $k$ is the wave
+                        number. The wave is said to be vertically polarized when the Jones vector is of the form
+
+                        $$ \mathbf{E} = E_0 \begin{bmatrix} 1 \ 0 \end{bmatrix} $$
+
+                        and horizontally polarized when it is of the form
+
+                        $$ \mathbf{E} = E_0 \begin{bmatrix} 0 \ 1 \end{bmatrix} $$
+
+                        In general, the polarization state of an EM wave can be described by a superposition of these
+                        two basic polarization
+                        states. The degree to which an EM wave is vertically or horizontally polarized is described by
+                        the relative phase
+                        between these two components. The degree of polarization can be quantified using the degree of
+                        polarization or the
+                        polarization purity.
                     </p>
                 </article>
 
@@ -817,7 +986,21 @@
                         of
                         radio
                         waves. A wave with
-                        two cycles that pass a point in one second has a frequency of 2 Hz.
+                        two cycles that pass a point in one second has a frequency of 2 Hz. Frequency can be defined as:
+
+                        $$ f = \frac{1}{T} $$
+
+                        where $f$ is the frequency in Hertz (Hz), and $T$ is the period in seconds.
+
+                        The frequency of a wave determines its wavelength and velocity. Higher frequency waves have
+                        shorter wavelengths and
+                        travel faster, whereas lower frequency waves have longer wavelengths and travel slower. In the
+                        context of
+                        electromagnetic waves, frequency is a measure of the number of oscillations of the electric and
+                        magnetic fields per
+                        second.
+                        <br>
+
                     </p>
                 </article>
 
@@ -834,7 +1017,16 @@
                         wavelengths scientists
                         currently study can be larger than the diameter of our planet! More of that in
                         Electromagnetic
-                        Spectrum.
+                        Spectrum. The wavelength ($\lambda$) of an electromagnetic wave is defined as the distance
+                        between two
+                        consecutive crests (or
+                        troughs) of the wave. It can be mathematically represented as $$\lambda = \frac{c}{f}$$, where
+                        $c$ is the speed of light
+                        in vacuum and $f$ is the frequency of the wave. The unit of wavelength is meter (m). The
+                        wavelength of an
+                        electromagnetic wave determines its properties, such as its ability to penetrate different
+                        materials, its interaction
+                        with charged particles, and its absorption or reflection by various objects.
                     </p>
                 </article>
             </section>
@@ -845,43 +1037,108 @@
                     </h3>
                     <p>
                         Magnetic materials have several unique properties that make them invaluable for a variety of
-                        applications. There are several different types of magnetic materials, each with its own unique characteristics and behavior. These
-                        materials can be broadly classified into two main categories: ferromagnetic and non-ferromagnetic materials which can be
-                        further classified into four main categories: Diamagnetic, Paramagnetic, Ferromagnetic, and Ferrites.</p>
-                        
-                        <p>Each type of material has its own distinct characteristics and potential uses, from medical and industrial applications to
+                        applications. There are several different types of magnetic materials, each with its own unique
+                        characteristics and behavior. These
+                        materials can be broadly classified into two main categories: ferromagnetic and
+                        non-ferromagnetic materials which can be
+                        further classified into four main categories: Diamagnetic, Paramagnetic, Ferromagnetic, and
+                        Ferrites.</p>
+
+
+                    <p>Each type of material has its own distinct characteristics and potential uses, from medical and
+                        industrial applications to
                         producing ultrasonic waves.</p>
-                        
-                        
-                        <p>Ferromagnetic materials are those that are strongly attracted to magnetic fields and can be magnetized to produce their
-                        own magnetic field. Examples of ferromagnetic materials include iron, cobalt, and nickel. These materials have a high
-                        magnetic permeability, which is a measure of the ease with which they can be magnetized. The magnetic permeability of a
-                        ferromagnetic material is typically much higher than that of a non-ferromagnetic material.</p>
-                        
-                        <p>One of the most important properties of ferromagnetic materials is their ability to retain their magnetization, even in
-                        the absence of an external magnetic field. This is known as magnetic memory or hysteresis, and it is the result of the
-                        alignment of the magnetic moments of the atoms within the material. The magnetic moment of an atom is a measure of its
-                        magnetic properties, and is related to its angular momentum and spin. In ferromagnetic materials, the magnetic moments
-                        of the atoms are aligned in the same direction, resulting in a strong overall magnetic field.</p>
-                        
-                        <p>Non-ferromagnetic materials, on the other hand, are not strongly attracted to magnetic fields and cannot be magnetized
-                        to produce their own magnetic field. Examples of non-ferromagnetic materials include copper, aluminum, and gold. These
+
+
+
+
+                    <p>Ferromagnetic materials are those that are strongly attracted to magnetic fields and can be
+                        magnetized to produce their
+                        own magnetic field. Examples of ferromagnetic materials include iron, cobalt, and nickel. These
+                        materials have a high
+                        magnetic permeability, which is a measure of the ease with which they can be magnetized. The
+                        magnetic permeability of a
+                        ferromagnetic material is typically much higher than that of a non-ferromagnetic material.
+                    </p>
+                    <p>
+                        The magnetic permeability, $\mu$, of a material is a measure of the ease with which it can be
+                        magnetized:
+
+                        $$ \mu = \frac{B}{H} $$
+
+                        where $B$ is the magnetic flux density and $H$ is the magnetic field strength.
+                    </p>
+                    <p>
+                        The magnetic memory or hysteresis of a ferromagnetic material is defined as its ability to
+                        retain its magnetization,
+                        even in the absence of an external magnetic field:
+
+                        $$ B = f(H) $$
+
+                        where $B$ is the magnetic flux density and $H$ is the magnetic field strength.
+                    </p>
+
+
+
+                    <p>One of the most important properties of ferromagnetic materials is their ability to retain their
+                        magnetization, even in
+                        the absence of an external magnetic field. This is known as magnetic memory or hysteresis, and
+                        it is the result of the
+                        alignment of the magnetic moments of the atoms within the material. The magnetic moment of an
+                        atom is a measure of its
+                        magnetic properties, and is related to its angular momentum and spin. In ferromagnetic
+                        materials, the magnetic moments
+                        of the atoms are aligned in the same direction, resulting in a strong overall magnetic field.
+                    </p>
+
+
+                    <p>Non-ferromagnetic materials, on the other hand, are not strongly attracted to magnetic fields and
+                        cannot be magnetized
+                        to produce their own magnetic field. Examples of non-ferromagnetic materials include copper,
+                        aluminum, and gold. These
                         materials have a low magnetic permeability and do not exhibit magnetic memory.</p>
-                        
-                        <p>One of the key characteristics of non-ferromagnetic materials is their susceptibility to magnetic fields. The
-                        susceptibility of a material is a measure of its response to an external magnetic field, and is defined as the ratio of
-                        the magnetization of the material to the applied magnetic field. In non-ferromagnetic materials, the susceptibility is
-                        typically very small, meaning that they are not greatly affected by external magnetic fields.</p>
-                        
-                        <p>Another important property of magnetic materials is their magnetic anisotropy, which is a measure of the degree to which
-                        the magnetic properties of a material depend on the direction of the applied magnetic field. In materials with high
-                        magnetic anisotropy, the magnetic properties are highly dependent on the direction of the applied field, while in
-                        materials with low magnetic anisotropy, the magnetic properties are less sensitive to the direction of the applied
+
+                    <p>One of the key characteristics of non-ferromagnetic materials is their susceptibility to magnetic
+                        fields. The
+                        susceptibility of a material is a measure of its response to an external magnetic field, and is
+                        defined as the ratio of
+                        the magnetization of the material to the applied magnetic field. In non-ferromagnetic materials,
+                        the susceptibility is
+                        typically very small, meaning that they are not greatly affected by external magnetic fields.
+                    </p>
+                    <p>The magnetic susceptibility, $\chi$, of a material is a measure of its response to an external
+                        magnetic field and is
+                        defined as the ratio of the magnetization of the material to the applied magnetic field:
+
+                        $$ \chi = \frac{M}{H} $$
+
+                        where $M$ is the magnetization and $H$ is the magnetic field strength.
+                    </p>
+
+                    <p>Another important property of magnetic materials is their magnetic anisotropy, which is a measure
+                        of the degree to which
+                        the magnetic properties of a material depend on the direction of the applied magnetic field. In
+                        materials with high
+                        magnetic anisotropy, the magnetic properties are highly dependent on the direction of the
+                        applied field, while in
+                        materials with low magnetic anisotropy, the magnetic properties are less sensitive to the
+                        direction of the applied
                         field.</p>
-                        
-                        <p></p>Overall, the different types of magnetic materials can be distinguished based on their magnetic permeability, magnetic
-                        memory, susceptibility, and magnetic anisotropy. These properties are crucial for understanding the behavior of magnetic
-                        materials and for designing applications that make use of their unique characteristics. Let us learn more about them in detail.
+                    <p>The magnetic anisotropy, $K$, of a material is a measure of the degree to which its magnetic
+                        properties depend on the
+                        direction of the applied magnetic field:
+
+                        $$ K = \frac{E_{anisotropy}}{V} $$
+
+                        where $E_{anisotropy}$ is the energy of magnetic anisotropy and $V$ is the volume of the
+                        material.
+                    </p>
+                    <p></p>Overall, the different types of magnetic materials can be distinguished based on their
+                    magnetic permeability, magnetic
+                    memory, susceptibility, and magnetic anisotropy. These properties are crucial for understanding the
+                    behavior of magnetic
+                    materials and for designing applications that make use of their unique characteristics. Let us learn
+                    more about them in detail.
                     </p>
                 </article>
                 <article>
@@ -899,7 +1156,18 @@
                         used
                         in
                         practical
-                        applications.
+                        applications. The susceptibility, $\chi$, of a diamagnetic material is low, meaning it is weakly
+                        repelled by a magnetic field:
+
+                        $$ \chi \approx 0 $$
+
+                        A material with no permanent magnetic dipole moment is not attracted to a magnet. This property
+                        can be expressed
+                        mathematically as:
+
+                        $$ \vec{m} = 0 $$
+
+                        where $\vec{m}$ is the magnetic moment of the material.
                     </p>
                 </article>
                 <article>
@@ -915,8 +1183,13 @@
                         aluminum, titanium, and
                         some rare-earth elements. These materials have greater susceptibility to magnetization than
                         diamagnetic materials and
-                        are commonly used in industrial applications.
-                    </p>
+                        are commonly used in industrial applications. The susceptibility, $\chi$, of a paramagnetic
+                        material is greater than that of a diamagnetic material, meaning it is
+                        weakly attracted to a magnetic field:
+
+                        $$ 0 < \chi \ll 1 $$ A material with a permanent magnetic dipole moment, $\vec{m}$, is attracted
+                            to a magnet. This property can be expressed mathematically as: $$ \vec{m} \neq 0 $$ where
+                            $\vec{m}$ is the magnetic moment of the material. </p>
                 </article>
                 <article>
                     <h3>
@@ -933,7 +1206,22 @@
                         used
                         in
                         motors, generators,
-                        and transformers.
+                        and transformers. The susceptibility $\chi$ of a paramagnetic material is given by the equation:
+                        $$ \chi = \frac{M}{H} $$
+                        where $M$ is the magnetization and $H$ is the magnetic field. For ferromagnetic materials, the
+                        susceptibility is much
+                        greater than for paramagnetic materials, meaning that they are much more strongly affected by
+                        magnetic fields. The
+                        susceptibility of ferromagnetic materials is related to the magnetic permeability $\mu$ through
+                        the relationship:
+                        $$ \chi = \frac{\mu - 1}{\mu_0} $$
+                        where $\mu_0$ is the vacuum permeability. The magnetic permeability of ferromagnetic materials
+                        is much higher than that
+                        of paramagnetic materials, making them much more effective at producing magnetic fields. The
+                        magnetic anisotropy of
+                        ferromagnetic materials is also much greater, meaning that the direction of the magnetic field
+                        is much more strongly
+                        influenced by the direction of the applied field.
                     </p>
                 </article>
                 <article>
@@ -951,7 +1239,32 @@
                         ferrite and strontium ferrite. These materials have higher magnetic anisotropy than
                         ferromagnetic
                         materials, which makes
-                        them useful for applications such as motors, generators, and transformers.
+                        them useful for applications such as motors, generators, and transformers. Some of the notable
+                        formulas are:
+                        $$ M = K * H $$
+                        where $M$ is the magnetic moment of the ferrite, $K$ is the magnetic anisotropy constant, and
+                        $H$ is the magnetic field
+                        strength.
+
+                    <p>And, $$ H = \frac {M}{\mu_0 * M_s} $$
+                        where $H$ is the magnetic field strength, $\mu_0$ is the permeability of free space, and $M_s$
+                        is the saturation
+                        magnetization.</p>
+
+                    <p>And, $$ \Delta E = -K * sin^2(\theta) $$
+                        where $\Delta E$ is the energy change, $K$ is the magnetic anisotropy constant, and $\theta$ is
+                        the angle between the
+                        magnetic moment and the magnetic anisotropy axis. </p>
+
+                    <p>And, $$ V = B * S * H $$
+                        where $V$ is the magnetic potential energy, $B$ is the magnetic flux density, $S$ is the surface
+                        area, and $H$ is the
+                        magnetic field strength.</p>
+
+                    <p>And, $$ \frac {d\Phi}{dt} = -M * \frac {dH}{dt} $$
+                        where $\Phi$ is the magnetic flux, $M$ is the magnetic moment of the ferrite, and $\frac
+                        {dH}{dt}$ is the rate of change
+                        of the magnetic field strength. </p>
                     </p>
                 </article>
                 <article>
@@ -962,6 +1275,54 @@
                         a magnetic field
                         when it is applied in different directions.
                     </p>
+                    <p> The following equation describes the magnetic energy $E$ as a function of the magnetic
+                        anisotropy
+                        constant $K$ and the angle $\theta$ between
+                        the magnetic moment and the magnetic anisotropy axis. It represents the energy required to
+                        rotate the magnetic moment
+                        from the anisotropy axis to a different direction. $$ E = -K * cos^2(\theta) $$
+                        where $E$ is the magnetic energy, $K$ is the magnetic anisotropy constant, and $\theta$ is the
+                        angle between the
+                        magnetic moment and the magnetic anisotropy axis.
+                    </p>
+                    <p>Let us represent the rate of change of magnetic moment $\frac{dM}{dt}$ as a function of
+                        the gyromagnetic ratio
+                        $\gamma$, the magnetic field strength $H$, and the time derivative of magnetic moment
+                        $\frac{\partial M}{\partial t}$.
+                        It shows the relationship between the rate of change of magnetic moment and the external
+                        magnetic field as: $$ \frac {dM}{dt} = \gamma * H * \frac {\partial M}{\partial t} $$
+                        where $\frac {dM}{dt}$ is the rate of change of magnetic moment, $\gamma$ is the gyromagnetic
+                        ratio, $H$ is the magnetic
+                        field strength, and $\frac {\partial M}{\partial t}$ is the time derivative of magnetic moment.
+
+                    </p>
+                    <p>This derivative of the magnetic energy with respect to angle $\theta$ can be denoted as below. It
+                        shows how the magnetic energy
+                        changes as the angle between the magnetic moment and the magnetic anisotropy axis changes. $$
+                        \frac {\partial E}{\partial \theta} = 2 * K * cos(\theta) * sin(\theta) $$
+                        where $\frac {\partial E}{\partial \theta}$ is the derivative of magnetic energy with respect to
+                        angle $\theta$, $K$ is
+                        the magnetic anisotropy constant, and $\theta$ is the angle between the magnetic moment and the
+                        magnetic anisotropy
+                        axis.
+                    </p>
+                    <p>Let us show the
+                        relationship between the magnetic moment $M$, saturation magnetization $M_s$, and the angle
+                        $\theta$.
+                        It represents the magnetic moment as a function of the saturation magnetization and the angle
+                        between the magnetic
+                        moment and the magnetic anisotropy axis. $$ M = M_s * sin(\theta) $$
+                        where $M$ is the magnetic moment of the material, $M_s$ is the saturation magnetization, and
+                        $\theta$ is the angle
+                        between the magnetic moment and the magnetic anisotropy axis.
+                    </p>
+                    <p> Finally, this following equation represents the anisotropy field $H_k$ as the
+                        derivative of magnetic energy with respect to magnetic moment. It
+                        shows how the magnetic energy changes as the magnetic moment changes. $$ H_k = -\frac {\partial
+                        E}{\partial M} $$
+                        where $H_k$ is the anisotropy field, and $\frac {\partial E}{\partial M}$ is the derivative of
+                        magnetic energy with
+                        respect to magnetic moment. </p>
                 </article>
                 <article>
                     <h4>Magnetostriction</h4>
@@ -972,84 +1333,112 @@
                         materials and are used in
                         the production of ultrasound.
                     </p>
-                    Introduction
 
-                    Magnetostriction is a phenomenon that occurs in ferromagnetic materials whereby the material
-                    changes
-                    shape in response
-                    to an applied magnetic field. The phenomenon is the result of a coupling between a material’s
-                    magnetic and elastic
-                    properties and can be used to generate ultrasonic waves. This article will discuss the concept
-                    of
-                    magnetostriction and
-                    its applications in production of ultrasonic waves.
+                    <p>
+                        Magnetostriction is a phenomenon that occurs in ferromagnetic materials whereby the material
+                        changes
+                        shape in response
+                        to an applied magnetic field. The phenomenon is the result of a coupling between a material’s
+                        magnetic and elastic
+                        properties and can be used to generate ultrasonic waves. This article will discuss the concept
+                        of
+                        magnetostriction and
+                        its applications in production of ultrasonic waves.
+                    </p>
 
-                    Magnetostriction
+                    <p>
+                        Magnetostriction is the result of a coupling between a material’s magnetic and elastic
+                        properties.
+                        When a ferromagnetic
+                        material is subjected to an external magnetic field, the magnetic domains within the material
+                        elongate or contract,
+                        resulting in a change in shape of the material. This phenomenon is known as magnetostriction and
+                        is
+                        related to the
+                        magnetic susceptibility of the material, which is a measure of how easily a material can be
+                        magnetized. The magnitude of
+                        the magnetostriction depends on the magnitude of the magnetic field and the susceptibility of
+                        the
+                        material.
+                    </p>
+                    <p>
+                        The phenomenon of magnetostriction is described by the following formula:
 
-                    Magnetostriction is the result of a coupling between a material’s magnetic and elastic
-                    properties.
-                    When a ferromagnetic
-                    material is subjected to an external magnetic field, the magnetic domains within the material
-                    elongate or contract,
-                    resulting in a change in shape of the material. This phenomenon is known as magnetostriction and
-                    is
-                    related to the
-                    magnetic susceptibility of the material, which is a measure of how easily a material can be
-                    magnetized. The magnitude of
-                    the magnetostriction depends on the magnitude of the magnetic field and the susceptibility of
-                    the
-                    material.
+                        <!-- ΔL=λ⋅H -->
+                        $$ \Delta L = \lambda \cdot H $$
 
-                    The phenomenon of magnetostriction is described by the following formula:
+                        where $\Delta L$ is the change in length of the material,
+                        $\lambda$ is the magnetostriction
+                        coefficient, and
+                        $H$ is the
+                        applied magnetic field.
+                    </p>
 
-                    ΔL=λ⋅H
-                    <!-- $$ \Delta L = \lambda \cdot H $$ -->
+                    <p>
+                        One of the most common applications of magnetostriction is the production of ultrasonic waves.
+                        Ultrasonic waves are
+                        sound waves with a frequency greater than 20 kHz, and they can be used for a variety of purposes
+                        such as medical imaging
+                        and non-destructive testing. Magnetostriction can be used to produce ultrasonic waves by passing
+                        an
+                        alternating current
+                        through a coil of wire that is wrapped around a ferromagnetic material, such as iron or nickel.
+                        The
+                        alternating current
+                        creates a changing magnetic field which induces magnetostriction in the material, causing it to
+                        change shape at the same
+                        frequency as the current. This change in shape produces ultrasonic waves, which can be used for
+                        various applications.
+                    </p>
+                    <p>
+                        The equation for producing ultrasonic waves using magnetostriction can be represented as
+                        follows:
 
-                    where ΔL is the change in length of the material, λ
-                    <!--$\lambda$--> is the magnetostriction
-                    coefficient, and H
-                    <!--$H$--> is the
-                    applied magnetic field.
+                        $$ \frac{\partial^2 u}{\partial t^2} = \frac{1}{\rho} \left(\frac{\partial^2 \sigma}{\partial
+                        x^2} +
+                        \frac{\partial^2
+                        \sigma}{\partial y^2} + \frac{\partial^2 \sigma}{\partial z^2}\right) $$
 
-                    Applications
+                        where $u$ represents the displacement of the material, $t$ is time, $\rho$ is the density of the
+                        material, $\sigma$ is
+                        the stress produced due to magnetostriction and the partial derivatives represent the spatial
+                        derivatives in the $x$,
+                        $y$ and $z$ directions.
+                    </p>
+                    <p>
+                        Magnetostriction is a phenomenon that occurs in ferromagnetic materials whereby
+                        the
+                        material changes
+                        shape in response to an applied magnetic field. It is related to the magnetic susceptibility of
+                        the
+                        material and can be
+                        used to generate ultrasonic waves. The process of producing ultrasonic waves using
+                        magnetostriction
+                        involves passing an
+                        alternating current through a coil of wire that is wrapped around a ferromagnetic material which
+                        induces
+                        magnetostriction in the material, causing it to change shape at the same frequency as the
+                        current.
+                        This change in shape
+                        produces ultrasonic waves, which can be used for various applications. Magnetostriction can be
+                        represented as follows:
 
-                    One of the most common applications of magnetostriction is the production of ultrasonic waves.
-                    Ultrasonic waves are
-                    sound waves with a frequency greater than 20 kHz, and they can be used for a variety of purposes
-                    such as medical imaging
-                    and non-destructive testing. Magnetostriction can be used to produce ultrasonic waves by passing
-                    an
-                    alternating current
-                    through a coil of wire that is wrapped around a ferromagnetic material, such as iron or nickel.
-                    The
-                    alternating current
-                    creates a changing magnetic field which induces magnetostriction in the material, causing it to
-                    change shape at the same
-                    frequency as the current. This change in shape produces ultrasonic waves, which can be used for
-                    various applications.
+                        $$\Delta L = \lambda_m \cdot \left(\frac{\partial B}{\partial t}\right)$$
 
-                    Diagram
+                        where:
+                        $\Delta L$ is the change in length of the ferromagnetic material
+                        $\lambda_m$ is the magnetostriction constant, which is a measure of the sensitivity of the
+                        material to an applied
+                        magnetic field
+                        $B$ is the magnetic field strength
+                        $t$ is time
 
-                    The following diagram illustrates the process of producing ultrasonic waves using
-                    magnetostriction:
+                        The change in shape of the ferromagnetic material can then be used to produce ultrasonic waves,
+                        with frequency $f$ given
+                        by:
 
-                    Conclusion
-
-                    In conclusion, magnetostriction is a phenomenon that occurs in ferromagnetic materials whereby
-                    the
-                    material changes
-                    shape in response to an applied magnetic field. It is related to the magnetic susceptibility of
-                    the
-                    material and can be
-                    used to generate ultrasonic waves. The process of producing ultrasonic waves using
-                    magnetostriction
-                    involves passing an
-                    alternating current through a coil of wire that is wrapped around a ferromagnetic material which
-                    induces
-                    magnetostriction in the material, causing it to change shape at the same frequency as the
-                    current.
-                    This change in shape
-                    produces ultrasonic waves, which can be used for various applications.
+                        $$f = \frac{1}{2 \pi} \cdot \frac{\partial \Delta L}{\partial t}$$
+                    </p>
                 </article>
                 <article>
                     <h4>Ultrasound</h4>
@@ -1064,6 +1453,74 @@
                         organized in a specific
                         pattern and are subjected to a magnetic field in order to produce the ultrasonic waves.
                     </p>
+
+
+                    <p>Let us relate the velocity of sound $v$ in a magnetostrictive material to its
+                        elastic modulus $K$ and
+                        density $\rho$. It shows that the velocity of sound is proportional to the square root of the
+                        ratio of elastic modulus
+                        to density.
+
+                        $$ v = \sqrt {\frac {K}{\rho}} $$
+                        where $v$ is the velocity of sound, $K$ is the elastic modulus, and $\rho$ is the density of the
+                        magnetostrictive
+                        material.
+                    </p>
+                    <p>
+                        When the wavelength of ultrasound $\lambda$ is related to the velocity of sound $v$
+                        and frequency $f$, It
+                        represents the wavelength as the ratio of the velocity of sound to the frequency.
+                        $$ \lambda = \frac {v}{f} $$
+                        where $\lambda$ is the wavelength of the ultrasound, $v$ is the velocity of sound, and $f$ is
+                        the frequency of the
+                        ultrasound.
+                    </p>
+                    <p>
+                        If we relate the frequency of ultrasound $f$ to the velocity of sound $v$ and
+                        wavelength $\lambda$; It
+                        represents the frequency as the ratio of the velocity of sound to the wavelength.
+                        $$ f = \frac {v}{\lambda} $$
+                        where $f$ is the frequency of the ultrasound, $v$ is the velocity of sound, and $\lambda$ is the
+                        wavelength of the
+                        ultrasound.
+                    </p>
+                    <p>
+                        When we relate the power of ultrasound $P$ to the density of the magnetostrictive
+                        material $\rho$, velocity
+                        of sound $v$, and cross-sectional area $A$; It represents the power as half the product of the
+                        density, velocity of
+                        sound squared, and cross-sectional area.
+                        $$ P = \frac {1}{2} * \rho * v^2 * A $$
+                        where $P$ is the power of the ultrasound, $\rho$ is the density of the magnetostrictive
+                        material, $v$ is the velocity of
+                        sound, and $A$ is the cross-sectional area of the material.
+                    </p>
+                    <p>
+                        When the force applied on a magnetostrictive material $F$ is related to the rate of
+                        change of pressure
+                        $\frac{dp}{dt}$. It represents the force as the derivative of pressure with respect to time.
+                        $$ F = \frac {dp}{dt} $$
+                        where $F$ is the force applied on the magnetostrictive material, and $\frac {dp}{dt}$ is the
+                        rate of change of pressure.
+                    </p>
+
+                    <p>
+                        If we find the relation between then change in length $\Delta L$ of a magnetostrictive material
+                        to the
+                        coefficient of linear
+                        expansion $\lambda$, initial length $L$, change in temperature $\Delta T$, and initial
+                        temperature $T$. It shows that
+                        the change in length is proportional to the initial length, coefficient of linear expansion, and
+                        the ratio of change in
+                        temperature to initial temperature.
+                        $$ \Delta L = \lambda * L * \frac {\Delta T}{T} $$
+                        where $\Delta L$ is the change in length of the magnetostrictive material, $\lambda$ is the
+                        coefficient of linear
+                        expansion, $L$ is the initial length of the material, $\Delta T$ is the change in temperature,
+                        and $T$ is the initial
+                        temperature.
+                    </p>
+
                 </article>
                 <article>
                     <h4>Conclusion</h4>
