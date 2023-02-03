@@ -956,12 +956,23 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-                var result = confirm("You are navigating the cached version of this website. Files have been updated at server. Do you want to refresh them? \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
-                if (result) {
-                    location.reload(true); // user clicked "Yes" - hard reload. 
-                } else {
-                    // window.alert(""); // user clicked "No"                    
-                }
+                caches.keys().then(function (cacheNames) {
+                    if (confirm("Do you want to empty the cache and perform a hard refresh?")) {
+                        cacheNames.forEach(function (cacheName) {
+                            caches.delete(cacheName);
+                        });
+
+                        // Perform a hard refresh
+                        location.reload(true);
+                    }
+                });
+
+                // var result = confirm("You are navigating the cached version of this website. Files have been updated at server. Do you want to refresh them? \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
+                // if (result) {
+                //     location.reload(true); // user clicked "Yes" - hard reload. 
+                // } else {
+                //     // window.alert(""); // user clicked "No"                    
+                // }
                 // location.reload(true); // hard reload stuck in redirection loop
 
             }
