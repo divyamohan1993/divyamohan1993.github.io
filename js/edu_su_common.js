@@ -957,16 +957,19 @@ function gen_blockquote() {
                 }
                 refreshCounter++;
                 caches.keys().then(function (cacheNames) {
-                    if (confirm("Do you want to empty the cache and perform a hard refresh?")) {
-                        cacheNames.forEach(function (cacheName) {
-                            caches.delete(cacheName);
-                        });
+                    if (cacheNames.length > 0) {
+                        if (confirm("Do you want to empty the cache and perform a hard refresh?")) {
+                            cacheNames.forEach(function (cacheName) {
+                                caches.delete(cacheName);
+                            });
 
-                        // Perform a hard refresh
-                        location.reload(true);
+                            // Perform a hard refresh
+                            location.reload(true);
+                        }
+                    } else {
+                        console.log("No cache available to delete.");
                     }
                 });
-
 
             }
         } catch (error) {
