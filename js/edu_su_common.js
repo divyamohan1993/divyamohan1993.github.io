@@ -951,11 +951,8 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-                console.log("A");
                 caches.keys().then(function (cacheNames) {
-                    console.log("B");
                     if (cacheNames.length > 0) {
-                        console.log("B if");
                         // if (confirm("Currently you viewing the cached version of page. Do you want to get the current version of the website? \nPlease make sure you have internet connectivity before clicking Yes.")) {
                         cacheNames.forEach(function (cacheName) {
                             caches.delete(cacheName);
@@ -1012,7 +1009,7 @@ window.onload = function () {
     for (var i = 0; i < words.length; i++) {
         totalTime += (words[i].length / 250);
     }
-    console.log("Total time to read the webpage: " + totalTime + " minutes");
+    // console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
 
 /******* SECURITY SUITE START *******/
