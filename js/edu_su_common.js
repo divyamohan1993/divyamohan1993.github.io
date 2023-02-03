@@ -146,22 +146,22 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu*8J*5F*75*75*75*75*7
         script.onload = function () {
             loaded++; // Increment the counter
             if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here                
-                    hljs.highlightAll(); // Highlight js init - single line code. 
+                hljs.highlightAll(); // Highlight js init - single line code. 
 
-                    // KaTex Math js START
-                    renderMathInElement(document.body, {
-                        // customised options
-                        // • auto-render specific keys, e.g.:
-                        delimiters: [
-                            { left: '$$', right: '$$', display: true },
-                            { left: '$', right: '$', display: false },
-                            { left: '\\(', right: '\\)', display: false },
-                            { left: '\\[', right: '\\]', display: true }
-                        ],
-                        // • rendering keys, e.g.:
-                        throwOnError: false
-                    });
-                    // KaTex Math js END
+                // KaTex Math js START
+                renderMathInElement(document.body, {
+                    // customised options
+                    // • auto-render specific keys, e.g.:
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    // • rendering keys, e.g.:
+                    throwOnError: false
+                });
+                // KaTex Math js END
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -956,18 +956,14 @@ function gen_blockquote() {
                     return;
                 }
                 refreshCounter++;
-
-                window.reload_req = 1;
-
-                if (window["reload_req"] == 1) {
-                    var result = confirm("You are navigating the cached version of this website. Files have been updated at server. Do you want to refresh them? \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
-                    if (result) {
-                        location.reload(true); // user clicked "Yes" - hard reload. 
-                    } else {
-                        // window.alert(""); // user clicked "No"                    
-                    }
-                    // location.reload(true); // hard reload stuck in redirection loop
+                var result = confirm("You are navigating the cached version of this website. Files have been updated at server. Do you want to refresh them? \n\n On PC? Press CTRL + R to hard reload the page. \n On phone? Pull Down to hard reload.");
+                if (result) {
+                    location.reload(true); // user clicked "Yes" - hard reload. 
+                } else {
+                    // window.alert(""); // user clicked "No"                    
                 }
+                // location.reload(true); // hard reload stuck in redirection loop
+
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
