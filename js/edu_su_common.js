@@ -953,15 +953,15 @@ function gen_blockquote() {
                 refreshCounter++;
                 caches.keys().then(function (cacheNames) {
                     if (cacheNames.length > 0) {
-                        if (confirm("Do you want to empty the cache, unregister the service worker, and perform a hard refresh?")) {
+                        if (confirm("Currently you viewing the cached version of page. Do you want to get the current version of the website? \nPlease make sure you have internet connectivity before clicking Yes.")) {
                             cacheNames.forEach(function (cacheName) {
                                 caches.delete(cacheName);
                             });
 
-                            // Unregister the service worker
+                            // Update the service worker
                             navigator.serviceWorker.getRegistrations().then(function (registrations) {
                                 registrations.forEach(function (registration) {
-                                    registration.unregister();
+                                    registration.update();
                                 });
                             });
 
@@ -972,6 +972,7 @@ function gen_blockquote() {
                         console.log("No cache available to delete.");
                     }
                 });
+
             }
         } catch (error) {
             console.error('Error while fetching latest version:', error);
