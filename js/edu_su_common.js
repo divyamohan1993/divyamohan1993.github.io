@@ -146,7 +146,6 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu*8J*5F*75*75*75*75*7
         script.onload = function () {
             loaded++; // Increment the counter
             if (loaded === scripts.length) { // Check if all scripts have finished loading. If it is then Execute the onload code here                
-                document.addEventListener("DOMContentLoaded", function () {
                     hljs.highlightAll(); // Highlight js init - single line code. 
 
                     // KaTex Math js START
@@ -163,7 +162,6 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu*8J*5F*75*75*75*75*7
                         throwOnError: false
                     });
                     // KaTex Math js END
-                });
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -966,7 +964,7 @@ function gen_blockquote() {
                     if (result) {
                         location.reload(true); // user clicked "Yes" - hard reload. 
                     } else {
-                        //j/ window.alert(""); // user clicked "No"                    
+                        // window.alert(""); // user clicked "No"                    
                     }
                     // location.reload(true); // hard reload stuck in redirection loop
                 }
