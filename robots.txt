@@ -4,6 +4,7 @@
 User-agent: *
 Disallow: /doc/
 Disallow: /.github/
+Disallow: /development/
 Allow: /
 
 Sitemap: https://dmj.one/sitemap.xml
