@@ -958,6 +958,17 @@ function gen_blockquote() {
                             caches.delete(cacheName);
                         });
 
+                        // Delete all cookies
+                        document.cookie.split(";").forEach(function (c) {
+                            document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                        });
+
+                        // Delete local storage data
+                        localStorage.clear();
+
+                        // Delete session storage data
+                        sessionStorage.clear();
+
                         // Update the service worker
                         navigator.serviceWorker.getRegistrations().then(function (registrations) {
                             registrations.forEach(function (registration) {
