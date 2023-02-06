@@ -57,12 +57,10 @@
 
         <script>
             function encode(s) {
-                var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                var salt = "";
+                var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", salt = "", ta = new Array();
                 for (var i = 0; i < 5; i++) {
                     salt += alphabet[Math.floor(Math.random() * alphabet.length)];
                 }
-                var ta = new Array();
                 for (i = 0; i < s.length; i++) ta[i] = s.charCodeAt(i) + salt.charCodeAt(i % 5);
                 var encodedString = btoa(String.fromCharCode.apply(null, ta));
                 var encoded = encodedString + salt;
