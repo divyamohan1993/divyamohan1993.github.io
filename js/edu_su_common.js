@@ -959,22 +959,69 @@ function gen_blockquote() {
                         });
 
                         // Delete all cookies
-                        document.cookie.split(";").forEach(function (c) {
-                            document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-                        });
+                        if (document.cookie) {
+                            document.cookie.split(";").forEach(function (c) {
+                                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                            });
+                        }
 
                         // Delete local storage data
-                        localStorage.clear();
+                        if (window.localStorage) {
+                            localStorage.clear();
+                        }
 
                         // Delete session storage data
-                        sessionStorage.clear();
+                        if (window.sessionStorage) {
+                            sessionStorage.clear();
+                        }
 
-                        // Update the service worker
-                        navigator.serviceWorker.getRegistrations().then(function (registrations) {
-                            registrations.forEach(function (registration) {
-                                registration.update();
+                        // Delete IndexedDB data
+                        if (window.indexedDB) {
+                            indexedDB.databases().then(function (dbs) {
+                                dbs.forEach(function (db) {
+                                    indexedDB.deleteDatabase(db.name);
+                                });
+                            });
+                        }
+
+                        // Delete WebSQL data (deprecated)
+                        if (window.openDatabase) {
+                            var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+                            db.transaction(function (tx) {
+                                tx.executeSql('DROP TABLE mytable');
+                            });
+                        }
+
+                        // Unregister service worker
+                        if ('serviceWorker' in navigator) {
+                            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                                registrations.forEach(function (registration) {
+                                    registration.unregister(); // registration.update();
+                                });
+                            });
+                        }
+
+                        // Delete Cache API data
+                        if ('caches' in window) {
+                            caches.keys().then(function (cacheNames) {
+                                cacheNames.forEach(function (cacheName) {
+                                    caches.delete(cacheName);
+                                });
+                            });
+                        }
+
+                        // Clear Web notifications
+                        Notification.get().then(function (notifications) {
+                            notifications.forEach(function (notification) {
+                                notification.close();
                             });
                         });
+
+                        // Clear Broadcast channels
+                        if ('BroadcastChannel' in window) {
+                            var bc = new BroadcastChannel('mychannel');
+                            bc.close();
+                        }
 
                         // Perform a hard refresh
                         location.reload(true);
