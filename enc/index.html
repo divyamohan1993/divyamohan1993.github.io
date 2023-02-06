@@ -71,11 +71,12 @@
             function decode(s) {
                 const salt = s.slice(-5);
                 const s1 = s.slice(0, -5);
-                const ta = Array.from(atob(s1 + '='.repeat((4 - s1.length % 4) % 4)), c => c.charCodeAt(0) - salt.charCodeAt(i % 5));
+                const ta = Array.from(atob(s1 + '='.repeat((4 - s1.length % 4) % 4)), c => c.charCodeAt(0) - salt.charCodeAt(j % 5));
                 const decoded = String.fromCharCode(...ta);
                 navigator.clipboard.writeText(decoded);
                 return decoded;
             }
+
 
 
             function changeFunc(i) {
