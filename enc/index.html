@@ -57,26 +57,24 @@
 
         <script>
             function encode(s) {
-                const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                let salt = "";
-                for (let i = 0; i < 5; i++) {
-                    salt += alphabet[Math.floor(Math.random() * alphabet.length)];
-                }
-                const ta = Array.from(s, c => c.charCodeAt(0) + salt.charCodeAt(i % 5));
-                const encoded = btoa(String.fromCharCode(...ta)).slice(0, -2) + salt;
+                let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                let salt = Array(5).fill(0).map(_ => alphabet[Math.floor(Math.random() * alphabet.length)]).join('');
+                let encodedString = btoa(Array.from(s, c => c.charCodeAt(0) + salt.charCodeAt(i % 5)).reduce((a, b) => a + String.fromCharCode(b), '')).replace(/=+$/, '');
+                let encoded = encodedString + salt;
                 navigator.clipboard.writeText(encoded);
+                document.getElementById("output").textContent = encoded;
                 return encoded;
             }
 
             function decode(s) {
-                const salt = s.slice(-5);
-                const s1 = s.slice(0, -5);
-                const ta = Array.from(atob(s1 + '='.repeat((4 - s1.length % 4) % 4)), c => c.charCodeAt(0) - salt.charCodeAt(j % 5));
-                const decoded = String.fromCharCode(...ta);
+                let salt = s.slice(-5);
+                let s1 = s.slice(0, -5);
+                let padding = '='.repeat((4 - s1.length % 4) % 4);
+                let s2 = s1 + padding;
+                let decoded = Array.from(atob(s2), c => c.charCodeAt(0) - salt.charCodeAt(i % 5)).reduce((a, b) => a + String.fromCharCode(b), '');
                 navigator.clipboard.writeText(decoded);
-                return decoded;
+                return document.getElementById("output").textContent = decoded;
             }
-
 
 
             function changeFunc(i) {
