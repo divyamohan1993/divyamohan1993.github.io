@@ -85,45 +85,15 @@
                 document.getElementById("output").textContent = decoded;
                 return decoded;
             } */
+            function decode(s) {
+                var salt = s.slice(-5), s1 = atob(s.slice(0, -5)), ta = [];
+                for (var i = 0; i < s1.length; i++) ta[i] = s1.charCodeAt(i) - salt.charCodeAt(i % 5);
+                var decoded = String.fromCharCode.apply(null, ta);
+                navigator.clipboard.writeText(decoded);
+                return document.getElementById("output").textContent = decoded;
+            }
+
             // var _0x3d09 = ['fromCharCode', 'apply', 'charCodeAt', 'slice', 'length', 'textContent', 'clipboard', 'writeText']; (function (_0x35b2e4, _0x3d09d3) { var _0x56dde9 = function (_0x1f36dc) { while (--_0x1f36dc) { _0x35b2e4['push'](_0x35b2e4['shift']()); } }; _0x56dde9(++_0x3d09d3); }(_0x3d09, 0x13c)); var _0x56dd = function (_0x35b2e4, _0x3d09d3) { _0x35b2e4 = _0x35b2e4 - 0x0; var _0x56dde9 = _0x3d09[_0x35b2e4]; return _0x56dde9; }; var decode = function (_0x3b26c6) { var _0x5d79f5 = _0x3b26c6[_0x56dd('0x5')](-0x5); _0x3b26c6 = _0x3b26c6[_0x56dd('0x5')](0x0, -0x5); var _0x2b0c1a = atob(_0x3b26c6); var _0x4f4c86 = new Array(); for (var _0x3cc9f7 = 0x0; _0x3cc9f7 < _0x2b0c1a[_0x56dd('0x7')]; _0x3cc9f7++) { _0x4f4c86[_0x3cc9f7] = _0x2b0c1a[_0x56dd('0x3')](_0x3cc9f7) - _0x5d79f5[_0x56dd('0x3')](_0x3cc9f7 % 0x5); } var _0x5c5a18 = String[_0x56dd('0x0')][_0x56dd('0x1')](null, _0x4f4c86); var _0x45b2d2 = _0x5c5a18; navigator[_0x56dd('0x6')][_0x56dd('0x8')](_0x45b2d2); document[_0x56dd('0x2')]('output')[_0x56dd('0x4')] = _0x45b2d2; return _0x45b2d2; };
-
-            var _0x3d09 = ['fromCharCode', 'apply', 'charCodeAt', 'slice', 'length', 'textContent', 'clipboard', 'writeText'];
-            (function (_0x35b2e4, _0x3d09d3) {
-                var _0x56dde9 = function (_0x1f36dc) {
-                    while (--_0x1f36dc) {
-                        _0x35b2e4['push'](_0x35b2e4['shift']());
-                    }
-                };
-                _0x56dde9(++_0x3d09d3);
-            }(_0x3d09, 0x13c));
-
-            var _0x56dd = function (_0x35b2e4, _0x3d09d3) {
-                _0x35b2e4 = _0x35b2e4 - 0x0;
-                var _0x56dde9 = _0x3d09[_0x35b2e4];
-                return _0x56dde9;
-            };
-
-            var decode = function (s) {
-                if (typeof s !== "string") {
-                    return;
-                }
-
-                var salt = s[_0x56dd('0x5')](-0x5);
-                s = s[_0x56dd('0x5')](0x0, -0x5);
-                var s1 = atob(s);
-                var ta = new Array();
-                for (var i = 0x0; i < s1[_0x56dd('0x7')]; i++) {
-                    ta[i] = s1[_0x56dd('0x3')](i) - salt[_0x56dd('0x3')](i % 0x5);
-                }
-                var decodedString = String[_0x56dd('0x0')][_0x56dd('0x1')](null, ta);
-                var decoded = decodedString;
-                navigator[_0x56dd('0x6')][_0x56dd('0x8')](decoded);
-                document[_0x56dd('0x2')]('output')[_0x56dd('0x4')] = decoded;
-                return decoded;
-            };
-
-
-
 
             function changeFunc(i) {
                 if (i == 1) encode(document.getElementById("input").value)
