@@ -93,6 +93,15 @@
                 return document.getElementById("output").textContent = decoded;
             }
 
+            document.getElementById("input").addEventListener("input", function () {
+                if (document.getElementById("selectOption").value == 1) {
+                    encode(document.getElementById("input").value);
+                }
+                if (document.getElementById("selectOption").value == 2) {
+                    decode(document.getElementById("input").value);
+                }
+            });
+
             function changeFunc(i) {
                 if (i == 1) encode(document.getElementById("input").value)
                 if (i == 2) decode(document.getElementById("input").value)
@@ -117,12 +126,19 @@
         <div class="container">
             <textarea class="form-control" style="height:300px" id="input" spellcheck="false"
                 placeholder="Enter javascript / html / any text here to encode."></textarea>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+            <!-- <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                onchange="changeFunc(value);">
+                <option selected>Select your suitable option</option>
+                <option value="1">Encode</option>
+                <option value="2">Decode</option>
+            </select> -->
+            <select class="form-select form-select-lg mb-3" id="selectOption" aria-label=".form-select-lg example"
                 onchange="changeFunc(value);">
                 <option selected>Select your suitable option</option>
                 <option value="1">Encode</option>
                 <option value="2">Decode</option>
             </select>
+
             <span class="d-inline-block text-truncate" style="max-width: 100%;">
                 <code id="output"></code>
             </span>
