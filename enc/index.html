@@ -83,7 +83,7 @@
                 var decoded = decodedString;
                 navigator.clipboard.writeText(decoded);
                 document.getElementById("output").textContent = decoded;
-                re/*  */turn decoded;
+                return decoded;
             } */
             function decode(s) {
                 var salt = s.slice(-5), s1 = atob(s.slice(0, -5)), ta = [];
