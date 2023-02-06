@@ -56,92 +56,28 @@
 
 
         <script>
-            /* function encode(s) {
-                var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", salt = "", ta = new Array();
-                for (var i = 0; i < 5; i++) {
+            function encode(s) {
+                const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                let salt = "";
+                for (let i = 0; i < 5; i++) {
                     salt += alphabet[Math.floor(Math.random() * alphabet.length)];
                 }
-                for (i = 0; i < s.length; i++) ta[i] = s.charCodeAt(i) + salt.charCodeAt(i % 5);
-                var encodedString = btoa(String.fromCharCode.apply(null, ta));
-                var encoded = encodedString + salt;
+                const ta = Array.from(s, c => c.charCodeAt(0) + salt.charCodeAt(i % 5));
+                const encoded = btoa(String.fromCharCode(...ta)).slice(0, -2) + salt;
                 navigator.clipboard.writeText(encoded);
                 document.getElementById("output").textContent = encoded;
                 return encoded;
-            } */
+            }
 
-            /* function decode(s) {
-                var salt = s.slice(-5);
-                s = s.slice(0, -5);
-                var s1 = atob(s);
-                var ta = new Array();
-                for (var i = 0; i < s1.length; i++) {
-                    ta[i] = s1.charCodeAt(i) - salt.charCodeAt(i % 5);
-                }
-                var decodedString = String.fromCharCode.apply(null, ta);
-                var decoded = decodedString;
+            function decode(s) {
+                const salt = s.slice(-5);
+                const s1 = s.slice(0, -5);
+                const ta = Array.from(atob(s1 + '='.repeat((4 - s1.length % 4) % 4)), c => c.charCodeAt(0) - salt.charCodeAt(i % 5));
+                const decoded = String.fromCharCode(...ta);
                 navigator.clipboard.writeText(decoded);
                 document.getElementById("output").textContent = decoded;
                 return decoded;
-            } */
-            /* function decode(s) {
-                var salt = s.slice(-5), s1 = atob(s.slice(0, -5)), ta = [];
-                for (var i = 0; i < s1.length; i++) ta[i] = s1.charCodeAt(i) - salt.charCodeAt(i % 5);
-                var decoded = String.fromCharCode.apply(null, ta);
-                navigator.clipboard.writeText(decoded);
-                return document.getElementById("output").textContent = decoded;
-            } */
-
-            function encode(s) {
-                var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-                    salt = "",
-                    ta = new Array();
-
-                for (var i = 0; i < 5; i++) {
-                    salt += alphabet[Math.floor(Math.random() * alphabet.length)];
-                }
-
-                for (i = 0; i < s.length; i++) {
-                    ta[i] = s.charCodeAt(i) + salt.charCodeAt(i % 5);
-                }
-
-                var encodedString = btoa(String.fromCharCode.apply(null, ta)).replace(/=+$/, '');
-                var encoded = encodedString + salt;
-
-                navigator.clipboard.writeText(encoded);
-                document.getElementById("output").textContent = encoded;
-
-                return encoded;
             }
-            /* function decode(s) {
-                var salt = s.slice(-5),
-                    s1 = atob(s.slice(0, -5) + '=='.substr(0, (3 - s.length % 3) % 3)),
-                    ta = [];
-
-                for (var i = 0; i < s1.length; i++) {
-                    ta[i] = s1.charCodeAt(i) - salt.charCodeAt(i % 5);
-                }
-
-                var decoded = String.fromCharCode.apply(null, ta);
-
-                navigator.clipboard.writeText(decoded);
-                return document.getElementById("output").textContent = decoded;
-            } */
-            function decode(s) {
-                var salt = s.slice(-5),
-                    s1 = s.slice(0, -5),
-                    padding = '='.repeat((4 - s1.length % 4) % 4),
-                    s2 = s1 + padding,
-                    ta = [];
-
-                for (var i = 0; i < atob(s2).length; i++) {
-                    ta[i] = atob(s2).charCodeAt(i) - salt.charCodeAt(i % 5);
-                }
-
-                var decoded = String.fromCharCode.apply(null, ta);
-                navigator.clipboard.writeText(decoded);
-                return document.getElementById("output").textContent = decoded;
-            }
-
 
             function changeFunc(i) {
                 if (i == 1) encode(document.getElementById("input").value)
