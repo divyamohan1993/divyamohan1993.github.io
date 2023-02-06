@@ -56,48 +56,80 @@
 
 
         <script>
+            // This function is used to encode a string. 
             function encode(s) {
+                // A string of characters used for encoding and decoding.
                 var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                    // A string of random characters used for encoding and decoding.
                     salt = "",
+                    // An array used to store character codes of the input string.
                     ta = new Array();
 
+                // A loop that runs 5 times to generate a salt string.
                 for (var i = 0; i < 5; i++) {
+                    // Select a random character from the alphabet string and add it to the salt string.
                     salt += alphabet[Math.floor(Math.random() * alphabet.length)];
                 }
 
+                // A loop that runs for each character in the input string.
                 for (i = 0; i < s.length; i++) {
+                    // Add the character code of the current character in the input string 
+                    // and the character code of the current character in the salt string (mod 5) 
+                    // and store it in the ta array.
                     ta[i] = s.charCodeAt(i) + salt.charCodeAt(i % 5);
                 }
 
+                // Encode the ta array into a base64 string.
                 var encodedString = btoa(String.fromCharCode.apply(null, ta)).replace(/=+$/, '');
+                // Concatenate the encoded string and the salt string.
                 var encoded = encodedString + salt;
 
+                // Copy the encoded string to the clipboard.
                 navigator.clipboard.writeText(encoded);
+                // Display the encoded string in the "output" element.
                 document.getElementById("output").textContent = encoded;
 
+                // Return the encoded string.
                 return encoded;
             }
 
+            // This function is used to decode an encoded string.
             function decode(s) {
+                // Extract the last 5 characters from the input string and store it in the salt string.
                 var salt = s.slice(-5),
+                    // Extract the part of the input string excluding the last 5 characters.
                     s1 = s.slice(0, -5),
+                    // Calculate the required padding for the base64 decoding.
                     padding = '='.repeat((4 - s1.length % 4) % 4),
+                    // Concatenate the extracted part of the input string and the padding.
                     s2 = s1 + padding,
+                    // An array used to store the decoded character codes.
                     ta = [];
 
+                // A loop that runs for each character in the decoded string.
                 for (var i = 0; i < atob(s2).length; i++) {
+                    // Subtract the character code of the current character in the salt string (mod 5) 
+                    // from the character code of the current character in the decoded string 
+                    // and store it in the ta array.
                     ta[i] = atob(s2).charCodeAt(i) - salt.charCodeAt(i % 5);
                 }
 
+                // Decode the ta array into a string.
                 var decoded = String.fromCharCode.apply(null, ta);
+                // Copy the decoded string to the clipboard.
                 navigator.clipboard.writeText(decoded);
-                return document.getElementById("output").textContent = decoded;
+                // Display the encoded string in the "output" element.
+                document.getElementById("output").textContent = decoded;
+                // Return the encoded string.
+                return decoded;
             }
 
             function changeFunc(i) {
-                if (i == 1) encode(document.getElementById("input").value)
-                if (i == 2) decode(document.getElementById("input").value)
+                // Check the value of i
+                if (i == 1) { encode(document.getElementById("input").value) } // If i is 1, call the encode function with the value of the element with id "input" as the argument
+                if (i == 2) { decode(document.getElementById("input").value) } // If i is 2, call the decode function with the value of the element with id "input" as the argument                
             }
+
 
             /********** Textbox Auto Height *************/
             function auto_height(elem) {
