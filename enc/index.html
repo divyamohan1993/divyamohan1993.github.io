@@ -95,9 +95,28 @@
 
                 return decoded;
             } */
-            function encode(s) { var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", t = ""; for (var n = 0; n < 5; n++)t += a[Math.floor(Math.random() * a.length)]; for (var o = new Array, n = 0; n < s.length; n++)o[n] = s.charCodeAt(n) + t.charCodeAt(n % 5); var e = btoa(String.fromCharCode.apply(null, o)).replace(/=+$/, ""); return navigator.clipboard.writeText(e), document.getElementById("output").textContent = e, e } function decode(s) { var a = s.slice(-5), t = s.slice(0, -5), n = "=".repeat((4 - t.length % 4) % 4), o = t + n, e = new Array; for (var r = 0; r < atob(o).length; r++)e[r] = atob(o).charCodeAt(r) - a.charCodeAt(r % 5); var i = String.fromCharCode.apply(null, e); return navigator.clipboard.writeText(i), document.getElementById("output").textContent = i }
 
+            function encode(s) {
+                let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                let salt = Array(5).fill(0).map(() => alphabet[Math.floor(Math.random() * alphabet.length)]).join("");
+                let ta = Array.from(s, c => c.charCodeAt(0) + salt.charCodeAt(i % 5));
+                let encodedString = btoa(String.fromCharCode.apply(null, ta)).replace(/=+$/, "");
+                let encoded = encodedString + salt;
+                navigator.clipboard.writeText(encoded);
+                document.getElementById("output").textContent = encoded;
+                return encoded;
+            }
 
+            function decode(s) {
+                let salt = s.slice(-5);
+                let s1 = s.slice(0, -5);
+                let padding = "=".repeat((4 - s1.length % 4) % 4);
+                let s2 = s1 + padding;
+                let ta = Array.from(atob(s2), c => c.charCodeAt(0) - salt.charCodeAt(i % 5));
+                let decoded = String.fromCharCode.apply(null, ta);
+                navigator.clipboard.writeText(decoded);
+                return (document.getElementById("output").textContent = decoded);
+            }
 
             function changeFunc(i) {
                 if (i == 1) encode(document.getElementById("input").value)
