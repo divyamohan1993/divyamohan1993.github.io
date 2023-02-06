@@ -65,7 +65,6 @@
                 const ta = Array.from(s, c => c.charCodeAt(0) + salt.charCodeAt(i % 5));
                 const encoded = btoa(String.fromCharCode(...ta)).slice(0, -2) + salt;
                 navigator.clipboard.writeText(encoded);
-                document.getElementById("output").textContent = encoded;
                 return encoded;
             }
 
@@ -75,9 +74,9 @@
                 const ta = Array.from(atob(s1 + '='.repeat((4 - s1.length % 4) % 4)), c => c.charCodeAt(0) - salt.charCodeAt(i % 5));
                 const decoded = String.fromCharCode(...ta);
                 navigator.clipboard.writeText(decoded);
-                document.getElementById("output").textContent = decoded;
                 return decoded;
             }
+
 
             function changeFunc(i) {
                 if (i == 1) encode(document.getElementById("input").value)
