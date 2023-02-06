@@ -112,7 +112,7 @@
 
                 return encoded;
             }
-            function decode(s) {
+            /* function decode(s) {
                 var salt = s.slice(-5),
                     s1 = atob(s.slice(0, -5) + '=='.substr(0, (3 - s.length % 3) % 3)),
                     ta = [];
@@ -125,17 +125,23 @@
 
                 navigator.clipboard.writeText(decoded);
                 return document.getElementById("output").textContent = decoded;
+            } */
+            function decode(s) {
+                var salt = s.slice(-5),
+                    s1 = s.slice(0, -5),
+                    padding = '='.repeat((4 - s1.length % 4) % 4),
+                    s2 = s1 + padding,
+                    ta = [];
+
+                for (var i = 0; i < atob(s2).length; i++) {
+                    ta[i] = atob(s2).charCodeAt(i) - salt.charCodeAt(i % 5);
+                }
+
+                var decoded = String.fromCharCode.apply(null, ta);
+                navigator.clipboard.writeText(decoded);
+                return document.getElementById("output").textContent = decoded;
             }
 
-
-            document.getElementById("input").addEventListener("input", function () {
-                if (document.getElementById("selectOption").value == 1) {
-                    encode(document.getElementById("input").value);
-                }
-                if (document.getElementById("selectOption").value == 2) {
-                    decode(document.getElementById("input").value);
-                }
-            });
 
             function changeFunc(i) {
                 if (i == 1) encode(document.getElementById("input").value)
@@ -178,6 +184,16 @@
                 <code id="output"></code>
             </span>
         </div>
+        <script>
+            document.getElementById("input").addEventListener("input", function () {
+                if (document.getElementById("selectOption").value == 1) {
+                    encode(document.getElementById("input").value);
+                }
+                if (document.getElementById("selectOption").value == 2) {
+                    decode(document.getElementById("input").value);
+                }
+            });
+        </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
