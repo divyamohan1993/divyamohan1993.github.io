@@ -112,16 +112,16 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     var varJsUrl = (function () {
         var currentUrl = window.location.href,
             urlParts = currentUrl.split('/'),
-            varJsUrl = 'https://dmj.one/var.js',
+            varJsUrl = '/var.js',
             lastFolderIndex = urlParts.length - 1;
         for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
             lastFolderIndex = i;
             break;
         }
         if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+            varJsUrl = '/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
         else if (lastFolderIndex > 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
+            varJsUrl = '/' + urlParts.slice(3, 7).join('/') + '/var.js';
         return varJsUrl;
     })();
     document.write(`<script src='${varJsUrl}'></script>`);
