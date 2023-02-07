@@ -136,7 +136,6 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 
     // Create an array of script URLs
     var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
-
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
     for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts
@@ -408,11 +407,11 @@ function header_author(author_init) {
                     var course_detail = "Basic Mathematics";
                     break;
                 case "csu730":
-                    var prof = "Rajesh Williams";
+                    /* var prof = "Rajesh Williams";
                     var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
                     var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
                     var course = "CSU730";
-                    var course_detail = "Functional English - 1";
+                    var course_detail = "Functional English - 1"; */
                     break;
                 default:
                     var prof = "";
