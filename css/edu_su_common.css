@@ -319,11 +319,14 @@ code {
 .syntax pre,
 .syntax code {
   padding-left: 2%;
-  font-weight: normal;
 }
 
 .syntax {
   background: white !important;
+}
+
+pre code {
+  font-weight: normal;
 }
 
 code {
