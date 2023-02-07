@@ -311,6 +311,11 @@ h1 {
 }
 
 /* Special Code to shift right by 2% for showing syntax of programs */
+pre,
+code {
+  font-family: Hack, monospace;
+}
+
 .syntax pre,
 .syntax code {
   padding-left: 2%;
@@ -321,10 +326,8 @@ h1 {
   background: white !important;
 }
 
-pre,
 code {
   font-weight: bold;
-  font-family: Hack, monospace;
 }
 
 /** Header **/
