@@ -49,7 +49,7 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
-                    link = "../csu1128/download.html";
+                    link = "../csu1128/download";
                     date = "Last Updated: Mon January 2, 2023";
                     title = "All Programs Compiled";
                     desc = "All the programs compiled in an executable file for usage in Windows.";
