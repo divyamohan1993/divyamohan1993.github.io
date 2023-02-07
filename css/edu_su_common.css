@@ -310,10 +310,15 @@ h1 {
   font-family: Lato, sans-serif;
 }
 
+/* Special Code to shift right by 2% for showing syntax of programs */
+.syntax pre,
+code {
+  padding-left: 2%;
+}
+
 pre,
 code {
   font-family: Hack, monospace;
-  /* padding-left: 2%; */
 }
 
 /** Header **/
@@ -350,6 +355,7 @@ main article:nth-child(odd) {
   text-align: justify;
   padding: 2rem;
 }
+
 /* Exception for auto generated menu id #agenmenu */
 #agenmenu article {
   background-color: #f2f2f2;
