@@ -1,3 +1,8 @@
+var prof = "Dr. Pankaj Vaidya";
+var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+var prof_href = "mailto:pankaj.vaidya@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one";
+var course = "CSU1128";
+var course_detail = "Logic Building with Computer Programming";
 function get_menu_list() {
     var course = window.location.pathname.split("/")[3];
     var path = window.location.pathname.split("/")[4];
