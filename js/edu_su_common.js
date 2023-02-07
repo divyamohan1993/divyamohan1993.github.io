@@ -135,7 +135,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
 
     // Create an array of script URLs
-    var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
+    var scripts = [varJsUrl, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
     for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts

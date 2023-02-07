@@ -1,8 +1,10 @@
-var prof = "Rajesh Williams";
-var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
-var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
-var course = "CSU730";
-var course_detail = "Functional English - 1";
+(function () {
+    var prof = "Rajesh Williams";
+    var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
+    var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
+    var course = "CSU730";
+    var course_detail = "Functional English - 1";
+})();
 function get_menu_list() {
     var course = window.location.pathname.split("/")[4];
     var path = window.location.pathname.split("/")[5];
