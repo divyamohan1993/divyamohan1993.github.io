@@ -312,8 +312,12 @@ h1 {
 
 /* Special Code to shift right by 2% for showing syntax of programs */
 .syntax pre,
-code {
+.syntax code {
   padding-left: 2%;
+}
+
+.syntax {
+  background: white !important;
 }
 
 pre,
