@@ -314,6 +314,7 @@ h1 {
 .syntax pre,
 .syntax code {
   padding-left: 2%;
+  font-weight: normal;
 }
 
 .syntax {
@@ -322,6 +323,7 @@ h1 {
 
 pre,
 code {
+  font-weight: bold;
   font-family: Hack, monospace;
 }
 
