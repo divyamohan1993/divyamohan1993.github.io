@@ -161,7 +161,6 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
                     throwOnError: false
                 });
                 // KaTex Math js END
-                loadvar();
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -169,7 +168,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 })();
 
 (function () {
-    const logo = "https://dmj.one/logo.png?v=2.2";
+    const logo = "/logo.png";
     const pr = "preconnect";
     const links = [
         { rel: pr, href: "https://fonts.googleapis.com" },
@@ -413,6 +412,7 @@ function header_author(author_init) {
                     var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
                     var course = "CSU730";
                     var course_detail = "Functional English - 1"; */
+                    loadvar();
                     break;
                 default:
                     var prof = "";
@@ -433,7 +433,7 @@ function header_author(author_init) {
             var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
-    
+
 
     switch (author_init) {
         case "dm":
