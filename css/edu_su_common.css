@@ -313,7 +313,7 @@ h1 {
 pre,
 code {
   font-family: Hack, monospace;
-  padding-left: 2%;
+  /* padding-left: 2%; */
 }
 
 /** Header **/
