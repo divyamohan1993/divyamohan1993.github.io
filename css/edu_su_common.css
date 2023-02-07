@@ -310,10 +310,27 @@ h1 {
   font-family: Lato, sans-serif;
 }
 
+/* Special Code to shift right by 2% for showing syntax of programs */
 pre,
 code {
   font-family: Hack, monospace;
-  /* padding-left: 2%; */
+}
+
+.syntax pre,
+.syntax code {
+  padding-left: 2%;
+}
+
+.syntax {
+  background: white !important;
+}
+
+pre code {
+  font-weight: normal;
+}
+
+code {
+  font-weight: bold;
 }
 
 /** Header **/
@@ -350,6 +367,7 @@ main article:nth-child(odd) {
   text-align: justify;
   padding: 2rem;
 }
+
 /* Exception for auto generated menu id #agenmenu */
 #agenmenu article {
   background-color: #f2f2f2;

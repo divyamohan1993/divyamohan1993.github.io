@@ -36,7 +36,93 @@
                     Program to check if an entered year is leap or not without if else statement.
                 </h2>
             </article>
-            <article></article>
+            <article>
+                <p>
+                    This code is written in the C programming language and checks if a year entered by the user is a
+                    leap year or not,
+                    without using an if-else statement. The code uses the ternary operator <code>? :</code> to achieve
+                    this. The code
+                    starts by including the standard input-output library <code>stdio.h</code> which contains functions
+                    like
+                    <code>printf</code> and <code>scanf</code> that are used in the code.
+                </p>
+                <pre>
+                <code>
+#include &lt;stdio.h&gt;
+                </code>
+                </pre>
+                <p>
+                    The main function is then defined using the <code>int main()</code> syntax, which is the entry point
+                    for all C
+                    programs. Inside the main function, an integer variable <code>d</code> is declared to store the year
+                    entered by the
+                    user.
+                </p>
+                <pre>
+                <code>
+int main()
+{
+int d;
+                </code>
+                </pre>
+                <p>
+                    The code then prints a message to the user asking them to enter a year. This is done using the
+                    <code>printf</code>
+                    function which takes a formatted string as an argument and displays it on the screen.
+                </p>
+                <pre>
+                <code>
+printf("\n\n Program to check if an entered year is leap or not without if else statement. \n\n");
+printf("Enter an year - (Example: 2100) - and press enter: ");
+                </code>
+                </pre>
+                <p>
+                    The <code>scanf</code> function is then used to get the year entered by the user. The
+                    <code>%d</code> in the format
+                    string of the <code>scanf</code> function specifies that the input should be an integer, and the
+                    <code>&d</code>
+                    symbol is the memory address of the <code>d</code> variable, which stores the entered year.
+                </p>
+                <pre>
+                <code>
+scanf("%d", &d);
+                </code>
+                </pre>
+                <p>
+                    The code then prints a message saying <samp>The entered year is</samp>, followed by the result of the leap year
+                    check. This
+                    check is performed using the ternary operator <code>? :</code>, which takes two expressions and
+                    evaluates to the
+                    expression on the left of the <code>:</code> if the condition in the middle is true, and to the
+                    expression on the
+                    right if it is false.
+                </p>
+                <pre>
+                <code>
+printf("\n The entered year is");
+(d % 4 == 0 || d % 400 == 0) ? printf(" a leap year.\n") : printf(" not a leap year.\n");
+                </code>
+                </pre>
+                <p>
+                    The condition being checked in the ternary operator is whether the entered year is divisible by 4 or
+                    divisible by
+                    400. If either of these conditions are true, then the year is a leap year and the code outputs <samp>a
+                    leap year.</samp> If
+                    both conditions are false, the code outputs <samp>not a leap year.</samp> The <code>%</code> symbol is the
+                    modulo operator in
+                    C, which gives the remainder of a division operation.
+                </p>
+                <p>
+                    Finally, the main function returns a value of 0 to indicate that the program has executed
+                    successfully.
+                </p>
+                <pre>
+                <code>
+return 0;
+}
+                </code>
+                </pre>
+            </article>
             <article class="syntax">
                 <pre>
                     <code class="language-c">
