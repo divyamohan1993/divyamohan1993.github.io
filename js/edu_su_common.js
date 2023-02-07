@@ -112,16 +112,16 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     var varJsUrl = (function () {
         var currentUrl = window.location.href,
             urlParts = currentUrl.split('/'),
-            varJsUrl = 'https://dmj.one/var.js',
+            varJsUrl = '/var.js',
             lastFolderIndex = urlParts.length - 1;
         for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
             lastFolderIndex = i;
             break;
         }
         if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+            varJsUrl = '/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
         else if (lastFolderIndex > 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
+            varJsUrl = '/' + urlParts.slice(3, 7).join('/') + '/var.js';
         return varJsUrl;
     })();
     document.write(`<script src='${varJsUrl}'></script>`);
@@ -135,8 +135,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
 
     // Create an array of script URLs
-    var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
-
+    var scripts = [varJsUrl, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
     for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts
@@ -169,7 +168,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 })();
 
 (function () {
-    const logo = "https://dmj.one/logo.png?v=2.2";
+    const logo = "/logo.png";
     const pr = "preconnect";
     const links = [
         { rel: pr, href: "https://fonts.googleapis.com" },
@@ -412,7 +411,7 @@ function header_author(author_init) {
                     var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
                     var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
                     var course = "CSU730";
-                    var course_detail = "Functional English - 1";
+                    var course_detail = "Functional English - 1"; 
                     break;
                 default:
                     var prof = "";
@@ -433,6 +432,7 @@ function header_author(author_init) {
             var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
+
 
     switch (author_init) {
         case "dm":
