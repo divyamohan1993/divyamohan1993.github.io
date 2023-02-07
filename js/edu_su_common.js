@@ -1126,7 +1126,22 @@ window.onload = function () {
     console.clear();
 })(); */
 /******* SECURITY SUITE END *******/
-
+(function () {
+    document.onkeydown = function (e) {
+        if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
+            e.preventDefault();
+            alert("You want to view te code? \n View to learn or to copy? \n No, Dont copy! F12 and Ctrl+U are disabled for security reasons.");
+        }
+    };
+    document.oncontextmenu = function () {
+        return false;
+    }
+    document.onmousedown = function (e) {
+        if (e.button === 2) {
+            return false;
+        }
+    }
+})();
 
 
 
