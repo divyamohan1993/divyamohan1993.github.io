@@ -161,6 +161,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
                     throwOnError: false
                 });
                 // KaTex Math js END
+                loadvar();
             }
         };
         document.head.appendChild(script); // Append the script element to the head of the document
@@ -432,7 +433,7 @@ function header_author(author_init) {
             var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
-    loadvar();
+    
 
     switch (author_init) {
         case "dm":
