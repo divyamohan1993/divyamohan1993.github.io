@@ -432,6 +432,7 @@ function header_author(author_init) {
             var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
+    loadvar();
 
     switch (author_init) {
         case "dm":
