@@ -35,7 +35,51 @@
                     Program to calculate sum after taking two numbers as input from user.
                 </h2>
             </article>
-            <article></article>
+            <article>
+                <h4>Details:</h4>
+                <p>This code is written in C programming language and is a program that calculates the sum of two
+                    numbers entered by the
+                    user.</p>
+                <pre><code>#include &lt;stdio.h&gt;</code></pre>
+                <p>The first line includes the header file <code>stdio.h</code>, which stands for Standard Input/Output.
+                    This header
+                    file provides various functions that allow a program to input and output data, such as reading from
+                    the keyboard and
+                    writing to the console.</p>
+                <pre><code>int main()</code></pre>
+                <p>The <code>main</code> function is the entry point of the program, where execution starts. The
+                    <code>int</code>
+                    keyword before the <code>main</code> function indicates that the function will return an integer
+                    value.</p>
+                <pre><code>float d, m, j;</code></pre>
+                <p>The next line declares three floating-point variables <code>d</code>, <code>m</code>, and
+                    <code>j</code>.</p>
+                <pre><code>printf("\n\n Program to calculate sum aftertaking two numbers as input from user. \n\n");</code></pre>
+                <p>The <code>printf</code> function is used to print a message to the console that explains the purpose
+                    of the program.
+                </p>
+                <pre><code>printf("Enter 2 numbers - (Example: 2.34 5.66) and press enter: ");</code></pre>
+                <p>The next line prints a prompt to the console, asking the user to enter two numbers.</p>
+                <pre><code>scanf("%f %f", &d, &m);</code></pre>
+                <p>The <code>scanf</code> function is used to read two floating-point numbers entered by the user. The
+                    <code>%f</code>
+                    format specifier is used to indicate that floating-point numbers are being read, and the
+                    <kbd>&</kbd> symbol before
+                    the variable names <code>d</code> and <code>m</code> is used to pass the addresses of the variables
+                    to the
+                    <code>scanf</code> function, allowing it to store the input values in those variables.
+                </p>
+                <pre><code>printf("Sum of the the entered numbers %.2f and %.2f is %.2f\n", d, m, d + m);</code></pre>
+                <p>The <code>printf</code> function is used to print the sum of the two numbers, which is calculated as
+                    <code>d + m</code>. The <code>%.2f</code> format specifier is used to indicate that a floating-point
+                    number with two
+                    decimal places should be printed.
+                </p>
+                <pre><code>return 0;</code></pre>
+                <p>The <code>return 0;</code> statement at the end of the <code>main</code> function indicates that the
+                    program executed
+                    successfully and returns an exit code of 0 to the operating system.</p>
+            </article>
             <article class="syntax">
                 <pre>
                     <code class="language-c">
