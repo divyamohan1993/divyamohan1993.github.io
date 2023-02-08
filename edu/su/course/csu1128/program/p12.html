@@ -36,13 +36,82 @@
                     greater than 25000, HRA is 20%s of basic pay and DA is 50%s of basic pay else HRA is 15%s of basic
                     pay and DA is 25%s ofbasic pay.
                 </h2>
+                <script>
+                    function formatLastModified(...usernames) {
+                        const lastModified = document.lastModified;
+
+                        let usernameText;
+                        if (usernames.length === 0) {
+                            usernameText = "username";
+                        } else if (usernames.length === 1) {
+                            usernameText = usernames[0];
+                        } else if (usernames.length === 2) {
+                            usernameText = `${usernames[0]} and ${usernames[1]}`;
+                        } else {
+                            usernameText = usernames.slice(0, -1).join(", ") + `, and ${usernames.slice(-1)}`;
+                        }
+
+                        const text = `Last Modified by ${usernameText} on ${lastModified}`;
+                        const span = document.createElement("span");
+                        span.className = "text-center";
+                        span.innerText = text;
+
+                        document.body.appendChild(span);
+                    }
+                    formatLastModified("Divya Mohan");
+                </script>
             </article>
-            <article></article>
+            <article>
+                <p>
+                    <code>#include &lt;stdio.h&gt;</code> is a preprocessor directive that includes the standard
+                    input/output library in
+                    the program. This library contains functions such as <code>printf()</code> and <code>scanf()</code>
+                    that are used to
+                    display output and take input from the user, respectively.
+                </p>
+                <p>
+                    <code>int main()</code> is the main function of the program. It is the entry point of the program,
+                    where the
+                    execution of the program starts.
+                </p>
+                <p>
+                    In the main function, a floating-point variable <code>d</code> and three more floating-point
+                    variables
+                    <code>m</code>, <code>j</code>, and <code>o</code> are declared. Then, a prompt is displayed to the
+                    user explaining
+                    the calculation of the gross salary of an employee based on the given norms.
+                </p>
+                <p>
+                    The program then checks if the basic pay entered by the user is greater than 25000. If it is, the
+                    value of the
+                    variables <code>m</code> and <code>j</code> are set to 20 and 50, respectively. If the basic pay is
+                    less than or
+                    equal to 25000, the values of <code>m</code> and <code>j</code> are set to 15 and 25, respectively.
+                </p>
+                <p>
+                    The gross salary of the employee is then calculated by adding the basic pay and the amounts of HRA
+                    and DA. The
+                    calculated gross salary and the amounts of HRA and DA are then displayed to the user.
+                </p>
+                <p>
+                    Finally, the program returns 0, indicating that the program executed successfully.
+                </p>
+                <p>
+                    The output of the program will look like this:
+                    <samp>
+                        Program to calculate the gross salary of employee as per the following norms:
+                        - if salary is greater than 25000, HRA is 20% of basic pay and DA is 50% of basic pay
+                        - else HRA is 15% of basic pay and DA is 25% ofbasic pay.
+                        Enter the basic pay of the employee - (Example: 23236) - and press enter: 25000
+                        Gross salary of the employee is 32500.00 with 3750.00 as HRA and 6250.00 as DA amount given to
+                        them.
+                    </samp>
+                </p>
+            </article>
             <article class="syntax">
                 <pre>
                     <code class="language-c">
-/*******
- *
+/*
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
  *  This program contains all the programs done in the course
@@ -54,7 +123,7 @@
  *
  *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
  *
- * */
+ */
 
 #include &lt;stdio.h&gt;
 int main()

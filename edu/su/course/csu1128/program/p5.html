@@ -38,7 +38,7 @@
             </article>
             <article>
                 <p>
-                    This code is written in the C programming language and checks if a year entered by the user is a
+                    The following code is written in the C programming language and checks if a year entered by the user is a
                     leap year or not,
                     without using an if-else statement. The code uses the ternary operator <code>? :</code> to achieve
                     this. The code
@@ -46,11 +46,9 @@
                     like
                     <code>printf</code> and <code>scanf</code> that are used in the code.
                 </p>
-                <pre>
-                <code>
+                <pre><code class="language-c">
 #include &lt;stdio.h&gt;
-                </code>
-                </pre>
+</code></pre>
                 <p>
                     The main function is then defined using the <code>int main()</code> syntax, which is the entry point
                     for all C
@@ -58,24 +56,20 @@
                     entered by the
                     user.
                 </p>
-                <pre>
-                <code>
+                <pre><code class="language-c">
 int main()
 {
-int d;
-                </code>
-                </pre>
+    int d;
+</code></pre>
                 <p>
                     The code then prints a message to the user asking them to enter a year. This is done using the
                     <code>printf</code>
                     function which takes a formatted string as an argument and displays it on the screen.
                 </p>
-                <pre>
-                <code>
+                <pre><code class="language-c">
 printf("\n\n Program to check if an entered year is leap or not without if else statement. \n\n");
 printf("Enter an year - (Example: 2100) - and press enter: ");
-                </code>
-                </pre>
+</code></pre>
                 <p>
                     The <code>scanf</code> function is then used to get the year entered by the user. The
                     <code>%d</code> in the format
@@ -83,11 +77,9 @@ printf("Enter an year - (Example: 2100) - and press enter: ");
                     <code>&d</code>
                     symbol is the memory address of the <code>d</code> variable, which stores the entered year.
                 </p>
-                <pre>
-                <code>
+                <pre><code class="language-c">
 scanf("%d", &d);
-                </code>
-                </pre>
+</code></pre>
                 <p>
                     The code then prints a message saying <samp>The entered year is</samp>, followed by the result of the leap year
                     check. This
@@ -97,12 +89,10 @@ scanf("%d", &d);
                     expression on the
                     right if it is false.
                 </p>
-                <pre>
-                <code>
+                <pre><code class="language-c">
 printf("\n The entered year is");
 (d % 4 == 0 || d % 400 == 0) ? printf(" a leap year.\n") : printf(" not a leap year.\n");
-                </code>
-                </pre>
+</code></pre>
                 <p>
                     The condition being checked in the ternary operator is whether the entered year is divisible by 4 or
                     divisible by
@@ -116,18 +106,15 @@ printf("\n The entered year is");
                     Finally, the main function returns a value of 0 to indicate that the program has executed
                     successfully.
                 </p>
-                <pre>
-                <code>
+                <pre><code class="language-c">
 return 0;
 }
-                </code>
-                </pre>
+</code></pre>
             </article>
             <article class="syntax">
                 <pre>
                     <code class="language-c">
-/*******
- *
+/*
  *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
  *
  *  This program contains all the programs done in the course
@@ -139,7 +126,7 @@ return 0;
  *
  *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
  *
- * */
+ */
 
 #include &lt;stdio.h&gt;
 int main()
@@ -151,8 +138,7 @@ int main()
     printf("\n The entered year is");
     (d % 4 == 0 || d % 400 == 0) ? printf(" a leap year.\n") : printf(" not a leap year.\n");
     return 0;
-}                    </code>
-                </pre>
+}</code></pre>
             </article>
 
             <article>
