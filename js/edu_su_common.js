@@ -320,19 +320,15 @@ function header_navbar() {
     return nav;
 }
 
-function header_formatLastModified(...args) {
-    const date = new Date(document.lastModified);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = date.toLocaleDateString('en-US', options);
-    const lastModifiedData = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
-
+function head_FormatAuthor(...args) {
     let authorTextArr = [];
     for (let i = 0; i < args.length; i += 2) {
         let author = args[i];
         let author_href = args[i + 1];
-        authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+        if (author && author_href) { // add this line to check for blank inputs
+            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+        }
     }
-
     let authorText;
     if (authorTextArr.length === 0) {
         authorText = "author";
@@ -341,11 +337,10 @@ function header_formatLastModified(...args) {
     } else if (authorTextArr.length === 2) {
         authorText = authorTextArr.join(" and ");
     } else {
-        authorTextArr.pop();
+        // authorTextArr.pop();
         authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
     }
-    const lastAuthor = authorTextArr.slice(-1);
-    return { authorText, lastModifiedData, lastAuthor };
+    return authorText;
 }
 
 
@@ -380,7 +375,7 @@ function header_formatLastModified(...args) {
   ...
 } */
 
-function header_author(author_init) {
+function header_author(...args) {
     window["loaded_header_author"] = 1;
     /* USAGE - header_author(include_course_name, define_is_lab, teacher_FL, author_FL, biblography, button)
      * FL - First and Last Name initials 
@@ -393,8 +388,38 @@ function header_author(author_init) {
     var secondary = pathParts[3];
     var folder = pathParts[4];
     var file = pathParts[5];
+    var author_bio = "";
     // console.log(folder.length + folder);
     // console.log(file.length + file);
+
+    let authorTextArr = [];
+    args = args.length === 0 ? ["dm"] : args;
+    for (let i = 0; i < args.length; i++) {
+        let author_init = args[i];
+        switch (author_init) {
+            case "dm":
+                var author = "Divya Mohan";
+                author_bio += "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
+                var author_href = "contact@dmj.one";
+                break;
+            case "vp":
+                var author = "Vanshika Painuly";
+                author_bio += "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
+                var author_href = "vp@dmj.one";
+                break;
+            case "harshal":
+                var author = "Harshal Khajuria";
+                author_bio += "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
+                var author_href = "harshalkotakhajuria@gmail.com";
+                break;
+            default:
+                var author = "Divya Mohan";
+                author_bio += "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
+                var author_href = "contact@dmj.one";
+                break;
+        }
+        authorTextArr.push(author, author_href);
+    }
 
     switch (secondary) {
         case "course":
@@ -462,28 +487,7 @@ function header_author(author_init) {
     }
 
 
-    switch (author_init) {
-        case "dm":
-            var author = "Divya Mohan";
-            var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "contact@dmj.one";
-            break;
-        case "vp":
-            var author = "Vanshika Painuly";
-            var author_bio = "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "vp@dmj.one";
-            break;
-        case "harshal":
-            var author = "Harshal Khajuria";
-            var author_bio = "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
-            var author_href = "harshalkotakhajuria@gmail.com";
-            break;
-        default:
-            var author = "Divya Mohan";
-            var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "contact@dmj.one";
-            break;
-    }
+
 
     var row_button_start = '<div class="row" style="padding-bottom:30px;">';
     var row_button_end = "</div>";
@@ -508,8 +512,8 @@ function header_author(author_init) {
 
     profname = `<strong>${prof}</strong>`;
     prof_link = `<a href="${prof_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${prof}" data-original-title="Get in touch with ${prof}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
-    const authorname = `<strong>${author}</strong>`;
-    const author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    authorname = `<strong>${author}</strong>`;
+    author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
 
 
     var prof_bio = file && file.length ? "" : prof_bio;
@@ -520,12 +524,11 @@ function header_author(author_init) {
     under_guidance = prof ? " under the guidance of " : "";
     prof_link = prof ? prof_link : "";
 
-    const { authorText, lastModifiedData, lastAuthor } = header_formatLastModified(author, author_href, prof, prof_href);
 
-    console.log(authorText, lastModifiedData, "\n \n", lastAuthor);
+    var allAuthors = `<span id="authorlist">${head_FormatAuthor(...authorTextArr)}</span>`;
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
     // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
-    finalheaders = "<header>" + course + "<p>Summarized by " + authorText + under_guidance + profname + prof_link + " on " + lastModifiedData + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    finalheaders = "<header>" + course + "<p>Summarized by " + allAuthors + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
     document.body.insertAdjacentHTML('afterbegin', finalheaders);
 }
 
@@ -750,7 +753,7 @@ function copyright(rights) {
     var span = document.createElement("span");
     var strong = document.createElement("strong");
 
-    strong.innerHTML = '&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan' + rights + footer_link_privacy + footer_link_tos;
+    strong.innerHTML = `<span style="font-size:13px">Updated: ${document.lastModified}</span> <br>  &copy; 2007 - ${new Date().getFullYear()} Divya Mohan ${rights} ${footer_link_privacy} ${footer_link_tos}`; 
     span.appendChild(strong);
     footer.appendChild(span);
 

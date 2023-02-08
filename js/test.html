@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+
+        <script>
+
+            function head_FormatAuthor(...args) {
+                let authorTextArr = [];
+                for (let i = 0; i < args.length; i += 2) {
+                    let author = args[i];
+                    let author_href = args[i + 1];
+                    if (author && author_href) { // add this line to check for blank inputs
+                        authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+                    }
+                }
+                var lastAuthor = '';
+                let authorText;
+                if (authorTextArr.length === 0) {
+                    authorText = "author";
+                } else if (authorTextArr.length === 1) {
+                    authorText = authorTextArr[0];
+                } else if (authorTextArr.length === 2) {
+                    authorText = authorTextArr.join(" and ");
+                } else {
+                    // authorTextArr.pop();
+                    authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
+                }
+                return authorText;
+            }
+
+
+            function header_author(...args) {
+                window["loaded_header_author"] = 1;
+                /* USAGE - header_author(include_course_name, define_is_lab, teacher_FL, author_FL, biblography, button)
+                 * FL - First and Last Name initials 
+                 * Example: header_author(1, 0, "pv", "dm", 0, 1) / header_author(1, 0, "bt", "vn", 1, 1) :: 1 - display | 0 - Not Display 
+                */
+                //  get the actual author and professor name
+
+                var pathParts = window.location.pathname.split("/");
+                var mainspace = pathParts[2];
+                var secondary = pathParts[3];
+                var folder = pathParts[4];
+                var file = pathParts[5];
+                // console.log(folder.length + folder);
+                // console.log(file.length + file);
+
+                let authorTextArr = [];
+                for (let i = 0; i < args.length; i++) {
+                    let author_init = args[i];
+
+
+                    switch (author_init) {
+                        case "dm":
+                            var author = "Divya Mohan";
+                            var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
+                            var author_href = "contact@dmj.one";
+                            break;
+                        case "vp":
+                            var author = "Vanshika Painuly";
+                            var author_bio = "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
+                            var author_href = "vp@dmj.one";
+                            break;
+                        case "harshal":
+                            var author = "Harshal Khajuria";
+                            var author_bio = "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
+                            var author_href = "harshalkotakhajuria@gmail.com";
+                            break;
+                        default:
+                            var author = "Divya Mohan";
+                            var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
+                            var author_href = "contact@dmj.one";
+                            break;
+                    }
+                    authorTextArr.push(author, author_href);
+                }
+
+
+
+
+                switch (secondary) {
+                    case "course":
+                        switch (folder) {
+                            case "csu1128":
+                                var prof = "Dr. Pankaj Vaidya";
+                                var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+                                var prof_href = "pankaj.vaidya@shooliniuniversity.com";
+                                var course = "CSU1128";
+                                var course_detail = "Logic Building with Computer Programming";
+                                break;
+                            case "csu1128p":
+                                var prof = "Dr. Pankaj Vaidya";
+                                var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+                                var prof_href = "pankaj.vaidya@shooliniuniversity.com";
+                                var course = "CSU1128(P)";
+                                var course_detail = "Logic Building with Computer Programming Lab";
+                                break;
+                            case "csu953":
+                                var prof = "Dr. Bharti Thakur";
+                                var prof_bio = "<p>Bharti Thakur is an Assistant Professor at the Yogananda School of Artificial Intelligence, Computing and Data Science, Shoolini University of Biotechnology and Management Sciences, Solan (HP) India. She is doing her research on ‘Data Mining and Machine Learning’. She holds 10 years of teaching experience.</p>";
+                                var prof_href = "bhartithakur@shooliniuniversity.com";
+                                var course = "CSU953";
+                                var course_detail = "Front End Development Lab";
+                                break;
+                            case "fsu030":
+                                var prof = "Dr. Pawan Kumar";
+                                var prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 20 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
+                                var prof_href = "pawankumarsu783@shooliniuniversity.com";
+                                var course = "FSU030";
+                                var course_detail = "Engineering Physics";
+                                break;
+                            case "csu951":
+                                var prof = "Dr. Ravinder Thakur";
+                                var prof_bio = "<p>Dr. Ravinder Thakur is an assistant professor at Shoolini University.</p>";
+                                var prof_href = "contact@dmj.one";
+                                var course = "CSU951";
+                                var course_detail = "Basic Mathematics";
+                                break;
+                            case "csu730":
+                                var prof = "Rajesh Williams";
+                                var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
+                                var prof_href = "contact@dmj.one";
+                                var course = "CSU730";
+                                var course_detail = "Functional English - 1";
+                                break;
+                            default:
+                                var prof = "";
+                                var prof_bio = "";
+                                var prof_href = "";
+                                var course = "Study @ Shoolini University";
+                                var course_detail = "2026";
+                                break;
+                        }
+                        break;
+                    case "life":
+                        break;
+                    default:
+                        var prof = "";
+                        var prof_bio = "";
+                        var prof_href = "";
+                        var course = "B. Tech CSE @ Shoolini University";
+                        var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
+                        break;
+                }
+
+
+
+                var row_button_start = '<div class="row" style="padding-bottom:30px;">';
+                var row_button_end = "</div>";
+                // Just write the content in the vars
+                var csu1128_button = '<div class="col"><a href="//dmj.one/edu/su/course/csu1128/"><button type="button" class="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Logic Building with Computer Programming">CSU1128</button></a></div>';
+                var csu1128p_button = '<div class="col"><a href="//dmj.one/edu/su/course/csu1128p/"><button type="button" class="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Logic Building with Computer Programming Lab!">CSU1128(P)</button></a></div>';
+                var fsu030_button = "";
+                var csu953_button = "";
+
+
+                // switch the course and store the value in bottons which is then returned to button through arrow function. usage:-  course_code: things to load if that course code matches. 
+                const button = (() => {
+                    const buttons = {
+                        "": row_button_start + csu1128_button + csu1128p_button + row_button_end,
+                        "CSU1128": row_button_start + csu1128_button + csu1128p_button + row_button_end,
+                        "CSU1128(P)": row_button_start + csu1128_button + csu1128p_button + row_button_end,
+                        "FSU030": row_button_start + fsu030_button + row_button_end,
+                        "CSU953": row_button_start + csu953_button + row_button_end
+                    }
+                    return buttons[course] || ""
+                })();
+
+                profname = `<strong>${prof}</strong>`;
+                prof_link = `<a href="${prof_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${prof}" data-original-title="Get in touch with ${prof}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+                authorname = `<strong>${author}</strong>`;
+                author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+
+
+                var prof_bio = file && file.length ? "" : prof_bio;
+                // var author_bio = file && file.length ? "" : "";
+
+                course_detail = secondary ? " (" + course_detail + ")" : "";
+                course = `<h1>${course} ${course_detail}</h1>`;
+                under_guidance = prof ? " under the guidance of " : "";
+                prof_link = prof ? prof_link : "";
+
+
+                var allAuthors = `<span id="authorlist">${head_FormatAuthor(...authorTextArr) }</span>`;
+                // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
+                // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+                finalheaders = "<header>" + course + "<p>Summarized by " + allAuthors + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>";
+                document.body.insertAdjacentHTML('afterbegin', finalheaders);
+                // return head_FormatAuthor(...authorTextArr);
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+        <script>
+            header_author("", "vp", "");
+        </script>
+    </body>
+
+</html>
