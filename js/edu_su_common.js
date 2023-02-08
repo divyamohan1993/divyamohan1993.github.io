@@ -343,31 +343,26 @@ function header_formatLastModified(...args) {
     } else if (authors.length === 1) {
         let author = authors[0];
         let author_href = author_hrefs[0];
-        authorText = `${author} <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+        authorText = `<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
     } else if (authors.length === 2) {
         let author1 = authors[0];
         let author1_href = author_hrefs[0];
         let author2 = authors[1];
         let author2_href = author_hrefs[1];
-        authorText = `${author1} <a href="mailto:${author1_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author1}" data-original-title="Get in touch with ${author1}"> <i class="bi bi-envelope-plus text-light"></i></a> and ${author2} <a href="mailto:${author2_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author2}" data-original-title="Get in touch with ${author2}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+        authorText = `<strong>${author1}</strong> <a href="mailto:${author1_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author1}" data-original-title="Get in touch with ${author1}"> <i class="bi bi-envelope-plus text-light"></i></a> and <strong>${author2}</strong> <a href="mailto:${author2_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author2}" data-original-title="Get in touch with ${author2}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
     } else {
         let authorTextArr = [];
         for (let i = 0; i < authors.length; i++) {
             let author = authors[i];
             let author_href = author_hrefs[i];
-            authorTextArr.push(`${author} <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
         }
         authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
     }
+    const lastAuthor = authors[authors.length - 1];
+    const lastAuthorHref = author_hrefs[author_hrefs.length - 1];
 
-    return { authorText, lastModifiedData};
-    // const text = `Last Modified by ${authorText} on ${lastModifiedData}`;
-    // const span = document.createElement("span");
-    // span.className = "reds";
-    // span.innerHTML = text;
-
-    // const callingElement = document.currentScript.parentElement;
-    // callingElement.appendChild(span);
+    return { authorText, lastModifiedData, lastAuthor, lastAuthorHref };
 }
 
 /* function header_author(author_init) {
@@ -460,7 +455,7 @@ function header_author(author_init) {
                     var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
                     var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
                     var course = "CSU730";
-                    var course_detail = "Functional English - 1"; 
+                    var course_detail = "Functional English - 1";
                     break;
                 default:
                     var prof = "";
@@ -487,22 +482,22 @@ function header_author(author_init) {
         case "dm":
             var author = "Divya Mohan";
             var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "mailto:contact@dmj.one";
+            var author_href = "contact@dmj.one";
             break;
         case "vp":
             var author = "Vanshika Painuly";
             var author_bio = "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "mailto:vp@dmj.one";
+            var author_href = "vp@dmj.one";
             break;
         case "harshal":
             var author = "Harshal Khajuria";
             var author_bio = "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
-            var author_href = "mailto:harshalkotakhajuria@gmail.com";
+            var author_href = "harshalkotakhajuria@gmail.com";
             break;
         default:
             var author = "Divya Mohan";
             var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "mailto:contact@dmj.one";
+            var author_href = "contact@dmj.one";
             break;
     }
 
@@ -541,7 +536,7 @@ function header_author(author_init) {
     under_guidance = prof ? " under the guidance of " : "";
     prof_link = prof ? prof_link : "";
 
-    const { authorText, lastModifiedData } = header_formatLastModified(author, author_href, "Author 2", "author2@email.com", "Author 3", "author3@email.com");
+    const { authorText, lastModifiedData, lastAuthor, lastAuthorHref } = header_formatLastModified(author, author_href, "Author 2", "author2@email.com", "Author 3", "author3@email.com");
 
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
     // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
