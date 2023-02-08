@@ -359,10 +359,12 @@ function header_formatLastModified(...args) {
         }
         authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
     }
-    const lastAuthor = authors[authors.length - 1];
-    const lastAuthorHref = author_hrefs[author_hrefs.length - 1];
+    // const lastAuthor = authors[authors.length - 1];
+    // const lastAuthorHref = author_hrefs[author_hrefs.length - 1];
+    const lastAuthor = `<strong>${authors[authors.length - 1]}</strong> <a href="mailto:${author_hrefs[author_hrefs.length - 1]}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${authors[authors.length - 1]}" data-original-title="Get in touch with ${authors[authors.length - 1]}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
 
-    return { authorText, lastModifiedData, lastAuthor, lastAuthorHref };
+
+    return { authorText, lastModifiedData, lastAuthor };
 }
 
 /* function header_author(author_init) {
