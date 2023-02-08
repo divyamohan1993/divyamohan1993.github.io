@@ -321,49 +321,33 @@ function header_navbar() {
 }
 
 function header_formatLastModified(...args) {
-    let authors = [];
-    let author_hrefs = [];
-
-    for (let i = 0; i < args.length; i++) {
-        if (i % 2 === 0) {
-            authors.push(args[i]);
-        } else {
-            author_hrefs.push(args[i]);
-        }
-    }
-
     const date = new Date(document.lastModified);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-US', options);
     const lastModifiedData = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
 
+    let authorTextArr = [];
+    for (let i = 0; i < args.length; i += 2) {
+        let author = args[i];
+        let author_href = args[i + 1];
+        authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+    }
+
     let authorText;
-    if (authors.length === 0) {
+    if (authorTextArr.length === 0) {
         authorText = "author";
-    } else if (authors.length === 1) {
-        let author = authors[0];
-        let author_href = author_hrefs[0];
-        authorText = `<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
-    } else if (authors.length === 2) {
-        let author1 = authors[0];
-        let author1_href = author_hrefs[0];
-        let author2 = authors[1];
-        let author2_href = author_hrefs[1];
-        authorText = `<strong>${author1}</strong> <a href="mailto:${author1_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author1}" data-original-title="Get in touch with ${author1}"> <i class="bi bi-envelope-plus text-light"></i></a> and <strong>${author2}</strong> <a href="mailto:${author2_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author2}" data-original-title="Get in touch with ${author2}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    } else if (authorTextArr.length === 1) {
+        authorText = authorTextArr[0];
+    } else if (authorTextArr.length === 2) {
+        authorText = authorTextArr.join(" and ");
     } else {
-        const lastAuthor = `<strong>${authors[authors.length - 1]}</strong> <a href="mailto:${author_hrefs[author_hrefs.length - 1]}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${authors[authors.length - 1]}" data-original-title="Get in touch with ${authors[authors.length - 1]}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
-        authors.pop();
-        author_hrefs.pop();
-        let authorTextArr = [];
-        for (let i = 0; i < authors.length; i++) {
-            let author = authors[i];
-            let author_href = author_hrefs[i];
-            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
-        }
+        authorTextArr.pop();
         authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
     }
+    const lastAuthor = authorTextArr.slice(-1);
     return { authorText, lastModifiedData, lastAuthor };
 }
+
 
 /* function header_author(author_init) {
     window.loaded_header_author = 1;
