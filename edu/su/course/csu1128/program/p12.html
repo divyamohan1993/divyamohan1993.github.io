@@ -39,7 +39,7 @@
                 const date = new Date(lastModified);
                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
                 const formattedDate = date.toLocaleDateString('en-US', options);
-                const lastModified = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
+                const lastModifiedData = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
 
                 let authorText;
                 if (authors.length === 0) {
@@ -64,7 +64,7 @@
                     authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
                 }
 
-                const text = `Last Modified by ${authorText} on ${lastModified}`;
+                const text = `Last Modified by ${authorText} on ${lastModifiedData}`;
                 const span = document.createElement("span");
                 span.className = "reds";
                 span.innerHTML = text;
