@@ -538,6 +538,7 @@ function header_author(author_init) {
 
     const { authorText, lastModifiedData, lastAuthor, lastAuthorHref } = header_formatLastModified(author, author_href, "Author 2", "author2@email.com", "Author 3", "author3@email.com");
 
+    console.log(authorText, lastModifiedData, lastAuthor, lastAuthorHref);
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
     // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
     finalheaders = "<header>" + course + "<p>Summarized by " + authorText + under_guidance + profname + prof_link + " on " + lastModifiedData + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
