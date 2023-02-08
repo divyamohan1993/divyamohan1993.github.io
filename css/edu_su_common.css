@@ -316,10 +316,10 @@ code {
   font-family: Hack, monospace;
 }
 
-.syntax pre,
+/* .syntax pre,
 .syntax code {
   padding-left: 2%;
-}
+} */
 
 .syntax {
   background: white !important;
@@ -790,199 +790,194 @@ a:hover {
 
 /** Portrait Orientation Devices **/
 @media only screen and (max-width: 330px) {
-  /* styles for mobile browsers smaller than 350px; (mi) */
 
-  .syntax pre,
-  .syntax code {
-    max-width: 230px;
-  }
-}
-
-@media only screen and (min-width: 330px) and (max-width: 380px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) */
-
-  .syntax pre,
-  .syntax code {
-    max-width: 230px;
-  }
-}
-
-@media only screen and (min-width: 381px) and (max-width: 430px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) */
-
-  .syntax pre,
-  .syntax code {
+  pre,
+  code {
     max-width: 280px;
   }
 }
 
-@media only screen and (min-width: 430px) and (max-width: 480px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) */
+@media only screen and (min-width: 330px) and (max-width: 380px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 330px;
+  pre,
+  code {
+    max-width: 280px;
+  }
+}
+
+@media only screen and (min-width: 381px) and (max-width: 430px) {
+
+  pre,
+  code {
+    max-width: 320px;
+  }
+}
+
+@media only screen and (min-width: 430px) and (max-width: 480px) {
+
+  pre,
+  code {
+    max-width: 380px;
   }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 530px) {
-  /* styles for mobile browsers smaller than 350px; (mi) */
 
-  .syntax pre,
-  .syntax code {
-    max-width: 380px;
+  pre,
+  code {
+    max-width: 430px;
   }
 }
 
 @media only screen and (min-width: 530px) and (max-width:580px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 430px;
+  pre,
+  code {
+    max-width: 480px;
   }
 }
 
 @media only screen and (min-width: 580px) and (max-width:630px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 480px;
+  pre,
+  code {
+    max-width: 520px;
   }
 }
 
 @media only screen and (min-width: 630px) and (max-width:680px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 530px;
+  pre,
+  code {
+    max-width: 570px;
   }
 }
 
 @media only screen and (min-width: 680px) and (max-width:730px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 580px;
+  pre,
+  code {
+    max-width: 620px;
   }
 }
 
 @media only screen and (min-width: 730px) and (max-width:780px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 630px;
+  pre,
+  code {
+    max-width: 670px;
   }
 }
 
 @media only screen and (min-width: 780px) and (max-width:830px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 680px;
+  pre,
+  code {
+    max-width: 720px;
   }
 }
 
 @media only screen and (min-width: 830px) and (max-width:880px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 730px;
+  pre,
+  code {
+    max-width: 780px;
   }
 }
 
 @media only screen and (min-width: 880px) and (max-width:930px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 780px;
+  pre,
+  code {
+    max-width: 830px;
   }
 }
 
 @media only screen and (min-width: 930px) and (max-width:980px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 830px;
+  pre,
+  code {
+    max-width: 880px;
   }
 }
 
 @media only screen and (min-width: 980px) and (max-width:1030px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 880px;
+  pre,
+  code {
+    max-width: 930px;
   }
 }
 
 @media only screen and (min-width: 1030px) and (max-width:1080px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 930px;
+  pre,
+  code {
+    max-width: 980px;
   }
 }
 
 @media only screen and (min-width: 1080px) and (max-width:1130px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 980px;
+  pre,
+  code {
+    max-width: 1030px;
   }
 }
 
 @media only screen and (min-width: 1130px) and (max-width:1180px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 1030px;
+  pre,
+  code {
+    max-width: 1080px;
   }
 }
 
 @media only screen and (min-width: 1180px) and (max-width:1230px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 1080px;
+  pre,
+  code {
+    max-width: 1130px;
   }
 }
 
 @media only screen and (min-width: 1230px) and (max-width:1280px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 1130px;
+  pre,
+  code {
+    max-width: 1180px;
   }
 }
 
 @media only screen and (min-width: 1280px) and (max-width:1330px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 1180px;
+  pre,
+  code {
+    max-width: 1230px;
   }
 }
 
 @media only screen and (min-width: 1330px) and (max-width:1380px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 1230px;
+  pre,
+  code {
+    max-width: 1280px;
   }
 }
 
 @media only screen and (min-width: 1380px) and (max-width:1439px) {
 
-  .syntax pre,
-  .syntax code {
-    max-width: 1280px;
+  pre,
+  code {
+    max-width: 1340px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   /* styles for browsers larger than 1440px; */
 
-  .syntax pre,
-  .syntax code {
+  pre,
+  code {
     min-width: 1340px;
   }
 }
