@@ -320,6 +320,54 @@ function header_navbar() {
     return nav;
 }
 
+function header_formatLastModified(...args) {
+    let authors = [];
+    let author_hrefs = [];
+
+    for (let i = 0; i < args.length; i++) {
+        if (i % 2 === 0) {
+            authors.push(args[i]);
+        } else {
+            author_hrefs.push(args[i]);
+        }
+    }
+
+    const date = new Date(document.lastModified);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-US', options);
+    const lastModifiedData = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
+
+    let authorText;
+    if (authors.length === 0) {
+        authorText = "author";
+    } else if (authors.length === 1) {
+        let author = authors[0];
+        let author_href = author_hrefs[0];
+        authorText = `${author} <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    } else if (authors.length === 2) {
+        let author1 = authors[0];
+        let author1_href = author_hrefs[0];
+        let author2 = authors[1];
+        let author2_href = author_hrefs[1];
+        authorText = `${author1} <a href="mailto:${author1_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author1}" data-original-title="Get in touch with ${author1}"> <i class="bi bi-envelope-plus text-light"></i></a> and ${author2} <a href="mailto:${author2_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author2}" data-original-title="Get in touch with ${author2}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    } else {
+        let authorTextArr = [];
+        for (let i = 0; i < authors.length; i++) {
+            let author = authors[i];
+            let author_href = author_hrefs[i];
+            authorTextArr.push(`${author} <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+        }
+        authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
+    }
+
+    const text = `Last Modified by ${authorText} on ${lastModifiedData}`;
+    const span = document.createElement("span");
+    span.className = "reds";
+    span.innerHTML = text;
+
+    const callingElement = document.currentScript.parentElement;
+    callingElement.appendChild(span);
+}
 
 /* function header_author(author_init) {
     window.loaded_header_author = 1;
@@ -493,7 +541,8 @@ function header_author(author_init) {
     prof_link = prof ? prof_link : "";
 
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
-    finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    finalheaders = "<header>" + course + "<p>" + header_formatLastModified(author, author_href) + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
     document.body.insertAdjacentHTML('afterbegin', finalheaders);
 }
 
