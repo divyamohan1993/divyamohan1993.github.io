@@ -36,7 +36,8 @@
                         author_hrefs.push(args[i]);
                     }
                 }
-                const date = new Date(lastModified);
+                
+                const date = new Date(document.lastModified);
                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
                 const formattedDate = date.toLocaleDateString('en-US', options);
                 const lastModifiedData = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
