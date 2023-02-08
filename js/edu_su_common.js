@@ -360,13 +360,14 @@ function header_formatLastModified(...args) {
         authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
     }
 
-    const text = `Last Modified by ${authorText} on ${lastModifiedData}`;
-    const span = document.createElement("span");
-    span.className = "reds";
-    span.innerHTML = text;
+    return { authorText, lastModifiedData};
+    // const text = `Last Modified by ${authorText} on ${lastModifiedData}`;
+    // const span = document.createElement("span");
+    // span.className = "reds";
+    // span.innerHTML = text;
 
-    const callingElement = document.currentScript.parentElement;
-    callingElement.appendChild(span);
+    // const callingElement = document.currentScript.parentElement;
+    // callingElement.appendChild(span);
 }
 
 /* function header_author(author_init) {
@@ -540,9 +541,11 @@ function header_author(author_init) {
     under_guidance = prof ? " under the guidance of " : "";
     prof_link = prof ? prof_link : "";
 
+    const { authorText, lastModifiedData } = header_formatLastModified(author, author_href, "Author 2", "author2@email.com", "Author 3", "author3@email.com");
+
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
     // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
-    finalheaders = "<header>" + course + "<p>" + header_formatLastModified(author, author_href) + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    finalheaders = "<header>" + course + "<p>Summarized by " + authorText + under_guidance + profname + prof_link + " on " + lastModifiedData + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
     document.body.insertAdjacentHTML('afterbegin', finalheaders);
 }
 
