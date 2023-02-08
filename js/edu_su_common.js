@@ -753,7 +753,14 @@ function copyright(rights) {
     var span = document.createElement("span");
     var strong = document.createElement("strong");
 
-    strong.innerHTML = `<span style="font-size:13px">Updated: ${document.lastModified}</span> <br>  &copy; 2007 - ${new Date().getFullYear()} Divya Mohan ${rights} ${footer_link_privacy} ${footer_link_tos}`; 
+    const date = new Date();
+    const isServer = "";
+    const lastModified = new Date(document.lastModified);
+    if (date.getTime() === lastModified.getTime()) {
+        isServer = " (Live)";
+    }
+
+    strong.innerHTML = `<span style="font-size:10px">Updated: ${document.lastModified} ${isServer}</span> <br>  &copy; 2007 - ${new Date().getFullYear()} Divya Mohan ${rights} ${footer_link_privacy} ${footer_link_tos}`;
     span.appendChild(strong);
     footer.appendChild(span);
 
