@@ -33,12 +33,28 @@
                 <h2 class="text-center">Download:</h2>
             </article>
             <article>
-                <h3><a href="https://cdn.dmj.one/edu/su/course/csu1128/csu1128_all.exe">For Windows</a></h3>
-                <h3><a href="https://cdn.dmj.one/edu/su/course/csu1128/csu1128_all">For Linux</a></h3>
+                <h3><a class="dynamic-link" href="../csu1128_all.exe">For Windows</a></h3>
+                <h3><a class="dynamic-link" href="../csu1128_all">For Linux</a></h3>
             </article>
         </main>
 
         <script> copyright("all"); </script>
+
+        <script>
+            const dynamicLinks = document.querySelectorAll('.dynamic-link');
+            const domain = window.location.hostname;
+
+            if (domain === 'dmj.one') {
+                dynamicLinks.forEach(link => {
+                    if (link.textContent.includes('Windows')) {
+                        link.href = 'https://cdn.dmj.one/edu/su/course/csu1128/csu1128_all.exe';
+                    } else {
+                        link.href = 'https://cdn.dmj.one/edu/su/course/csu1128/csu1128_all';
+                    }
+                });
+            }
+        </script>
+
 
     </body>
 
