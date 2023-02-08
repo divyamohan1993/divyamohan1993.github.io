@@ -36,8 +36,10 @@
                         author_hrefs.push(args[i]);
                     }
                 }
-
-                const lastModified = document.lastModified;
+                const date = new Date(lastModified);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = date.toLocaleDateString('en-US', options);
+                const lastModified = `${date.toLocaleString('en-US', { weekday: 'short' })} ${formattedDate}`;
 
                 let authorText;
                 if (authors.length === 0) {
@@ -45,19 +47,19 @@
                 } else if (authors.length === 1) {
                     let author = authors[0];
                     let author_href = author_hrefs[0];
-                    authorText = `${author} <a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+                    authorText = `${author} <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
                 } else if (authors.length === 2) {
                     let author1 = authors[0];
                     let author1_href = author_hrefs[0];
                     let author2 = authors[1];
                     let author2_href = author_hrefs[1];
-                    authorText = `${author1} <a href="${author1_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author1}" data-original-title="Get in touch with ${author1}"> <i class="bi bi-envelope-plus text-light"></i></a> and ${author2} <a href="${author2_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author2}" data-original-title="Get in touch with ${author2}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+                    authorText = `${author1} <a href="mailto:${author1_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author1}" data-original-title="Get in touch with ${author1}"> <i class="bi bi-envelope-plus text-light"></i></a> and ${author2} <a href="mailto:${author2_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author2}" data-original-title="Get in touch with ${author2}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
                 } else {
                     let authorTextArr = [];
                     for (let i = 0; i < authors.length; i++) {
                         let author = authors[i];
                         let author_href = author_hrefs[i];
-                        authorTextArr.push(`${author} <a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+                        authorTextArr.push(`${author} <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
                     }
                     authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
                 }
@@ -84,7 +86,7 @@
                     greater than 25000, HRA is 20%s of basic pay and DA is 50%s of basic pay else HRA is 15%s of basic
                     pay and DA is 25%s ofbasic pay.
                 </h2>
-                <script>formatLastModified("Divya Mohan", "contact@dmj.one");</script>
+                <script>formatLastModified("Divya Mohan", "contact@dmj.one", "te", "ds@ds.c", "32", "32d@d.com", "32ds", "ds@fd.com");</script>
             </article>
             <article>
                 <p>
