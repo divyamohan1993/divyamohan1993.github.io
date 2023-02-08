@@ -23,10 +23,36 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+        <script>
+            function formatLastModified(...usernames) {
+                const lastModified = document.lastModified;
+
+                let usernameText;
+                if (usernames.length === 0) {
+                    usernameText = "username";
+                } else if (usernames.length === 1) {
+                    usernameText = usernames[0];
+                } else if (usernames.length === 2) {
+                    usernameText = `${usernames[0]} and ${usernames[1]}`;
+                } else {
+                    usernameText = usernames.slice(0, -1).join(", ") + `, and ${usernames.slice(-1)}`;
+                }
+
+                const text = `Last Modified by ${usernameText} on ${lastModified}`;
+                const span = document.createElement("span");
+                span.className = "reds";
+                span.innerText = text;
+
+                const callingElement = document.currentScript.parentElement;
+                callingElement.appendChild(span);
+            }
+
+
+        </script>
+
     </head>
 
     <body>
-
         <script>header_author("dm");</script>
 
         <main>
@@ -36,30 +62,7 @@
                     greater than 25000, HRA is 20%s of basic pay and DA is 50%s of basic pay else HRA is 15%s of basic
                     pay and DA is 25%s ofbasic pay.
                 </h2>
-                <script>
-                    function formatLastModified(...usernames) {
-                        const lastModified = document.lastModified;
-
-                        let usernameText;
-                        if (usernames.length === 0) {
-                            usernameText = "username";
-                        } else if (usernames.length === 1) {
-                            usernameText = usernames[0];
-                        } else if (usernames.length === 2) {
-                            usernameText = `${usernames[0]} and ${usernames[1]}`;
-                        } else {
-                            usernameText = usernames.slice(0, -1).join(", ") + `, and ${usernames.slice(-1)}`;
-                        }
-
-                        const text = `Last Modified by ${usernameText} on ${lastModified}`;
-                        const span = document.createElement("span");
-                        span.className = "text-center";
-                        span.innerText = text;
-
-                        document.body.appendChild(span);
-                    }
-                    formatLastModified("Divya Mohan");
-                </script>
+                <script>formatLastModified("Divya Mohan");</script>
             </article>
             <article>
                 <p>
