@@ -1,12 +1,174 @@
-function get_menu_list() {
-    var course = window.location.pathname.split("/")[4];
-    var path = window.location.pathname.split("/")[5];
-    var file = window.location.pathname.split("/")[6];
-    console.log(course + "_1/2_" + path + "_2/3_" + file);
-    console.log(window.location.pathname);
-    var readtime = "";
-    var author = "";
 
+function get_menu_list() {
+    function get_main(def_date, def_author) {
+        const arr = [
+            {
+                link: "section/",
+                title: "Sections",
+                desc: "All topics included in different sections for the subject of physics.",
+                codetype: "Section"
+            },
+            {
+                link: "seminar/",
+                title: "Seminars",
+                desc: "Seminars conducted in the class",
+                codetype: "Seminar"
+            },
+            {
+                link: "assignment/",
+                title: "Assignments",
+                desc: "Assignments which were given in the class",
+                codetype: "Assignment"
+            }
+        ];
+        for (let i = 0; i < arr.length; i++) {
+            const _data = arr[i];
+            title = _data.title || null; if (!title) continue; // Set the title and if thats not possible, skip the loop
+            link = _data.link || null;
+            date = _data.date ? _data.date : `${gendate(def_date)}`;
+            desc = _data.desc || `${title}`;
+            codetype = _data.codetype ? `Physics | ${_data.codetype}` : `Physics`;
+            readtime = _data.readtime || r(14); readtime = null; // Null readtime - Special Case
+            author = _data.author || def_author; author = null; // Null author - Special Case
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
+        }
+    }
+    function get_section(def_date, def_author) {
+        const arr = [
+            {
+                title: "Section A: Work, Energy and Fluid motion",
+                desc: "WIP: This topic discusses about Work, Energy and Fluid Motions namely Work and energy theorem, Conservative and non-conservative forces, Potential energy, Energy diagram, Stable and unstable equilibrium, Gravitational potential energy,  Elastic potential energy, Types of fluids, Significance of fluid mechanics, Fluid properties, Pascal's law, Surface tension and capillarity, Continuity equation, Bernoulli's equation."
+            },
+            {
+                title: "Section B: Electricity and Magnetism",
+                desc: "This topic discusses about electricity and magnetism namely EM waves and dielectrics: Relationship between electric field & potential, Dielectric polarization, displacement current, Types of polarization, Maxwell's equations, Equation of EM waves in free space, Velocity of EM waves, Electromagnetic Spectrum (Basic idea) Magnetic materials & Superconductivity: Basic idea of Dia, Para, Ferro & Ferri, Ferrites, Magnetic anisotropy, Magnetoseminariction and its applications in production of Ultrasonic waves, Superconductivity, Superconductors as ideal diamagnetic materials, Signatures of Superconducting state, Type I & Type II superconductors."
+            }
+        ];
+        for (let i = 0; i < arr.length; i++) {
+            const _data = arr[i];
+            title = _data.title || null; if (!title) continue; // Set the title and if thats not possible, skip the loop
+            link = _data.link || `s${i + 1}`;
+            date = _data.date ? _data.date : `${gendate(def_date)}`;
+            desc = _data.desc || `${title} ${i}`;
+            codetype = _data.codetype ? `Physics | ${_data.codetype}` : `Physics | Section`;
+            readtime = _data.readtime || r(14);
+            author = _data.author || def_author;
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
+        }
+    }
+    function get_seminar(def_date, def_author) {
+        const arr = [
+            {
+                title: "Seminar 1: Application of Fundamental Mechanics on a Rocket",
+                desc: "This topic discusses about Work, Energy and Fluid Motions on a Saturn 5 Rocket."
+            },
+            {
+                title: "Seminar 2: Electromagnetic Waves",
+                desc: "This seminar was presented on Electromagnetic Waves"
+            }
+        ];
+        for (let i = 0; i < arr.length; i++) {
+            const _data = arr[i];
+            title = _data.title || null; if (!title) continue; // Set the title and if thats not possible, skip the loop
+            link = _data.link || `s${i + 1}`;
+            date = _data.date ? _data.date : `${gendate(def_date)}`;
+            desc = _data.desc || `${title} ${i}`;
+            codetype = _data.codetype ? `Physics | ${_data.codetype}` : `Physics | Seminar`;
+            readtime = _data.readtime || r(5);
+            author = _data.author || def_author;
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
+        }
+    }
+    function get_assignment(def_date, def_author) {
+        const arr = [
+            {
+                title: "Assignment 1: Application of Fundamental Mechanics on Saturn V Rocket",
+                desc: "This assignment is based on the fundamental mechanics of Saturn V Rocket"
+            },
+            {
+                title: "Assignment 2: Types of Magnetic Materials and Application of Lasers",
+                desc: "This topic discusses about types of Magnetic Materials and application of LASER's"
+            }
+        ];
+        for (let i = 0; i < arr.length; i++) {
+            const _data = arr[i];
+            title = _data.title || null; if (!title) continue; // Set the title and if thats not possible, skip the loop
+            link = _data.link || `a${i + 1}`;
+            date = _data.date ? _data.date : `${gendate(def_date)}`;
+            desc = _data.desc || `${title} ${i}`;
+            codetype = _data.codetype ? `Physics | ${_data.codetype}` : `Physics | Assignment`;
+            readtime = _data.readtime || r(6);
+            author = _data.author || def_author;
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
+        }
+    }
+
+    /**********  AUTOMATION CONTROL **********/
+    // Get Random date near the entered date. 
+    function gendate(date) {
+        var inputDate = new Date(date);
+        var offset = Math.floor(Math.random() * 20 - 10) * 24 * 60 * 60 * 1000;
+        var newDate = new Date(inputDate.getTime() + offset);
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var outputDate = weekdays[newDate.getUTCDay()] + " " + months[newDate.getUTCMonth()] + " " + newDate.getUTCDate() + ", " + newDate.getUTCFullYear();
+        return outputDate;
+    }
+    function r(t) { return Math.floor(Math.random() * 10) + t };
+    var date = "December 25, 2022", title, desc, codetype, readtime, author = 1, link;
+    const functions = {
+        section: get_section,
+        seminar: get_seminar,
+        assignment: get_assignment,
+        default: get_main
+    };
+    (functions[window.urlpart5] || functions.default)(date, author);
+}
+
+/* let course = window.urlpart4;
+    let path = window.urlpart5;
+    let file = window.location.pathname.split("/")[6];
+    console.log(course, path);
+
+    switch (window.urlpart1) {
+        case "edu":
+            switch (window.urlpart2) {
+                case "su":
+                    switch (window.urlpart3) {
+                        case "course":
+                            switch (window.urlpart4) {
+                                case "fsu030":
+                                    course_fsu030();
+                                    break;
+                                case "csu1128":
+                                    course_csu1128();
+                                    break;
+                                case "csu1128p":
+                                    course_csu1128p();
+                                    break;
+                                case "csu730":
+                                    course_csu730();
+                                    break;
+                                case "csu953":
+                                    course_csu953();
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "coursera":
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
     if (path) {
         switch (path) {
             case "section":
@@ -19,217 +181,147 @@ function get_menu_list() {
                 get_assignment();
                 break;
             default:
+                get_main();
                 break;
         }
     }
     else {
         get_main();
-    }
+    } 
+    function course_fsu030() {
 
-    function get_main() {
-        var cases = [1, 2, 3];
-        for (let i = 0; i < cases.length; i++) {
-            switch (cases[i]) {
-                case 1:
-                    link = "section/";
-                    date = "Last Updated: Sat December 03, 2022";
-                    title = "Sections";
-                    desc = "All topics included in different sections for the subject of physics.";
-                    codetype = "Syllabus";
-                    readtime = "";
-                    author = "";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    link = "seminar/";
-                    date = "Last Updated: Sat December 03, 2022";
-                    title = "Seminars";
-                    desc = "Seminars conducted in the class";
-                    codetype = "Seminar";
-                    readtime = "";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 3:
-                    link = "assignment/";
-                    date = "Last Updated: Sun December 25, 2022";
-                    title = "Assignments";
-                    desc = "Assignments which were given in the class";
-                    codetype = "Assignment";
-                    readtime = "";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Voila! Party Time!";
-                    desc = "<strong>WIP: Work in Progress! </strong><br> For admin: Please define a hierchy for the main menu for the course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-            }
+
+function get_main(cases, date, author) {
+    for (let i = 1; i < cases; i++) {
+        link = "", title = "", desc = "", date = `Last Updated: ${gendate(date)}`;
+        switch (i) {
+            case 1:
+                link = "section";
+                title = "Sections";
+                desc = "All topics included in different sections for the subject of physics.";
+                codetype = "Section";
+                break;
+            case 2:
+                link = "seminar";
+                title = "Seminars";
+                desc = "Seminars conducted in the class";
+                codetype = "Seminar";
+                break;
+            case 3:
+                link = "assignment";
+                title = "Assignments";
+                desc = "Assignments which were given in the class";
+                codetype = "Assignment";
+                break;
+            default:
+                break;
         }
-    }
-    function get_classes() {
-        var cases = [1];
-        for (let i = 0; i < cases.length; i++) {
-            switch (cases[i]) {
-                case 1:
-                    link = "program/";
-                    date = "Last Updated: Wed November 23, 2022";
-                    title = "Programs done in Class";
-                    desc = "This contains list of programs written in C language done in class.";
-                    codetype = "C Programming";
-                    // readtime = "10";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    link = "books";
-                    date = "Thu September 27, 2022";
-                    title = "Reference Books";
-                    desc = "Learn where";
-                    // codetype = "HTML";
-                    readtime = "2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Classes for current " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-            }
+
+        if (title) {
+            codetype = codetype ? `Physics | ${codetype}` : "";
+            author = "";
+            link = link ? link += "/" : `${title.toLowerCase()}s/`;
         }
+        body_blockcards(link, date, title, desc, codetype, readtime, author);
     }
+} 
 
-    function get_section() {
-        var cases = [1, 2];
-        for (let i = 0; i < cases.length; i++) {
 
-            var codetype = "Physics";
-            var d = i + 1;
-            var link = "s" + d;
-            var title = "Section ";
-            var readtime = Math.floor(Math.random() * 5) + 2;
-            var author = 1;
-
-            switch (cases[i]) {
-                case 1:
-                    // link = "add_link like 'c2' ";
-                    date = "Sat December 3, 2022";
-                    title += "A: Work, Energy and Fluid motion";
+ 
+    function get_section(cases, date, author) {
+        for (let i = 1; i < cases; i++) {
+            link = "", title = "", desc = "", date = gendate(date), codetype = "Section", readtime = r(14);
+            switch (i) {
+                case 0:
+                    title = "Section A: Work, Energy and Fluid motion";
                     desc = "WIP: This topic discusses about Work, Energy and Fluid Motions namely Work and energy theorem, Conservative and non-conservative forces, Potential energy, Energy diagram, Stable and unstable equilibrium, Gravitational potential energy,  Elastic potential energy, Types of fluids, Significance of fluid mechanics, Fluid properties, Pascal's law, Surface tension and capillarity, Continuity equation, Bernoulli's equation.";
-                    // codetype = "replace here with custom var";
-                    // readtime = "2";
-                    // author = "vp";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    date = "Sat December 3, 2022";
-                    title += "B: Electricity and Magnetism";
-                    desc = "This topic discusses about electricity and magnetism namely EM waves and dielectrics: Relationship between electric field & potential, Dielectric polarization, displacement current, Types of polarization, Maxwell's equations, Equation of EM waves in free space, Velocity of EM waves, Electromagnetic Spectrum (Basic idea) Magnetic materials & Superconductivity: Basic idea of Dia, Para, Ferro & Ferri, Ferrites, Magnetic anisotropy, Magnetostriction and its applications in production of Ultrasonic waves, Superconductivity, Superconductors as ideal diamagnetic materials, Signatures of Superconducting state, Type I & Type II superconductors.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 36:
-                    date = "Thu November 17, 2022";
-                    desc = "VIVA based on questions directed towards odd and even students.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
+                    title = "Section B: Electricity and Magnetism";
+                    desc = "This topic discusses about electricity and magnetism namely EM waves and dielectrics: Relationship between electric field & potential, Dielectric polarization, displacement current, Types of polarization, Maxwell's equations, Equation of EM waves in free space, Velocity of EM waves, Electromagnetic Spectrum (Basic idea) Magnetic materials & Superconductivity: Basic idea of Dia, Para, Ferro & Ferri, Ferrites, Magnetic anisotropy, Magnetoseminariction and its applications in production of Ultrasonic waves, Superconductivity, Superconductors as ideal diamagnetic materials, Signatures of Superconducting state, Type I & Type II superconductors.";
                     break;
                 default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Classes for current course " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
             }
+            if (title) {
+                link = link ? link : `s${i}`;
+                codetype = codetype ? `Physics | ${codetype}` : "";
+                author = author ? author : "";
+            }
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
         }
     }
-    function get_seminar() {
-        var cases = [1, 2];
-        for (let i = 0; i < cases.length; i++) {
-
-            var codetype = "seminar@physics";
-            var d = i + 1;
-            var link = "s" + d;
-            var title = "Seminar " + d;
-            var readtime = Math.floor(Math.random() * 5) + 2;
-            var author = 1;
-
-            switch (cases[i]) {
+ 
+ 
+ 
+    function get_seminar(cases, date, author) {
+        for (let i = 1; i < cases; i++) {
+            link = "", title = "", desc = "", date = gendate(date), codetype = "Seminar", readtime = r(5);
+            switch (i) {
                 case 1:
-                    // link = "add_link like 'c2' ";
-                    date = "Sat December 3, 2022";
-                    title += ": Application of Fundamental Mechanics on a Rocket";
+                    title = "Seminar 1: Application of Fundamental Mechanics on a Rocket";
                     desc = "This topic discusses about Work, Energy and Fluid Motions on a Saturn 5 Rocket.";
-                    // codetype = "replace here with custom var";
-                    // readtime = "2";
-                    // author = "vp";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
-                    date = "Sat December 3, 2022";
-                    title += ": Electromagnetic Waves";
+                    title = "Seminar 2: Electromagnetic Waves";
                     desc = "This seminar was presented on Electromagnetic Waves";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Seminars for current course " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the Seminars of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
             }
-        }
-    }
-    function get_assignment() {
-        var cases = [1, 2];
-        for (let i = 0; i < cases.length; i++) {
-
-            var codetype = "assignment@physics";
-            var d = i + 1;
-            var link = "a" + d;
-            var title = "Assignment " + d;
-            var readtime = Math.floor(Math.random() * 5) + 2;
-            var author = 1;
-
-            switch (cases[i]) {
-                case 1:
-                    // link = "add_link like 'c2' ";
-                    date = "Tue October 11, 2022";
-                    title += ": Application of Fundamental Mechanics on Saturn V Rocket.";
-                    desc = "This assignment is based on the fundamental mechanics of Saturn V Rocket";
-                    // codetype = "replace here with custom var";
-                    // readtime = "2";
-                    // author = "vp";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    date = "Sun December 18, 2022";
-                    title += ": Types of Magnetic Materials and Application of Lasers.";
-                    desc = "This topic discusses about types of Magnetic Materials and application of LASER's";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = path + " for current course " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the" + path + "of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
+            if (title) {
+                link = link ? link : `s${i}`;
+                codetype = codetype ? `Physics | ${codetype}` : "Physics";
+                author = author ? author : "1";
             }
+            body_blockcards(link, date, title, desc, codetype, readtime, author);
         }
+    } 
+
+
+
+
+
+function get_assignment(cases, date, author) {
+    for (let i = 1; i < cases; i++) {
+        link = "", title = "", desc = "", date = gendate(date), codetype = "Assignment", readtime = r(6);
+        switch (i) {
+            case 1:
+                date = "Tue October 11, 2022";
+                title = "Assignment 1: Application of Fundamental Mechanics on Saturn V Rocket.";
+                desc = "This assignment is based on the fundamental mechanics of Saturn V Rocket";
+                break;
+            case 2:
+                date = "Sun December 18, 2022";
+                title = "Assignment 2: Types of Magnetic Materials and Application of Lasers.";
+                desc = "This topic discusses about types of Magnetic Materials and application of LASER's";
+                break;
+            default:
+                break;
+        }
+        if (title) {
+            link = link ? link : `a${i}`;
+            codetype = codetype ? codetype : "Assignment";
+            codetype = codetype ? `Physics | ${codetype}` : "Physics";
+        }
+        body_blockcards(link, date, title, desc, codetype, readtime, author);
     }
-
-
 }
+ */
+
+
+/*
+You can use different approaches and algorithms to solve optimization problems, depending on the specific problem you are trying to solve. Here are a few common methods:
+
+Gradient descent: This is a popular method for optimizing objective functions that are differentiable. It works by iteratively adjusting the parameters of the model in the direction of the negative gradient of the objective function.
+
+Conjugate gradient method: This is a type of iterative optimization algorithm that can be used to solve symmetric, positive definite linear systems. It works by using information from previous iterations to improve convergence rates.
+
+Simulated annealing: This is a probabilistic method for solving optimization problems. It works by randomly perturbing the parameters of the model and accepting the new solution if it results in an improvement to the objective function.
+
+Particle swarm optimization: This is a swarm intelligence-based optimization algorithm that works by having a population of candidate solutions that move and update their positions based on their own fitness and the fitness of other solutions.
+
+Genetic algorithms: This is a population-based optimization algorithm that works by iteratively evolving a population of candidate solutions. It uses genetic operators such as mutation and crossover to generate new solutions and selection to determine which solutions are retained for the next iteration.
+
+Each method has its own advantages and disadvantages and works best for specific types of optimization problems, so you may need to experiment with different methods to find the one that works best for your particular problem.
+*/

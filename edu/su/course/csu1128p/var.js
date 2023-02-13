@@ -9,12 +9,6 @@ function get_menu_list() {
 
     if (path) {
         switch (path) {
-            case "class":
-                get_classes();
-                break;
-            case "books":
-                get_books();
-                break;
             case "labfile":
                 get_labfile();
                 break;
@@ -34,7 +28,7 @@ function get_menu_list() {
                     link = "labfile/";
                     date = "Last Updated: Fri December 30, 2022";
                     title = "Programs done in Lab File";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab file and is written in C language.";
+                    desc = "Get Your Coding Skills to the Next Level with This Section! Discover a Wide Range of Programs, From Basic to Advanced, Written in the Dynamic C Language. Join the Coding Revolution and Unleash Your Inner Prodigy - Let's Get Labbing!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -43,7 +37,7 @@ function get_menu_list() {
                     link = "../csu1128/program/";
                     date = "Last Updated: Sun December 25, 2022";
                     title = "Programs done in Class";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the class and is written in C language.";
+                    desc = "Master the Art of Coding with This Comprehensive Collection of Programs! From Basic to Advanced, This Section has Everything You Need to Excel in the C Language. Get Ready to Code Your Way to Success - Let's Get Coding!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -52,7 +46,7 @@ function get_menu_list() {
                     link = "../csu1128/misc/download";
                     date = "Last Updated: Mon January 2, 2023";
                     title = "All Programs Compiled";
-                    desc = "All the programs compiled in an executable file for usage in Windows.";
+                    desc = "Unleash the Power of Coding with This Section - All the Programs you read, are Compiled and Ready to Use! From Basic to Advanced, This Collection is Written in C and a Compatible file for Both Windows and Linux is available to download. Get Ready to Run Your Code with Confidence - Let's Get Executing!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -61,7 +55,7 @@ function get_menu_list() {
                     link = "../csu1128/misc/";
                     date = "Last Updated: Sun January 15, 2023";
                     title = "Miscellaneous";
-                    desc = "Miscellaneous programs and questions.";
+                    desc = "Challenge Your Coding Skills with Our Collection of Miscellaneous Programs and Questions! Test Your Knowledge and Master the Art of Coding with Our Comprehensive Selection. Get Ready to Showcase Your Skills - Let's Get Quizzing!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -80,40 +74,6 @@ function get_menu_list() {
                     date = "Not Applicable";
                     title = "Voila! Party Time!";
                     desc = "<strong>WIP: Work in Progress! </strong><br> For admin: Please define a hierchy for the main menu for the course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-            }
-        }
-    }
-    function get_classes() {
-        var cases = [1, 2];
-        for (let i = 0; i < cases.length; i++) {
-            switch (cases[i]) {
-                case 1:
-                    link = "program/";
-                    date = "Last Updated: Wed November 23, 2022";
-                    title = "Programs done in Lab";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
-                    codetype = "C Programming";
-                    // readtime = "10";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    link = "../csu1128/program/";
-                    date = "Last Updated: Sun December 25, 2022";
-                    title = "Programs done in Class";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the class and is written in C language.";
-                    codetype = "C Programming";
-                    // readtime = "10";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Classes for current " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
                     codetype = "#CourseNotDefined";
                     readtime = "0";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -208,171 +168,7 @@ function get_menu_list() {
                     desc = "Program to create a student structure having fields studname, ID and mark. Accept the details of 'n' students, rearrange the data in alphabetical order of student name and display it.";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
-                case 13:
-                    date = "Wed November 9, 2022";
-                    desc = "Program to calculate the insurance premium as per the given norms.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 14:
-                    date = "Wed November 9, 2022";
-                    desc = "Program to print numbers between the numbers that the user chooses. Example 1 to 100.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 15:
-                    date = "Wed November 9, 2022";
-                    desc = "Program to print even numbers between the numbers that the user chooses. Example 1 to 100.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 16:
-                    date = "Mon November 14, 2022";
-                    desc = "Program to print all numbers which are divisible by 5 between the numbers that the user chooses. Example 1 to 100.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 17:
-                    date = "Mon November 14, 2022";
-                    desc = "Program to calculate and print the sum of all numbers between the numbers that the user chooses. Example 1 to 100.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 18:
-                    date = "Mon November 14, 2022";
-                    desc = "Program to count and print the number of digits in the entered number that the user enters. Example 3310.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 19:
-                    date = "Mon November 14, 2022";
-                    desc = "Program to print the sum of the digits a user enters. 370 = 3 + 7 + 0 = 10";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 20:
-                    date = "Tue November 15, 2022";
-                    desc = "Program to print the fibonacci series till an entered number. Fibonacci series is a series where the number at any point is the sum of previous two numbers. Example 9 = 1 2 3 5 8";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 21:
-                    date = "Tue November 15, 2022";
-                    desc = "Program to print the table of the number entered by the user. Example 2 = 2 x 1 = 2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 22:
-                    date = "Tue November 15, 2022";
-                    desc = "Program to print all numbers which are perfect square between user entered values.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 23:
-                    date = "Tue November 15, 2022";
-                    desc = "Program to print all numbers which four digit perfect square and where its first two digit and last two digits are also a perfect square. Example 1681.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 24:
-                    date = "Wed November 16, 2022";
-                    desc = "Program to print the armstrong number. An armstrong number is the number where the sum of cube of each digit is equal to the number itself. Example 370 = 27 + 343 + 0 = 370";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 25:
-                    date = "Wed November 16, 2022";
-                    desc = "Program to print the factorial of the number entered by the user. Example 3 = 3 x 2 x 1 = 3";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 26:
-                    date = "Wed November 16, 2022";
-                    desc = "Program to print the average of the numbers stored in an array entered by the user.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 27:
-                    date = "Wed Nov 16, 2022";
-                    desc = "Program to print the power of the two numbers entered by the user. (Example: 2 3) = 2 to the power 3 = 8";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 28:
-                    date = "Mon November 21, 2022";
-                    desc = "Program to find the maximum number from the numbers stored in an array entered by the user.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 29:
-                    date = "Mon November 21, 2022";
-                    desc = "Program to demonstrate the nested for loop by printing a right angled triangle.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 30:
-                    date = "Mon November 21, 2022";
-                    desc = "Program to print the triangle of numbers of the range entered by the user. Example 3 = 1 2 3 2 1";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 31:
-                    date = "Mon November 21, 2022";
-                    desc = "Program to print the triangle of numbers of the range entered by the user. Example 3 = 3 2 1 2 3";
-                    author = "vp";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 32:
-                    date = "Mon November 21, 2022";
-                    desc = "Program to print the rhombus of numbers of the range entered by the user. Example 3 = 3 2 1 2 3";
-                    author = "vp";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 33:
-                    date = "Mon November 21, 2022";
-                    desc = "Edit";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 34:
-                    date = "Thu September 27, 2022";
-                    desc = "Class Test";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 35:
-                    date = "Thu September 27, 2022";
-                    desc = "Use of table, tr, th tags in creation of Tables";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 36:
-                    date = "Thu November 17, 2022";
-                    desc = "VIVA based on questions directed towards odd and even students.";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
                 default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Classes for current course " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-            }
-        }
-    }
-
-    function get_books() {
-        var cases = [1, 2, 3, 4, 5, 6];
-        for (let i = 0; i < cases.length; i++) {
-            switch (cases[i]) {
-                case 1:
-                    link = "c1";
-                    date = "Thu September 27, 2022";
-                    title = "Lab 1";
-                    desc = "This is an introductory class";
-                    codetype = "BOOKS";
-                    readtime = "2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    link = "c2";
-                    date = "Thu September 27, 2022";
-                    title = "Lab 2";
-                    desc = "Use of tags title, details, p, heading, and inline style of background-color.";
-                    codetype = "BOOK2";
-                    readtime = "2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Books for current " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
             }
         }

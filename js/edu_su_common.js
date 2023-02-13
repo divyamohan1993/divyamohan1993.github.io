@@ -7,24 +7,19 @@
     // does not include hostname. eg: dmj.one/sd/ss -> sd is urlpart1 and ss is urlpart2 and so on.
     let i = 1;
     if (parts[parts.length - 1] === "") {
-        parts[parts.length - 1] = "index";
+        // parts[parts.length - 1] = "index"; // to give a name instead of empty index.
     }
-    for (const part of parts) {
+    for (const part of parts) { // Store the variables in window.variable_name
         let variable = `urlpart${i}`;
         window[variable] = part;
         i++;
     }
-    for (const variable in window) {
+    for (const variable in window) { // Displayed for Debug
         if (variable.startsWith("urlpart")) {
             console.log(`${variable} = ${window[variable]}`);
         }
     }
 })();
-
-// Encrypted Vars
-var notify_cookie = notify_cookie ? notify_cookie : "%2B";
-var header_dmj_desc = header_dmj_desc ? header_dmj_desc : ".%3C";
-var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 /*************** Fixed Functions and Variables END **************/
 
 
@@ -126,6 +121,9 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     })();
     document.write(`<script src='${varJsUrl}'></script>`);
 
+    var common_variables = "/js/comvar.js";
+    document.write(`<script src='${common_variables}'></script>`);
+
     //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
@@ -135,7 +133,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     var cdnjs_katex_autorender = "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.3/contrib/auto-render.min.js";
 
     // Create an array of script URLs
-    var scripts = [varJsUrl, cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
+    var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
     for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts
@@ -222,7 +220,7 @@ function header_navbar() {
                 var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
          */
 
-        var nav_home = `<a href="//${url.hostname}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
+        var nav_home = `<a href="//${window.location.host}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
         var nav_path = `<a href="${nav_folder}/" data-toggle="tooltip" data-placement="top" title="${nav_folder}" data-original-title="${nav_folder}"><i class="bi bi-journals text-light"></i></a>`;
         var nav_subpath = `<a href="${nav_folder}/${nav_subfolder}/" data-toggle="tooltip" data-placement="top" title="${nav_subfolder}" data-original-title="${nav_subfolder}"><i class="bi bi-card-list text-light"></i></a>`;
         var nav_file = `<a href="${nav_filename}" data-toggle="tooltip" data-placement="top" title="${nav_filename}" data-original-title="${nav_filename}"><i class="bi bi-journal-code text-light"></i></a>`;
@@ -326,7 +324,7 @@ function head_FormatAuthor(...args) {
         let author = args[i];
         let author_href = args[i + 1];
         if (author && author_href) { // add this line to check for blank inputs
-            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred%20from%3A%20dmj.one" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred from dmj.one&body=-- Referred from the page ${window.location.href} Please write below this line --" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
         }
     }
     let authorText;
@@ -376,113 +374,97 @@ function head_FormatAuthor(...args) {
 } */
 
 function header_author(...args) {
+    /* USAGE - header_author("authorinitials || name", "email", "author1 details", "authorinitials || name2" ... ) */
     window["loaded_header_author"] = 1;
-    /* USAGE - header_author(include_course_name, define_is_lab, teacher_FL, author_FL, biblography, button)
-     * FL - First and Last Name initials 
-     * Example: header_author(1, 0, "pv", "dm", 0, 1) / header_author(1, 0, "bt", "vn", 1, 1) :: 1 - display | 0 - Not Display 
-    */
-    //  get the actual author and professor name
 
     var pathParts = window.location.pathname.split("/");
     var mainspace = pathParts[2];
     var secondary = pathParts[3];
     var folder = pathParts[4];
     var file = pathParts[5];
-    var author_bio = "";
     // console.log(folder.length + folder);
     // console.log(file.length + file);
 
-    let authorTextArr = [];
-    args = args.length === 0 ? ["dm"] : args;
-    for (let i = 0; i < args.length; i++) {
-        let author_init = args[i];
-        switch (author_init) {
-            case "dm":
-                var author = "Divya Mohan";
-                author_bio += "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-                var author_href = "contact@dmj.one";
-                break;
-            case "vp":
-                var author = "Vanshika Painuly";
-                author_bio += "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-                var author_href = "vp@dmj.one";
-                break;
-            case "harshal":
-                var author = "Harshal Khajuria";
-                author_bio += "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
-                var author_href = "harshalkotakhajuria@gmail.com";
-                break;
-            default:
-                var author = "Divya Mohan";
-                author_bio += "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-                var author_href = "contact@dmj.one";
-                break;
-        }
-        authorTextArr.push(author, author_href);
-    }
+    let { pA_author, pA_bio } = processAuthors(args);
+    const allAuthors = `<span id="authorlist">${pA_author}</span>`, author_bio = pA_bio;
 
+
+    let prof, prof_href, prof_bio, course, course_detail;
     switch (secondary) {
         case "course":
             switch (folder) {
                 case "csu1128":
-                    var prof = "Dr. Pankaj Vaidya";
-                    var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
-                    var prof_href = "pankaj.vaidya@shooliniuniversity.com";
-                    var course = "CSU1128";
-                    var course_detail = "Logic Building with Computer Programming";
+                    prof = "Dr. Pankaj Vaidya";
+                    prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+                    prof_href = "pankaj.vaidya@shooliniuniversity.com";
+                    course = "CSU1128";
+                    course_detail = "Logic Building with Computer Programming";
                     break;
                 case "csu1128p":
-                    var prof = "Dr. Pankaj Vaidya";
-                    var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
-                    var prof_href = "pankaj.vaidya@shooliniuniversity.com";
-                    var course = "CSU1128(P)";
-                    var course_detail = "Logic Building with Computer Programming Lab";
+                    prof = "Dr. Pankaj Vaidya";
+                    prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+                    prof_href = "pankaj.vaidya@shooliniuniversity.com";
+                    course = "CSU1128(P)";
+                    course_detail = "Logic Building with Computer Programming Lab";
                     break;
                 case "csu953":
-                    var prof = "Dr. Bharti Thakur";
-                    var prof_bio = "<p>Bharti Thakur is an Assistant Professor at the Yogananda School of Artificial Intelligence, Computing and Data Science, Shoolini University of Biotechnology and Management Sciences, Solan (HP) India. She is doing her research on ‘Data Mining and Machine Learning’. She holds 10 years of teaching experience.</p>";
-                    var prof_href = "bhartithakur@shooliniuniversity.com";
-                    var course = "CSU953";
-                    var course_detail = "Front End Development Lab";
+                    prof = "Dr. Bharti Thakur";
+                    prof_bio = "<p>Bharti Thakur is an Assistant Professor at the Yogananda School of Artificial Intelligence, Computing and Data Science, Shoolini University of Biotechnology and Management Sciences, Solan (HP) India. She is doing her research on ‘Data Mining and Machine Learning’. She holds 10 years of teaching experience.</p>";
+                    prof_href = "bhartithakur@shooliniuniversity.com";
+                    course = "CSU953";
+                    course_detail = "Front End Development Lab";
                     break;
                 case "fsu030":
-                    var prof = "Dr. Pawan Kumar";
-                    var prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 20 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
-                    var prof_href = "pawankumarsu783@shooliniuniversity.com";
-                    var course = "FSU030";
-                    var course_detail = "Engineering Physics";
+                    prof = "Dr. Pawan Kumar";
+                    prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 20 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
+                    prof_href = "pawankumarsu783@shooliniuniversity.com";
+                    course = "FSU030";
+                    course_detail = "Engineering Physics";
                     break;
                 case "csu951":
-                    var prof = "Dr. Ravinder Thakur";
-                    var prof_bio = "<p>Dr. Ravinder Thakur is an assistant professor at Shoolini University.</p>";
-                    var prof_href = "contact@dmj.one";
-                    var course = "CSU951";
-                    var course_detail = "Basic Mathematics";
+                    prof = "Dr. Ravinder Thakur";
+                    prof_bio = "<p>Dr. Ravinder Thakur is an assistant professor at Shoolini University.</p>";
+                    prof_href = "contact@dmj.one";
+                    prof_href += "?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Dr.%20Ravinder%20Thakur.%20Please%20provide%20his%20contact%20details.%0AThanks";
+                    course = "CSU951";
+                    course_detail = "Basic Mathematics";
                     break;
                 case "csu730":
-                    var prof = "Rajesh Williams";
-                    var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
-                    var prof_href = "contact@dmj.one";
-                    var course = "CSU730";
-                    var course_detail = "Functional English - 1";
+                    prof = "Rajesh Williams";
+                    prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
+                    prof_href = "contact@dmj.one";
+                    prof_href += "?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
+                    course = "CSU730";
+                    course_detail = "Functional English - 1";
                     break;
                 default:
-                    var prof = "";
-                    var prof_bio = "";
-                    var prof_href = "";
-                    var course = "Study @ Shoolini University";
-                    var course_detail = "2026";
+                    prof = "";
+                    prof_bio = "";
+                    prof_href = "";
+                    course = "Study @ Shoolini University";
+                    course_detail = "2026";
                     break;
             }
             break;
         case "life":
+            switch (folder) {
+                case "events":
+                    var details = "test";
+                    break;
+                case "photos":
+                    var defaultsd = "testffrd";
+                    break;
+                default:
+                    var slse = "ds";
+                    break;
+            }
             break;
         default:
-            var prof = "";
-            var prof_bio = "";
-            var prof_href = "";
-            var course = "B. Tech CSE @ Shoolini University";
-            var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
+            prof = "";
+            prof_bio = "";
+            prof_href = "";
+            course = "B. Tech CSE @ Shoolini University";
+            course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
 
@@ -512,11 +494,11 @@ function header_author(...args) {
 
     profname = `<strong>${prof}</strong>`;
     prof_link = `<a href="${prof_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${prof}" data-original-title="Get in touch with ${prof}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
-    authorname = `<strong>${author}</strong>`;
-    author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    // authorname = `<strong>${author}</strong>`;
+    //    author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
 
 
-    var prof_bio = file && file.length ? "" : prof_bio;
+    prof_bio = file && file.length ? "" : prof_bio;
     // var author_bio = file && file.length ? "" : "";
 
     course_detail = secondary ? " (" + course_detail + ")" : "";
@@ -525,7 +507,7 @@ function header_author(...args) {
     prof_link = prof ? prof_link : "";
 
 
-    var allAuthors = `<span id="authorlist">${head_FormatAuthor(...authorTextArr)}</span>`;
+    // var allAuthors = `<span id="authorlist">${head_FormatAuthor(...authorTextArr)}</span>`;
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
     // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
     finalheaders = "<header>" + course + "<p>Summarized by " + allAuthors + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
@@ -634,6 +616,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
+    if (!title && !desc) { return };
     if (link) { } else link = "#";
     if (date) { } else var date = new Date().toDateString();
     if (title) { } else title = "Unknown Title";
@@ -702,13 +685,6 @@ function maintenance_mode() {
     body.appendChild(message);
 }
 
-// Footer Codes
-
-
-//document.getElementsByTagName("footer").append(copyright("all"));
-
-// document.body.append(dcevar(notify_cookie));
-
 //plugins.js code:
 // Avoid `console` errors in browsers that lack a console.
 (function () {
@@ -734,6 +710,16 @@ function maintenance_mode() {
 }());
 
 /******** Footer ***********/
+function footer_getHeaderValue(keyName) {
+    // usage: getHeaderValue("server") OR getHeaderValue("header_name") // source: /getheaders.html
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", document.location, false);
+    xhr.send(null);
+    var headers = xhr.getAllResponseHeaders().toLowerCase();
+    var headerValue = headers.match(new RegExp(keyName + ":\\s*([^\\n]+)", "i")) ? headers.match(new RegExp(keyName + ":\\s*([^\\n]+)", "i"))[1].trim() : false;
+    return headerValue;
+}
+
 function copyright(rights) {
     window["loaded_copyright"] = 1;
     // sitemap_var_gen_clipboard();
@@ -760,7 +746,9 @@ function copyright(rights) {
         isServer = " (Live)";
     }
 
-    strong.innerHTML = `<span style="font-size:10px">Updated: ${document.lastModified} ${isServer}</span> <br>  &copy; 2007 - ${new Date().getFullYear()} Divya Mohan ${rights} ${footer_link_privacy} ${footer_link_tos}`;
+    const modified = "cloudflare" == footer_getHeaderValue('server') ? `<span style="font-size:10px">Not seeing updated content? Page was loaded on ${document.lastModified} ${isServer}. Refresh with <kbd>CTRL</kbd> + <kbd>R</kbd> to check again.</span> <br>` : `<span style="font-size:10px">Not seeing updated content? Page last modified on ${document.lastModified} ${isServer}. Refresh with <kbd>CTRL</kbd> + <kbd>R</kbd> to check again.</span> <br>`;
+
+    strong.innerHTML = modified + `&copy; 2007 - ${new Date().getFullYear()} Divya Mohan ${rights} ${footer_link_privacy} ${footer_link_tos}`;
     span.appendChild(strong);
     footer.appendChild(span);
 
@@ -779,30 +767,18 @@ function copyright(rights) {
         // Syntax highlighter - Enable is using highlight js.
         // hljs.highlightAll();
 
-        // // Notification - Privacy - I accept
-        // $('.i-accept').on('click', function () {
-        //     if (localStorage.noshow !== '1') {
-        //         $('#cookie-notice').addClass('d-none');
-        //         localStorage.noshow = '1';
-        //     }
+        // renderMathInElement(document.body, {
+        //     // customised options
+        //     // • auto-render specific keys, e.g.:
+        //     delimiters: [
+        //         { left: '$$', right: '$$', display: true },
+        //         { left: '$', right: '$', display: false },
+        //         { left: '\\(', right: '\\)', display: false },
+        //         { left: '\\[', right: '\\]', display: true }
+        //     ],
+        //     // • rendering keys, e.g.:
+        //     throwOnError: false
         // });
-        // if (localStorage.noshow == '1') {
-        //     $('#cookie-notice').addClass('d-none');
-        // };
-
-
-        renderMathInElement(document.body, {
-            // customised options
-            // • auto-render specific keys, e.g.:
-            delimiters: [
-                { left: '$$', right: '$$', display: true },
-                { left: '$', right: '$', display: false },
-                { left: '\\(', right: '\\)', display: false },
-                { left: '\\[', right: '\\]', display: true }
-            ],
-            // • rendering keys, e.g.:
-            throwOnError: false
-        });
     };
 }
 
@@ -1114,59 +1090,111 @@ window.onload = function () {
 };
 
 /******* SECURITY SUITE START *******/
-/* (function () {
-    // FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view.
-    window.scriptsremoved = 1;
-    window.addEventListener("load", function () {
-        setTimeout(function () {
-            // Method 1
-            var scripts = document.getElementsByTagName("script");
-            var loaded = 0;
-            for (var i = 0; i < scripts.length; i++) {
-                scripts[i].onload = function () {
-                    loaded++;
-                    if (loaded === scripts.length) {
-                        for (var j = 0; j < scripts.length; j++) {
-                            scripts[j].remove();
-                        }
+(function () {
+    if (location.hostname === "dmj.one") {
+        const clearinteral_sakjds = window.setInterval(function () {
+            if (localStorage.getItem("noshow") === "1" && window.scriptsremoved != 1) {
+                (function () {
+                    // FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view.
+                    window.scriptsremoved = 1;
+                    window.addEventListener("load", function () {
+                        setTimeout(function () {
+                            // Method 1
+                            var scripts = document.getElementsByTagName("script");
+                            var loaded = 0;
+                            for (var i = 0; i < scripts.length; i++) {
+                                scripts[i].onload = function () {
+                                    loaded++;
+                                    if (loaded === scripts.length) {
+                                        for (var j = 0; j < scripts.length; j++) {
+                                            scripts[j].remove();
+                                        }
+                                    }
+                                };
+                            }
+                            // Method 2
+                            $(document).ready(function () {
+                                $("script").remove();
+                            });
+                            // Method 3 
+                            var head = document.head;
+                            for (var i = 0; i < head.children.length; i++) {
+                                if (head.children[i].tagName.toLowerCase() === "script") {
+                                    head.removeChild(head.children[i]);
+                                }
+                            }
+                        }, 10);
+                    });
+
+                    // Disable F12 and CTRL + U silently!
+                    function showContactMessage() {
+                        var modal = `
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="contactModalLabel">Thank you for your interest and contributions!</h5>
+          </div>
+          <div class="modal-body">
+            <p>Join our mission to create a better resource for all by becoming a valued contributor. Your ideas and insights are highly valued and appreciated. Share your knowledge, ideas, and passion with the world by <a href='mailto:contact@dmj.one?subject=Contribution for [ ${document.title} ]&body=Hello dmj.one,%0D%0A%0D%0AI want to contribute to the course/page [ ${window.location.href} ] (change as required) with the following details:%0D%0A%0D%0A Your Name: %0D%0A Your Email: %0D%0A Content: %0D%0A%0D%0A Any other relevant details: %0D%0A%0D%0A%0D%0A%0D%0AThank you.%0A%0D%0A%0D'>emailing us</a>. Don't forget to include your name, email address, and any other relevant details.</p>
+            <p>If you spot an error or have a suggestion for improvement, please don't hesitate to reach us <a href='mailto:contact@dmj.one?subject=Suggestions for [ ${document.title} ]&body=I spotted discrepancies on the page ${window.location.href} (change as required) and want to suggest these changes:%0D%0A%0D%0A1. %0D%0A2. %0D%0A%0D%0AYour Name: %0D%0AYour Email: %0D%0AAny other relevant details: %0D%0A%0D%0AThank you.'>here</a>.</p>
+            <p>Let's learn, grow, inspire each other and make a difference together by unleashing the power of knowledge!</p>
+            <p class="text-center small"><strong>Click outside the box to continue</strong> learning and unlock a world of knowledge and possibilities that awaits you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+                        var body = document.querySelector('body');
+                        body.insertAdjacentHTML('beforeend', modal);
+
+                        var modalEl = document.querySelector('#contactModal');
+                        var modalOptions = {
+                            backdrop: 'static',
+                            keyboard: false
+                        };
+                        var modal = new bootstrap.Modal(modalEl, modalOptions);
+                        modal.show();
+
+                        var documentClickHandler = function (event) {
+                            if (!event.target.closest('.modal-content')) {
+                                modal.hide();
+                                document.removeEventListener('click', documentClickHandler);
+                            }
+                        };
+                        document.addEventListener('click', documentClickHandler);
                     }
-                };
+
+                    (function () {
+
+                        document.onkeydown = function (e) {
+                            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
+                                e.preventDefault();
+                                showContactMessage();
+                            }
+                        };
+                        document.oncontextmenu = function () {
+                            return false;
+                        }
+                        document.onmousedown = function (e) {
+                            if (e.button === 2) {
+                                showContactMessage();
+                                return false;
+                            }
+                        }
+                    })();
+
+                    // Clear Console
+                    console.clear();
+                })();
             }
-            // Method 2
-            $(document).ready(function () {
-                $("script").remove();
-            });
-            // Method 3 
-            var head = document.head;
-            for (var i = 0; i < head.children.length; i++) {
-                if (head.children[i].tagName.toLowerCase() === "script") {
-                    head.removeChild(head.children[i]);
-                }
-            }
-        }, 10);
-    });
- 
-    // Disable F12 and CTRL + U silently!
-    (function () {
-        document.onkeydown = function (e) {
-            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
-                e.preventDefault();
-                alert("You want to view te code? \n View to learn or to copy? \n No, Dont copy! F12 and Ctrl+U are disabled for security reasons.");
-            }
-        };
-        document.oncontextmenu = function () {
-            return false;
+        }, 1000);
+        if (window.scriptsremoved === 1) {
+            clearInterval(clearinteral_sakjds);
         }
-        document.onmousedown = function (e) {
-            if (e.button === 2) {
-                return false;
-            }
-        }
-    })();
-    
-    // Clear Console
-    console.clear();
-})(); */
+    }
+})();
 /******* SECURITY SUITE END *******/
 
 

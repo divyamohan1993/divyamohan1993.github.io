@@ -5,8 +5,6 @@
     <!--<![endif]-->
 
     <head>
-        <script src="../var.js"></script>
-        <script src="/js/edu_su_var.js"></script>
         <script src="/js/edu_su_common.js"></script>
 
         <title>Program 8 - CSU1128 - CSE 2026 - Shoolini University</title>
@@ -37,12 +35,14 @@
             </article>
             <article>
                 <p>
-                    The following code is a simple program that swaps the values of two numbers entered by the user. The program starts with the
+                    The following code is a simple program that swaps the values of two numbers entered by the user. The
+                    program starts with the
                     inclusion of the standard input/output library in the code using the line:
                 </p>
                 <pre><code class="language-c">#include &lt;stdio.h&gt;</code></pre>
                 <p>
-                    This library provides functions such as <code>scanf</code> and <code>printf</code> which are used in the program.
+                    This library provides functions such as <code>scanf</code> and <code>printf</code> which are used in
+                    the program.
                     The main function is the starting point of the program where all the logic is defined.
                 </p>
                 <pre><code class="language-c">int main()
@@ -50,9 +50,12 @@
 </code></pre>
                 <p>
                     The code then declares 3 integer variables <code>d</code>, <code>m</code>, and <code>j</code>. The
-                    <code>printf</code> statement is used to display a prompt asking the user to enter two numbers separated by a space.
-                    The <code>scanf</code> statement is used to read these two numbers entered by the user and store them in variables
-                    <code>d</code> and <code>m</code>. The next <code>printf</code> statement displays a message indicating the input
+                    <code>printf</code> statement is used to display a prompt asking the user to enter two numbers
+                    separated by a space.
+                    The <code>scanf</code> statement is used to read these two numbers entered by the user and store
+                    them in variables
+                    <code>d</code> and <code>m</code>. The next <code>printf</code> statement displays a message
+                    indicating the input
                     values of the two numbers.
                 </p>
                 <pre><code class="language-c">int d, m, j;
@@ -62,10 +65,14 @@ scanf("%d %d", &d, &m);
 printf("\n Input values of a and b are %d and %d respectively.\n", d, m);
 </code></pre>
                 <p>
-                    The code then uses a temporary variable <code>j</code> to swap the values of <code>d</code> and <code>m</code>. The
-                    value of <code>d</code> is stored in <code>j</code>, then the value of <code>m</code> is assigned to <code>d</code>
-                    and finally the value of <code>j</code> is assigned to <code>m</code>. This effectively swaps the values of
-                    <code>d</code> and <code>m</code>. The next <code>printf</code> statement displays the swapped values of
+                    The code then uses a temporary variable <code>j</code> to swap the values of <code>d</code> and
+                    <code>m</code>. The
+                    value of <code>d</code> is stored in <code>j</code>, then the value of <code>m</code> is assigned to
+                    <code>d</code>
+                    and finally the value of <code>j</code> is assigned to <code>m</code>. This effectively swaps the
+                    values of
+                    <code>d</code> and <code>m</code>. The next <code>printf</code> statement displays the swapped
+                    values of
                     <code>d</code> and <code>m</code>.
                 </p>
                 <pre><code class="language-c">j = d;
@@ -74,7 +81,8 @@ m = j;
 printf("\n Swapped input values of a and b are %d and %d respectively.\n", d, m);
 </code></pre>
                 <p>
-                    The <code>return</code> statement with a value of <code>0</code> indicates that the program has executed
+                    The <code>return</code> statement with a value of <code>0</code> indicates that the program has
+                    executed
                     successfully.
                 </p>
                 <pre><code class="language-c">    return 0;
@@ -85,17 +93,16 @@ printf("\n Swapped input values of a and b are %d and %d respectively.\n", d, m)
                 <pre>
                     <code class="language-c">
 /*
- *  Logic Building with Computer Programming (CSU1128) by Dr. Pankaj Vaidya.
- *
- *  This program contains all the programs done in the course
- *  Logic Building with Computer Programming with the course code CSU1128.
- *
- *  DO NOT COPY
- *  DO NOT REPRODUCE
- *  DO NOT MODIFY
- *
- *  (c) 2022, Divya Mohan for dmj.one. All rights reserved.
- *
+ * -----------------------------------------------------------
+ * Logic Building with Computer Programming (CSU1128)
+ * Instructor: Dr. Pankaj Vaidya | Author: Divya Mohan
+ * 
+ * This code is a part of the educational initiative by dmj.one
+ * with aim of empowering and inspiring learners in the field of
+ * Computer Science and Engineering through the respective courses.
+ * 
+ * (c) 2022, Divya Mohan for dmj.one. All rights reserved.
+ * -----------------------------------------------------------
  */
 
 #include &lt;stdio.h&gt;

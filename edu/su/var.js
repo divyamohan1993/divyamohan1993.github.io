@@ -7,8 +7,6 @@ function get_menu_list() {
     var course = window.location.pathname.split("/")[3];
     var path = window.location.pathname.split("/")[4];
     var file = window.location.pathname.split("/")[5];
-    console.log(course + "_1/2_" + path + "_2/3_" + file);
-    console.log(window.location.pathname);
     var readtime = "";
     var author = "";
 
@@ -41,9 +39,9 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     link = "course/";
-                    date = "Last Updated: Mon January 2, 2023";
+                    date = "Last Updated: Mon February 13, 2023";
                     title = "Study @ Shoolini";
-                    desc = "Let us study! This section contains all the courses required for graduation in Computer Science and Engineering.";
+                    desc = "Ready to Level Up Your Computer Science and Engineering Game? Say Goodbye to Snooze-Worthy Study Sessions and Hello to a Comprehensive Course List Packed with Knowledge and Skills. Impress the World with Your In-Demand Expertise and Soar to New Heights - Join dmj.one's Edutainment Initiative Today and Get Ready to Graduate with Flying Colors (and Maybe a Few Jokes Along the Way)!";
                     codetype = "study@shoolini";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;

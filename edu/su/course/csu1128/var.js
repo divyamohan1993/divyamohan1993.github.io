@@ -9,14 +9,8 @@ function get_menu_list() {
 
     if (path) {
         switch (path) {
-            case "class":
-                get_classes();
-                break;
             case "misc":
                 get_misc();
-                break;
-            case "books":
-                get_books();
                 break;
             case "program":
                 get_programs();
@@ -37,7 +31,7 @@ function get_menu_list() {
                     link = "program/";
                     date = "Last Updated: Sun January 1, 2023";
                     title = "Programs done in Class";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in class and is written in C language.";
+                    desc = "Master the Art of Coding with This Comprehensive Collection of Programs! From Basic to Advanced, This Section has Everything You Need to Excel in the C Language. Get Ready to Code Your Way to Success - Let's Get Coding!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -46,7 +40,7 @@ function get_menu_list() {
                     link = "../csu1128p/labfile/";
                     date = "Last Updated: Fri December 30, 2022";
                     title = "Programs done in Lab File";
-                    desc = "Lets learn to code! This section contains list of the programs which from basic to advanced level which were done in the lab and is written in C language.";
+                    desc = "Get Your Coding Skills to the Next Level with This Section! Discover a Wide Range of Programs, From Basic to Advanced, Written in the Dynamic C Language. Join the Coding Revolution and Unleash Your Inner Prodigy - Let's Get Labbing!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -55,7 +49,7 @@ function get_menu_list() {
                     link = "misc/download";
                     date = "Last Updated: Mon January 2, 2023";
                     title = "All Programs Compiled";
-                    desc = "All the programs compiled in an executable file for usage in Windows.";
+                    desc = "Unleash the Power of Coding with This Section - All the Programs you read, are Compiled and Ready to Use! From Basic to Advanced, This Collection is Written in C and a Compatible file for Both Windows and Linux is available to download. Get Ready to Run Your Code with Confidence - Let's Get Executing!";
                     codetype = "C Programming";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -64,7 +58,7 @@ function get_menu_list() {
                     link = "misc/";
                     date = "Last Updated: Sat January 14, 2023";
                     title = "Test Your Knowledge";
-                    desc = "Miscellaneous Programs and Questions to test your knowledge";
+                    desc = "Challenge Your Coding Skills with Our Collection of Miscellaneous Programs and Questions! Test Your Knowledge and Master the Art of Coding with Our Comprehensive Selection. Get Ready to Showcase Your Skills - Let's Get Quizzing!";
                     codetype = "C Programming";
                     // readtime = "60+";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -79,13 +73,6 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Voila! Party Time!";
-                    desc = "<strong>WIP: Work in Progress! </strong><br> For admin: Please define a hierchy for the main menu for the course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
             }
         }
@@ -100,60 +87,18 @@ function get_menu_list() {
                 case 1:
                     link = "program";
                     title = "Miscellaneous Programs";
-                    desc = "Test your knowledge using these miscellaneous programs.";
+                    desc = "Put Your Coding Skills to the Test with Our Collection of Miscellaneous Programs! Brush Up Your Knowledge and Perfect Your Craft with Our Challenging Selection. Get Ready to Prove Your Mastery - Let's Get Testing!";
                     readtime = "60";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 2:
                     link = "question";
                     title = "Miscellaneous Questions";
-                    desc = "Test your knowledge and prepare for VIVA using these Miscellaneous Questions";
+                    desc = "Get Ready for the Real World and Ace Your VIVA with Our Collection of Miscellaneous Questions! Strengthen Your Logical Skills and Master the Art of Problem-Solving with Our Challenging Selection. Get Ready to Take on the World - Let's Get You Prepared!";
                     readtime = "15";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Classes for current " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-            }
-        }
-    }
-
-    function get_classes() {
-        var cases = [1];
-        for (let i = 0; i < cases.length; i++) {
-            switch (cases[i]) {
-                case 1:
-                    link = "program/";
-                    date = "Last Updated: Sun January 1, 2023";
-                    title = "Programs done in Class";
-                    desc = "This contains list of programs written in C language done in class.";
-                    codetype = "C Programming";
-                    // readtime = "10";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    link = "books";
-                    date = "Thu September 27, 2022";
-                    title = "Reference Books";
-                    desc = "Learn where";
-                    // codetype = "HTML";
-                    readtime = "2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Classes for current " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
             }
         }
@@ -519,41 +464,6 @@ function get_menu_list() {
                     link = "#";
                     date = "Not Applicable";
                     title = "Classes for current course " + course + " has not been defined.";
-                    desc = "Please define a hierchy for the classes of course " + course + ".";
-                    codetype = "#CourseNotDefined";
-                    readtime = "0";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-            }
-        }
-    }
-
-    function get_books() {
-        var cases = [1, 2, 3, 4, 5, 6];
-        for (let i = 0; i < cases.length; i++) {
-            switch (cases[i]) {
-                case 1:
-                    link = "c1";
-                    date = "Thu September 27, 2022";
-                    title = "Lab 1";
-                    desc = "This is an introductory class";
-                    codetype = "BOOKS";
-                    readtime = "2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                case 2:
-                    link = "c2";
-                    date = "Thu September 27, 2022";
-                    title = "Lab 2";
-                    desc = "Use of tags title, details, p, heading, and inline style of background-color.";
-                    codetype = "BOOK2";
-                    readtime = "2";
-                    body_blockcards(link, date, title, desc, codetype, readtime, author);
-                    break;
-                default:
-                    link = "#";
-                    date = "Not Applicable";
-                    title = "Books for current " + course + " has not been defined.";
                     desc = "Please define a hierchy for the classes of course " + course + ".";
                     codetype = "#CourseNotDefined";
                     readtime = "0";

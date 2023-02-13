@@ -609,7 +609,7 @@ a:hover {
   }
 
   .postcard .postcard__text {
-    padding: 3rem;
+    padding: 3.3rem;
     width: 100%;
   }
 
@@ -636,12 +636,12 @@ a:hover {
   }
 
   .postcard:nth-child(2n+1) .postcard__text::before {
-    left: -12px !important;
+    left: -18px !important;
     transform: rotate(4deg);
   }
 
   .postcard:nth-child(2n+0) .postcard__text::before {
-    right: -12px !important;
+    right: -18px !important;
     transform: rotate(-4deg);
   }
 }

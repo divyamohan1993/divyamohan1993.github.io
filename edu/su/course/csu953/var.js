@@ -28,14 +28,14 @@ function get_menu_list() {
     }
 
     function get_main() {
-        var cases = [1, 2, 3];
+        var cases = [1, 2, 3, 4];
         for (let i = 0; i < cases.length; i++) {
             switch (cases[i]) {
                 case 1:
                     link = "lab/";
                     date = "Last Updated: Wed November 23, 2022";
                     title = "HTML Laboratory";
-                    desc = "Lets learn to code! This section contains list of the labs from basic to advanced level which were done in class and is written in HTML.";
+                    desc = "Unleash Your Inner Coder with Our Classroom Masterpiece! From Basic to Beyond, We've Got HTML Labs that Will Make You a Pro in No Time. Let the Fun and Learning Begin!";
                     codetype = "HTML Labs";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
@@ -44,27 +44,27 @@ function get_menu_list() {
                     link = "file/";
                     date = "Last Updated: Sun December 25, 2022";
                     title = "Practical File";
-                    desc = "Lets create the practical file! This section contains list of the practicals which were to be written in the HTML practical notebook.";
+                    desc = "Step up your web game with progressive enhancement! Let's give those browsers a run for their money by crafting a top-notch HTML practical notebook. Accessibility for all, served on a silver platter. Ready, set, let's code!";
                     codetype = "HTML Labs";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 3:
-                    link = "project_report_video";
+                    link = "misc/project_report_video";
                     date = "Last Updated: Wed January 4, 2022";
                     title = "Project Report Video";
-                    desc = "Video of Project Report for CSU953 - Shoolini University.";
+                    desc = `"Unleashing the Power of Education: My Journey to Create an Impact with CSU953 at Shoolini University"
+<p>This video is a must - see for anyone who is passionate about education and wants to make a difference. So sit back, relax, and get ready to be inspired by joining me on a journey of discovery and innovation as I delve into the reasons behind my educational initiative dmj.one"</p>`;
                     codetype = "Video";
                     // readtime = "10";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 4:
-                    link = "viva";
+                    link = "misc/practicequestions";
                     date = "Last Updated: Thu January 5, 2022";
-                    title = "Viva Practice Questions";
-                    desc = "VIVA Practice Questions";
-                    codetype = "VIVA";
-                    readtime = "10";
+                    title = "100 Practice Questions";
+                    desc = "Challenge yourself and enhance your web development skills with our comprehensive set of 100 Practice Questions. Our questions are tailored to help you ace your VIVA and succeed in the real-world. Get ready to put your knowledge to the test and emerge as a confident and skilled web developer.";
+                    codetype = "Training";
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 case 5:
@@ -77,12 +77,12 @@ function get_menu_list() {
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
                 default:
-                    link = "#";
+                    /* link = "#";
                     date = "Not Applicable";
                     title = "Voila! Party Time!";
                     desc = "<strong>WIP: Work in Progress! </strong><br> For admin: Please define a hierchy for the main menu for the course " + course + ".";
                     codetype = "#CourseNotDefined";
-                    readtime = "0";
+                    readtime = "0"; */
                     body_blockcards(link, date, title, desc, codetype, readtime, author);
                     break;
             }
