@@ -5,19 +5,19 @@ function get_menu_list() {
             {
                 link: "section/",
                 title: "Sections",
-                desc: "All topics included in different sections for the subject of physics.",
+                desc: "Discover the Wonders of Physics with Our Comprehensive Collection of Topics! All Covered in Easy-to-Understand Sections, This Collection is the Ultimate Study Guide for Physics Enthusiasts. Get Ready to Immerse Yourself in the World of Science - Let's Get Studying!",
                 codetype: "Section"
             },
             {
                 link: "seminar/",
                 title: "Seminars",
-                desc: "Seminars conducted in the class",
+                desc: "Stay Ahead of the Game with Our In-Depth Collection of Classroom Seminars! Get a Firsthand Look at the Latest Developments and Techniques in Your Field. Brush Up on Your Knowledge and Take Your Skills to the Next Level - Let's Get Inspired!",
                 codetype: "Seminar"
             },
             {
                 link: "assignment/",
                 title: "Assignments",
-                desc: "Assignments which were given in the class",
+                desc: "Put Your Skills to the Test with Our Challenging Classroom Assignments! From Basic Concepts to Advanced Problems, We've Got You Covered. Get Ready to Hone Your Abilities, Improve Your Understanding, and Prove Your Worth. Let's Get to Work!",
                 codetype: "Assignment"
             }
         ];
@@ -37,11 +37,11 @@ function get_menu_list() {
         const arr = [
             {
                 title: "Section A: Work, Energy and Fluid motion",
-                desc: "WIP: This topic discusses about Work, Energy and Fluid Motions namely Work and energy theorem, Conservative and non-conservative forces, Potential energy, Energy diagram, Stable and unstable equilibrium, Gravitational potential energy,  Elastic potential energy, Types of fluids, Significance of fluid mechanics, Fluid properties, Pascal's law, Surface tension and capillarity, Continuity equation, Bernoulli's equation."
+                desc: "WIP: Understand Work, Energy & Fluid Motions in Physics! Learn about forces, energy diagrams, equilibriums, gravitational & elastic potential energies, fluid properties, Pascal's law, surface tension, capillarity, continuity equation, Bernoulli's equation. Get ready to apply your knowledge in the real world!"
             },
             {
                 title: "Section B: Electricity and Magnetism",
-                desc: "This topic discusses about electricity and magnetism namely EM waves and dielectrics: Relationship between electric field & potential, Dielectric polarization, displacement current, Types of polarization, Maxwell's equations, Equation of EM waves in free space, Velocity of EM waves, Electromagnetic Spectrum (Basic idea) Magnetic materials & Superconductivity: Basic idea of Dia, Para, Ferro & Ferri, Ferrites, Magnetic anisotropy, Magnetoseminariction and its applications in production of Ultrasonic waves, Superconductivity, Superconductors as ideal diamagnetic materials, Signatures of Superconducting state, Type I & Type II superconductors."
+                desc: "Get ready to explore Electricity & Magnetism! Learn about electric field & potential, dielectric polarization, displacement current, Maxwell's equations, velocity of EM waves, electromagnetic spectrum, magnetic materials, superconductivity, ultrasonic waves, Type I & Type II superconductors and more. Get ready to electrify your knowledge!"
             }
         ];
         for (let i = 0; i < arr.length; i++) {
@@ -60,11 +60,11 @@ function get_menu_list() {
         const arr = [
             {
                 title: "Seminar 1: Application of Fundamental Mechanics on a Rocket",
-                desc: "This topic discusses about Work, Energy and Fluid Motions on a Saturn 5 Rocket."
+                desc: "Blast off into the world of Work, Energy & Fluid Motions with the Saturn 5 Rocket! Learn the science behind the rocket's power, work & energy theorem, Pascal's law, fluid mechanics, fluid properties, Bernoulli's equation and how the Saturn 5 overcame space challenges. Get ready for an exciting journey!"
             },
             {
                 title: "Seminar 2: Electromagnetic Waves",
-                desc: "This seminar was presented on Electromagnetic Waves"
+                desc: "Expand your knowledge on Electromagnetic Waves! Learn about formation of Electromagnetic Waves, its real-world applications, characterstics, polarization, frequency and wavelength. Get ready to broaden your horizons.This seminar was presented on Electromagnetic Waves."
             }
         ];
         for (let i = 0; i < arr.length; i++) {
@@ -87,7 +87,7 @@ function get_menu_list() {
             },
             {
                 title: "Assignment 2: Types of Magnetic Materials and Application of Lasers",
-                desc: "This topic discusses about types of Magnetic Materials and application of LASER's"
+                desc: "Dive into Magnetic Materials & Laser Applications! Learn about different types of magnetic materials, their properties, and the cutting-edge applications of laser technology. Get ready to be amazed by the power of magnetism and light!"
             }
         ];
         for (let i = 0; i < arr.length; i++) {

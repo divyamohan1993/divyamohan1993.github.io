@@ -124,6 +124,9 @@
     var common_variables = "/js/comvar.js";
     document.write(`<script src='${common_variables}'></script>`);
 
+    var qrcode_js = "/js/qrcode.js"; // from "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js";
+    document.write(`<script src='${qrcode_js}'></script>`);
+
     //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
     var cdnjs_jquery = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";
@@ -175,7 +178,7 @@
         { rel: pr, href: "https://fonts.gstatic.com" },
         { rel: pr, href: "https://picsum.photos" },
         { rel: pr, href: "https://type.fit" },
-        { rel: "manifest", href: "https://dmj.one/edu/su/manifest.webmanifest" },
+        { rel: "manifest", href: "/edu/su/manifest.webmanifest" },
         { rel: "shortcut icon", href: logo },
         { rel: "fluid-icon", href: logo },
         { rel: "apple-touch-icon", href: logo },
@@ -483,11 +486,11 @@ function header_author(...args) {
     // switch the course and store the value in bottons which is then returned to button through arrow function. usage:-  course_code: things to load if that course code matches. 
     const button = (() => {
         const buttons = {
-            "": row_button_start + csu1128_button + csu1128p_button + row_button_end,
-            "CSU1128": row_button_start + csu1128_button + csu1128p_button + row_button_end,
-            "CSU1128(P)": row_button_start + csu1128_button + csu1128p_button + row_button_end,
-            "FSU030": row_button_start + fsu030_button + row_button_end,
-            "CSU953": row_button_start + csu953_button + row_button_end
+            "": csu1128_button || csu1128p_button ? row_button_start + csu1128_button + csu1128p_button + row_button_end : null,
+            "CSU1128": csu1128_button || csu1128p_button ? row_button_start + csu1128_button + csu1128p_button + row_button_end : null,
+            "CSU1128(P)": csu1128_button || csu1128p_button ? row_button_start + csu1128_button + csu1128p_button + row_button_end : null,
+            "FSU030": fsu030_button ? row_button_start + fsu030_button + row_button_end : null,
+            "CSU953": csu953_button ? row_button_start + csu953_button + row_button_end : null
         }
         return buttons[course] || ""
     })();
@@ -562,18 +565,18 @@ function dcevars(s) {
 
 function body_genmenu(course) {
     window["loaded_body_genmenu"] = 1;
-    //  var gen_start = '<section class="light"><div class="container py-2">';
+    //  var body_generated = '<section class="light"><div class="container py-2">';
     //  var gen_end = '</div></section>';
-    //  document.write(gen_start);
+    //  document.write(body_generated);
     if (!course) { var course = window.location.pathname.split("/")[4]; }
-    var gen_start = window.scriptsremoved == 1 ? '<div></div><article class="genmenu py-3">' : '<article class="genmenu py-3">';
+    var body_generated = window.scriptsremoved == 1 ? '<div></div><article class="genmenu py-3">' : '<article class="genmenu py-3">';
 
     var gen_end = '</article>';
     var agenmenu = document.querySelector("#agenmenu");
     // document.addEventListener("DOMContentLoaded", function () {
-    agenmenu.innerHTML += gen_start;
+    agenmenu.innerHTML += body_generated;
     // });
-    // Substituted document.write(gen_start); by DOMContentLoaded for automation
+    // Substituted document.write(body_generated); by DOMContentLoaded for automation
 
 
     if (course) {
@@ -606,9 +609,11 @@ function body_genmenu(course) {
 
 
 
+
+
 // Original Code
 var sitemap_links = [];
-function body_blockcards(link, date, title, desc, codetype, readtime, author) {
+function body_blockcards(link, date, title, desc, codetype, readtime, author, semester, qr_link) {
 
     // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
 
@@ -616,46 +621,75 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    if (!title && !desc) { return };
+    if (!title && !desc) { return }; // Do not Remove. Else it will waste the time in processing and give incomplete blocks
     if (link) { } else link = "#";
     if (date) { } else var date = new Date().toDateString();
     if (title) { } else title = "Unknown Title";
     if (desc) { } else desc = "No desc provided";
     var include_generator = 2;
-    if (include_generator == 1) { var gen_start = '<article>'; var gen_end = '</article>'; } else { gen_start = ""; gen_end = ""; }
+    if (include_generator == 1) { var body_generated = '<article>'; var gen_end = '</article>'; } else { body_generated = ""; gen_end = ""; }
     if (author) {
         if (author == "vp") { author = "Vanshika Painuly"; }
         else if (author == 1) { author = "Divya Mohan"; }
         else { author = author; }
     }
 
-    // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
+    // Auxillary functions for blockcards
+    // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's.
     var resolvedLink = new URL(link, location.href).toString();
     sitemap_links.push(resolvedLink);
+
+    // Generate Random
+    const randomNum01 = (function () {
+        var randomNum = Math.floor(Math.random() * 10) + 1;
+        return (randomNum <= 7) ? 1 : 0; // gives chance 7 = 70%
+    })();
+
+    // Generate QR if qr_link is available or generate the picsum.photo image
+    var qrcode_data = (function () {
+        var typeNumber = 0;
+        var errorCorrectionLevel = 'H';
+        var qr = qrcode(typeNumber, errorCorrectionLevel);
+        qr.addData(window.location.href + link);
+        qr.make();
+        return qr.createDataURL(4, "");
+    })();
+
+    var imgsrc = randomNum01 === 0 ? qrcode_data : `https://picsum.photos/${randomNum(200, 400)}`;
+    var is_qr = Number(imgsrc === qrcode_data);
+    var imgAlt = is_qr ? "QR code of the URL" : "A Random Image from picsum.photo";
+    var imgStyle = is_qr ? 'object-fit:contain;padding:2.5rem' : "";
+    var imgClass = is_qr ? 'postcard__img is_qr' : 'postcard__img';
+    var imgTag = `<img class="${imgClass}" src="${imgsrc}" alt="${imgAlt}" style="${imgStyle}"/>`;
+
+    // qrblock = qr_link ? `<div id="qrcode"></div> ${imgsrc}` : "";
 
     // Get color and start generating the block.
     var color = ["yellow", "blue", "red", "green"];
     var getcolor = color[randomNum(0, 3)];
     // https://picsum.photos/
-    var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
-    var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
-    var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
-    var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
-    var m4 = '<div class="postcard__bar"></div><div class="postcard__preview-txt">' + desc + '</div>';
-    var m5 = '<ul class="postcard__tagbox">';
-    if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
-    if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
-    if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
-    var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
+    body_generated += `<div class="m-4 my-5 postcard light shadow ${getcolor}">
+                <a class="postcard__img_link" href="${link}">${imgTag}</a>
+                <div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link} ">${title}</a></h1>
+                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>${date}</div>
+                        <div class="postcard__bar"></div><div class="postcard__preview-txt">${desc}</div>
+                            <ul class="postcard__tagbox">`;
+    body_generated += semester ? `<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ${semester}</li>` : "";
+    body_generated += codetype ? `<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ${codetype}</li>` : "";
+    body_generated += readtime ? `<li class="tag__item"><i class="bi bi-clock"></i>  '${readtime} minute read</li>` : "";
+    body_generated += author ? `<li class="tag__item"><i class="bi bi-pencil-square"></i>  ${author} </li>` : "";
+    const options = ['Expand Your Knowledge', 'Keep Learning', 'Feed Your Curiosity', 'Keep Your Mind Active', 'Learn More With Us', 'Stay Curious', 'Keep Discovering', 'Feed Your Brain', "Don't Stop Learning", 'Keep Exploring', 'Keep Absorbing', 'Continue Your Learning Journey', 'Unlock More Learning', 'Keep Developing Your Understanding', 'Expand Your Perspective', 'Keep Your Mind Engaged', 'The Learning Continues', 'Stay Inquisitive', 'Keep Your Brain Engaged', 'Keep Your Intellectual Fire Burning', 'Keep Challenging Yourself', 'Stay On The Learning Path', 'The Adventure Continues', 'Keep Your Mind Open', 'Stay Focused On Learning', 'Keep Your Learning Moving', 'Keep Expanding Your Mind', 'Keep Progressing In Your Learning', 'The Learning Never Stops', 'Keep Your Intellect Fueled', 'Keep Your Brain Buzzing', 'Keep Your Learning Journey Thriving', 'Keep Your Curiosity Alive', 'Keep Your Mind Alert', 'Keep Building Your Knowledge', 'Stay Invested In Your Learning', 'Keep Building Your Expertise', 'The Learning Journey Continues', 'Keep Your Understanding Evolving', 'Keep Your Learning Momentum Going', 'Keep Pushing Your Limits', 'Stay On The Path To Learning', 'Keep Unleashing Your Potential'];
+    const continueReading = options[Math.floor(Math.random() * options.length)];
+    body_generated += `<a href="${link}"><li class="tag__item play ${getcolor} fw-bold text-center" style="cursor: inherit;"><i class="bi bi-book"></i>  ${continueReading}</li></a></ul></div></div>`;
+    body_generated += gen_end;
 
-    let finaltowrite = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
-    // document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
+    let finaltowrite = body_generated + gen_end;
+    // document.write(body_generated + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
     // document.addEventListener("DOMContentLoaded", function () {
     var genclass = document.querySelector(".genmenu");
     genclass.innerHTML += finaltowrite;
     // });
 }
-
 
 function sitemap_var_gen_clipboard() {
     // maintenance_mode();
