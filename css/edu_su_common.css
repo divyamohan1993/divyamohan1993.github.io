@@ -801,6 +801,7 @@ a:hover {
 canvas {
   border: 0px solid #333;
 }
+
 #fireworks {
   position: absolute;
   top: 0;
@@ -840,6 +841,7 @@ canvas {
   height: 100%;
   pointer-events: none;
 }
+
 /* Birthday Baloon */
 .balloon {
   position: absolute;
@@ -847,6 +849,7 @@ canvas {
   background-color: #ff69b4;
   opacity: 0.8;
 }
+
 /* Summer Water Bubble */
 .bubble {
   position: absolute;
@@ -854,6 +857,7 @@ canvas {
   background-color: #fff;
   opacity: 0.8;
 }
+
 /* April Fools Day */
 .emoji {
   position: absolute;
@@ -882,6 +886,7 @@ canvas {
     transform: rotate(0deg);
   }
 }
+
 /* Valentine's Day */
 .heart {
   position: absolute;

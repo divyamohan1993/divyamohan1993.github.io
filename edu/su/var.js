@@ -39,7 +39,7 @@ function get_menu_list() {
             switch (cases[i]) {
                 case 1:
                     link = "course/";
-                    date = "Last Updated: Mon February 13, 2023";
+                    date = "Mon February 13, 2023";
                     title = "Study @ Shoolini";
                     desc = "Ready to Level Up Your Computer Science and Engineering Game? Say Goodbye to Snooze-Worthy Study Sessions and Hello to a Comprehensive Course List Packed with Knowledge and Skills. Impress the World with Your In-Demand Expertise and Soar to New Heights - Join dmj.one's Edutainment Initiative Today and Get Ready to Graduate with Flying Colors (and Maybe a Few Jokes Along the Way)!";
                     codetype = "study@shoolini";

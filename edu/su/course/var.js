@@ -1,4 +1,4 @@
-function get_menu_list() {
+function get_menu_list(datetogen) {
     function get_main(def_date, def_author) {
         const arr = [
             {
@@ -94,12 +94,12 @@ function get_menu_list() {
         return outputDate;
     }
     function r(t) { return Math.floor(Math.random() * 10) + t };
-    var date = "February 14, 2023", title, desc, codetype, readtime, author = 1, link, semester;
+    var title, desc, codetype, readtime, author = 1, link, semester;
     const functions = {
         course: get_course,
         // seminar: get_seminar,
         // assignment: get_assignment,
         default: get_main
     };
-    (functions[window.urlpart3] || functions.default)(date, author);
+    (functions[window.urlpart3] || functions.default)(datetogen, author);
 }

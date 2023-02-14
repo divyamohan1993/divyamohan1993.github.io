@@ -30,22 +30,7 @@
             <script> body_genmenu(); </script>
         </main>
 
-        <script> copyright("all");
-            function snowfall() {
-                const snowflakes = document.createElement("span");
-                snowflakes.innerHTML = "&#10052;";
-                snowflakes.style.position = "absolute";
-                snowflakes.style.top = "-50px";
-                snowflakes.style.fontSize = Math.random() * 20 + 10 + "px";
-                snowflakes.style.opacity = Math.random();
-                snowflakes.style.left = Math.random() * window.innerWidth + "px";
-                document.body.appendChild(snowflakes);
-                setTimeout(() => {
-                    snowflakes.remove();
-                }, 5000);
-            }
-            setInterval(snowfall, 50);
-        </script>
+
 
     </body>
 

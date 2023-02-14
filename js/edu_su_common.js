@@ -263,7 +263,12 @@ function header_navbar() {
             } else {
                 var linkactive = ' active" aria-current="page"';
             }
-            li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+            if (links[i] == "csu951" || links[i] == "csu934") {
+                li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/" data-toggle="tooltip" data-placement="top" title="Work In Progress. Section will be available soon." data-original-title="Work In Progress. Section will be available soon.">${links[i].toUpperCase()} <strong>[WIP]</strong></a></li>`;
+            } else {
+                li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+            }
+            // li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
         }
         return `<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">${year}</a><ul class="dropdown-menu">${li_link}</ul></li>`;
     }
@@ -312,7 +317,7 @@ function header_navbar() {
     var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
 
     // Send array of links to create link for dropdown
-    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951<code>[WIP]</code>"];
+    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
     var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730"].sort();
 
     var alllinks = nav_createDropdown(year1_links) + nav_createMainNav(visible_links);
@@ -578,7 +583,7 @@ function body_genmenu(course) {
     // });
     // Substituted document.write(body_generated); by DOMContentLoaded for automation
 
-
+    const datetogen = "February 2, 2023"; // Change this date to reflect it everywhere.
     if (course) {
         switch (course) {
             case "csu953":
@@ -587,7 +592,7 @@ function body_genmenu(course) {
             case "csu730":
             case "csu951":
             case "fsu030":
-                get_menu_list();
+                get_menu_list(datetogen);
                 break;
             default:
                 link = "#";
@@ -599,7 +604,7 @@ function body_genmenu(course) {
                 body_blockcards(link, date, title, desc, codetype, readtime, 1);
                 break;
         }
-    } else { get_menu_list() };
+    } else { get_menu_list(datetogen) };
     // Substitution for document.write(gen_end); due to automation
     // document.addEventListener("DOMContentLoaded", function () {
     agenmenu.innerHTML += gen_end;
@@ -671,7 +676,7 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author, se
     body_generated += `<div class="m-4 my-5 postcard light shadow ${getcolor}">
                 <a class="postcard__img_link" href="${link}">${imgTag}</a>
                 <div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link}">${title}</a></h1>
-                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>&nbsp;&nbsp;${date}</div>
+                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>&nbsp;&nbsp;${date}</div> 
                         <div class="postcard__bar"></div><div class="postcard__preview-txt">${desc}</div>
                             <ul class="postcard__tagbox">`;
     body_generated += semester ? `<li class="tag__item"><i class="bi bi-collection"></i>  ${semester}</li>` : "";
@@ -916,7 +921,7 @@ function gen_blockquote() {
 
             const p = document.createElement("p");
             p.classList.add("p-2");
-            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. By <strong>clicking</strong> <em>“I Accept”</em> or<strong> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.`;
+            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. By <strong>clicking</strong> <em>“I Accept”</em> or<strong> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'>Terms and Conditions</a> and <a href='/privacy'>Privacy Policy</a>.`;
 
             col1.appendChild(p);
 
@@ -1354,7 +1359,8 @@ function gen_blockquote() {
 })();
 
 /*** Valentine's Day ***/
-(function () {
+// Heart Moves Straight up - constant speed.
+/* (function () {
     const isValentine = () => {
         const date = new Date();
         const day = date.getDate();
@@ -1396,9 +1402,54 @@ function gen_blockquote() {
             clearInterval(heartInterval);
         }, Math.floor(Math.random() * 3000) + 2000);
     }
+})(); */
+// Heart moves up - Starts slow and then accelerates. 
+(function () {
+    const isValentine = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 14 && month === 2;
+    };
+
+    if (isValentine()) {
+        const url = "/img/heart.png";
+        function createHeart() {
+            const heart = document.createElement("img");
+            heart.src = url;
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            heart.style.width = (Math.random() * 20 + 10) + "px";
+            heart.style.height = heart.style.width;
+            heart.speed = Math.random() * 0.01 + 0.01;
+            heart.easing = Math.random() * 0.2 + 0.1;
+            document.body.appendChild(heart);
+            return heart;
+        }
+
+        function moveHeart(heart) {
+            const top = parseFloat(heart.style.top);
+            const newTop = top - heart.speed;
+            heart.style.top = newTop + "px";
+            heart.speed += heart.easing; // Ease In
+            if (newTop < 0) {
+                heart.remove();
+            }
+        }
+
+        let heartInterval = setInterval(() => {
+            const heart = createHeart();
+            setInterval(() => {
+                moveHeart(heart);
+            }, Math.floor(Math.random() * 30) + 10);
+        }, Math.floor(Math.random() * 400) + 10);
+
+        setTimeout(() => {
+            clearInterval(heartInterval);
+        }, Math.floor(Math.random() * 4000) + 1000);
+    }
 })();
-
-
 
 
 /******** Fetch updated content from the server automatically ********/

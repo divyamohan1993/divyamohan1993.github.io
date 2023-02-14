@@ -1,5 +1,5 @@
 
-function get_menu_list() {
+function get_menu_list(datetogen) {
     function get_main(def_date, def_author) {
         const arr = [
             {
@@ -115,14 +115,15 @@ function get_menu_list() {
         return outputDate;
     }
     function r(t) { return Math.floor(Math.random() * 10) + t };
-    var date = "December 25, 2022", title, desc, codetype, readtime, author = 1, link;
+    var dated = "December 25, 2022";
+    var title, desc, codetype, readtime, author = 1, link;
     const functions = {
         section: get_section,
         seminar: get_seminar,
         assignment: get_assignment,
         default: get_main
     };
-    (functions[window.urlpart5] || functions.default)(date, author);
+    (functions[window.urlpart5] || functions.default)(datetogen, author);
 }
 
 /* let course = window.urlpart4;
