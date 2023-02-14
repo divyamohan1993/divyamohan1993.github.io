@@ -670,17 +670,17 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author, se
     // https://picsum.photos/
     body_generated += `<div class="m-4 my-5 postcard light shadow ${getcolor}">
                 <a class="postcard__img_link" href="${link}">${imgTag}</a>
-                <div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link} ">${title}</a></h1>
-                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>${date}</div>
+                <div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link}">${title}</a></h1>
+                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>&nbsp;&nbsp;${date}</div>
                         <div class="postcard__bar"></div><div class="postcard__preview-txt">${desc}</div>
                             <ul class="postcard__tagbox">`;
-    body_generated += semester ? `<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ${semester}</li>` : "";
+    body_generated += semester ? `<li class="tag__item"><i class="bi bi-collection"></i>  ${semester}</li>` : "";
     body_generated += codetype ? `<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ${codetype}</li>` : "";
-    body_generated += readtime ? `<li class="tag__item"><i class="bi bi-clock"></i>  '${readtime} minute read</li>` : "";
+    body_generated += readtime ? `<li class="tag__item"><i class="bi bi-clock"></i>  ${readtime} minute read</li>` : "";
     body_generated += author ? `<li class="tag__item"><i class="bi bi-pencil-square"></i>  ${author} </li>` : "";
     const options = ['Expand Your Knowledge', 'Keep Learning', 'Feed Your Curiosity', 'Keep Your Mind Active', 'Learn More With Us', 'Stay Curious', 'Keep Discovering', 'Feed Your Brain', "Don't Stop Learning", 'Keep Exploring', 'Keep Absorbing', 'Continue Your Learning Journey', 'Unlock More Learning', 'Keep Developing Your Understanding', 'Expand Your Perspective', 'Keep Your Mind Engaged', 'The Learning Continues', 'Stay Inquisitive', 'Keep Your Brain Engaged', 'Keep Your Intellectual Fire Burning', 'Keep Challenging Yourself', 'Stay On The Learning Path', 'The Adventure Continues', 'Keep Your Mind Open', 'Stay Focused On Learning', 'Keep Your Learning Moving', 'Keep Expanding Your Mind', 'Keep Progressing In Your Learning', 'The Learning Never Stops', 'Keep Your Intellect Fueled', 'Keep Your Brain Buzzing', 'Keep Your Learning Journey Thriving', 'Keep Your Curiosity Alive', 'Keep Your Mind Alert', 'Keep Building Your Knowledge', 'Stay Invested In Your Learning', 'Keep Building Your Expertise', 'The Learning Journey Continues', 'Keep Your Understanding Evolving', 'Keep Your Learning Momentum Going', 'Keep Pushing Your Limits', 'Stay On The Path To Learning', 'Keep Unleashing Your Potential'];
     const continueReading = options[Math.floor(Math.random() * options.length)];
-    body_generated += `<a href="${link}"><li class="tag__item play ${getcolor} fw-bold text-center" style="cursor: inherit;"><i class="bi bi-book"></i>  ${continueReading}</li></a></ul></div></div>`;
+    body_generated += `<a href="${link}" data-toggle="tooltip" data-placement="top" title="Click to continue reading." data-original-title="Click to continue reading."><li class="tag__item play ${getcolor} fw-bold text-center" style="cursor: inherit;"><i class="bi bi-book"></i>  ${continueReading}</li></a></ul></div></div>`;
     body_generated += gen_end;
 
     let finaltowrite = body_generated + gen_end;
@@ -950,6 +950,456 @@ function gen_blockquote() {
     }
 })();
 
+/************ Let there be snowfall! ************/
+(function () {
+    const isWinter = () => {
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        return month === 12 || month === 1;
+    };
+
+    if (isWinter()) {
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.top = "-50px";
+            snowflake.style.width = (Math.random() * 10 + 5) + "px";
+            snowflake.style.height = snowflake.style.width;
+            snowflake.speed = Math.random() * 2 + 1;
+            document.body.appendChild(snowflake);
+            return snowflake;
+        }
+
+        function moveSnowflake(snowflake) {
+            const top = parseFloat(snowflake.style.top);
+            const newTop = top + snowflake.speed;
+            snowflake.style.top = newTop + "px";
+            if (newTop > window.innerHeight) {
+                snowflake.remove();
+            }
+        }
+
+        let snowflakeInterval = setInterval(() => {
+            const snowflake = createSnowflake();
+            setInterval(() => {
+                moveSnowflake(snowflake);
+            }, Math.floor(Math.random() * 100) + 20);
+        }, Math.floor(Math.random() * 300) + 100);
+
+        setTimeout(() => {
+            clearInterval(snowflakeInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/*** Summer Bubbles ***/
+(function () {
+    const isSummer = () => {
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        return month === 6 || month === 7 || month === 8;
+    };
+
+    if (isSummer()) {
+        function createBubble() {
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+            bubble.style.left = Math.random() * window.innerWidth + "px";
+            bubble.style.top = window.innerHeight + "px";
+            bubble.style.width = (Math.random() * 20 + 10) + "px";
+            bubble.style.height = bubble.style.width;
+            bubble.speed = Math.random() * 2 + 1;
+            document.body.appendChild(bubble);
+            return bubble;
+        }
+
+        function moveBubble(bubble) {
+            const top = parseFloat(bubble.style.top);
+            const newTop = top - bubble.speed;
+            bubble.style.top = newTop + "px";
+            if (newTop < 0) {
+                bubble.remove();
+            }
+        }
+
+        let bubbleInterval = setInterval(() => {
+            const bubble = createBubble();
+            setInterval(() => {
+                moveBubble(bubble);
+            }, Math.floor(Math.random() * 100) + 20);
+        }, Math.floor(Math.random() * 300) + 70);
+
+        setTimeout(() => {
+            clearInterval(bubbleInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/*** Birthday Baloons ***/
+(function () {
+    const isBirthday = () => {
+        const today = new Date();
+        const birthdate = new Date("2023-02-23");
+        return today.getMonth() === birthdate.getMonth() && today.getDate() === birthdate.getDate();
+    };
+
+    if (isBirthday()) {
+        function createBalloon() {
+            const balloon = document.createElement("div");
+            balloon.classList.add("balloon");
+            balloon.style.left = Math.random() * window.innerWidth + "px";
+            balloon.style.top = window.innerHeight + "px";
+            balloon.style.width = (Math.random() * 100 + 50) + "px";
+            balloon.style.height = balloon.style.width;
+            balloon.speed = Math.random() * 2 + 1;
+            document.body.appendChild(balloon);
+            return balloon;
+        }
+
+        function moveBalloon(balloon) {
+            const top = parseFloat(balloon.style.top);
+            const newTop = top - balloon.speed;
+            balloon.style.top = newTop + "px";
+            if (newTop < 0) {
+                balloon.remove();
+            }
+        }
+
+        let balloonInterval = setInterval(() => {
+            const balloon = createBalloon();
+            setInterval(() => {
+                moveBalloon(balloon);
+            }, Math.floor(Math.random() * 100) + 10);
+        }, Math.floor(Math.random() * 300) + 50);
+
+        setTimeout(() => {
+            clearInterval(balloonInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/** Fireworks **/
+(function () {
+    const isDiwali = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 12 && month === 11;
+    };
+    if (isDiwali()) {
+        const FIREWORKS_DISPLAYED_KEY = 'fireworks_displayed';
+        const fireworksDisplayed = localStorage.getItem(FIREWORKS_DISPLAYED_KEY);
+
+        if (!fireworksDisplayed) {
+            document.write(`<canvas id="fireworks"></canvas><div class="message"><p class="text-center">Congratulations!<br>Happy Diwali!</p></div>`);
+            window.addEventListener('load', function () {
+                const canvas = document.getElementById('fireworks');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const fireworks = [];
+
+                function Particle(x, y, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = size;
+                    this.color = color;
+                    this.velocity = { x: Math.random() * 6 - 3, y: Math.random() * 6 - 3 };
+                    this.gravity = 0.1;
+                    this.alpha = 1;
+
+                    this.update = function () {
+                        this.x += this.velocity.x;
+                        this.y += this.velocity.y;
+                        this.velocity.y += this.gravity;
+                        this.alpha -= 0.01;
+                    };
+
+                    this.draw = function () {
+                        ctx.globalAlpha = this.alpha;
+                        ctx.fillStyle = this.color;
+                        ctx.fillRect(this.x, this.y, this.size, this.size);
+                    };
+                }
+
+                function Firework(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.particles = [];
+                    this.color = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
+
+                    for (let i = 0; i < 50; i++) {
+                        const size = Math.random() * 4 + 1;
+                        const particle = new Particle(x, y, size, this.color);
+                        this.particles.push(particle);
+                    }
+
+                    this.update = function () {
+                        for (let i = 0; i < this.particles.length; i++) {
+                            this.particles[i].update();
+                            if (this.particles[i].alpha <= 0) {
+                                this.particles.splice(i, 1);
+                            }
+                        }
+                    };
+
+                    this.draw = function () {
+                        for (let i = 0; i < this.particles.length; i++) {
+                            this.particles[i].draw();
+                        }
+                    };
+                }
+
+                function createFirework() {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height / 2;
+                    const firework = new Firework(x, y);
+                    fireworks.push(firework);
+                }
+
+                setInterval(createFirework, Math.floor(Math.random() * 300) + 100);
+
+                function loop() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    for (let i = 0; i < fireworks.length; i++) {
+                        fireworks[i].update();
+                        fireworks[i].draw();
+                        if (fireworks[i].particles.length <= 0) {
+                            fireworks.splice(i, 1);
+                        }
+                    }
+
+                    requestAnimationFrame(loop);
+                }
+
+                loop();
+                setTimeout(function () {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    document.querySelector('.message').style.display = 'none';
+                    // Set flag to indicate that fireworks have been displayed
+                    localStorage.setItem(FIREWORKS_DISPLAYED_KEY, true);
+                    location.reload(true);
+                }, Math.floor(Math.random() * 6000) + 4000);
+
+            });
+        }
+    }
+})();
+
+/*** Cornfetti ***/
+(function () {
+    window.addEventListener('load', function () {
+        // check if the user visited the site before
+        let visited = localStorage.getItem('visited');
+        let today = new Date().toDateString();
+
+        // if the user is visiting for the first time today, run the function
+        if (!visited || visited !== today) {
+            localStorage.setItem('visited', today);
+            // create a canvas element
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            // set the canvas dimensions to the window size
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // add the canvas to the page
+            document.body.appendChild(canvas);
+
+            // create an array to store the confetti particles
+            const confettiParticles = [];
+
+            // create an array of confetti colors
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548'];
+
+            // create a confetti particle object
+            function ConfettiParticle(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.size = Math.random() * 5 + 5;
+                this.velocity = {
+                    x: Math.random() * 6 - 3,
+                    y: Math.random() * 3 + 3
+                };
+            }
+
+            // create a function to generate confetti particles
+            function generateConfetti() {
+                // generate a random number of particles between 50 and 100
+                const numParticles = Math.floor(Math.random() * 51) + 50;
+
+                // generate the particles
+                for (let i = 0; i < numParticles; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const particle = new ConfettiParticle(x, y, color);
+                    confettiParticles.push(particle);
+                }
+
+                // write the congratulation message
+                context.font = '48px serif';
+                context.fillStyle = '#ffffff';
+                context.textAlign = 'center';
+                context.zindex = 9999;
+                context.fillText('Hello and Welcome to dmj.one!', canvas.width / 2, canvas.height / 2);
+            }
+
+            // create a function to animate the confetti
+            function animateConfetti() {
+                // clear the canvas
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // update and draw each confetti particle
+                for (let i = 0; i < confettiParticles.length; i++) {
+                    const particle = confettiParticles[i];
+                    particle.x += particle.velocity.x;
+                    particle.y += particle.velocity.y;
+                    context.fillStyle = particle.color;
+                    context.fillRect(particle.x, particle.y, particle.size, particle.size);
+                }
+
+                // remove particles that have gone off screen
+                for (let i = 0; i < confettiParticles.length; i++) {
+                    if (confettiParticles[i].y > canvas.height) {
+                        confettiParticles.splice(i, 1);
+                    }
+                }
+
+                // if there are still particles, keep animating
+                if (confettiParticles.length > 0) {
+                    requestAnimationFrame(animateConfetti);
+                }
+            }
+
+            // generate and animate the confetti
+            generateConfetti();
+            animateConfetti();
+
+            // remove the canvas and message after 7 seconds
+            setTimeout(function () {
+                canvas.remove();
+            }, Math.floor(Math.random() * 3000) + 2000);
+        }
+    });
+})();
+
+/*** Funny Emoji's ***/
+(function () {
+    const isAprilFool = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 1 && month === 4;
+    };
+
+    if (isAprilFool()) {
+        let stopAnimation = false;
+        const emojis = [];
+
+        function createEmoji() {
+            const emojiOptions = ["😀", "😂", "😍", "🤪", "🤔", "🤢", "🤮", "🥴", "🥳", "🤩"];
+            const emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            emoji.innerText = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
+            emoji.style.left = Math.random() * window.innerWidth + "px";
+            emoji.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(emoji);
+            emojis.push(emoji);
+            return emoji;
+        }
+
+        function moveEmoji(emoji) {
+            const x = parseFloat(emoji.style.left);
+            const y = parseFloat(emoji.style.top);
+            const dx = Math.random() * 20 - 10;
+            const dy = Math.random() * 20 - 10;
+            emoji.style.left = x + dx + "px";
+            emoji.style.top = y + dy + "px";
+        }
+
+        function startAnimation() {
+            setInterval(() => {
+                if (stopAnimation) {
+                    return;
+                }
+                const emoji = createEmoji();
+                setInterval(() => {
+                    if (stopAnimation) {
+                        return;
+                    }
+                    moveEmoji(emoji);
+                }, Math.floor(Math.random() * 100) + 50);
+            }, Math.floor(Math.random() * 300) + 50);
+        }
+
+        function clearEmojis() {
+            emojis.forEach(emoji => emoji.remove());
+            emojis.length = 0;
+        }
+
+        startAnimation();
+
+        setTimeout(() => {
+            stopAnimation = true;
+            clearEmojis();
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/*** Valentine's Day ***/
+(function () {
+    const isValentine = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 14 && month === 2;
+    };
+
+    if (isValentine()) {
+        const url = "/img/heart.png";
+        function createHeart() {
+            const heart = document.createElement("img");
+            heart.src = url;
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            heart.style.width = (Math.random() * 20 + 10) + "px";
+            heart.style.height = heart.style.width;
+            heart.speed = Math.random() * 2 + 1;
+            document.body.appendChild(heart);
+            return heart;
+        }
+        function moveHeart(heart) {
+            const top = parseFloat(heart.style.top);
+            const newTop = top - heart.speed;
+            heart.style.top = newTop + "px";
+            if (newTop < 0) {
+                heart.remove();
+            }
+        }
+
+        let heartInterval = setInterval(() => {
+            const heart = createHeart();
+            setInterval(() => {
+                moveHeart(heart);
+            }, Math.floor(Math.random() * 30) + 21);
+        }, Math.floor(Math.random() * 300) + 50);
+
+        setTimeout(() => {
+            clearInterval(heartInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+
+
 
 /******** Fetch updated content from the server automatically ********/
 (function () {
@@ -1122,6 +1572,8 @@ window.onload = function () {
     }
     // console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
+
+
 
 /******* SECURITY SUITE START *******/
 (function () {

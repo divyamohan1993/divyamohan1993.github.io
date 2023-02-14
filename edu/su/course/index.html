@@ -8,8 +8,7 @@
         <script src="/js/edu_su_common.js"></script>
 
         <title> Study @ Shoolini University</title>
-        <meta name="description"
-            content="All about the academics at Shoolini University. Summarized and Facilitated by Divya Mohan">
+        <meta name="description" content="All about the academics at Shoolini University. Summarized and Facilitated by Divya Mohan">
 
         <meta property="og:image" content="/logo.png">
         <meta property="og:type" content="article">
@@ -31,7 +30,22 @@
             <script> body_genmenu(); </script>
         </main>
 
-        <script> copyright("all"); </script>
+        <script> copyright("all");
+            function snowfall() {
+                const snowflakes = document.createElement("span");
+                snowflakes.innerHTML = "&#10052;";
+                snowflakes.style.position = "absolute";
+                snowflakes.style.top = "-50px";
+                snowflakes.style.fontSize = Math.random() * 20 + 10 + "px";
+                snowflakes.style.opacity = Math.random();
+                snowflakes.style.left = Math.random() * window.innerWidth + "px";
+                document.body.appendChild(snowflakes);
+                setTimeout(() => {
+                    snowflakes.remove();
+                }, 5000);
+            }
+            setInterval(snowfall, 50);
+        </script>
 
     </body>
 
