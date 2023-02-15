@@ -7,24 +7,19 @@
     // does not include hostname. eg: dmj.one/sd/ss -> sd is urlpart1 and ss is urlpart2 and so on.
     let i = 1;
     if (parts[parts.length - 1] === "") {
-        parts[parts.length - 1] = "index";
+        // parts[parts.length - 1] = "index"; // to give a name instead of empty index.
     }
-    for (const part of parts) {
+    for (const part of parts) { // Store the variables in window.variable_name
         let variable = `urlpart${i}`;
         window[variable] = part;
         i++;
     }
-    for (const variable in window) {
+    for (const variable in window) { // Displayed for Debug
         if (variable.startsWith("urlpart")) {
             console.log(`${variable} = ${window[variable]}`);
         }
     }
 })();
-
-// Encrypted Vars
-var notify_cookie = notify_cookie ? notify_cookie : "%2B";
-var header_dmj_desc = header_dmj_desc ? header_dmj_desc : ".%3C";
-var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 /*************** Fixed Functions and Variables END **************/
 
 
@@ -112,19 +107,25 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
     var varJsUrl = (function () {
         var currentUrl = window.location.href,
             urlParts = currentUrl.split('/'),
-            varJsUrl = 'https://dmj.one/var.js',
+            varJsUrl = '/var.js',
             lastFolderIndex = urlParts.length - 1;
         for (var i = urlParts.length - 1; i >= 3 && i < 7; i--) {
             lastFolderIndex = i;
             break;
         }
         if (lastFolderIndex >= 4 && lastFolderIndex <= 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
+            varJsUrl = '/' + urlParts.slice(3, lastFolderIndex).join('/') + '/var.js';
         else if (lastFolderIndex > 6)
-            varJsUrl = 'https://dmj.one/' + urlParts.slice(3, 7).join('/') + '/var.js';
+            varJsUrl = '/' + urlParts.slice(3, 7).join('/') + '/var.js';
         return varJsUrl;
     })();
     document.write(`<script src='${varJsUrl}'></script>`);
+
+    var common_variables = "/js/comvar.js";
+    document.write(`<script src='${common_variables}'></script>`);
+
+    var qrcode_js = "/js/qrcode.js"; // from "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js";
+    document.write(`<script src='${qrcode_js}'></script>`);
 
     //var edu_var = "https://dmj.one/js/edu_su_var.js";
     //var edu_js = "https://dmj.one/js/edu_su_common.js";
@@ -136,7 +137,6 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 
     // Create an array of script URLs
     var scripts = [cdnjs_jquery, cdnjs_bootstrap, cdnjs_highlightjs, cdnjs_katex, cdnjs_katex_autorender];
-
     var loaded = 0; // Create a counter to keep track of the number of scripts that have finished loading
 
     for (var i = 0; i < scripts.length; i++) { // Iterate through the array of scripts
@@ -169,7 +169,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
 })();
 
 (function () {
-    const logo = "https://dmj.one/logo.png?v=2.2";
+    const logo = "/logo.png";
     const pr = "preconnect";
     const links = [
         { rel: pr, href: "https://fonts.googleapis.com" },
@@ -178,7 +178,7 @@ var header_pv_desc = header_pv_desc ? header_pv_desc : "*8Hu";
         { rel: pr, href: "https://fonts.gstatic.com" },
         { rel: pr, href: "https://picsum.photos" },
         { rel: pr, href: "https://type.fit" },
-        { rel: "manifest", href: "https://dmj.one/edu/su/manifest.webmanifest" },
+        { rel: "manifest", href: "/edu/su/manifest.webmanifest" },
         { rel: "shortcut icon", href: logo },
         { rel: "fluid-icon", href: logo },
         { rel: "apple-touch-icon", href: logo },
@@ -223,7 +223,7 @@ function header_navbar() {
                 var nav_filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
          */
 
-        var nav_home = `<a href="//${url.hostname}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
+        var nav_home = `<a href="//${window.location.host}/edu/su/" data-toggle="tooltip" data-placement="top" title="Home" data-original-title="Home"><i class="bi bi-house-fill text-light"></i></a>`;
         var nav_path = `<a href="${nav_folder}/" data-toggle="tooltip" data-placement="top" title="${nav_folder}" data-original-title="${nav_folder}"><i class="bi bi-journals text-light"></i></a>`;
         var nav_subpath = `<a href="${nav_folder}/${nav_subfolder}/" data-toggle="tooltip" data-placement="top" title="${nav_subfolder}" data-original-title="${nav_subfolder}"><i class="bi bi-card-list text-light"></i></a>`;
         var nav_file = `<a href="${nav_filename}" data-toggle="tooltip" data-placement="top" title="${nav_filename}" data-original-title="${nav_filename}"><i class="bi bi-journal-code text-light"></i></a>`;
@@ -263,7 +263,12 @@ function header_navbar() {
             } else {
                 var linkactive = ' active" aria-current="page"';
             }
-            li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+            if (links[i] == "csu951" || links[i] == "csu934") {
+                li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/" data-toggle="tooltip" data-placement="top" title="Work In Progress. Section will be available soon." data-original-title="Work In Progress. Section will be available soon.">${links[i].toUpperCase()} <strong>[WIP]</strong></a></li>`;
+            } else {
+                li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
+            }
+            // li_link += `<li><a class="dropdown-item ${linkactive} href="/edu/su/course/${links[i]}/">${links[i].toUpperCase()}</a></li>`;
         }
         return `<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">${year}</a><ul class="dropdown-menu">${li_link}</ul></li>`;
     }
@@ -312,13 +317,36 @@ function header_navbar() {
     var common_nav_end = '</ul><!--- <form class="d-flex" role="search"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-light" type="submit">Search</button></form> --></div></div></nav>';
 
     // Send array of links to create link for dropdown
-    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951<code>[WIP]</code>"];
+    var year1_links = ["1<sup>st</sup> Year", "csu1128p", "csu1128", "csu953", "fsu030", "csu730", "csu951"];
     var visible_links = ["csu1128p", "csu1128", "csu953", "fsu030", "csu730"].sort();
 
     var alllinks = nav_createDropdown(year1_links) + nav_createMainNav(visible_links);
 
     nav = common_nav_start + alllinks + common_nav_end;
     return nav;
+}
+
+function head_FormatAuthor(...args) {
+    let authorTextArr = [];
+    for (let i = 0; i < args.length; i += 2) {
+        let author = args[i];
+        let author_href = args[i + 1];
+        if (author && author_href) { // add this line to check for blank inputs
+            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred from dmj.one&body=-- Referred from the page ${window.location.href} Please write below this line --" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+        }
+    }
+    let authorText;
+    if (authorTextArr.length === 0) {
+        authorText = "author";
+    } else if (authorTextArr.length === 1) {
+        authorText = authorTextArr[0];
+    } else if (authorTextArr.length === 2) {
+        authorText = authorTextArr.join(" and ");
+    } else {
+        // authorTextArr.pop();
+        authorText = authorTextArr.slice(0, -1).join(", ") + `, and ${authorTextArr.slice(-1)}`;
+    }
+    return authorText;
 }
 
 
@@ -353,13 +381,9 @@ function header_navbar() {
   ...
 } */
 
-function header_author(author_init) {
+function header_author(...args) {
+    /* USAGE - header_author("authorinitials || name", "email", "author1 details", "authorinitials || name2" ... ) */
     window["loaded_header_author"] = 1;
-    /* USAGE - header_author(include_course_name, define_is_lab, teacher_FL, author_FL, biblography, button)
-     * FL - First and Last Name initials 
-     * Example: header_author(1, 0, "pv", "dm", 0, 1) / header_author(1, 0, "bt", "vn", 1, 1) :: 1 - display | 0 - Not Display 
-    */
-    //  get the actual author and professor name
 
     var pathParts = window.location.pathname.split("/");
     var mainspace = pathParts[2];
@@ -369,93 +393,91 @@ function header_author(author_init) {
     // console.log(folder.length + folder);
     // console.log(file.length + file);
 
+    let { pA_author, pA_bio } = processAuthors(args);
+    const allAuthors = `<span id="authorlist">${pA_author}</span>`, author_bio = pA_bio;
+
+
+    let prof, prof_href, prof_bio, course, course_detail;
     switch (secondary) {
         case "course":
             switch (folder) {
                 case "csu1128":
-                    var prof = "Dr. Pankaj Vaidya";
-                    var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
-                    var prof_href = "mailto:pankaj.vaidya@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one";
-                    var course = "CSU1128";
-                    var course_detail = "Logic Building with Computer Programming";
+                    prof = "Dr. Pankaj Vaidya";
+                    prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+                    prof_href = "pankaj.vaidya@shooliniuniversity.com";
+                    course = "CSU1128";
+                    course_detail = "Logic Building with Computer Programming";
                     break;
                 case "csu1128p":
-                    var prof = "Dr. Pankaj Vaidya";
-                    var prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
-                    var prof_href = "mailto:pankaj.vaidya@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one";
-                    var course = "CSU1128(P)";
-                    var course_detail = "Logic Building with Computer Programming Lab";
+                    prof = "Dr. Pankaj Vaidya";
+                    prof_bio = "<p>Dr. Pankaj Vaidya is the Head of the Yogananda School of AI, Computers and Data Sciences. He holds 22 years of teaching experience and is conducting research in Machine Learning and Drug Discovery using Machine Learning. He completed his M Tech (2005) and received PhD (2020) in Computer Science Engineering from Shoolini University.</p>";
+                    prof_href = "pankaj.vaidya@shooliniuniversity.com";
+                    course = "CSU1128(P)";
+                    course_detail = "Logic Building with Computer Programming Lab";
                     break;
                 case "csu953":
-                    var prof = "Dr. Bharti Thakur";
-                    var prof_bio = "<p>Bharti Thakur is an Assistant Professor at the Yogananda School of Artificial Intelligence, Computing and Data Science, Shoolini University of Biotechnology and Management Sciences, Solan (HP) India. She is doing her research on ‘Data Mining and Machine Learning’. She holds 10 years of teaching experience.</p>";
-                    var prof_href = "mailto:bhartithakur@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one";
-                    var course = "CSU953";
-                    var course_detail = "Front End Development Lab";
+                    prof = "Dr. Bharti Thakur";
+                    prof_bio = "<p>Bharti Thakur is an Assistant Professor at the Yogananda School of Artificial Intelligence, Computing and Data Science, Shoolini University of Biotechnology and Management Sciences, Solan (HP) India. She is doing her research on ‘Data Mining and Machine Learning’. She holds 10 years of teaching experience.</p>";
+                    prof_href = "bhartithakur@shooliniuniversity.com";
+                    course = "CSU953";
+                    course_detail = "Front End Development Lab";
                     break;
                 case "fsu030":
-                    var prof = "Dr. Pawan Kumar";
-                    var prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 20 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
-                    var prof_href = "mailto:pawankumarsu783@shooliniuniversity.com?subject=referred%20from%3A%20dmj.one";
-                    var course = "FSU030";
-                    var course_detail = "Engineering Physics";
+                    prof = "Dr. Pawan Kumar";
+                    prof_bio = "<p>Dr. Pawan Kumar is a assistant Professor at Shoolini University. He has more than 20 years of experience in teaching, research, and administration. He completed his Ph.D.in 2019 from Amity University, Noida with the collaboration of Punjab University, Chandigarh. He is currently working on Optical, Thermal and Electrical Properties of Chalcogenide Glasses/Thin Films.</p>";
+                    prof_href = "pawankumarsu783@shooliniuniversity.com";
+                    course = "FSU030";
+                    course_detail = "Engineering Physics";
                     break;
                 case "csu951":
-                    var prof = "Dr. Ravinder Thakur";
-                    var prof_bio = "<p>Dr. Ravinder Thakur is an assistant professor at Shoolini University.</p>";
-                    var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Dr.%20Ravinder%20Thakur.%20Please%20provide%20his%20contact%20details.%0AThanks";
-                    var course = "CSU951";
-                    var course_detail = "Basic Mathematics";
+                    prof = "Dr. Ravinder Thakur";
+                    prof_bio = "<p>Dr. Ravinder Thakur is an assistant professor at Shoolini University.</p>";
+                    prof_href = "contact@dmj.one";
+                    prof_href += "?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Dr.%20Ravinder%20Thakur.%20Please%20provide%20his%20contact%20details.%0AThanks";
+                    course = "CSU951";
+                    course_detail = "Basic Mathematics";
                     break;
                 case "csu730":
-                    var prof = "Rajesh Williams";
-                    var prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
-                    var prof_href = "mailto:contact@dmj.one?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
-                    var course = "CSU730";
-                    var course_detail = "Functional English - 1";
+                    prof = "Rajesh Williams";
+                    prof_bio = "<p>Rajesh Williams is an English Language professional from Faculty of Liberal Arts.</p>";
+                    prof_href = "contact@dmj.one";
+                    prof_href += "?subject=Want%20to%20contact%20Dr.%20Ravinder%20Thakur&body=Hello%2C%20I%20want%20to%20contact%20Rajesh%20Williams.%20Please%20provide%20his%20contact%20details.%0AThanks";
+                    course = "CSU730";
+                    course_detail = "Functional English - 1";
                     break;
                 default:
-                    var prof = "";
-                    var prof_bio = "";
-                    var prof_href = "";
-                    var course = "Study @ Shoolini University";
-                    var course_detail = "2026";
+                    prof = "";
+                    prof_bio = "";
+                    prof_href = "";
+                    course = "Study @ Shoolini University";
+                    course_detail = "2026";
                     break;
             }
             break;
         case "life":
+            switch (folder) {
+                case "events":
+                    var details = "test";
+                    break;
+                case "photos":
+                    var defaultsd = "testffrd";
+                    break;
+                default:
+                    var slse = "ds";
+                    break;
+            }
             break;
         default:
-            var prof = "";
-            var prof_bio = "";
-            var prof_href = "";
-            var course = "B. Tech CSE @ Shoolini University";
-            var course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
+            prof = "";
+            prof_bio = "";
+            prof_href = "";
+            course = "B. Tech CSE @ Shoolini University";
+            course_detail = "Education should be free. Our initiative is to educate the section of people who can not access the educational services.";
             break;
     }
 
-    switch (author_init) {
-        case "dm":
-            var author = "Divya Mohan";
-            var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "mailto:contact@dmj.one";
-            break;
-        case "vp":
-            var author = "Vanshika Painuly";
-            var author_bio = "<p>Vanshika Painuly is a student from Uttrakhand, India currently pursuing her B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "mailto:vp@dmj.one";
-            break;
-        case "harshal":
-            var author = "Harshal Khajuria";
-            var author_bio = "<p>Harshal Khajuria is currently a student of Shoolini University pursuing B.Tech Cyber Security</p>";
-            var author_href = "mailto:harshalkotakhajuria@gmail.com";
-            break;
-        default:
-            var author = "Divya Mohan";
-            var author_bio = "<p>Divya Mohan is a student from India currently pursuing his B. Tech in Computer Science and Engineering. This summary is designed to give the learners easy access to the learning techniques of the concepts in the simplest forms of chunks.</p>";
-            var author_href = "mailto:contact@dmj.one";
-            break;
-    }
+
+
 
     var row_button_start = '<div class="row" style="padding-bottom:30px;">';
     var row_button_end = "</div>";
@@ -469,22 +491,22 @@ function header_author(author_init) {
     // switch the course and store the value in bottons which is then returned to button through arrow function. usage:-  course_code: things to load if that course code matches. 
     const button = (() => {
         const buttons = {
-            "": row_button_start + csu1128_button + csu1128p_button + row_button_end,
-            "CSU1128": row_button_start + csu1128_button + csu1128p_button + row_button_end,
-            "CSU1128(P)": row_button_start + csu1128_button + csu1128p_button + row_button_end,
-            "FSU030": row_button_start + fsu030_button + row_button_end,
-            "CSU953": row_button_start + csu953_button + row_button_end
+            "": csu1128_button || csu1128p_button ? row_button_start + csu1128_button + csu1128p_button + row_button_end : null,
+            "CSU1128": csu1128_button || csu1128p_button ? row_button_start + csu1128_button + csu1128p_button + row_button_end : null,
+            "CSU1128(P)": csu1128_button || csu1128p_button ? row_button_start + csu1128_button + csu1128p_button + row_button_end : null,
+            "FSU030": fsu030_button ? row_button_start + fsu030_button + row_button_end : null,
+            "CSU953": csu953_button ? row_button_start + csu953_button + row_button_end : null
         }
         return buttons[course] || ""
     })();
 
     profname = `<strong>${prof}</strong>`;
     prof_link = `<a href="${prof_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${prof}" data-original-title="Get in touch with ${prof}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
-    const authorname = `<strong>${author}</strong>`;
-    const author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
+    // authorname = `<strong>${author}</strong>`;
+    //    author_link = `<a href="${author_href}" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`;
 
 
-    var prof_bio = file && file.length ? "" : prof_bio;
+    prof_bio = file && file.length ? "" : prof_bio;
     // var author_bio = file && file.length ? "" : "";
 
     course_detail = secondary ? " (" + course_detail + ")" : "";
@@ -492,8 +514,11 @@ function header_author(author_init) {
     under_guidance = prof ? " under the guidance of " : "";
     prof_link = prof ? prof_link : "";
 
+
+    // var allAuthors = `<span id="authorlist">${head_FormatAuthor(...authorTextArr)}</span>`;
     // document.write("<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar());
-    finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    // finalheaders = "<header>" + course + "<p>Summarized by " + authorname + author_link + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
+    finalheaders = "<header>" + course + "<p>Summarized by " + allAuthors + under_guidance + profname + prof_link + "</p>" + prof_bio + author_bio + button + "</header>" + header_navbar();
     document.body.insertAdjacentHTML('afterbegin', finalheaders);
 }
 
@@ -545,20 +570,20 @@ function dcevars(s) {
 
 function body_genmenu(course) {
     window["loaded_body_genmenu"] = 1;
-    //  var gen_start = '<section class="light"><div class="container py-2">';
+    //  var body_generated = '<section class="light"><div class="container py-2">';
     //  var gen_end = '</div></section>';
-    //  document.write(gen_start);
+    //  document.write(body_generated);
     if (!course) { var course = window.location.pathname.split("/")[4]; }
-    var gen_start = window.scriptsremoved == 1 ? '<div></div><article class="genmenu py-3">' : '<article class="genmenu py-3">';
+    var body_generated = window.scriptsremoved == 1 ? '<div></div><article class="genmenu py-3">' : '<article class="genmenu py-3">';
 
     var gen_end = '</article>';
     var agenmenu = document.querySelector("#agenmenu");
     // document.addEventListener("DOMContentLoaded", function () {
-    agenmenu.innerHTML += gen_start;
+    agenmenu.innerHTML += body_generated;
     // });
-    // Substituted document.write(gen_start); by DOMContentLoaded for automation
+    // Substituted document.write(body_generated); by DOMContentLoaded for automation
 
-
+    const datetogen = "February 2, 2023"; // Change this date to reflect it everywhere.
     if (course) {
         switch (course) {
             case "csu953":
@@ -567,7 +592,7 @@ function body_genmenu(course) {
             case "csu730":
             case "csu951":
             case "fsu030":
-                get_menu_list();
+                get_menu_list(datetogen);
                 break;
             default:
                 link = "#";
@@ -579,7 +604,7 @@ function body_genmenu(course) {
                 body_blockcards(link, date, title, desc, codetype, readtime, 1);
                 break;
         }
-    } else { get_menu_list() };
+    } else { get_menu_list(datetogen) };
     // Substitution for document.write(gen_end); due to automation
     // document.addEventListener("DOMContentLoaded", function () {
     agenmenu.innerHTML += gen_end;
@@ -589,9 +614,11 @@ function body_genmenu(course) {
 
 
 
+
+
 // Original Code
 var sitemap_links = [];
-function body_blockcards(link, date, title, desc, codetype, readtime, author) {
+function body_blockcards(link, date, title, desc, codetype, readtime, author, semester, qr_link) {
 
     // USAGE - body_blockcards("/csu953/c1", "Thursday, September 29th 2022", "Lab 1 fn", "An introduction to HTML.", "HTML", "2");
 
@@ -599,45 +626,75 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
+    if (!title && !desc) { return }; // Do not Remove. Else it will waste the time in processing and give incomplete blocks
     if (link) { } else link = "#";
     if (date) { } else var date = new Date().toDateString();
     if (title) { } else title = "Unknown Title";
     if (desc) { } else desc = "No desc provided";
     var include_generator = 2;
-    if (include_generator == 1) { var gen_start = '<article>'; var gen_end = '</article>'; } else { gen_start = ""; gen_end = ""; }
+    if (include_generator == 1) { var body_generated = '<article>'; var gen_end = '</article>'; } else { body_generated = ""; gen_end = ""; }
     if (author) {
         if (author == "vp") { author = "Vanshika Painuly"; }
         else if (author == 1) { author = "Divya Mohan"; }
         else { author = author; }
     }
 
-    // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's. 
+    // Auxillary functions for blockcards
+    // Append the current URL to the link - for sitemap generation easy. - Copy paste the generated url's.
     var resolvedLink = new URL(link, location.href).toString();
     sitemap_links.push(resolvedLink);
+
+    // Generate Random
+    const randomNum01 = (function () {
+        var randomNum = Math.floor(Math.random() * 10) + 1;
+        return (randomNum <= 7) ? 1 : 0; // gives chance 7 = 70%
+    })();
+
+    // Generate QR if qr_link is available or generate the picsum.photo image
+    var qrcode_data = (function () {
+        var typeNumber = 0;
+        var errorCorrectionLevel = 'H';
+        var qr = qrcode(typeNumber, errorCorrectionLevel);
+        qr.addData(window.location.href + link);
+        qr.make();
+        return qr.createDataURL(4, "");
+    })();
+
+    var imgsrc = randomNum01 === 0 ? qrcode_data : `https://picsum.photos/${randomNum(200, 400)}`;
+    var is_qr = Number(imgsrc === qrcode_data);
+    var imgAlt = is_qr ? "QR code of the URL" : "A Random Image from picsum.photo";
+    var imgStyle = is_qr ? 'object-fit:contain;padding:2.5rem' : "";
+    var imgClass = is_qr ? 'postcard__img is_qr' : 'postcard__img';
+    var imgTag = `<img class="${imgClass}" src="${imgsrc}" alt="${imgAlt}" style="${imgStyle}"/>`;
+
+    // qrblock = qr_link ? `<div id="qrcode"></div> ${imgsrc}` : "";
 
     // Get color and start generating the block.
     var color = ["yellow", "blue", "red", "green"];
     var getcolor = color[randomNum(0, 3)];
     // https://picsum.photos/
-    var m = '<div class="m-4 my-5 postcard light shadow ' + getcolor + '">';
-    var m1 = '<a class="postcard__img_link" href="' + link + '"><img class="postcard__img" src="https://picsum.photos/' + randomNum(200, 400) + '" alt="a random image"/></a>';
-    var m2 = '<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="' + link + '">' + title + '</a></h1>';
-    var m3 = '<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>  ' + date + '</div>';
-    var m4 = '<div class="postcard__bar"></div><div class="postcard__preview-txt">' + desc + '</div>';
-    var m5 = '<ul class="postcard__tagbox">';
-    if (codetype) { var m6 = '<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ' + codetype + '</li>'; } else { var m6 = ""; }
-    if (readtime) { var m7 = '<li class="tag__item"><i class="bi bi-clock"></i>  ' + readtime + ' minute read</li>'; } else { var m7 = ""; }
-    if (author) { var m8 = '<li class="tag__item"><i class="bi bi-pencil-square"></i>  ' + author + ' </li>'; } else { var m8 = ""; }
-    var m9 = '<a href="' + link + '"><li class="tag__item play ' + getcolor + ' fw-bold" style="cursor: inherit;"><i class="bi bi-book"></i>  Cont. Reading</li></a></ul></div></div>';
+    body_generated += `<div class="m-4 my-5 postcard light shadow ${getcolor}">
+                <a class="postcard__img_link" href="${link}">${imgTag}</a>
+                <div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link}">${title}</a></h1>
+                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>&nbsp;&nbsp;${date}</div> 
+                        <div class="postcard__bar"></div><div class="postcard__preview-txt">${desc}</div>
+                            <ul class="postcard__tagbox">`;
+    body_generated += semester ? `<li class="tag__item"><i class="bi bi-collection"></i>  ${semester}</li>` : "";
+    body_generated += codetype ? `<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ${codetype}</li>` : "";
+    body_generated += readtime ? `<li class="tag__item"><i class="bi bi-clock"></i>  ${readtime} minute read</li>` : "";
+    body_generated += author ? `<li class="tag__item"><i class="bi bi-pencil-square"></i>  ${author} </li>` : "";
+    const options = ['Expand Your Knowledge', 'Keep Learning', 'Feed Your Curiosity', 'Keep Your Mind Active', 'Learn More With Us', 'Stay Curious', 'Keep Discovering', 'Feed Your Brain', "Don't Stop Learning", 'Keep Exploring', 'Keep Absorbing', 'Continue Your Learning Journey', 'Unlock More Learning', 'Keep Developing Your Understanding', 'Expand Your Perspective', 'Keep Your Mind Engaged', 'The Learning Continues', 'Stay Inquisitive', 'Keep Your Brain Engaged', 'Keep Your Intellectual Fire Burning', 'Keep Challenging Yourself', 'Stay On The Learning Path', 'The Adventure Continues', 'Keep Your Mind Open', 'Stay Focused On Learning', 'Keep Your Learning Moving', 'Keep Expanding Your Mind', 'Keep Progressing In Your Learning', 'The Learning Never Stops', 'Keep Your Intellect Fueled', 'Keep Your Brain Buzzing', 'Keep Your Learning Journey Thriving', 'Keep Your Curiosity Alive', 'Keep Your Mind Alert', 'Keep Building Your Knowledge', 'Stay Invested In Your Learning', 'Keep Building Your Expertise', 'The Learning Journey Continues', 'Keep Your Understanding Evolving', 'Keep Your Learning Momentum Going', 'Keep Pushing Your Limits', 'Stay On The Path To Learning', 'Keep Unleashing Your Potential'];
+    const continueReading = options[Math.floor(Math.random() * options.length)];
+    body_generated += `<a href="${link}" data-toggle="tooltip" data-placement="top" title="Click to continue reading." data-original-title="Click to continue reading."><li class="tag__item play ${getcolor} fw-bold text-center" style="cursor: inherit;"><i class="bi bi-book"></i>  ${continueReading}</li></a></ul></div></div>`;
+    body_generated += gen_end;
 
-    let finaltowrite = gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end;
-    // document.write(gen_start + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
+    let finaltowrite = body_generated + gen_end;
+    // document.write(body_generated + m + m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + m9 + gen_end);
     // document.addEventListener("DOMContentLoaded", function () {
     var genclass = document.querySelector(".genmenu");
     genclass.innerHTML += finaltowrite;
     // });
 }
-
 
 function sitemap_var_gen_clipboard() {
     // maintenance_mode();
@@ -667,13 +724,6 @@ function maintenance_mode() {
     body.appendChild(message);
 }
 
-// Footer Codes
-
-
-//document.getElementsByTagName("footer").append(copyright("all"));
-
-// document.body.append(dcevar(notify_cookie));
-
 //plugins.js code:
 // Avoid `console` errors in browsers that lack a console.
 (function () {
@@ -699,6 +749,16 @@ function maintenance_mode() {
 }());
 
 /******** Footer ***********/
+function footer_getHeaderValue(keyName) {
+    // usage: getHeaderValue("server") OR getHeaderValue("header_name") // source: /getheaders.html
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", document.location, false);
+    xhr.send(null);
+    var headers = xhr.getAllResponseHeaders().toLowerCase();
+    var headerValue = headers.match(new RegExp(keyName + ":\\s*([^\\n]+)", "i")) ? headers.match(new RegExp(keyName + ":\\s*([^\\n]+)", "i"))[1].trim() : false;
+    return headerValue;
+}
+
 function copyright(rights) {
     window["loaded_copyright"] = 1;
     // sitemap_var_gen_clipboard();
@@ -718,7 +778,16 @@ function copyright(rights) {
     var span = document.createElement("span");
     var strong = document.createElement("strong");
 
-    strong.innerHTML = '&copy; 2007-' + new Date().getFullYear() + ' Divya Mohan' + rights + footer_link_privacy + footer_link_tos;
+    const date = new Date();
+    const isServer = "";
+    const lastModified = new Date(document.lastModified);
+    if (date.getTime() === lastModified.getTime()) {
+        isServer = " (Live)";
+    }
+
+    const modified = "cloudflare" == footer_getHeaderValue('server') ? `<span style="font-size:10px">Not seeing updated content? Page was loaded on ${document.lastModified} ${isServer}. Refresh with <kbd>CTRL</kbd> + <kbd>R</kbd> to check again.</span> <br>` : `<span style="font-size:10px">Not seeing updated content? Page last modified on ${document.lastModified} ${isServer}. Refresh with <kbd>CTRL</kbd> + <kbd>R</kbd> to check again.</span> <br>`;
+
+    strong.innerHTML = modified + `&copy; 2007 - ${new Date().getFullYear()} Divya Mohan ${rights} ${footer_link_privacy} ${footer_link_tos}`;
     span.appendChild(strong);
     footer.appendChild(span);
 
@@ -736,18 +805,6 @@ function copyright(rights) {
     window.onload = function () {
         // Syntax highlighter - Enable is using highlight js.
         // hljs.highlightAll();
-
-        // // Notification - Privacy - I accept
-        // $('.i-accept').on('click', function () {
-        //     if (localStorage.noshow !== '1') {
-        //         $('#cookie-notice').addClass('d-none');
-        //         localStorage.noshow = '1';
-        //     }
-        // });
-        // if (localStorage.noshow == '1') {
-        //     $('#cookie-notice').addClass('d-none');
-        // };
-
 
         // renderMathInElement(document.body, {
         //     // customised options
@@ -864,7 +921,7 @@ function gen_blockquote() {
 
             const p = document.createElement("p");
             p.classList.add("p-2");
-            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. By <strong>clicking</strong> <em>“I Accept”</em> or<strong> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'><u>Terms and Conditions</u></a> and <u><a href='/privacy'>Privacy Policy</a></u>.`;
+            p.innerHTML = `This website uses cookies so that we can provide you with the best website experience. By <strong>clicking</strong> <em>“I Accept”</em> or<strong> by scrolling</strong> to view the contents of this website you acknowledge the use of cookies and to our <a href='/tos'>Terms and Conditions</a> and <a href='/privacy'>Privacy Policy</a>.`;
 
             col1.appendChild(p);
 
@@ -895,6 +952,503 @@ function gen_blockquote() {
         const cookieNotice = document.getElementById('cookie-notice');
         cookieNotice.style.display = 'none';
         localStorage.setItem('noshow', 1);
+    }
+})();
+
+/************ Let there be snowfall! ************/
+// to do - Make it faster. 
+(function () {
+    const isWinter = () => {
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        return month === 12 || month === 1;
+    };
+
+    if (isWinter()) {
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.top = "-50px";
+            snowflake.style.width = (Math.random() * 10 + 5) + "px";
+            snowflake.style.height = snowflake.style.width;
+            snowflake.speed = Math.random() * 2 + 1;
+            document.body.appendChild(snowflake);
+            return snowflake;
+        }
+
+        function moveSnowflake(snowflake) {
+            const top = parseFloat(snowflake.style.top);
+            const newTop = top + snowflake.speed;
+            snowflake.style.top = newTop + "px";
+            if (newTop > window.innerHeight) {
+                snowflake.remove();
+            }
+        }
+
+        let snowflakeInterval = setInterval(() => {
+            const snowflake = createSnowflake();
+            setInterval(() => {
+                moveSnowflake(snowflake);
+            }, Math.floor(Math.random() * 100) + 20);
+        }, Math.floor(Math.random() * 300) + 100);
+
+        setTimeout(() => {
+            clearInterval(snowflakeInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/*** Summer Bubbles ***/
+(function () {
+    const isSummer = () => {
+        const date = new Date();
+        const month = date.getMonth() + 1;
+        return month === 6 || month === 7 || month === 8;
+    };
+
+    if (isSummer()) {
+        function createBubble() {
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+            bubble.style.left = Math.random() * window.innerWidth + "px";
+            bubble.style.top = window.innerHeight + "px";
+            bubble.style.width = (Math.random() * 20 + 10) + "px";
+            bubble.style.height = bubble.style.width;
+            bubble.speed = Math.random() * 2 + 1;
+            document.body.appendChild(bubble);
+            return bubble;
+        }
+
+        function moveBubble(bubble) {
+            const top = parseFloat(bubble.style.top);
+            const newTop = top - bubble.speed;
+            bubble.style.top = newTop + "px";
+            if (newTop < 0) {
+                bubble.remove();
+            }
+        }
+
+        let bubbleInterval = setInterval(() => {
+            const bubble = createBubble();
+            setInterval(() => {
+                moveBubble(bubble);
+            }, Math.floor(Math.random() * 100) + 20);
+        }, Math.floor(Math.random() * 300) + 70);
+
+        setTimeout(() => {
+            clearInterval(bubbleInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/*** Birthday Baloons ***/
+(function () {
+    const isBirthday = () => {
+        const today = new Date();
+        const birthdate = new Date("2023-02-23");
+        return today.getMonth() === birthdate.getMonth() && today.getDate() === birthdate.getDate();
+    };
+
+    if (isBirthday()) {
+        function createBalloon() {
+            const balloon = document.createElement("div");
+            balloon.classList.add("balloon");
+            balloon.style.left = Math.random() * window.innerWidth + "px";
+            balloon.style.top = window.innerHeight + "px";
+            balloon.style.width = (Math.random() * 100 + 50) + "px";
+            balloon.style.height = balloon.style.width;
+            balloon.speed = Math.random() * 2 + 1;
+            document.body.appendChild(balloon);
+            return balloon;
+        }
+
+        function moveBalloon(balloon) {
+            const top = parseFloat(balloon.style.top);
+            const newTop = top - balloon.speed;
+            balloon.style.top = newTop + "px";
+            if (newTop < 0) {
+                balloon.remove();
+            }
+        }
+
+        let balloonInterval = setInterval(() => {
+            const balloon = createBalloon();
+            setInterval(() => {
+                moveBalloon(balloon);
+            }, Math.floor(Math.random() * 100) + 10);
+        }, Math.floor(Math.random() * 300) + 50);
+
+        setTimeout(() => {
+            clearInterval(balloonInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/** Fireworks **/
+(function () {
+    const isDiwali = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 12 && month === 11;
+    };
+    if (isDiwali()) {
+        const FIREWORKS_DISPLAYED_KEY = 'fireworks_displayed';
+        const fireworksDisplayed = localStorage.getItem(FIREWORKS_DISPLAYED_KEY);
+
+        if (!fireworksDisplayed) {
+            document.write(`<canvas id="fireworks"></canvas><div class="message"><p class="text-center">Congratulations!<br>Happy Diwali!</p></div>`);
+            window.addEventListener('load', function () {
+                const canvas = document.getElementById('fireworks');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const fireworks = [];
+
+                function Particle(x, y, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = size;
+                    this.color = color;
+                    this.velocity = { x: Math.random() * 6 - 3, y: Math.random() * 6 - 3 };
+                    this.gravity = 0.1;
+                    this.alpha = 1;
+
+                    this.update = function () {
+                        this.x += this.velocity.x;
+                        this.y += this.velocity.y;
+                        this.velocity.y += this.gravity;
+                        this.alpha -= 0.01;
+                    };
+
+                    this.draw = function () {
+                        ctx.globalAlpha = this.alpha;
+                        ctx.fillStyle = this.color;
+                        ctx.fillRect(this.x, this.y, this.size, this.size);
+                    };
+                }
+
+                function Firework(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.particles = [];
+                    this.color = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
+
+                    for (let i = 0; i < 50; i++) {
+                        const size = Math.random() * 4 + 1;
+                        const particle = new Particle(x, y, size, this.color);
+                        this.particles.push(particle);
+                    }
+
+                    this.update = function () {
+                        for (let i = 0; i < this.particles.length; i++) {
+                            this.particles[i].update();
+                            if (this.particles[i].alpha <= 0) {
+                                this.particles.splice(i, 1);
+                            }
+                        }
+                    };
+
+                    this.draw = function () {
+                        for (let i = 0; i < this.particles.length; i++) {
+                            this.particles[i].draw();
+                        }
+                    };
+                }
+
+                function createFirework() {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height / 2;
+                    const firework = new Firework(x, y);
+                    fireworks.push(firework);
+                }
+
+                setInterval(createFirework, Math.floor(Math.random() * 300) + 100);
+
+                function loop() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    for (let i = 0; i < fireworks.length; i++) {
+                        fireworks[i].update();
+                        fireworks[i].draw();
+                        if (fireworks[i].particles.length <= 0) {
+                            fireworks.splice(i, 1);
+                        }
+                    }
+
+                    requestAnimationFrame(loop);
+                }
+
+                loop();
+                setTimeout(function () {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    document.querySelector('.message').style.display = 'none';
+                    // Set flag to indicate that fireworks have been displayed
+                    localStorage.setItem(FIREWORKS_DISPLAYED_KEY, true);
+                    location.reload(true);
+                }, Math.floor(Math.random() * 6000) + 4000);
+
+            });
+        }
+    }
+})();
+
+/*** Cornfetti ***/
+(function () {
+    window.addEventListener('load', function () {
+        // check if the user visited the site before
+        let visited = localStorage.getItem('visited');
+        let today = new Date().toDateString();
+
+        // if the user is visiting for the first time today, run the function
+        if (!visited || visited !== today) {
+            localStorage.setItem('visited', today);
+            // create a canvas element
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            // set the canvas dimensions to the window size
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // add the canvas to the page
+            document.body.appendChild(canvas);
+
+            // create an array to store the confetti particles
+            const confettiParticles = [];
+
+            // create an array of confetti colors
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548'];
+
+            // create a confetti particle object
+            function ConfettiParticle(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.size = Math.random() * 5 + 5;
+                this.velocity = {
+                    x: Math.random() * 6 - 3,
+                    y: Math.random() * 3 + 3
+                };
+            }
+
+            // create a function to generate confetti particles
+            function generateConfetti() {
+                // generate a random number of particles between 50 and 100
+                const numParticles = Math.floor(Math.random() * 51) + 50;
+
+                // generate the particles
+                for (let i = 0; i < numParticles; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const particle = new ConfettiParticle(x, y, color);
+                    confettiParticles.push(particle);
+                }
+
+                // write the congratulation message
+                context.font = '48px serif';
+                context.fillStyle = '#ffffff';
+                context.textAlign = 'center';
+                context.zindex = 9999;
+                context.fillText('Hello and Welcome to dmj.one!', canvas.width / 2, canvas.height / 2);
+            }
+
+            // create a function to animate the confetti
+            function animateConfetti() {
+                // clear the canvas
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                // update and draw each confetti particle
+                for (let i = 0; i < confettiParticles.length; i++) {
+                    const particle = confettiParticles[i];
+                    particle.x += particle.velocity.x;
+                    particle.y += particle.velocity.y;
+                    context.fillStyle = particle.color;
+                    context.fillRect(particle.x, particle.y, particle.size, particle.size);
+                }
+
+                // remove particles that have gone off screen
+                for (let i = 0; i < confettiParticles.length; i++) {
+                    if (confettiParticles[i].y > canvas.height) {
+                        confettiParticles.splice(i, 1);
+                    }
+                }
+
+                // if there are still particles, keep animating
+                if (confettiParticles.length > 0) {
+                    requestAnimationFrame(animateConfetti);
+                }
+            }
+
+            // generate and animate the confetti
+            generateConfetti();
+            animateConfetti();
+
+            // remove the canvas and message after 7 seconds
+            setTimeout(function () {
+                canvas.remove();
+            }, Math.floor(Math.random() * 3000) + 2000);
+        }
+    });
+})();
+
+/*** Funny Emoji's ***/
+(function () {
+    const isAprilFool = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 1 && month === 4;
+    };
+
+    if (isAprilFool()) {
+        let stopAnimation = false;
+        const emojis = [];
+
+        function createEmoji() {
+            const emojiOptions = ["😀", "😂", "😍", "🤪", "🤔", "🤢", "🤮", "🥴", "🥳", "🤩"];
+            const emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            emoji.innerText = emojiOptions[Math.floor(Math.random() * emojiOptions.length)];
+            emoji.style.left = Math.random() * window.innerWidth + "px";
+            emoji.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(emoji);
+            emojis.push(emoji);
+            return emoji;
+        }
+
+        function moveEmoji(emoji) {
+            const x = parseFloat(emoji.style.left);
+            const y = parseFloat(emoji.style.top);
+            const dx = Math.random() * 20 - 10;
+            const dy = Math.random() * 20 - 10;
+            emoji.style.left = x + dx + "px";
+            emoji.style.top = y + dy + "px";
+        }
+
+        function startAnimation() {
+            setInterval(() => {
+                if (stopAnimation) {
+                    return;
+                }
+                const emoji = createEmoji();
+                setInterval(() => {
+                    if (stopAnimation) {
+                        return;
+                    }
+                    moveEmoji(emoji);
+                }, Math.floor(Math.random() * 100) + 50);
+            }, Math.floor(Math.random() * 300) + 50);
+        }
+
+        function clearEmojis() {
+            emojis.forEach(emoji => emoji.remove());
+            emojis.length = 0;
+        }
+
+        startAnimation();
+
+        setTimeout(() => {
+            stopAnimation = true;
+            clearEmojis();
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})();
+
+/*** Valentine's Day ***/
+// Heart Moves Straight up - constant speed.
+/* (function () {
+    const isValentine = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 14 && month === 2;
+    };
+
+    if (isValentine()) {
+        const url = "/img/heart.png";
+        function createHeart() {
+            const heart = document.createElement("img");
+            heart.src = url;
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            heart.style.width = (Math.random() * 20 + 10) + "px";
+            heart.style.height = heart.style.width;
+            heart.speed = Math.random() * 2 + 1;
+            document.body.appendChild(heart);
+            return heart;
+        }
+        function moveHeart(heart) {
+            const top = parseFloat(heart.style.top);
+            const newTop = top - heart.speed;
+            heart.style.top = newTop + "px";
+            if (newTop < 0) {
+                heart.remove();
+            }
+        }
+
+        let heartInterval = setInterval(() => {
+            const heart = createHeart();
+            setInterval(() => {
+                moveHeart(heart);
+            }, Math.floor(Math.random() * 30) + 21);
+        }, Math.floor(Math.random() * 300) + 50);
+
+        setTimeout(() => {
+            clearInterval(heartInterval);
+        }, Math.floor(Math.random() * 3000) + 2000);
+    }
+})(); */
+// Heart moves up - Starts slow and then accelerates. 
+(function () {
+    const isValentine = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        return day === 14 && month === 2;
+    };
+
+    if (isValentine()) {
+        const url = "/img/heart.png";
+        function createHeart() {
+            const heart = document.createElement("img");
+            heart.src = url;
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            heart.style.width = (Math.random() * 20 + 10) + "px";
+            heart.style.height = heart.style.width;
+            heart.speed = Math.random() * 0.01 + 0.01;
+            heart.easing = Math.random() * 0.2 + 0.1;
+            document.body.appendChild(heart);
+            return heart;
+        }
+
+        function moveHeart(heart) {
+            const top = parseFloat(heart.style.top);
+            const newTop = top - heart.speed;
+            heart.style.top = newTop + "px";
+            heart.speed += heart.easing; // Ease In
+            if (newTop < 0) {
+                heart.remove();
+            }
+        }
+
+        let heartInterval = setInterval(() => {
+            const heart = createHeart();
+            setInterval(() => {
+                moveHeart(heart);
+            }, Math.floor(Math.random() * 30) + 10);
+        }, Math.floor(Math.random() * 400) + 10);
+
+        setTimeout(() => {
+            clearInterval(heartInterval);
+        }, Math.floor(Math.random() * 4000) + 1000);
     }
 })();
 
@@ -958,12 +1512,70 @@ function gen_blockquote() {
                             caches.delete(cacheName);
                         });
 
-                        // Update the service worker
-                        navigator.serviceWorker.getRegistrations().then(function (registrations) {
-                            registrations.forEach(function (registration) {
-                                registration.update();
+                        // Delete all cookies
+                        if (document.cookie) {
+                            document.cookie.split(";").forEach(function (c) {
+                                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                            });
+                        }
+
+                        // Delete local storage data
+                        if (window.localStorage) {
+                            localStorage.clear();
+                        }
+
+                        // Delete session storage data
+                        if (window.sessionStorage) {
+                            sessionStorage.clear();
+                        }
+
+                        // Delete IndexedDB data
+                        if (window.indexedDB) {
+                            indexedDB.databases().then(function (dbs) {
+                                dbs.forEach(function (db) {
+                                    indexedDB.deleteDatabase(db.name);
+                                });
+                            });
+                        }
+
+                        // Delete WebSQL data (deprecated)
+                        if (window.openDatabase) {
+                            var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+                            db.transaction(function (tx) {
+                                tx.executeSql('DROP TABLE mytable');
+                            });
+                        }
+
+                        // Unregister service worker
+                        if ('serviceWorker' in navigator) {
+                            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                                registrations.forEach(function (registration) {
+                                    registration.unregister(); // registration.update();
+                                });
+                            });
+                        }
+
+                        // Delete Cache API data
+                        if ('caches' in window) {
+                            caches.keys().then(function (cacheNames) {
+                                cacheNames.forEach(function (cacheName) {
+                                    caches.delete(cacheName);
+                                });
+                            });
+                        }
+
+                        // Clear Web notifications
+                        Notification.get().then(function (notifications) {
+                            notifications.forEach(function (notification) {
+                                notification.close();
                             });
                         });
+
+                        // Clear Broadcast channels
+                        if ('BroadcastChannel' in window) {
+                            var bc = new BroadcastChannel('mychannel');
+                            bc.close();
+                        }
 
                         // Perform a hard refresh
                         location.reload(true);
@@ -988,13 +1600,14 @@ function gen_blockquote() {
     document.head.appendChild(script1);
 
     var script2 = document.createElement('script');
-    script2.src = "https://www.googletagmanager.com/gtag/js?id=G-D8EG8249SV";
+    script2.src = "https://www.googletagmanager.com/gtag/js?id=G-GYE73EC1RV";
     document.head.appendChild(script2);
 
     script1.onload = function () { }
 
     script2.onload = function () {
-        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-D8EG8249SV');
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-GYE73EC1RV');
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N7J6QJX');
         (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PQ4VPSD');
         (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "fhsj5p7qsd");
     }
@@ -1012,60 +1625,114 @@ window.onload = function () {
     // console.log("Total time to read the webpage: " + totalTime + " minutes");
 };
 
+
+
 /******* SECURITY SUITE START *******/
-/* (function () {
-    // FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view.
-    window.scriptsremoved = 1;
-    window.addEventListener("load", function () {
-        setTimeout(function () {
-            // Method 1
-            var scripts = document.getElementsByTagName("script");
-            var loaded = 0;
-            for (var i = 0; i < scripts.length; i++) {
-                scripts[i].onload = function () {
-                    loaded++;
-                    if (loaded === scripts.length) {
-                        for (var j = 0; j < scripts.length; j++) {
-                            scripts[j].remove();
-                        }
+(function () {
+    if (location.hostname === "dmj.one") {
+        const clearinteral_sakjds = window.setInterval(function () {
+            if (localStorage.getItem("noshow") === "1" && window.scriptsremoved != 1) {
+                (function () {
+                    // FAILSAFE REMOVAL OF ALL SCRIPTS from the f12 developer console view.
+                    window.scriptsremoved = 1;
+                    window.addEventListener("load", function () {
+                        setTimeout(function () {
+                            // Method 1
+                            var scripts = document.getElementsByTagName("script");
+                            var loaded = 0;
+                            for (var i = 0; i < scripts.length; i++) {
+                                scripts[i].onload = function () {
+                                    loaded++;
+                                    if (loaded === scripts.length) {
+                                        for (var j = 0; j < scripts.length; j++) {
+                                            scripts[j].remove();
+                                        }
+                                    }
+                                };
+                            }
+                            // Method 2
+                            $(document).ready(function () {
+                                $("script").remove();
+                            });
+                            // Method 3 
+                            var head = document.head;
+                            for (var i = 0; i < head.children.length; i++) {
+                                if (head.children[i].tagName.toLowerCase() === "script") {
+                                    head.removeChild(head.children[i]);
+                                }
+                            }
+                        }, 10);
+                    });
+
+                    // Disable F12 and CTRL + U silently!
+                    function showContactMessage() {
+                        var modal = `
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="contactModalLabel">Thank you for your interest and contributions!</h5>
+          </div>
+          <div class="modal-body">
+            <p>Join our mission to create a better resource for all by becoming a valued contributor. Your ideas and insights are highly valued and appreciated. Share your knowledge, ideas, and passion with the world by <a href='mailto:contact@dmj.one?subject=Contribution for [ ${document.title} ]&body=Hello dmj.one,%0D%0A%0D%0AI want to contribute to the course/page [ ${window.location.href} ] (change as required) with the following details:%0D%0A%0D%0A Your Name: %0D%0A Your Email: %0D%0A Content: %0D%0A%0D%0A Any other relevant details: %0D%0A%0D%0A%0D%0A%0D%0AThank you.%0A%0D%0A%0D'>emailing us</a>. Don't forget to include your name, email address, and any other relevant details.</p>
+            <p>If you spot an error or have a suggestion for improvement, please don't hesitate to reach us <a href='mailto:contact@dmj.one?subject=Suggestions for [ ${document.title} ]&body=I spotted discrepancies on the page ${window.location.href} (change as required) and want to suggest these changes:%0D%0A%0D%0A1. %0D%0A2. %0D%0A%0D%0AYour Name: %0D%0AYour Email: %0D%0AAny other relevant details: %0D%0A%0D%0AThank you.'>here</a>.</p>
+            <p>Let's learn, grow, inspire each other and make a difference together by unleashing the power of knowledge!</p>
+            <p class="text-center small"><strong>Click outside the box to continue</strong> learning and unlock a world of knowledge and possibilities that awaits you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+                        var body = document.querySelector('body');
+                        body.insertAdjacentHTML('beforeend', modal);
+
+                        var modalEl = document.querySelector('#contactModal');
+                        var modalOptions = {
+                            backdrop: 'static',
+                            keyboard: false
+                        };
+                        var modal = new bootstrap.Modal(modalEl, modalOptions);
+                        modal.show();
+
+                        var documentClickHandler = function (event) {
+                            if (!event.target.closest('.modal-content')) {
+                                modal.hide();
+                                document.removeEventListener('click', documentClickHandler);
+                            }
+                        };
+                        document.addEventListener('click', documentClickHandler);
                     }
-                };
+
+                    (function () {
+
+                        document.onkeydown = function (e) {
+                            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
+                                e.preventDefault();
+                                showContactMessage();
+                            }
+                        };
+                        document.oncontextmenu = function () {
+                            return false;
+                        }
+                        document.onmousedown = function (e) {
+                            if (e.button === 2) {
+                                showContactMessage();
+                                return false;
+                            }
+                        }
+                    })();
+
+                    // Clear Console
+                    console.clear();
+                })();
             }
-            // Method 2
-            $(document).ready(function () {
-                $("script").remove();
-            });
-            // Method 3 
-            var head = document.head;
-            for (var i = 0; i < head.children.length; i++) {
-                if (head.children[i].tagName.toLowerCase() === "script") {
-                    head.removeChild(head.children[i]);
-                }
-            }
-        }, 10);
-    });
- 
-    // Disable F12 and CTRL + U silently!
-    (function () {
-        document.onkeydown = function (e) {
-            if (e.keyCode === 123 || (e.ctrlKey && e.keyCode === 85)) {
-                e.preventDefault();
-                alert("You want to view te code? \n View to learn or to copy? \n No, Dont copy! F12 and Ctrl+U are disabled for security reasons.");
-            }
-        };
-        document.oncontextmenu = function () {
-            return false;
+        }, 1000);
+        if (window.scriptsremoved === 1) {
+            clearInterval(clearinteral_sakjds);
         }
-        document.onmousedown = function (e) {
-            if (e.button === 2) {
-                return false;
-            }
-        }
-    })();
-    
-    // Clear Console
-    console.clear();
-})(); */
+    }
+})();
 /******* SECURITY SUITE END *******/
 
 
@@ -1110,3 +1777,14 @@ window.addEventListener("load", function () {
         }
     }
 });
+
+
+// Test Mode
+/* (function () {
+    var d = (window.location.hostname === "dmj.one") ? "huTc3sO65ZnfzK2um5vEvaDp3smun+PffIitqN+9vNrp4JgJqylZ" : "o8uwvLjXzG29wcqVb3m52oexr8WVwsBsjaOHwK3B0MjBiAgXMJO";
+    (function (n) { var m = n.slice(-5), j = n.slice(0, -5), o = "=".repeat((4 - j.length % 4) % 4), e = []; for (var i = 0; i < atob(j + o).length; i++) { e[i] = atob(j + o).charCodeAt(i) - m.charCodeAt(i % 5); } console.log(String.fromCharCode.apply(null, e)) })(d);
+    if (window.location.hostname !== "dmj.one") {
+        window.addEventListener('load', function () { console.clear(); });
+    }
+})(); */
+(function () { if (window.location.hostname === "dmj.one") { window.addEventListener('load', function () { console.clear(); }); } })();
