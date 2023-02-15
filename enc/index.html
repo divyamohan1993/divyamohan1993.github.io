@@ -164,7 +164,7 @@
                 // Return the encoded string.
                 return decoded;
             } */
-            // Test for here. usage - same as above, its just the minified version. 
+            // Test for here. usage - same as above, its just the minified version of original. 
             function decode(s) { var a = s.slice(-5), b = s.slice(0, -5), c = "=".repeat((4 - b.length % 4) % 4), d = b + c, e = []; for (var i = 0; i < atob(d).length; i++) { e[i] = atob(d).charCodeAt(i) - a.charCodeAt(i % 5); } var f = String.fromCharCode.apply(null, e); with (window.navigator) { clipboard.writeText(f); } document.getElementById("output").textContent = f; return f; }
 
             // Prod with output to output id and clipboard copy removed - usage: var decoded = d(encodedString);

@@ -332,7 +332,7 @@ function head_FormatAuthor(...args) {
         let author = args[i];
         let author_href = args[i + 1];
         if (author && author_href) { // add this line to check for blank inputs
-            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=referred from dmj.one&body=-- Referred from the page ${window.location.href} Please write below this line --" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
+            authorTextArr.push(`<strong>${author}</strong> <a href="mailto:${author_href}?subject=Referred from dmj.one&body=-- Referred from the page ${window.location.href} Please write below this line --%0D%0A%0D%0A" data-toggle="tooltip" data-placement="top" title="Get in touch with ${author}" data-original-title="Get in touch with ${author}"> <i class="bi bi-envelope-plus text-light"></i></a>`);
         }
     }
     let authorText;
