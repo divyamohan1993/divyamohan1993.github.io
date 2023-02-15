@@ -673,12 +673,12 @@ function body_blockcards(link, date, title, desc, codetype, readtime, author, se
     var color = ["yellow", "blue", "red", "green"];
     var getcolor = color[randomNum(0, 3)];
     // https://picsum.photos/
-    body_generated += `<div class="m-4 my-5 postcard light shadow ${getcolor}">
-                <a class="postcard__img_link" href="${link}">${imgTag}</a>
-                <div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link}">${title}</a></h1>
-                    <div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>&nbsp;&nbsp;${date}</div> 
-                        <div class="postcard__bar"></div><div class="postcard__preview-txt">${desc}</div>
-                            <ul class="postcard__tagbox">`;
+    body_generated += `<div class="m-4 my-5 postcard light shadow ${getcolor}">`;
+    body_generated += `<a class="postcard__img_link" href="${link}">${imgTag}</a>`;
+    body_generated += `<div class="postcard__text t-dark"><h1 class="postcard__title blue"><a href="${link}">${title}</a></h1>`;
+    body_generated += `<div class="postcard__subtitle small"><i class="bi bi-calendar3"></i>&nbsp;&nbsp;${date}</div>`;
+    body_generated += `<div class="postcard__bar"></div><div class="postcard__preview-txt">${desc}</div>`;
+    body_generated += `<ul class="postcard__tagbox">`;
     body_generated += semester ? `<li class="tag__item"><i class="bi bi-collection"></i>  ${semester}</li>` : "";
     body_generated += codetype ? `<li class="tag__item"><i class="bi bi-file-earmark-code"></i>  ${codetype}</li>` : "";
     body_generated += readtime ? `<li class="tag__item"><i class="bi bi-clock"></i>  ${readtime} minute read</li>` : "";
@@ -1291,7 +1291,7 @@ function gen_blockquote() {
             // remove the canvas and message after 7 seconds
             setTimeout(function () {
                 canvas.remove();
-            }, Math.floor(Math.random() * 3000) + 2000);
+            }, 7000);
         }
     });
 })();
@@ -1666,23 +1666,22 @@ window.onload = function () {
 
                     // Disable F12 and CTRL + U silently!
                     function showContactMessage() {
-                        var modal = `
-    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title text-center" id="contactModalLabel">Thank you for your interest and contributions!</h5>
-          </div>
-          <div class="modal-body">
-            <p>Join our mission to create a better resource for all by becoming a valued contributor. Your ideas and insights are highly valued and appreciated. Share your knowledge, ideas, and passion with the world by <a href='mailto:contact@dmj.one?subject=Contribution for [ ${document.title} ]&body=Hello dmj.one,%0D%0A%0D%0AI want to contribute to the course/page [ ${window.location.href} ] (change as required) with the following details:%0D%0A%0D%0A Your Name: %0D%0A Your Email: %0D%0A Content: %0D%0A%0D%0A Any other relevant details: %0D%0A%0D%0A%0D%0A%0D%0AThank you.%0A%0D%0A%0D'>emailing us</a>. Don't forget to include your name, email address, and any other relevant details.</p>
-            <p>If you spot an error or have a suggestion for improvement, please don't hesitate to reach us <a href='mailto:contact@dmj.one?subject=Suggestions for [ ${document.title} ]&body=I spotted discrepancies on the page ${window.location.href} (change as required) and want to suggest these changes:%0D%0A%0D%0A1. %0D%0A2. %0D%0A%0D%0AYour Name: %0D%0AYour Email: %0D%0AAny other relevant details: %0D%0A%0D%0AThank you.'>here</a>.</p>
-            <p>Let's learn, grow, inspire each other and make a difference together by unleashing the power of knowledge!</p>
-            <p class="text-center small"><strong>Click outside the box to continue</strong> learning and unlock a world of knowledge and possibilities that awaits you.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+                        var modal =
+                            `<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title text-center" id="contactModalLabel">Thank you for your interest and contributions!</h5>
+</div>
+<div class="modal-body">
+<p>Join our mission to create a better resource for all by becoming a valued contributor. Your ideas and insights are highly valued and appreciated. Share your knowledge, ideas, and passion with the world by <a href='mailto:contact@dmj.one?subject=Contribution for [ ${document.title} ]&body=Hello dmj.one,%0D%0A%0D%0AI want to contribute to the course/page [ ${window.location.href} ] (change as required) with the following details:%0D%0A%0D%0A Your Name: %0D%0A Your Email: %0D%0A Content: %0D%0A%0D%0A Any other relevant details: %0D%0A%0D%0A%0D%0A%0D%0AThank you.%0A%0D%0A%0D'>emailing us</a>. Don't forget to include your name, email address, and any other relevant details.</p>
+<p>If you spot an error or have a suggestion for improvement, please don't hesitate to reach us <a href='mailto:contact@dmj.one?subject=Suggestions for [ ${document.title} ]&body=I spotted discrepancies on the page ${window.location.href} (change as required) and want to suggest these changes:%0D%0A%0D%0A1. %0D%0A2. %0D%0A%0D%0AYour Name: %0D%0AYour Email: %0D%0AAny other relevant details: %0D%0A%0D%0AThank you.'>here</a>.</p>
+<p>Let's learn, grow, inspire each other and make a difference together by unleashing the power of knowledge!</p>
+<p class="text-center small"><strong>Click outside the box to continue</strong> learning and unlock a world of knowledge and possibilities that awaits you.</p>
+</div>
+</div>
+</div>
+</div>`;
 
                         var body = document.querySelector('body');
                         body.insertAdjacentHTML('beforeend', modal);
